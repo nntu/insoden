@@ -1,0 +1,2541 @@
+﻿using DevExpress.XtraEditors;
+using Ionic.Zip;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Configuration;
+using System.Data;
+using System.Data.Entity.Core.Objects;
+using System.Deployment.Application;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+
+namespace insoden
+{
+    public partial class MainForm : XtraForm
+    {
+        public string Data2Print;
+        public string DiaChi;
+        public string TenChiNhanh;
+        public string TencnEn;
+        public string TencnVi;
+        private const int PrinterPort = 8989;
+        private readonly dlgocEntities _db;
+        private readonly List<ClBc810> _dsbc810 = new List<ClBc810>();
+        private bdsuEntities _dbbdsu;
+        private List<DatainNoCo> _dbin;
+        private List<ClBc833> _dsbc833 = new List<ClBc833>();
+        private List<X1PCMS> _dsX1Pcms;
+        private List<incif> _lcif;
+        private List<GLHIST> _listLsGl = new List<GLHIST>();
+        private List<SoDuTaiTD_Result> _listsodutd;
+        private NetworkStream _ls;
+        private List<GLHIST> _lsglhist;
+        private bool _printed;
+        private string _printerIp = "10.141.2.35";
+        private TcpClient _tcpcl;
+        private string _tempdir;
+
+        // List<tk> ltk;
+        private inPhieuDoiChieu _ttnghang;
+
+        private string _clickOnceLocation;
+        private List<dcdienluc> dchieu = new List<dcdienluc>();
+
+        private ObjectResult<DoanhSoTientheoCif_Result> _doanhso;
+
+        private List<ClBc833> dsbc833 = new List<ClBc833>();
+
+        private ObjectResult<ThuNoThuLai_Result> _giainganthuno;
+
+        private DateTime? _ngaydl;
+
+        private ObjectResult<TinhPhiTheoCif_Result> _phi;
+
+        private ObjectResult<SaoKeCif_Result> _saoke;
+
+        private List<saokeTienVay> _sktv = new List<saokeTienVay>();
+
+        public MainForm()
+        {
+            _dbin = new List<DatainNoCo>();
+            _db = new dlgocEntities();
+            _dbbdsu = new bdsuEntities();
+            _db.Database.CommandTimeout = 300000;
+            InitializeComponent();
+        }
+
+        private delegate void UpdateLabelTextDelegate(string newText);
+
+        public void SendData()
+        {
+            try
+            {
+                _tcpcl = new TcpClient();
+                _tcpcl.Connect(_printerIp, PrinterPort);
+                _ls = _tcpcl.GetStream();
+                var bytes = Encoding.ASCII.GetBytes(Data2Print);
+                _ls.Write(bytes, 0, bytes.Length);
+                bytes = new byte[0x101];
+                int count = _ls.Read(bytes, 0, bytes.Length);
+                if (String.CompareOrdinal(Encoding.ASCII.GetString(bytes, 0, count).Substring(0, 4), "0000") != 0)
+                {
+                    MessageBox.Show(@"Lỗi in", @"IN so", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                }
+                _printed = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void b_noco_tk_inlientuc_Click(object sender, EventArgs e)
+        {
+            var datanoco = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
+            if (datanoco == null)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                var finbc = new Inbclt((IList<DatainNoCo>)dgv_noco_tk.DataSource);
+
+                finbc.Show();
+            }
+        }
+
+        private void bt_atm_pht_laydl_Click(object sender, EventArgs e)
+        {
+            if (dtp_atm_pht_nd.Value > dtp_atm_pht_nc.Value)
+            {
+                MessageBox.Show(@"Ngày đầu > ngày cuối");
+            }
+            else
+            {
+                _dsX1Pcms = (from p in _db.X1PCMS
+                             where p.DATADATE >= dtp_atm_pht_nd.Value && p.DATADATE <= dtp_atm_pht_nc.Value
+                             select p).Distinct().ToList();
+
+                gc_atm_phathanhthe.DataSource = new BindingSource(_dsX1Pcms, "");
+                gv_atm_pht.BestFitColumns();
+            }
+        }
+
+        private void bt_atm_pht_xuatfile_Click(object sender, EventArgs e)
+        {
+            if (_dsX1Pcms == null || _dsX1Pcms.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        var wsList = pck.Workbook.Worksheets.Add("bcATM");
+                        wsList.Cells["A1"].LoadFromCollection(_dsX1Pcms, true);
+                        wsList.Column(1).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        wsList.Column(17).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            wsList.Column(i).AutoFit();
+                        }
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void bt_atmXoa_Click(object sender, EventArgs e)
+        {
+            var dbbds = new bdsuEntities();
+            IQueryable<tbXoaATM> ds = from p in dbbds.tbXoaATMs
+                                      where p.ngayxoa >= dtp_atmxoa_ngaydau.Value && p.ngayxoa <= dtp_atmxoa_ngaycuoi.Value
+                                      select p;
+
+            dgw_theatmxoa.DataSource = ds.ToList();
+        }
+
+        private void bt_dkmayin_Click(object sender, EventArgs e)
+        {
+            if (tb_dkMayin.Text != "")
+            {
+                var dbbds = new bdsuEntities();
+                string machineName = Environment.MachineName;
+                //      dbbds.tbPrinters.Attach(new tbPrinter() { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
+                dbbds.tbPrinters.Add(new tbPrinter { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
+                dbbds.SaveChanges();
+
+                MessageBox.Show(@"Da them");
+            }
+            else
+            {
+                MessageBox.Show(@"Chưa Nhập địa chỉ Server printer");
+            }
+        }
+
+        private void bt_exportexcel_Click(object sender, EventArgs e)
+        {
+            if (_dbin == null)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    var fi = new FileInfo(SaveFileExcel.FileName);
+                    if (fi.Exists)
+                    {
+                        fi.Delete();
+                    }
+                    using (var pck = new ExcelPackage())
+                    {
+                        var wsList = pck.Workbook.Worksheets.Add("saoke");
+                        wsList.Cells["A1"].LoadFromCollection(_dbin, true);
+                        /*
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            if (i == 14 || i == 16)
+                            {
+                            }
+
+                            wsList.Column(i).AutoFit();
+                        }
+                        */
+                        wsList.Cells.AutoFitColumns();
+                        wsList.Column(15).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        wsList.Column(17).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        wsList.Column(8).Style.Numberformat.Format = "#,##0.0";
+                        wsList.Column(9).Style.Numberformat.Format = "#,##0.0";
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void bt_exportexcel_saoke_Click(object sender, EventArgs e)
+        {
+            var _pathToFile = Path.Combine(_clickOnceLocation, @"saoketk.xlsx");
+            if (_dbin == null || _dbin.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                SaveFileExcel.FileName = "saoke_";
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    var temp = new FileInfo(_pathToFile);
+                    using (var pck = new ExcelPackage(temp))
+                    {
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets[1];
+
+                        const int startRow = 11;
+
+                        int row = startRow;
+
+                        foreach (var dd in _dbin)
+                        {
+                            decimal ghico = 0;
+                            decimal ghino = 0;
+
+                            // we have our total formula on row 7, so push them down so we can insert more data
+                            //  if (row > startRow) wsList.InsertRow(1,row);
+
+                            if (dd.loai.ToUpper().Equals("CO"))
+                            {
+                                ghico = dd.sotien;
+                            }
+                            else
+                            {
+                                ghino = dd.sotien;
+                            }
+                            wsList.InsertRow(row, 1);
+                            wsList.Cells[row, 1].Value = dd.ngaygiaodich;
+                            wsList.Cells[row, 1].Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                            wsList.Cells[row, 1].Style.WrapText = true;
+
+                            wsList.Cells[row, 2].Value = dd.trancd;
+
+                            wsList.Cells[row, 3].Value = dd.loaitien;
+
+                            wsList.Cells[row, 4].Value = ghino;
+                            wsList.Cells[row, 4].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                            wsList.Cells[row, 5].Value = ghico;
+                            wsList.Cells[row, 5].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                            wsList.Cells[row, 6].Value = dd.sodu;
+                            wsList.Cells[row, 6].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                            wsList.Cells[row, 7].Value = dd.ghichu.Trim();
+                            wsList.Cells[row, 7].Style.WrapText = true;
+
+                            wsList.Cells[row, 8].Value = dd.truser.Trim();
+                            wsList.Cells["D4"].Value = string.Format(@"Số tài khoản : {0}", dd.tk);
+                            wsList.Cells["D5"].Value = string.Format(@"Tên tài khoản : {0}", dd.tentk);
+                            wsList.Cells["D6"].Value = string.Format(@"Mã khách hàng: {0}", dd.cifno);
+                            row++;
+                        }
+
+                        string local = "A" + startRow + ":H" + row;
+                        var cell = wsList.Cells[local];
+                        var border = cell.Style.Border;
+                        border.BorderAround(ExcelBorderStyle.Thin);
+                        border.Bottom.Style = ExcelBorderStyle.Thin;
+                        border.Top.Style = ExcelBorderStyle.Thin;
+                        border.Left.Style = ExcelBorderStyle.Thin;
+                        border.Right.Style = ExcelBorderStyle.Thin;
+
+                        cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.CenterContinuous;
+
+                        wsList.Cells["D3"].Value = string.Format(@"Từ ngày {0} đến ngày {1} ", dtp_tungay.Value, dtp_denngay.Value);
+
+                        //for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        //{
+                        //    wsList.Column(i).AutoFit();
+                        //}
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void bt_gl_LayTonQuy_Click(object sender, EventArgs e)
+        {
+            var tungay = (DateTime)de_ql_tq_tungay.EditValue;
+            var denngay = (DateTime)de_ql_tq_dengay.EditValue;
+
+            var datagltq = _db.TonQuy(tungay, denngay);
+
+            RW_gc_gl_tonquy.DataSource = new BindingSource(datagltq, "");
+        }
+
+        private void bt_gl_TQ_XuatExlcel_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "tonquy_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                RW_gc_gl_tonquy.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_hdv_xuatexel_Click(object sender, EventArgs e)
+        {
+            if (_listsodutd != null)
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets.Add("SoDuTaiTD");
+                        wsList.Cells["A1"].LoadFromCollection(_listsodutd, true);
+
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            wsList.Column(i).AutoFit();
+                        }
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+        }
+
+        private void bt_in_Click(object sender, EventArgs e)
+        {
+            if (_lcif == null)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                if (cb_ipdc_ck.Checked)
+                {
+                    var finbc = new InpdcGD(_lcif, _ttnghang);
+                    finbc.Show();
+                }
+                else
+                {
+                    var finbc = new Inpdc(_lcif, _ttnghang);
+                    finbc.Show();
+                }
+            }
+        }
+
+        private void bt_in_tk_Click(object sender, EventArgs e)
+        {
+            var data = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
+            if (data == null)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                var finbc = new Inbc((IList<DatainNoCo>)dgv_noco_tk.DataSource);
+
+                finbc.Show();
+            }
+        }
+
+        private void bt_insosec_Click(object sender, EventArgs e)
+        {
+            if (tb_tenKh.Text.Trim().Length == 0)
+            {
+                MessageBox.Show(@"Chưa có tên Kh");
+            }
+            else
+            {
+                string branchname = tb_tenchinhanh.Text.Trim();
+                string address = tb_diachi.Text.Trim();
+                string fullname = tb_tenKh.Text.Trim();
+                string soCa = mtb_tk.Text;
+                string str3;
+                if ((branchname + " " + address).Length > 0x4d)
+                {
+                    str3 = (branchname + "," + address).Substring(0, 0x4d);
+                }
+                else
+                {
+                    str3 = branchname + "," + address;
+                }
+
+                string str = soCa + " tai " + str3;
+                string str2 = "~n 1 ";
+                str2 = (str2 + " ~V 13 ~H 40 ~t " + fullname) + " ~V 14 ~H 45 ~t " + Lib.Split_ALong_Line(str, 40, 1);
+
+                int num = Convert.ToInt32(mtb_solanin.Text.Trim());
+                lb_solanin.Text = mtb_solanin.Text.Trim();
+
+                Data2Print = str2;
+
+                if (!_printed)
+                {
+                    new Thread(() =>
+                    {
+                        for (int i = 1; i <= num; i++)
+                        {
+                            UpdateLabelText((num - i).ToString(CultureInfo.InvariantCulture));
+                            SendData();
+                        }
+                    }).Start();
+
+                    _printed = true;
+                }
+            }
+        }
+
+        private void bt_laythontin_Click(object sender, EventArgs e)
+        {
+            LayThongTinTheoTk();
+        }
+
+        private void bt_locdl_tk_Click(object sender, EventArgs e)
+        {
+            List<DatainNoCo> data = _dbin;
+
+            if (data == null || data.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                if (clb_Locdl.GetItemChecked(0))
+                {
+                    dgv_noco_tk.DataSource = null;
+                    tb_somon.Text = data.Count.ToString(CultureInfo.InvariantCulture);
+                    dgv_noco_tk.DataSource = data;
+                }
+                else
+                {
+                    List<DatainNoCo> temp = data.ToList();
+
+                    for (int i = 1; i < clb_Locdl.Items.Count; i++)
+                    {
+                        if (!clb_Locdl.GetItemChecked(i))
+                        {
+                            string t = clb_Locdl.Items[i].ToString();
+                            string loc = t.Split('|')[0];
+                            temp.RemoveAll(x => x.auxtrc.Trim() == loc);
+                        }
+                    }
+
+                    dgv_noco_tk.DataSource = null;
+                    tb_somon.Text = temp.Count.ToString(CultureInfo.InvariantCulture);
+                    dgv_noco_tk.DataSource = temp;
+                    dgv_noco_tk.Refresh();
+                }
+            }
+        }
+
+        private void bt_lsgl_laydl_Click(object sender, EventArgs e)
+        {
+            if (tb_lsgl_tkgl.Text.Trim() == "")
+            {
+                MessageBox.Show(@"Chưa nhập TK GL");
+            }
+            else
+            {
+                IQueryable<GLHIST> listgl;
+                decimal glacc = Convert.ToDecimal(tb_lsgl_tkgl.Text.Trim());
+                var ngaybd = (DateTime)dtp_lsgl_ngaybd.EditValue;
+                var ngaykt = (DateTime)dtp_lsgl_ngaykt.EditValue;
+                var tiente = (string)cb_gl_tiente.SelectedItem;
+                var bds = (string)cb_lsgl_bds.SelectedItem;
+
+                listgl = from p in _db.GLHISTs
+                         where p.GTACCT == glacc && (p.DataDate >= ngaybd.Date && p.DataDate <= ngaykt.Date)
+                         where p.TRCTYP == tiente
+                         where p.BRANCH == bds
+                         orderby p.TRSEQ descending
+                         orderby p.DataDate
+
+                         select p;
+
+                _listLsGl = listgl.ToList();
+                GL_gc_lsgl.DataSource = new BindingSource(_listLsGl, "");
+                GL_gv_lsgl.BestFitColumns();
+            }
+        }
+
+        private void bt_lsgl_xuat_Click(object sender, EventArgs e)
+        {
+            var _pathToFile = Path.Combine(_clickOnceLocation, @"gl_70217.xlsx");
+
+            if (_listLsGl == null || _listLsGl.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                SaveFileExcel.FileName = "gl_";
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    var temp = new FileInfo(_pathToFile);
+                    using (var pck = new ExcelPackage(temp))
+                    {
+                        decimal glacc = Convert.ToDecimal(tb_lsgl_tkgl.Text.Trim());
+
+                        var r = _db.GLMASTs.GroupBy(c => c.ACCTGL, c => c.TITLE, (key, g) => new { gl = key, title = g.FirstOrDefault() }).FirstOrDefault(c => c.gl == glacc);
+
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets[1];
+
+                        const int startRow = 13;
+
+                        int row = startRow;
+                        wsList.Cells[6, 3].Value = dtp_lsgl_ngaybd.EditValue;
+                        wsList.Cells[6, 6].Value = dtp_lsgl_ngaykt.EditValue;
+                        wsList.Cells["C7"].Value = tb_lsgl_tkgl.EditValue;
+                        wsList.Cells["C9"].Value = cb_gl_tiente.SelectedItem;
+                        if (r != null) wsList.Cells["F7"].Value = r.title;
+
+                        foreach (var glhist in _listLsGl)
+                        {
+                            decimal ghico = 0;
+                            decimal ghino = 0;
+
+                            // we have our total formula on row 7, so push them down so we can insert more data
+                            //  if (row > startRow) wsList.InsertRow(1,row);
+
+                            if (glhist.TRDORC.Equals("C"))
+                            {
+                                ghico = -glhist.TRAMT;
+                            }
+                            else
+                            {
+                                ghino = glhist.TRAMT;
+                            }
+                            wsList.InsertRow(row, 1);
+                            wsList.Cells[row, 1].Value = glhist.DataDate;
+                            wsList.Cells[row, 2].Value = glhist.LMDATE;
+                            wsList.Cells[row, 3].Value = ghino;
+
+                            wsList.Cells[row, 4].Value = ghico;
+                            wsList.Cells[row, 5].Value = "M";
+                            wsList.Cells[row, 6].Value = glhist.TRSEQ;
+                            wsList.Cells[row, 7].Value = (glhist.TRDESC + glhist.TREFTH).Trim();
+                            row++;
+                        }
+                        var sumno = "C" + row;
+                        var sumco = "D" + row;
+                        wsList.Cells[sumno].Formula = string.Format("Sum(C12:C{0})", row - 1);
+                        wsList.Cells[sumco].Formula = string.Format("Sum(D12:D{0})", row - 1);
+
+                        wsList.Column(1).Style.Numberformat.Format = "dd/MM/yyyy";
+                        wsList.Column(2).Style.Numberformat.Format = "dd/MM/yyyy";
+                        wsList.Column(3).Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+                        wsList.Column(4).Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                        wsList.Cells[6, 3].Style.Numberformat.Format = "dd/MM/yyyy";
+                        wsList.Cells[6, 6].Style.Numberformat.Format = "dd/MM/yyyy";
+
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            wsList.Column(i).AutoFit();
+                        }
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void bt_phieudoichieu_Click(object sender, EventArgs e)
+        {
+            NameValueCollection config;
+
+            if (cb_bds_pdc.SelectedItem.ToString() == "741")
+            {
+                config = (NameValueCollection)ConfigurationManager.GetSection("customAppSettingsGroup/pdc_cantho");
+            }
+            else
+            {
+                config = (NameValueCollection)ConfigurationManager.GetSection("customAppSettingsGroup/pdc_tranoc");
+            }
+
+            TenChiNhanh = config["TenChiNhanh"];
+            DiaChi = config["DiaChi"];
+            _ttnghang = new inPhieuDoiChieu
+            {
+                tencn_vi = config["tencn_vi"],
+                tencn_en = config["tencn_en"],
+                diachi = config["diachi"],
+                tinh = config["tinh"],
+                fax = config["fax"],
+                dt = config["dt"],
+                tennguoiky = config["tennguoiky"],
+                chucdanh = config["chucdanh"],
+                noinhan = config["noinhan"],
+                tenfilechuky = config["tenfilechuky"]
+
+                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
+            };
+            string check = check_checkbox();
+            int bds = Convert.ToInt32(cb_bds_pdc.SelectedItem);
+            if (tb_cif_pdc.Text == "")
+            {
+                MessageBox.Show(@"Chưa nhập Cif");
+            }
+            else
+            {
+                List<PhieuDoiChieu_Result> da =
+                    _db.PhieuDoiChieu(Convert.ToDecimal(tb_cif_pdc.Text), ipdc_date.Value, bds, check).ToList();
+                _lcif = new List<incif>();
+
+                foreach (PhieuDoiChieu_Result i in da)
+                {
+                    string acctno = i.tk.ToString();
+                    string cfname1 = i.acname;
+
+                    string currtyp = i.loaitt;
+                    string acctyp = i.loaitk;
+                    string addr1 = i.addr1;
+                    string cfindi = i.cif.ToString();
+                    double cbal = Convert.ToDouble(i.sodu);
+
+                    var prov = new MaskedTextProvider("###-##-##-######-#");
+                    prov.Set(acctno);
+                    string formattk = prov.ToDisplayString();
+
+                    _lcif.Add(new incif
+                    {
+                        acctno = formattk,
+                        cbal = cbal,
+                        currtyp = currtyp,
+                        acctyp = acctyp,
+                        cfindi = cfindi,
+                    });
+                    _ttnghang.cifno = tb_cif_pdc.Text;
+                    _ttnghang.cfname1 = cfname1;
+                    //  ttnghang.ngaycuoiky = String.Format(format: "ngày {0:dd} tháng {0:MM} năm {0:yyy}", arg0: ipdc_date.Value);
+                    _ttnghang.ngaycuoiky = ipdc_date.Value;
+                    _ttnghang.addr1 = addr1;
+                }
+                dgv_ipdc.DataSource = _lcif;
+            }
+        }
+
+        private void bt_rw_bx810_loadfile_Click(object sender, EventArgs e)
+        {
+            var fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK) // Test result.
+            {
+                string filereport = Path.GetFileName(fd.FileName);
+
+                string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
+                string mainstring = "BIDVBITCKT4" + filereport;
+
+                var password = new string(mainstring.ToCharArray().Reverse().ToArray());
+                using (ZipFile zip = ZipFile.Read(fd.FileName))
+                {
+                    string bc = "ISW810P";
+                    ZipEntry a = zip[bc + bds];
+                    if (a == null)
+                    {
+                        MessageBox.Show(@"Khong co bc 810");
+                    }
+                    else
+                    {
+                        a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
+                        using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
+                        {
+                            String line;
+                            // Read and display lines from the file until the end of
+                            // the file is reached.
+
+                            while ((line = sr.ReadLine()) != null)
+                            {
+                                if (line.Length == 85)
+                                {
+                                    string stt = line.Substring(4, 7).Trim();
+                                    string sothe = line.Substring(12, 20).Trim();
+                                    string hoten = line.Substring(33, 40).Trim();
+                                    string ngaythang = line.Substring(73).Trim().Replace("  ", " ");
+                                    if (ngaythang.Length == 7) { ngaythang = "0" + ngaythang; }
+                                    DateTime r = DateTime.ParseExact(ngaythang, "dd/MM/yy", CultureInfo.InvariantCulture);
+
+                                    _dsbc810.Add(new ClBc810
+                                    {
+                                        Stt = Convert.ToInt32(stt),
+                                        SoThe = sothe,
+                                        HoTen = hoten,
+                                        Ngaystr = ngaythang,
+                                        NgayMo = r
+                                    });
+                                }
+                            }
+                        }
+
+                        RW_gc_bc810.DataSource = new BindingSource(_dsbc810, "");
+                        RW_gv_bc810.BestFitColumns();
+                    }
+                }
+            }
+        }
+
+        private void bt_rw_bx833_loadfile_Click(object sender, EventArgs e)
+        {
+            dsbc833.Clear();
+            var fd = new OpenFileDialog();
+            if (fd.ShowDialog() == DialogResult.OK) // Test result.
+            {
+                string filereport = Path.GetFileName(fd.FileName);
+
+                string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
+                string mainstring = "BIDVBITCKT4" + filereport;
+
+                var password = new string(mainstring.ToCharArray().Reverse().ToArray());
+
+                using (ZipFile zip = ZipFile.Read(fd.FileName))
+                {
+                    string bc = "ISW833P";
+                    ZipEntry a = zip[bc + bds];
+                    if (a == null)
+                    {
+                        MessageBox.Show(@"Khong co bc 833");
+                    }
+                    else
+                    {
+                        a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
+                        using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
+                        {
+                            String line;
+                            // Read and display lines from the file until the end of
+                            // the file is reached.
+                            string status = "";
+                            while ((line = sr.ReadLine()) != null)
+                            {
+                                if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
+                                {
+                                    if (line.Length < 50)
+                                    {
+                                        status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
+                                            line.Length - line.IndexOf(":", StringComparison.Ordinal));
+                                        status = status.Replace(":", "").Trim();
+                                    }
+                                }
+
+                                if (line.Length == 76)
+                                {
+                                    string stt = line.Substring(4, 7).Trim();
+                                    string sothe = line.Substring(12, 20).Trim();
+                                    string hoten = line.Substring(33, 25).Trim();
+                                    string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
+
+                                    string[] hhh = ngaythang.Split(' ');
+                                    string ngay = hhh[0];
+
+                                    string gio = "00:00:00";
+                                    gio = hhh.Length > 2 ? hhh[2] : hhh[1];
+                                    TimeSpan time = TimeSpan.Parse(gio);
+                                    if (ngay.Length == 7) ngay = "0" + ngay;
+                                    DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
+
+                                    dsbc833.Add(new ClBc833
+                                    {
+                                        Stt = Convert.ToInt32(stt),
+                                        SoThe = sothe,
+                                        HoTen = hoten,
+                                        Ngaystr = ngaythang,
+                                        TrangThai = status,
+                                        NgayMo = r + time,
+                                    });
+                                }
+                            }
+                        }
+
+                        var temp = (from p in dsbc833
+
+                                    join d in _db.X1PCMS
+                                        on new
+                                        {
+                                            SoThe = p.SoThe,
+                                            TrangThai = p.TrangThai
+                                        }
+                                            equals
+                                            new
+                                            {
+                                                SoThe = d.CARDD == null ? string.Empty : d.CARDD.Trim(),
+                                                TrangThai = d.CDSTAT == null ? string.Empty : d.CDSTAT.Trim()
+                                            }
+                                    into g
+                                    from su in g.DefaultIfEmpty()
+
+                                    join c in _dbbdsu.tbsothes
+                                       on new
+                                       {
+                                           SoThe = p.SoThe,
+                                           TrangThai = p.TrangThai
+                                       }
+                                        equals
+                                            new
+                                            {
+                                                SoThe = c.masothe,
+                                                TrangThai = c.trangthai
+                                            }
+                                    into gj
+                                    from subpet in gj.DefaultIfEmpty()
+
+                                    select new ClBc833
+                                    {
+                                        Stt = p.Stt,
+                                        SoThe = p.SoThe,
+                                        HoTen = p.HoTen,
+                                        Ngaystr = p.Ngaystr,
+                                        TrangThai = p.TrangThai,
+                                        NgayMo = p.NgayMo,
+                                        NguoiMo = (su == null ? subpet == null ? String.Empty : subpet.usertacdong : su.OPER)
+                                    }).ToList();
+                        _dsbc833 = temp;
+                        RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");
+                        RW_gv_bc833.BestFitColumns();
+                    }
+                }
+            }
+        }
+
+        private void bt_rw_bx833_xuatexcel_Click(object sender, EventArgs e)
+        {
+            if (_dsbc833.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets.Add("bc833");
+                        wsList.Cells["A1"].LoadFromCollection(_dsbc833, true);
+                        wsList.Column(5).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            wsList.Column(i).AutoFit();
+                        }
+                        wsList = pck.Workbook.Worksheets.Add("bc833 1");
+                        wsList.Cells["A1"].LoadFromCollection(dsbc833, true);
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void bt_saokeds_Click(object sender, EventArgs e)
+        {
+            var cif = mtb_sk_cif.Text;
+            if (cif == "")
+            {
+                MessageBox.Show(@"Chưa nhập cif");
+            }
+            else
+            {
+                _doanhso = _db.DoanhSoTientheoCif(dtp_sk_ngaydau.Value, dtp_sk_ngaycuoi.Value, Convert.ToInt32(cif));
+                gc_skds_doanhso.DataSource = new BindingSource(_doanhso, "");
+
+                _giainganthuno = _db.ThuNoThuLai(dtp_sk_ngaydau.Value,
+                    dtp_sk_ngaycuoi.Value, Convert.ToInt32(cif));
+                gc_skds_thunothulai.DataSource = new BindingSource(_giainganthuno, "");
+
+                _saoke = _db.SaoKeCif(dtp_sk_ngaydau.Value, dtp_sk_ngaycuoi.Value,
+                    Convert.ToInt32(cif));
+
+                gc_skds_saoke.DataSource = new BindingSource(_saoke, "");
+                _phi = _db.TinhPhiTheoCif(dtp_sk_ngaydau.Value, dtp_sk_ngaycuoi.Value,
+                    Convert.ToInt32(cif));
+
+                gc_skds_thuphi.DataSource = new BindingSource(_phi, "");
+
+                gv_skds_doanhso.OptionsView.ColumnAutoWidth = false;
+                gv_skds_doanhso.OptionsView.BestFitMaxRowCount = -1;
+                gv_skds_doanhso.BestFitColumns();
+
+                gv_skds_thuphi.OptionsView.ColumnAutoWidth = false;
+                gv_skds_thuphi.OptionsView.BestFitMaxRowCount = -1;
+                gv_skds_thuphi.BestFitColumns();
+
+                gv_skds_saoke.OptionsView.ColumnAutoWidth = false;
+                gv_skds_saoke.OptionsView.BestFitMaxRowCount = -1;
+                gv_skds_saoke.BestFitColumns();
+            }
+        }
+
+        private void bt_SK_xuatxls_Click(object sender, EventArgs e)
+        {
+            if (_saoke == null)
+            {
+                MessageBox.Show(@"Chưa có dữ liệu");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        MemoryStream stream = new MemoryStream();
+                        gv_skds_saoke.OptionsPrint.AutoWidth = false;
+
+                        gv_skds_saoke.BestFitColumns();
+                        gc_skds_saoke.ExportToXlsx(stream);
+
+                        pck.Workbook.Worksheets.Add("saoke", new ExcelPackage(stream).Workbook.Worksheets[1]);
+                        stream.SetLength(0);
+                        gv_skds_doanhso.OptionsPrint.AutoWidth = false;
+
+                        gv_skds_doanhso.BestFitColumns();
+                        gc_skds_doanhso.ExportToXlsx(stream);
+                        pck.Workbook.Worksheets.Add("saokeds", new ExcelPackage(stream).Workbook.Worksheets[1]);
+                        stream.SetLength(0);
+                        gv_skds_thunothulai.OptionsPrint.AutoWidth = false;
+
+                        gv_skds_thunothulai.BestFitColumns();
+
+                        gc_skds_thunothulai.ExportToXlsx(stream);
+                        pck.Workbook.Worksheets.Add("thunothulai", new ExcelPackage(stream).Workbook.Worksheets[1]);
+                        stream.SetLength(0);
+                        gv_skds_thuphi.OptionsPrint.AutoWidth = false;
+                        gv_skds_thuphi.BestFitColumns();
+                        gc_skds_thuphi.ExportToXlsx(stream);
+                        pck.Workbook.Worksheets.Add("thuphi", new ExcelPackage(stream).Workbook.Worksheets[1]);
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void bt_sl_dhv_tdiem_Click(object sender, EventArgs e)
+        {
+            _listsodutd = _db.SoDuTaiTD(dtp_hdv_td.Value).ToList();
+
+            gc_hdv.DataSource = new BindingSource(_listsodutd, "");
+            gv_hdv.BestFitColumns();
+        }
+
+        private void bt_thaythongtincif_Click(object sender, EventArgs e)
+        {
+            LayThongTinTheoCif();
+        }
+
+        private void bt_tracuucif_Click(object sender, EventArgs e)
+        {
+            var dbbds = new bdsuEntities();
+            var noidung = maskedTextBox2.Text.Trim();
+            if (noidung == "")
+            {
+                MessageBox.Show(@"Chưa nhập nội dùng tìm kiếm");
+            }
+            else
+            {
+                switch (cb_tratk_tim.SelectedIndex)
+                {
+                    case 0:
+                        var dstk = from p in dbbds.tb_ql_CIF
+                                   join c in dbbds.depts on p.dept_unhap equals c.deptcode into deptnhap
+                                   join d in dbbds.depts on p.dept_uduyet equals d.deptcode into deptduyet
+                                   from subpet in deptnhap.DefaultIfEmpty()
+                                   from subpet1 in deptduyet.DefaultIfEmpty()
+                                   where p.accno == noidung
+                                   select new
+                                   {
+                                       CIF = p.cif,
+                                       TenKH = p.TenKh,
+                                       taikhoan = p.accno,
+                                       UserIDMo = p.User_mo,
+                                       p.TenUserMo,
+                                       phongusermo = subpet.TenPhong,
+                                       UserIDDuyet = p.User_duyet,
+                                       p.TenUserDuyet,
+                                       PhongUserDuyet = subpet1.TenPhong,
+                                       Ngay = p.NgayMo,
+                                       p.JRNLSEQNO,
+                                       p.EJSEQNO
+                                   };
+                        dgw_tracuutk.DataSource = dstk.ToList();
+                        break;
+
+                    case 1:
+                        int cif = Convert.ToInt32(noidung);
+                        var dscif = from p in dbbds.tb_ql_CIF
+                                    join c in dbbds.depts on p.dept_unhap equals c.deptcode into deptnhap
+                                    join d in dbbds.depts on p.dept_uduyet equals d.deptcode into deptduyet
+                                    from subpet in deptnhap.DefaultIfEmpty()
+                                    from subpet1 in deptduyet.DefaultIfEmpty()
+                                    where p.cif == cif
+                                    select new
+                                    {
+                                        CIF = p.cif,
+                                        TenKH = p.TenKh,
+                                        taikhoan = p.accno,
+                                        UserIDMo = p.User_mo,
+                                        p.TenUserMo,
+                                        phongusermo = subpet.TenPhong,
+                                        UserIDDuyet = p.User_duyet,
+
+                                        p.TenUserDuyet,
+                                        PhongUserDuyet = subpet1.TenPhong,
+                                        Ngay = p.NgayMo,
+                                        p.JRNLSEQNO,
+                                        p.EJSEQNO
+                                    };
+                        dgw_tracuutk.DataSource = dscif.ToList();
+                        break;
+
+                    case 2:
+                        var dsten = from p in dbbds.tb_ql_CIF
+                                    join c in dbbds.depts on p.dept_unhap equals c.deptcode into deptnhap
+                                    join d in dbbds.depts on p.dept_uduyet equals d.deptcode into deptduyet
+                                    from subpet in deptnhap.DefaultIfEmpty()
+                                    from subpet1 in deptduyet.DefaultIfEmpty()
+                                    where p.TenKh.Contains(noidung)
+                                    select new
+                                    {
+                                        CIF = p.cif,
+                                        TenKH = p.TenKh,
+                                        taikhoan = p.accno,
+                                        UserIDMo = p.User_mo,
+                                        p.TenUserMo,
+                                        phongusermo = subpet.TenPhong,
+                                        UserIDDuyet = p.User_duyet,
+                                        p.TenUserDuyet,
+                                        PhongUserDuyet = subpet1.TenPhong,
+                                        Ngay = p.NgayMo,
+                                        p.JRNLSEQNO,
+                                        p.EJSEQNO
+                                    };
+                        dgw_tracuutk.DataSource = dsten.ToList();
+                        break;
+                }
+            }
+        }
+
+        private void bt_tracuutheatm_Click(object sender, EventArgs e)
+        {
+            var dbbds = new bdsuEntities();
+            if (maskedTextBox3.Text == "")
+            {
+                MessageBox.Show(@"Chưa nhập số liệu");
+            }
+            else
+            {
+                var dssothe = new List<tbsothe>();
+                switch (cb_ATM_tracuthe.SelectedIndex)
+                {
+                    case 0:
+                        // tìm theo mã số thẻ
+                        dssothe = dbbds.tbsothes.Where(p => p.masothe.Contains(maskedTextBox3.Text)).ToList();
+                        break;
+
+                    case 1:
+                        // tìm theo cif
+                        var cif = Convert.ToInt32(maskedTextBox3.Text);
+                        dssothe = dbbds.tbsothes.Where(p => p.cif.Value == cif).ToList();
+                        break;
+
+                    case 2:
+                        // tìm theo tên
+                        dssothe = dbbds.tbsothes.Where(p => p.Hoten.Contains(maskedTextBox3.Text)).ToList();
+                        break;
+
+                    case 3:
+                        // tìm theo tên
+                        dssothe = dbbds.tbsothes.Where(p => p.cmnd.Contains(maskedTextBox3.Text)).ToList();
+                        break;
+                }
+
+                //var ds = dbbds.tbsothes.Where(p => p.masothe.Contains(maskedTextBox3.Text)).Select(p => new
+                //{
+                //    MaSoThe = p.masothe,
+                //    HoTen = p.Hoten,
+                //    CMND = p.cmnd,
+                //    p.DiaChi,
+                //    CIF = p.cif,
+                //    Ngay = p.ngay,
+                //    TrangThai = p.trangthai,
+                //    NgayBC = p.ngaybc,
+                //    NguoiTacDong = p.usertacdong,
+                //    SoTaiKhoan = p.sotk,
+                //});
+
+                dgw_tracuutheatm.DataSource = dssothe;
+            }
+        }
+
+        private void bt_uncheckclb_locdl_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < clb_Locdl.Items.Count; i++)
+            {
+                clb_Locdl.SetItemCheckState(i, CheckState.Unchecked);
+            }
+        }
+
+        private void bt_xembc_cif_Click(object sender, EventArgs e)
+        {
+            var data = (IList<DatainNoCo>)dgv_noco_cif.DataSource;
+            if (data == null)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                var finbc = new Inbc(data);
+                finbc.Show();
+            }
+        }
+
+        private void bt_xuaexcel_atmxoa_Click(object sender, EventArgs e)
+        {
+            var data = (IList<tbXoaATM>)dgw_theatmxoa.DataSource;
+            if (data == null)
+            {
+                MessageBox.Show(@"Chưa có dữ liệu");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets.Add("Thẻ ATM");
+                        wsList.Cells["A1"].LoadFromCollection(data, true);
+
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            if (i == 3 || i == 6)
+                            {
+                                wsList.Column(i).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                            }
+                            wsList.Column(i).AutoFit();
+                        }
+
+                        pck.SaveAs(fi);
+                    }
+                }
+                OpenExplorer(SaveFileExcel.FileName);
+            }
+        }
+
+        private void bt_xuatexcel_cif_Click(object sender, EventArgs e)
+        {
+            var data = (IList<DatainNoCo>)dgv_noco_cif.DataSource;
+            if (data == null)
+            {
+                MessageBox.Show(@"Chưa có số liệu");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    var fi = new FileInfo(SaveFileExcel.FileName);
+
+                    if (fi.Exists)
+                    {
+                        fi.Delete();
+                    }
+                    using (var pck = new ExcelPackage())
+                    {
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets.Add("saoke");
+                        wsList.Cells["A1"].LoadFromCollection(data, true);
+
+                        wsList.Cells.AutoFitColumns();
+                        wsList.Column(15).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        wsList.Column(17).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        wsList.Column(8).Style.Numberformat.Format = "#,##0.0";
+                        wsList.Column(9).Style.Numberformat.Format = "#,##0.0";
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dchieu.Clear();
+
+            ObjectResult<LichSuGiaoDichTheoTK_Result> re = _db.LichSuGiaoDichTheoTK(74110000191552,
+                       dtp_saoke_dienluc_nd.Value, dtp_saoke_dienluc_nc.Value, " ");
+            _dbin = new List<DatainNoCo>();
+
+            var ngaytruocdo = dtp_saoke_dienluc_nd.Value.AddDays(-1);
+
+            var cablngaytruoc = _db.DDMAST_DATE.FirstOrDefault(c => c.ACCTNO == 74110000191552 && c.DATADATE == ngaytruocdo);
+            decimal sodu = 0;
+            if (cablngaytruoc != null)
+            {
+                sodu = cablngaytruoc.CBAL;
+            }
+
+            int stt = 1;
+            decimal ghico = 0;
+            foreach (LichSuGiaoDichTheoTK_Result value in re)
+            {
+                string gio = value.TRTIME.ToString();
+                if (gio.IndexOf(".", StringComparison.Ordinal) != -1)
+                {
+                    gio = gio.Remove(gio.IndexOf(".", StringComparison.Ordinal));
+                }
+                if (gio.Length == 5)
+                {
+                    gio = "0" + gio;
+                }
+                if (gio.Trim().Length == 1)
+                {
+                    gio = "000000";
+                }
+                // DateTime t = DateTime.ParseExact(gio, "HHmmss", CultureInfo.CurrentCulture);
+                DateTime t;
+                if (!DateTime.TryParseExact(gio, "HHmmss", CultureInfo.CurrentCulture, DateTimeStyles.None, out t))
+                {
+                    t = DateTime.ParseExact("000000", "HHmmss", CultureInfo.CurrentCulture); 
+                }
+
+                var ngaygd = new DateTime(value.TRDAT6.Year, value.TRDAT6.Month, value.TRDAT6.Day, t.Hour,
+                    t.Minute, t.Second);
+
+                string ghichu =
+                    value.TREFTH.Replace("tREM", "")
+                        .Replace("REM       ", "")
+                        .Replace("SWEEP", "")
+                        .Trim()
+                        .Replace("    ", " ")
+                        .Trim();
+                var prov = new MaskedTextProvider("###-##-##-######-#");
+                prov.Set(value.TRACCT.ToString(CultureInfo.InvariantCulture));
+                string formattk = prov.ToDisplayString();
+                string loaigd;
+                loaigd = value.DORC == "D" ? "No" : "Co";
+
+                decimal ghino = 0;
+                if (value.DORC == "D")
+                {
+                    sodu = sodu - value.AMT;
+                    ghino = value.AMT;
+                    ghico = 0;
+                }
+                else
+                {
+                    sodu = sodu + value.AMT;
+                    ghico = value.AMT; ghino = 0;
+                }
+                if (value.cbal != null)
+                    dchieu.Add(new dcdienluc()
+                    {
+                        STT = stt,
+                        LoaiTien = value.TRCTYP,
+                        MaGd = value.SEQ,
+                        PSCo = ghico,
+                        PSNo = ghino,
+                        SoDu = sodu,
+                        GhiChu = ghichu,
+                        NgayGD = ngaygd
+                    });
+            }
+
+            //foreach (var i in ds)
+            //{
+            //    var text = i.TREFTH.ToString();
+            //    var thuegtgt = Math.Round(i.AMT * 10 / 100, 0, MidpointRounding.ToEven);
+            //    switch (i.AUXTRC.Trim())
+            //    {
+            //        case "1330":
+            //        case "1331":
+
+            //            var index = text.IndexOf("O@L");
+            //            var tk = text.Substring(19, 20).Trim();
+            //            var sub = text.Substring(index, text.Length - index).Split('_');
+
+            //            dchieu.Add(new doichieuDienluc()
+            //            {
+            //                TK = tk,
+            //                MaKh = sub[7],
+            //                TenKH = sub[6].Substring(11, sub[6].Length - 11).Trim(),
+            //                NgayTT = i.DATADATE,
+            //                Tien = i.AMT,
+            //                Thue = thuegtgt,
+            //                KyHoaDon = sub[6].Substring(8, 3).Trim(),
+            //                TongTien = i.AMT + thuegtgt,
+            //                GhiChu = text.Trim()
+            //            });
+            //            break;
+
+            //        case "1321":
+            //        case "1320":
+            //            // REM       Tfr A/c: 74110000000524                 CTY CP VLXD MOTILEN CAN THO TRA TIEN DIEN VP CTY T11/2014
+            //            index = text.IndexOf("A/c:");
+            //            tk = text.Substring(index + 5, 20).Trim();
+            //            dchieu.Add(new doichieuDienluc()
+            //           {
+            //               TK = tk,
+            //               NgayTT = i.DATADATE,
+            //               Tien = i.AMT,
+            //               Thue = thuegtgt,
+            //               TongTien = i.AMT + thuegtgt,
+            //               GhiChu = text.Trim()
+            //           });
+
+            //            break;
+            //        case "1274":
+            //        case "1273":
+            //            var ar = text.Split('_');
+            //            dchieu.Add(new doichieuDienluc()
+            //            {
+            //                // TK = tk,
+            //                MaKh = ar[7],
+            //                TenKH = ar[6].Substring(11, ar[6].Length - 11).Trim(),
+            //                NgayTT = i.DATADATE,
+            //                Tien = i.AMT,
+            //                Thue = thuegtgt,
+            //                KyHoaDon = ar[6].Substring(8, 3).Trim(),
+            //                TongTien = i.AMT + thuegtgt,
+            //                GhiChu = text.Trim()
+            //            });
+            //            break;
+
+            //        default:
+
+            //            dchieu.Add(new doichieuDienluc()
+            //            {
+            //                // TK = tk,
+
+            //                NgayTT = i.DATADATE,
+            //                Tien = i.AMT,
+            //                Thue = thuegtgt,
+            //                TongTien = i.AMT + thuegtgt,
+            //                GhiChu = text.Trim()
+            //            });
+            //            break;
+
+            //    }
+
+            //}
+
+            gridControl1.DataSource = new BindingSource(dchieu, "");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var pathToFile = Path.Combine(_clickOnceLocation, @"MAU.xlsx");
+            //    logger.Info(_pathToFile);
+            if (dchieu == null || dchieu.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                SaveFileExcel.FileName = "dluc_";
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    var temp = new FileInfo(pathToFile);
+                    using (var pck = new ExcelPackage(temp))
+                    {
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets[1];
+
+                        const int startRow = 6;
+
+                        int row = startRow;
+                        int ii = 1;
+                        foreach (var dd in dchieu)
+                        {
+                            wsList.InsertRow(row, 1);
+                            wsList.Cells[row, 1].Value = ii;
+                            wsList.Cells[row, 2].Value = dd.NgayGD;
+                            wsList.Cells[row, 2].Style.Numberformat.Format = "dd/MM/yyyy";
+                            wsList.Cells[row, 3].Value = dd.MaGd;
+
+                            wsList.Cells[row, 4].Value = dd.LoaiTien;
+
+                            wsList.Cells[row, 5].Value = dd.PSNo;
+                            wsList.Cells[row, 5].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                            wsList.Cells[row, 6].Value = dd.PSCo;
+                            wsList.Cells[row, 6].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                            wsList.Cells[row, 7].Value = dd.SoDu;
+                            wsList.Cells[row, 7].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+
+                            wsList.Cells[row, 8].Value = dd.GhiChu;
+                            wsList.Cells[row, 8].Style.WrapText = true;
+                            row++;
+                            ii++;
+                        }
+                        string local = "A" + startRow + ":H" + row;
+                        //     logger.Info(local);
+                        var cell = wsList.Cells[local];
+                        var border = cell.Style.Border;
+                        border.BorderAround(ExcelBorderStyle.Thin);
+                        border.Bottom.Style = ExcelBorderStyle.Thin;
+                        border.Top.Style = ExcelBorderStyle.Thin;
+                        border.Left.Style = ExcelBorderStyle.Thin;
+                        border.Right.Style = ExcelBorderStyle.Thin;
+
+                        cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+
+                        wsList.Cells["A4"].Value = string.Format(@"Ngày: {0:dd/MM/yyyy}", DateTime.Now);
+                        wsList.Cells["E" + row].Formula = "Sum(E" + startRow + ":E" + (row - 1) + ")";
+                        wsList.Cells["E" + row].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+                        wsList.Cells["F" + row].Formula = "Sum(F" + startRow + ":F" + (row - 1) + ")";
+                        wsList.Cells["F" + row].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+                        //  wsList.Cells["J" + row].Formula = "Sum(J" + startRow + ":J" + (row - 1) + ")";
+                        //  wsList.Cells["J" + row].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
+                        //    for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        //    {
+                        //        wsList.Column(i).AutoFit();
+                        //   }
+
+                        /*  var wsList1 = pck.Workbook.Worksheets.Add("full");
+
+                        var ds = from p in _db.DDDHIS_DATE
+                                 where p.DATADATE >= dtp_saoke_dienluc_nd.Value
+                                 where p.DATADATE <= dtp_saoke_dienluc_nc.Value
+                                 where p.TRACCT == 74110000191552
+                                 where p.DORC == "C"
+                                 //where p.TRUSER != @"DD4400"
+                                 //    where p.TRUSER != @"DD2625"
+                                 select p;
+                        wsList1.Cells["A1"].LoadFromCollection(ds.ToList(), true);
+                        */
+
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        pck.SaveAs(fi);
+                    }
+                }
+                // OpenExplorer(SaveFileExcel.FileName);
+                OpenExplorer(SaveFileExcel.FileName);
+            }
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            var sotk = mtb_tk.Text.Replace("-", "").Trim();
+            if (string.IsNullOrEmpty(sotk))
+            {
+                MessageBox.Show(@"Chưa nhập Số Tài khoản");
+            }
+            else if (sotk.Length != 14)
+            {
+                MessageBox.Show(@"Sai Số Tài khoản");
+            }
+            else
+            {
+                var dbbds = new bdsuEntities();
+
+                var brach = sotk.Substring(0, 3);
+                var thongtin = dbbds.tblBranches.FirstOrDefault(c => c.BRANCHCODE.Contains(brach));
+                if (thongtin != null)
+                {
+                    tb_tenchinhanh.Text = thongtin.BRANCHNAME.ToUpper().Trim();
+                    tb_diachi.Text = thongtin.ADDRESS.ToUpper().Trim();
+                }
+                else
+                {
+                    tb_tenchinhanh.Text = "";
+                    tb_diachi.Text = "";
+                }
+                //var tk = db.DDMAST_DATEs.FirstOrDefault(c => c.ACCTNO == Convert.ToDecimal(sotk));
+                var stk = Convert.ToDecimal(sotk);
+                DDMAST_DATE tk = (from p in _db.DDMAST_DATE
+                                  orderby p.DATADATE descending
+                                  where p.ACCTNO == stk
+                                  select p).FirstOrDefault();
+                tb_tenKh.Text = tk != null ? tk.ACNAME : "";
+            }
+        }
+
+        private void button2_Click_3(object sender, EventArgs e)
+        {
+            //var ttk = dataGridView1.SelectedRows[0].Cells[1].Value;
+            var ttk = dgv_ipdc.SelectedCells[0].Value;
+
+            var removecif = _lcif.Single(c => c.acctno == ttk.ToString());
+            _lcif.Remove(removecif);
+
+            dgv_ipdc.DataSource = null;
+            dgv_ipdc.DataSource = _lcif;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (_dsbc810.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        var wsList = pck.Workbook.Worksheets.Add("bc810");
+                        wsList.Cells["A1"].LoadFromCollection(_dsbc810, true);
+                        wsList.Column(4).Style.Numberformat.Format = "dd/MM/yyyy";
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            wsList.Column(i).AutoFit();
+                        }
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //    sktv.Clear();
+            //    var tk = Convert.ToDecimal(mtb_td_sk_tk.Text.Replace("-", ""));
+            //    var lnhist = from p in _db.LNDHIS_DATE
+            //                 where p.DATADATE <= dtp_td_skvay_nc.Value
+            //                 where p.DATADATE >= dtp_td_skvay_nd.Value
+            //                 where p.LHACCT == tk
+            //                 select p;
+            //    foreach (var i in lnhist)
+            //    {
+            //        sktv.Add(new saokeTienVay()
+            //        {
+            //            CN = i.ACCT_BRN,
+            //            DienGiai = i.LHEFTH,
+
+            //        });
+
+            //    }
+
+            //    GC_TD_saoketv.DataSource = new BindingSource(sktv, "");
+            var tk = Convert.ToDecimal(mtb_td_sk_tk.Text.Replace("-", ""));
+            var lnhist = _db.SaoKeTienVay(dtp_td_skvay_nd.Value, dtp_td_skvay_nc.Value, tk);
+            GC_TD_saoketv.DataSource = new BindingSource(lnhist, "");
+            GV_TD_saoketv.OptionsView.ColumnAutoWidth = false;
+            GV_TD_saoketv.BestFitColumns();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "saoketv_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                GV_TD_saoketv.OptionsPrint.AutoWidth = false;
+                GV_TD_saoketv.BestFitColumns();
+
+                GC_TD_saoketv.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "tralai_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                gv_td_tragoc.OptionsPrint.AutoWidth = false;
+                gv_td_tragoc.BestFitColumns();
+                gc_td_tragoc.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            var tungay = (DateTime)dtp_td_tg_tungay.Value;
+            var denngay = (DateTime)dtp_td_tg_denngay.Value;
+
+            var trlai = _db.TraGoc(_ngaydl, tungay, denngay);
+            gc_td_tragoc.DataSource = new BindingSource(trlai, "");
+
+            gv_td_tragoc.OptionsView.ColumnAutoWidth = false;
+            gv_td_tragoc.OptionsView.BestFitMaxRowCount = -1;
+            gv_td_tragoc.BestFitColumns();
+        }
+
+        private void cb_gl_tiente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private string check_checkbox()
+        {
+            var loaitk = cb_ca.Checked ? "D,S" : "";
+            if (cb_fd.Checked)
+            {
+                if (loaitk != "")
+                {
+                    loaitk += ",T";
+                }
+                else
+                {
+                    loaitk = "T";
+                }
+            }
+            if (cb_ln.Checked)
+            {
+                if (loaitk != "")
+                {
+                    loaitk += ",L";
+                }
+                else
+                {
+                    loaitk = "L";
+                }
+            }
+            if (!cb_tf.Checked) return loaitk;
+            if (loaitk != "")
+            {
+                loaitk += ",B";
+            }
+            else
+            {
+                loaitk = "B";
+            }
+
+            return loaitk;
+        }
+
+        private string check_dl(string tablename, DateTime ngaydau, DateTime ngaycuoi)
+        {
+            IQueryable<tb_checkdulieu> t =
+                         _db.tb_checkdulieu.Where(
+                             a => a.tablename.ToUpper() == tablename.ToUpper() && a.datadate >= ngaydau && a.datadate <= ngaycuoi);
+
+            return (from dateTime in Lib.GetDateRange(ngaydau, ngaycuoi) let ee = t.FirstOrDefault(a => a.datadate == dateTime) where ee == null select dateTime).Aggregate("", (current, dateTime) => current + ("Chưa có dữ liệu ngày " + dateTime.ToShortDateString() + "\n"));
+        }
+
+        private void clb_Locdl_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            if (e.Index == 0 && e.NewValue == CheckState.Checked)
+            {
+                for (int i = 1; i < clb_Locdl.Items.Count; i++)
+                {
+                    clb_Locdl.SetItemCheckState(i, CheckState.Checked);
+                }
+            }
+            if (e.NewValue == CheckState.Unchecked && e.Index != 0)
+            {
+                clb_Locdl.SetItemCheckState(0, CheckState.Unchecked);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            switch (cb_tratk_tim.SelectedIndex)
+            {
+                case 0:
+                    maskedTextBox2.Mask = @"000-00-00-000000-0";
+                    maskedTextBox2.Text = @"   -  -  -      -";
+                    break;
+
+                case 1:
+                    maskedTextBox2.Mask = "";
+                    maskedTextBox2.Text = "";
+                    break;
+
+                case 2:
+                    maskedTextBox2.Mask = "";
+                    maskedTextBox2.Text = "";
+                    break;
+
+                default:
+                    maskedTextBox2.Mask = "";
+                    maskedTextBox2.Text = "";
+                    break;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (ApplicationDeployment.IsNetworkDeployed)
+            {
+                Version myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
+                Text = Text +
+                       $" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}";
+            }
+            System.Reflection.Assembly assemblyInfo = System.Reflection.Assembly.GetExecutingAssembly();
+            //Location is where the assembly is run from
+
+            //CodeBase is the location of the ClickOnce deployment files
+            var uriCodeBase = new Uri(assemblyInfo.CodeBase);
+
+            _clickOnceLocation = Path.GetDirectoryName(uriCodeBase.LocalPath);
+
+            DateTime now = DateTime.Today.AddDays(-1);
+            ipdc_date.Value = dtp_tungay.Value = dtp_denngay.Value = now;
+            dtp_lsgl_ngaybd.EditValue = dtp_lsgl_ngaykt.EditValue = now;
+            de_gl_erp_datdau.EditValue = de_gl_erp_ketthuc.EditValue = now;
+            de_gl_trc_nbd.EditValue = de_gl_trc_nkt.EditValue = now;
+            dtp_gl_ngay.DateTime = dtp_tcmpa_tc_ngay.Value = dtp__ngaycuoi_cif.Value =
+                    dtp__ngaydau_cif.Value = dtp_atmxoa_ngaydau.Value = dtp_atmxoa_ngaycuoi.Value = now;
+            cb_tratk_tim.SelectedIndex = 0;
+            cb_ATM_tracuthe.SelectedIndex = 0;
+            cb_lsgl_bds.SelectedIndex = 0;
+            cb_gl_tiente.SelectedIndex = 0;
+            cb_bds_pdc.SelectedIndex = 0;
+
+            _tempdir = Application.StartupPath + "/temp";
+            if (!Directory.Exists(_tempdir))
+            {
+                Directory.CreateDirectory(_tempdir);
+            }
+            else
+            {
+                var filePaths = Directory.GetFiles(_tempdir);
+                foreach (var filePath in filePaths)
+                    File.Delete(filePath);
+            }
+        }
+
+        private void LayThongTinTheoCif()
+        {
+            var listma = new List<ListItem> { new ListItem { Id = "0", Name = "in Tat cả" } };
+
+            string loai;
+
+            if (cif_tatca.Checked)
+            {
+                loai = " ";
+            }
+            else if (cif_baoco.Checked)
+            {
+                loai = "C";
+            }
+            else
+            {
+                loai = "D";
+            }
+
+            string sotk = tb_cif.Text.Trim();
+            if (sotk == "")
+            {
+                MessageBox.Show(@"Chưa nhập Số cif");
+            }
+            else
+            {
+                string res = check_dl("ddmast_date", dtp__ngaydau_cif.Value, dtp__ngaycuoi_cif.Value);
+                if (!string.IsNullOrEmpty(res))
+                {
+                    MessageBox.Show(res);
+                }
+                else
+                {
+                    var re = _db.LichSuGiaoDichTheoCIF(Convert.ToDecimal(sotk),
+                        dtp__ngaydau_cif.Value, dtp__ngaycuoi_cif.Value, loai);
+                    _dbin = new List<DatainNoCo>();
+                    foreach (var value in re)
+                    {
+                        string gio = value.TRTIME.ToString();
+                        if (gio.IndexOf(".", StringComparison.Ordinal) != -1)
+                        {
+                            gio = gio.Remove(gio.IndexOf(".", StringComparison.Ordinal));
+                        }
+                        if (gio.Length == 5)
+                        {
+                            gio = "0" + gio;
+                        }
+                        if (gio.Trim().Length == 1)
+                        {
+                            gio = "000000";
+                        }
+                        var t = DateTime.ParseExact(gio, "HHmmss", CultureInfo.CurrentCulture);
+                        var ngaygd = new DateTime(value.TRDAT6.Year, value.TRDAT6.Month, value.TRDAT6.Day, t.Hour,
+                            t.Minute, t.Second);
+
+                        var ghichu =
+                            value.TREFTH.Replace("tREM", "")
+                                .Replace("REM       ", "")
+                                .Replace("SWEEP", "")
+                                .Trim()
+                                .Replace("    ", " ");
+                        var prov = new MaskedTextProvider("###-##-##-######-#");
+                        prov.Set(value.TRACCT.ToString(CultureInfo.InvariantCulture));
+                        var formattk = prov.ToDisplayString();
+                        string loaigd;
+                        loaigd = value.DORC == "D" ? "No" : "Co";
+                        if (value.AUXTRC.Trim() != "" && listma.FirstOrDefault(c => c.Id == value.AUXTRC.Trim()) == null)
+                        {
+                            listma.Add(new ListItem
+                            {
+                                Id = value.AUXTRC.Trim(),
+                                Name = value.AUXTRC.Trim() + "|" + value.Chuthich
+                            });
+                        }
+
+                        if (value.cbal != null)
+                            _dbin.Add(new DatainNoCo
+                            {
+                                auxtrc = value.AUXTRC.Trim(),
+                                sotien = value.AMT,
+                                ngayin = DateTime.Now,
+                                seq = Convert.ToInt32(value.SEQ),
+                                ngaygiaodich = ngaygd,
+                                cngd = Convert.ToInt32(value.TRBR),
+                                ghichu = ghichu,
+                                loaitien = value.TRCTYP,
+                                tentk = value.ACNAME.Trim(),
+                                tk = formattk,
+                                truser = value.TRUSER,
+                                loai = loaigd,
+                                chuthich_aux = value.Chuthich,
+                                cn_motk = value.TRBR.ToString(),
+                                cn_giaodich = value.TRSOBR.ToString(CultureInfo.InvariantCulture),
+                                cifno = value.CIFNO.ToString(),
+                                sodu = value.cbal.Value
+                            });
+                    }
+
+                    dgv_noco_cif.DataSource = null;
+                    dgv_noco_cif.DataSource = _dbin;
+                    var dataGridViewColumn = dgv_noco_cif.Columns["sotien"];
+                    if (dataGridViewColumn != null)
+                        dataGridViewColumn.DefaultCellStyle.Format = "#,##0;-#,##0;0";
+                    var gridViewColumn = dgv_noco_cif.Columns["sodu"];
+                    if (gridViewColumn != null)
+                        gridViewColumn.DefaultCellStyle.Format = "#,##0;-#,##0;0";
+                    lb_cif_trangthai.Text = _dbin.Count.ToString(CultureInfo.InvariantCulture);
+                }
+            }
+        }
+
+        private void LayThongTinTheoTk()
+        {
+            clb_Locdl.Items.Clear();
+            string loai;
+            clb_Locdl.Sorted = false;
+            clb_Locdl.Items.Add("-In Tất cả", CheckState.Checked);
+            clb_Locdl.Sorted = true;
+            if (rb_all.Checked)
+            {
+                loai = " ";
+            }
+            else if (rb_baoco.Checked)
+            {
+                loai = "C";
+            }
+            else
+            {
+                loai = "D";
+            }
+
+            var sotk = Convert.ToDecimal(mtb_nc_tk.Text.Replace("-", "").Trim());
+            if (string.IsNullOrEmpty(mtb_nc_tk.Text.Replace("-", "").Trim()))
+            {
+                MessageBox.Show(@"Chưa nhập Số Tài khoản");
+            }
+            else if (mtb_nc_tk.Text.Replace("-", "").Trim().Length != 14)
+            {
+                MessageBox.Show(@"Sai Số Tài khoản");
+            }
+            else
+            {
+                string res = check_dl("dddhis_date", dtp_tungay.Value, dtp_denngay.Value);
+                if (!string.IsNullOrEmpty(res))
+                {
+                    MessageBox.Show(res);
+                }
+                else
+                {
+                    var re = _db.LichSuGiaoDichTheoTK(sotk,dtp_tungay.Value, dtp_denngay.Value, loai);
+                    _dbin = new List<DatainNoCo>();
+
+                    var ngaytruocdo = dtp_tungay.Value.AddDays(-1);
+
+                    var cablngaytruoc = _db.DDMAST_DATE.FirstOrDefault(c => c.ACCTNO == sotk && c.DATADATE == ngaytruocdo);
+                    decimal sodu = 0;
+                    if (cablngaytruoc != null)
+                    {
+                        sodu = cablngaytruoc.CBAL;
+                    }
+
+                    foreach (var value in re)
+                    {
+                        string gio = value.TRTIME.ToString();
+                        if (gio.IndexOf(".", StringComparison.Ordinal) != -1)
+                        {
+                            gio = gio.Remove(gio.IndexOf(".", StringComparison.Ordinal));
+                        }
+                        if (gio.Length == 5)
+                        {
+                            gio = "0" + gio;
+                        }
+                        if (gio.Trim().Length == 1)
+                        {
+                            gio = "000000";
+                        }
+                        // DateTime t = DateTime.ParseExact(gio, "HHmmss", CultureInfo.CurrentCulture);
+                        DateTime t;
+                        if (!DateTime.TryParseExact(gio, "HHmmss", CultureInfo.CurrentCulture, DateTimeStyles.None, out t))
+                        {
+                            t = DateTime.ParseExact("000000", "HHmmss", CultureInfo.CurrentCulture); 
+                        }
+
+                        var ngaygd = new DateTime(value.TRDAT6.Year, value.TRDAT6.Month, value.TRDAT6.Day, t.Hour,
+                            t.Minute, t.Second);
+
+                        string ghichu =
+                            value.TREFTH.Replace("tREM", "")
+                                .Replace("REM       ", "")
+                                .Replace("SWEEP", "")
+                                .Trim()
+                                .Replace("    ", " ")
+                                .Trim();
+                        var prov = new MaskedTextProvider("###-##-##-######-#");
+                        prov.Set(value.TRACCT.ToString(CultureInfo.InvariantCulture));
+                        var formattk = prov.ToDisplayString();
+                        string loaigd;
+                        loaigd = value.DORC == "D" ? "No" : "Co";
+
+                        if (clb_Locdl.Items.IndexOf(value.AUXTRC.Trim() + "|" + value.Chuthich) == -1)
+                        {
+                            clb_Locdl.Items.Add(value.AUXTRC.Trim() + "|" + value.Chuthich, true);
+                        }
+
+                        if (value.DORC == "D")
+                        {
+                            sodu = sodu - value.AMT;
+                        }
+                        else
+                        {
+                            sodu = sodu + value.AMT;
+                        }
+                        if (value.cbal != null)
+                            _dbin.Add(new DatainNoCo
+                            {
+                                auxtrc = value.AUXTRC.Trim(),
+                                sotien = value.AMT,
+                                ngayin = DateTime.Now,
+                                seq = Convert.ToInt32(value.SEQ),
+                                ngaygiaodich = ngaygd,
+                                cngd = Convert.ToInt32(value.TRBR),
+                                ghichu = ghichu,
+                                loaitien = value.TRCTYP,
+                                tentk = value.ACNAME.Trim(),
+                                tk = formattk,
+                                truser = value.TRUSER,
+                                loai = loaigd,
+                                chuthich_aux = value.Chuthich,
+                                cn_motk = value.TRBR.ToString(),
+                                cn_giaodich = value.TRSOBR.ToString(CultureInfo.InvariantCulture),
+                                cifno = value.CIFNO.ToString(),
+                                sodu = sodu,
+                                trancd = value.TRANCD
+                            });
+                    }
+
+                    dgv_noco_tk.DataSource = _dbin;
+                    //  dataview.Columns["sotien"].DefaultCellStyle.Format = "#,##0;-#,##0;0";
+                    // dataview.Columns["sodu"].DefaultCellStyle.Format = "#,##0;-#,##0;0";
+                    tb_somon.Text = _dbin.Count.ToString(CultureInfo.InvariantCulture);
+                    bt_uncheckclb_locdl.Enabled = true;
+                    foreach (DataGridViewRow row in dgv_noco_tk.Rows)
+                        if (row.Cells[6].Value.ToString() == "No")
+                        {
+                            row.DefaultCellStyle.BackColor = Color.LightPink;
+                        }
+                }
+            }
+        }
+
+        private void maskedTextBox1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LayThongTinTheoTk();
+            }
+        }
+
+        private void OpenExplorer(string dir)
+        {
+            var result = MessageBox.Show($"Xuất Bc thành công \n File Lưu tại {dir} \n Bạn Có muốn mở file", "OpenFile", MessageBoxButtons.YesNo,
+                                   MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                {
+                    FileName = dir,
+                    UseShellExecute = true,
+                    Verb = "open"
+                });
+            }
+        }
+
+        private void tc_td_tragoc_Enter(object sender, EventArgs e)
+        {
+            _ngaydl = (from p in _db.tb_checkdulieu
+                       where p.tablename == "loanmonth"
+                       select p.datadate).Max();
+            if (_ngaydl != null) lb_ngaydl.Text = _ngaydl.Value.ToShortDateString();
+        }
+
+        private void tb_in_sec_Enter(object sender, EventArgs e)
+        {
+            lb_mayinso.Text = @"Đang lấy Thông Tin Máy in";
+            tb_LayTTinSosec.Visible = false;
+            bt_insosec.Visible = false;
+            panel1.Enabled = false;
+            tb_tenchinhanh.Text = TenChiNhanh;
+            tb_diachi.Text = DiaChi;
+
+            var bdsuEntities = new bdsuEntities();
+
+            string machineName = Environment.MachineName;
+            tbPrinter tbprinter =
+                bdsuEntities.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+            if (tbprinter != null)
+            {
+                _printerIp = tbprinter.printerService;
+                lb_mayinso.Text = $@"Địa chỉ máy: {machineName} - Địa Chỉ Máy In: {_printerIp}";
+                tb_LayTTinSosec.Visible = true;
+                bt_insosec.Visible = true;
+                tb_LayTTinSosec.Enabled = true;
+                bt_insosec.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show($"Máy {machineName} Chưa Khai Báo Máy in");
+                tb_LayTTinSosec.Enabled = false;
+                bt_insosec.Enabled = false;
+                panel1.Enabled = true;
+            }
+        }
+
+        private void tb_cif_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LayThongTinTheoCif();
+            }
+        }
+
+        private void tb_gl_laydulieu_Click(object sender, EventArgs e)
+        {
+            if (textEdit1.Text.Trim() == "")
+            {
+                MessageBox.Show(@"Chưa nhập TK GL");
+            }
+            else
+            {
+                decimal glacc = Convert.ToDecimal(textEdit1.Text.Trim());
+                var ngaydl = (DateTime)dtp_gl_ngay.EditValue;
+                IQueryable<GLHIST> listgl = from p in _db.GLHISTs
+                                            where p.GTACCT == glacc && p.DataDate == ngaydl.Date
+                                            select p;
+                _lsglhist = listgl.ToList();
+                GL_gc_tracuutk.DataSource = new BindingSource(_lsglhist, "");
+                GL_gv_tracuutk.BestFitColumns();
+            }
+        }
+
+        private void tb_gl_xuatExcel_Click(object sender, EventArgs e)
+        {
+            if (_lsglhist == null || _lsglhist.Count == 0)
+            {
+                MessageBox.Show(@"Chưa có DL");
+            }
+            else
+            {
+                SaveFileExcel.FileName = "gl_";
+                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+                {
+                    using (var pck = new ExcelPackage())
+                    {
+                        var fi = new FileInfo(SaveFileExcel.FileName);
+
+                        if (fi.Exists)
+                        {
+                            fi.Delete();
+                        }
+                        ExcelWorksheet wsList = pck.Workbook.Worksheets.Add("glhist");
+                        wsList.Cells["A1"].LoadFromCollection(_lsglhist, true);
+                        wsList.Column(1).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        wsList.Column(2).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
+                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        {
+                            wsList.Column(i).AutoFit();
+                        }
+
+                        pck.SaveAs(fi);
+                    }
+                    OpenExplorer(SaveFileExcel.FileName);
+                }
+            }
+        }
+
+        private void UpdateLabelText(string newText)
+        {
+            if (lb_solanin.InvokeRequired)
+            {
+                // this is worker thread
+                UpdateLabelTextDelegate del = UpdateLabelText;
+                lb_solanin.Invoke(del, new object[] { newText });
+            }
+            else
+            {
+                // this is UI thread
+                lb_solanin.Text = newText;
+            }
+        }
+
+        private void bt_td_tl_laytt_Click(object sender, EventArgs e)
+        {
+            var tungay = (DateTime)dtp_td_tl_tungay.Value;
+            var denngay = (DateTime)dtp_td_tl_denngay.Value;
+
+            var trlai = _db.TraLai(_ngaydl, tungay, denngay);
+            gc_td_tralai.DataSource = new BindingSource(trlai, "");
+
+            gv_td_tralai.OptionsView.ColumnAutoWidth = false;
+            gv_td_tralai.OptionsView.BestFitMaxRowCount = -1;
+            gv_td_tralai.BestFitColumns();
+        }
+
+        private void tb_tralai_Enter(object sender, EventArgs e)
+        {
+            _ngaydl = (from p in _db.tb_checkdulieu
+                       where p.tablename == "loanmonth"
+                       select p.datadate).Max();
+            if (_ngaydl != null) lb_td_tl_ngaydl.Text = _ngaydl.Value.ToShortDateString();
+        }
+
+        private void bt_td_tl_xuatexel_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "saoke_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                gv_td_tralai.OptionsPrint.AutoWidth = false;
+                gv_td_tralai.BestFitColumns();
+                gc_td_tralai.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        // Function for read data from Excel worksheet into DataTable
+        private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
+        {
+            var dt = new DataTable(ws.Name);
+            var totalCols = ws.Dimension.End.Column;
+            var totalRows = ws.Dimension.End.Row;
+            var startRow = hasHeader ? 2 : 1;
+            foreach (var firstRowCell in ws.Cells[1, 1, 1, totalCols])
+            {
+                dt.Columns.Add(hasHeader ? firstRowCell.Text : $"Column {firstRowCell.Start.Column}");
+            }
+
+            for (var rowNum = startRow; rowNum <= totalRows; rowNum++)
+            {
+                var wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
+                var dr = dt.NewRow();
+                foreach (var cell in wsRow)
+                {
+                    dr[cell.Start.Column - 1] = cell.Text;
+                }
+
+                dt.Rows.Add(dr);
+            }
+
+            return dt;
+        }
+
+        private List<DatainNoCo> data = new List<DatainNoCo>();
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            using (var openFileDialog1 = new OpenFileDialog())
+            {
+                openFileDialog1.Filter = @"Excel File (*.xlsx)|*.xlsx";
+                openFileDialog1.FilterIndex = 1;
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (ExcelPackage pck = new ExcelPackage())
+                        {
+                            // Open the Excel file and load it to the ExcelPackage
+                            using (var stream = File.OpenRead(openFileDialog1.FileName))
+                            {
+                                pck.Load(stream);
+                            }
+
+                            ExcelWorksheet ws = pck.Workbook.Worksheets.First();
+                            int totalCols = ws.Dimension.End.Column;
+                            int totalRows = ws.Dimension.End.Row;
+                            int startRow = 2;
+                            ExcelRange wsRow;
+                            for (int rowNum = startRow; rowNum <= totalRows; rowNum++)
+                            {
+                                wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(@"Import failed. Original error: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void bt_sk_pos_ltt_Click(object sender, EventArgs e)
+        {
+            var phipos = _db.phiPos(dtk_sk_pos_bd.Value, dtk_sk_pos_kt.Value);
+            gc_sk_phipos.DataSource = new BindingSource(phipos, "");
+
+            gv_sk_phipos.OptionsView.ColumnAutoWidth = false;
+            gv_sk_phipos.OptionsView.BestFitMaxRowCount = -1;
+            gv_sk_phipos.BestFitColumns();
+        }
+
+        private void button6_Click_2(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "saokepos_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                gv_sk_phipos.OptionsPrint.AutoWidth = false;
+                gv_sk_phipos.BestFitColumns();
+                gv_sk_phipos.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_n_ttnt_laydl_Click(object sender, EventArgs e)
+        {
+            var ngoaite = _db.MuaBanNgoaiTe(dtp_n_ttnt_ngay.Value).ToList();
+
+            var tygia = _db.laytygiangay(dtp_n_ttnt_ngay.Value);
+            if (ngoaite.Count > 0)
+            {
+                gc_nguon_ttnt.DataSource = new BindingSource(ngoaite, "");
+                gv_nguon_ttnt.OptionsView.ColumnAutoWidth = false;
+                gv_nguon_ttnt.OptionsView.BestFitMaxRowCount = -1;
+                gv_nguon_ttnt.BestFitColumns();
+
+                gc_nguon_ttnt_tygia.DataSource = new BindingSource(tygia, "");
+                gv_nguon_ttnt_tygia.OptionsView.ColumnAutoWidth = false;
+                gv_nguon_ttnt_tygia.OptionsView.BestFitMaxRowCount = -1;
+                gv_nguon_ttnt_tygia.BestFitColumns();
+                var sumqdusd = ngoaite.Sum(p => p.qdusd);
+                textBox1.Text = $"{sumqdusd:0,0.00}";
+            }
+            else
+            {
+                MessageBox.Show(@"Chưa có dl");
+            }
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gv_nguon_ttnt.OptionsPrint.AutoWidth = false;
+                gv_nguon_ttnt.BestFitColumns();
+                gv_nguon_ttnt.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_gl_erp_laytt_Click(object sender, EventArgs e)
+        {
+            if (txt_gl_erp_gl.Text.Trim() == "")
+            {
+                MessageBox.Show(@"Chưa nhập TK GL");
+            }
+            else
+            {
+                //  IQueryable<GLHIST_ERP> listgl;
+                var glacc = Convert.ToDecimal(txt_gl_erp_gl.Text.Trim());
+                var ngaybd = (DateTime)de_gl_erp_datdau.EditValue;
+                var ngaykt = (DateTime)de_gl_erp_ketthuc.EditValue;
+                var tiente = (string)cb_gl_erp_loaitien.SelectedItem;
+                var bds = Convert.ToInt32(cb_gl_erp_bds.SelectedItem);
+
+                var lsgl = _db.tracuulsgl(glacc, ngaybd, ngaykt, bds, tiente.Trim());
+
+                //       _listLsGl = listgl.ToList();
+                gc_gl_lsglerp.DataSource = new BindingSource(lsgl, "");
+                gv_gl_lsglerp.BestFitColumns();
+            }
+        }
+
+        private void bt_gl_erp_xuatexcel_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gv_gl_lsglerp.OptionsPrint.AutoWidth = false;
+                gv_gl_lsglerp.BestFitColumns();
+                gv_gl_lsglerp.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            decimal sochay = 2255;
+            string loaitk = "00";
+            switch (cb_tk_sodep_loaitk.SelectedIndex)
+            {
+                case 0:
+                    loaitk = "00";
+                    sochay = 44780;
+                    break;
+
+                case 1:
+                    loaitk = "37";
+                    sochay = 2255;
+                    break;
+            }
+
+            string tk = "";
+            tk = mtb_tk_sodep_dautk.Text + loaitk;
+            string tkkyvong = tb_tk_sodep_mongmuon.Text;
+            string checktk = tk;
+            for (decimal i = sochay; i <= 999999; i++)
+            {
+                checktk = $"{i:000000}";
+                string a = Lib.chkDigitAccountNo(tk + checktk);
+
+                //  lb_tk_sodep_ketqua.Items.Add(a);
+                if (a.IndexOf(tkkyvong, StringComparison.Ordinal) != -1)
+                {
+                    var check = _dbbdsu.tb_ql_CIF.FirstOrDefault(c => c.accno == a);
+                    if (check != null)
+                    {
+                        richTextBox1.AppendText(a + " - Đã dùng \n");
+                    }
+                    else
+                    {
+                        richTextBox1.AppendText(a + "\n");
+                    }
+                }
+            }
+        }
+
+        private void bt_gl_trc_laytt_Click(object sender, EventArgs e)
+        {
+            if (tb_gl_trc_tk.Text == "")
+            {
+                MessageBox.Show(@"Chưa nhập tk GL");
+            }
+            else
+            {
+                var tkgl = Convert.ToDecimal(tb_gl_trc_tk.Text);
+                var ngaybd = (DateTime)de_gl_trc_nbd.EditValue;
+                var ngaykt = (DateTime)de_gl_trc_nkt.EditValue;
+
+                var gl = _db.TraCuuGLERP(tkgl, ngaybd, ngaykt);
+
+                gridControl2.DataSource = new BindingSource(gl, "");
+                gridView2.BestFitColumns();
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gridView2.OptionsPrint.AutoWidth = false;
+                gridView2.BestFitColumns();
+                gridView2.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_tc_tcmpa_laysdtc_Click(object sender, EventArgs e)
+        {
+            var thauchi = _db.thauchi_mpa(dtp_tcmpa_tc_ngay.Value);
+            gc_tcmpa.DataSource = new BindingSource(thauchi, "");
+            gv_tcmpa.OptionsView.ColumnAutoWidth = false;
+            gv_tcmpa.BestFitColumns();
+        }
+
+        private void bt_tc_tcmpa_xuatexcel_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gv_tcmpa.OptionsPrint.AutoWidth = false;
+                gv_tcmpa.BestFitColumns();
+                gv_tcmpa.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_TC_SK_laydl_Click(object sender, EventArgs e)
+        {
+            var tk = Convert.ToDecimal(mtb_TC_SK_sotk.Text.Replace("-", ""));
+            var thauchi = _db.saokethauchi(dtp_TC_SK_ngaydau.Value, dtp_TC_SK_ngaycuoi.Value, tk);
+            GC_ThauChi_SaoKe.DataSource = new BindingSource(thauchi, "");
+            GV_ThauChi_SaoKe.OptionsView.ColumnAutoWidth = false;
+            GV_ThauChi_SaoKe.BestFitColumns();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                GV_ThauChi_SaoKe.OptionsPrint.AutoWidth = false;
+                GV_ThauChi_SaoKe.BestFitColumns();
+                GV_ThauChi_SaoKe.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void label54_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_tbdn_laysl_Click(object sender, EventArgs e)
+        {
+            var cif = Convert.ToDecimal(tb_tbdn_cif.Text);
+            var tbdn = _db.ThongBaoDuNo(cif);
+            GC_TD_TBDN.DataSource = new BindingSource(tbdn, "");
+            GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
+            GV_TD_TBDN.BestFitColumns();
+        }
+    }
+}

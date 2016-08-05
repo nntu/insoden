@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A21464AC-9E82-483C-AEF7-CFAF60EABD1D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>insoden</RootNamespace>
+    <AssemblyName>insoden</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>\\10.141.2.5\inbaoco\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>In báo nợ báo có</ProductName>
+    <PublisherName>BIDVCanTho</PublisherName>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>201</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Absolute</BootstrapperComponentsLocation>
+    <BootstrapperComponentsUrl>\\10.141.2.5\bidvct\hotro</BootstrapperComponentsUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>22219BFF88EC5281E3A12FB0E48FFFDDB18C3486</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>insoden_2_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Document-Write.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>insoden_2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v15.1, Version=15.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net20\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.7.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.7\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bdsu.Context.cs">
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>bdsu.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bdsu.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bdsu1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdsu.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="binhquantiengui_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clbc833.cs" />
+    <Compile Include="dept.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLHIST.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLHIST_ERP.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLMAST.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLMAST_ERP.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InpdcGD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InpdcGD.Designer.cs">
+      <DependentUpon>InpdcGD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="laytygiangay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="laytygia_ngay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="laytygia_tungay_denngay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LNDHIS_DATE.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MuaBanNgoaiTe_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="nocoa5 - Copy.cs">
+      <DependentUpon>nocoa5 - Copy.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="datain.cs" />
+    <Compile Include="DDDHIS_DATE.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DDMAST_DATE.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dlgoc.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dlgoc.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dlgoc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dlgoc1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dlgoc.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DoanhSoTientheoCif_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCIFInfo_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMonthList_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inbc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inbc.Designer.cs">
+      <DependentUpon>inbc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inbclt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inbclt.Designer.cs">
+      <DependentUpon>inbclt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inpdc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inpdc.Designer.cs">
+      <DependentUpon>inpdc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LichSuGiaoDichTheoCIF_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LichSuGiaoDichTheoTK_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListDates_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListItem.cs" />
+    <Compile Include="LsgdGL_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Lsgd_GL_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lib.cs" />
+    <Compile Include="MyExtensions.cs" />
+    <Compile Include="noco.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>noco.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="nocoa5.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>nocoa5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="pdcgiamdoc.cs">
+      <DependentUpon>pdcgiamdoc.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="pdc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pdc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="PhieuDoiChieu_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="phiPos_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SaoKeCif_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SaoKeTienVay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoDuKHTienGui_ChiTiet_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoDuKHTienGui_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoDuTaiTD_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbbdsuser.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBranch.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbPrinter.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbsothe.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbXoaATM.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_checkdulieu.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_loaiKH.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ql_CIF.cs">
+      <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ThuNoThuLai_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TinhPhiTheoCif_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TonQuy_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraCuuGLERP_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tracuulsgl_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraGoc_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TraLai_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="X1PCMS.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Content Include="Chuky_tranoc.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Chuky_tranoc.png" />
+    <Content Include="gl_70217.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="InpdcGD.resx">
+      <DependentUpon>InpdcGD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nocoa5 - Copy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>nocoa5 - Copy.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inbc.resx">
+      <DependentUpon>inbc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inbclt.resx">
+      <DependentUpon>inbclt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inpdc.resx">
+      <DependentUpon>inpdc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="noco.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>noco.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nocoa5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>nocoa5.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pdc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pdc.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="bdsu.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdsu.edmx</DependentUpon>
+      <LastGenOutput>bdsu.Context.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="bdsu.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>bdsu1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="bdsu.edmx.diagram">
+      <DependentUpon>bdsu.edmx</DependentUpon>
+    </None>
+    <None Include="bdsu.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>bdsu.edmx</DependentUpon>
+      <LastGenOutput>bdsu.cs</LastGenOutput>
+    </None>
+    <Content Include="dienlucnk.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="dlgoc.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dlgoc.edmx</DependentUpon>
+      <LastGenOutput>dlgoc.Context.cs</LastGenOutput>
+    </None>
+    <Content Include="chuky.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Document-Write.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="dlgoc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dlgoc1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="dlgoc.edmx.diagram">
+      <DependentUpon>dlgoc.edmx</DependentUpon>
+    </None>
+    <None Include="dlgoc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dlgoc.edmx</DependentUpon>
+      <LastGenOutput>dlgoc.cs</LastGenOutput>
+    </None>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="saoketienvay.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MAU.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="insoden_2_TemporaryKey.pfx" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="pdcgiamdoc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pdcgiamdoc.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\DatainNoCo.datasource" />
+    <None Include="Properties\DataSources\DoanhSoTientheoCif_Result.datasource" />
+    <None Include="Properties\DataSources\GLHIST.datasource" />
+    <None Include="Properties\DataSources\incif.datasource" />
+    <None Include="Properties\DataSources\laytygiangay_Result.datasource" />
+    <None Include="Properties\DataSources\MuaBanNgoaiTe_Result.datasource" />
+    <None Include="Properties\DataSources\phiPos_Result.datasource" />
+    <None Include="Properties\DataSources\SaoKeCif_Result.datasource" />
+    <None Include="Properties\DataSources\SaoKeTienVay_Result.datasource" />
+    <None Include="Properties\DataSources\ThuNoThuLai_Result.datasource" />
+    <None Include="Properties\DataSources\TinhPhiTheoCif_Result.datasource" />
+    <None Include="Properties\DataSources\TonQuy_Result.datasource" />
+    <None Include="Properties\DataSources\TraCuuGLERP_Result.datasource" />
+    <None Include="Properties\DataSources\TraCuuGLERP_Result1.datasource" />
+    <None Include="Properties\DataSources\tracuulsgl_Result.datasource" />
+    <None Include="Properties\DataSources\tracuulsgl_Result2.datasource" />
+    <None Include="Properties\DataSources\TraGoc_Result.datasource" />
+    <None Include="Properties\DataSources\X1PCMS.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="saoketk.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

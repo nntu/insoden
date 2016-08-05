@@ -1,0 +1,2769 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dlgocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.DDDHIS_DATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DDDHIS_DATE">
+          <Key>
+            <PropertyRef Name="BATCH" />
+            <PropertyRef Name="SEQ" />
+            <PropertyRef Name="TRSOBR" />
+            <PropertyRef Name="TRACCT" />
+            <PropertyRef Name="TRATYP" />
+            <PropertyRef Name="TRANCD" />
+            <PropertyRef Name="AMT" />
+            <PropertyRef Name="TRCTYP" />
+            <PropertyRef Name="DORC" />
+            <PropertyRef Name="BORI" />
+            <PropertyRef Name="TRUSER" />
+            <PropertyRef Name="TRDAT6" />
+            <PropertyRef Name="DDGRUP" />
+            <PropertyRef Name="TREFTH" />
+          </Key>
+          <Property Name="DATADATE" Type="datetime" />
+          <Property Name="BATCH" Type="decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="SEQ" Type="decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TRBR" Type="decimal" Precision="5" Scale="0" />
+          <Property Name="TRSOBR" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="TRACCT" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="TRATYP" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TRANCD" Type="decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="AMT" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="TRCTYP" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="DORC" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="BORI" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="TREFF6" Type="datetime" />
+          <Property Name="TRSUPV" Type="char" MaxLength="10" />
+          <Property Name="TRUSER" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TRDAT6" Type="datetime" Nullable="false" />
+          <Property Name="TRTIME" Type="decimal" Precision="6" Scale="0" />
+          <Property Name="DDGRUP" Type="decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="TREFTH" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="TRTKTN" Type="char" MaxLength="20" />
+          <Property Name="BRANCH" Type="char" MaxLength="10" />
+          <Property Name="LASTMDATE" Type="datetime" />
+          <Property Name="LMDATE" Type="char" MaxLength="15" />
+          <Property Name="AUXTRC" Type="char" MaxLength="10" />
+          <Property Name="DEPTCODE" Type="char" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.DDMAST_DATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DDMAST_DATE">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="CIFNO" />
+            <PropertyRef Name="ACCTNO" />
+            <PropertyRef Name="SCCODE" />
+            <PropertyRef Name="DDGRUP" />
+            <PropertyRef Name="RATE" />
+            <PropertyRef Name="DDMUID" />
+            <PropertyRef Name="DDCTYP" />
+            <PropertyRef Name="CBAL" />
+            <PropertyRef Name="ACCRUE" />
+            <PropertyRef Name="HOLD" />
+            <PropertyRef Name="PGDID" />
+            <PropertyRef Name="PVAR1" />
+            <PropertyRef Name="PVAR" />
+            <PropertyRef Name="AMTDRC" />
+            <PropertyRef Name="AMTCR" />
+            <PropertyRef Name="CLASS" />
+            <PropertyRef Name="DMPRDC" />
+            <PropertyRef Name="DDCDEC" />
+            <PropertyRef Name="ACTYPE" />
+          </Key>
+          <Property Name="DATADATE" Type="datetime" />
+          <Property Name="BRANCH" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="ACNAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="CIFNO" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="ACCTNO" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="SCCODE" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="DDGRUP" Type="decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="RATE" Type="decimal" Precision="11" Scale="9" Nullable="false" />
+          <Property Name="DDMUID" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="DDCTYP" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="DATOP6" Type="datetime" />
+          <Property Name="DLA6" Type="datetime" />
+          <Property Name="CBAL" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="ACCRUE" Type="decimal" Precision="15" Scale="5" Nullable="false" />
+          <Property Name="HOLD" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="PGDID" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="STATUS" Type="char" MaxLength="10" />
+          <Property Name="PVAR1" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PVAR" Type="decimal" Precision="11" Scale="9" Nullable="false" />
+          <Property Name="AMTDRC" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="AMTCR" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CLASS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DMPRDC" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="DDCDEC" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ACTYPE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LMDATE" Type="datetime" />
+          <Property Name="ODPROT" Type="char" MaxLength="1" />
+          <Property Name="ODDLIM" Type="decimal" Precision="15" Scale="0" />
+          <Property Name="OTRATE" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="OTDTE" Type="datetime" />
+          <Property Name="OTEXP" Type="datetime" />
+          <Property Name="OTDTE2" Type="datetime" />
+          <Property Name="OTEXP2" Type="datetime" />
+          <Property Name="ODINT" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="ODEXSS" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="PFLOOR" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="PCEIL" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="ORATE" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="DEPTCODE" Type="char" MaxLength="3" />
+          <Property Name="OTRTN" Type="decimal" Precision="5" Scale="0" />
+          <Property Name="OTPVR1" Type="char" MaxLength="1" />
+          <Property Name="OTPVAR" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="OTCEIL" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="OTFLOR" Type="decimal" Precision="11" Scale="9" />
+          <Property Name="ODUNAC" Type="decimal" Precision="11" Scale="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.GLHIST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GLHIST">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="GTACCT" />
+            <PropertyRef Name="TRDORC" />
+            <PropertyRef Name="TRAMT" />
+            <PropertyRef Name="TRDAT6" />
+            <PropertyRef Name="TREFF" />
+            <PropertyRef Name="TRDESC" />
+            <PropertyRef Name="TRCTYP" />
+            <PropertyRef Name="TRCFYR" />
+            <PropertyRef Name="TREFTH" />
+          </Key>
+          <Property Name="DataDate" Type="datetime" />
+          <Property Name="LMDATE" Type="datetime" />
+          <Property Name="BRANCH" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="GTACCT" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="TRDORC" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="TRAMT" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="TRDAT6" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="TREFF" Type="decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="TRDESC" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="TRCTYP" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="TRCFYR" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="TREFTH" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="TRUSR2" Type="char" MaxLength="10" />
+          <Property Name="TRUSRN" Type="varchar" MaxLength="10" />
+          <Property Name="TRAUXT" Type="varchar" MaxLength="20" />
+          <Property Name="TRSEQ" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TRTKTN" Type="varchar" MaxLength="50" />
+          <Property Name="TRSTAT" Type="char" MaxLength="1" />
+          <Property Name="DEPTCODE" Type="char" MaxLength="3" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.GLHIST_ERP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GLHIST_ERP">
+          <Key>
+            <PropertyRef Name="DataDate" />
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="GTACCT" />
+            <PropertyRef Name="TRAMT" />
+          </Key>
+          <Property Name="DataDate" Type="datetime" Nullable="false" />
+          <Property Name="LMDATE" Type="datetime" />
+          <Property Name="BRANCH" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="GTACCT" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="TRDORC" Type="char" MaxLength="1" />
+          <Property Name="TRAMT" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="TRDAT6" Type="decimal" Precision="6" Scale="0" />
+          <Property Name="TREFF" Type="decimal" Precision="6" Scale="0" />
+          <Property Name="TRDESC" Type="nvarchar(max)" />
+          <Property Name="TRCTYP" Type="char" MaxLength="4" />
+          <Property Name="TRCFYR" Type="char" MaxLength="4" />
+          <Property Name="TREFTH" Type="nvarchar(max)" />
+          <Property Name="TRUSR2" Type="char" MaxLength="10" />
+          <Property Name="TRUSRN" Type="varchar" MaxLength="10" />
+          <Property Name="TRAUXT" Type="varchar" MaxLength="20" />
+          <Property Name="TRSEQ" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TRTKTN" Type="varchar" MaxLength="100" />
+          <Property Name="TRSTAT" Type="nchar" MaxLength="10" />
+          <Property Name="trsys" Type="nchar" MaxLength="50" />
+          <Property Name="DEPTCODE" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.GLMAST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GLMAST">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="ACCTGL" />
+            <PropertyRef Name="GMCTYP" />
+            <PropertyRef Name="GMCFYR" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="CURBAL" />
+            <PropertyRef Name="DRATDY" />
+            <PropertyRef Name="CRATDY" />
+            <PropertyRef Name="DRAWTD" />
+            <PropertyRef Name="CRAWTD" />
+            <PropertyRef Name="DRAMTD" />
+            <PropertyRef Name="CRAMTD" />
+            <PropertyRef Name="DRAQTD" />
+            <PropertyRef Name="CRAQTD" />
+            <PropertyRef Name="DRAYTD" />
+            <PropertyRef Name="CRAYTD" />
+            <PropertyRef Name="DECMEB" />
+            <PropertyRef Name="ACTYPE" />
+            <PropertyRef Name="ACTCAT" />
+            <PropertyRef Name="CHGTDY" />
+          </Key>
+          <Property Name="DataDate" Type="datetime" />
+          <Property Name="LMDATE" Type="datetime" />
+          <Property Name="BRANCH" Type="decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="ACCTGL" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="GMCTYP" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="GMCFYR" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="TITLE" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="CURBAL" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="DRATDY" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="CRATDY" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="DRAWTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="CRAWTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="DRAMTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="CRAMTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="DRAQTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="CRAQTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="DRAYTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="CRAYTD" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="DECMEB" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="ACTYPE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ACTCAT" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CHGTDY" Type="decimal" Precision="17" Scale="2" Nullable="false" />
+          <Property Name="NORBAL" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.GLMAST_ERP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GLMAST_ERP">
+          <Key>
+            <PropertyRef Name="DataDate" />
+            <PropertyRef Name="ACCTGL" />
+          </Key>
+          <Property Name="DataDate" Type="datetime" Nullable="false" />
+          <Property Name="LMDATE" Type="datetime" />
+          <Property Name="BRANCH" Type="decimal" Precision="5" Scale="0" />
+          <Property Name="ACCTGL" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="GMCTYP" Type="char" MaxLength="4" />
+          <Property Name="GMCFYR" Type="char" MaxLength="4" />
+          <Property Name="TITLE" Type="nvarchar" MaxLength="250" />
+          <Property Name="CURBAL" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="DRATDY" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="CRATDY" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="DRAWTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="CRAWTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="DRAMTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="CRAMTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="DRAQTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="CRAQTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="DRAYTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="CRAYTD" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="DECMEB" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="ACTYPE" Type="char" MaxLength="1" />
+          <Property Name="ACTCAT" Type="char" MaxLength="1" />
+          <Property Name="CHGTDY" Type="decimal" Precision="17" Scale="2" />
+          <Property Name="NORBAL" Type="char" MaxLength="1" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.LNDHIS_DATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LNDHIS_DATE">
+          <Key>
+            <PropertyRef Name="LHACCT" />
+            <PropertyRef Name="LHATYP" />
+            <PropertyRef Name="LHTRAN" />
+            <PropertyRef Name="LHCUR" />
+            <PropertyRef Name="LHUSER" />
+          </Key>
+          <Property Name="BRANCH" Type="char" MaxLength="3" />
+          <Property Name="ACCT_BRN" Type="char" MaxLength="3" />
+          <Property Name="DATADATE" Type="datetime" />
+          <Property Name="LHACCT" Type="decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="LHATYP" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="LHTRAN" Type="decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="LHDORC" Type="char" MaxLength="1" />
+          <Property Name="LHAFFT" Type="char" MaxLength="1" />
+          <Property Name="LHCUR" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="LHAMT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="LHEFD6" Type="datetime" />
+          <Property Name="LHGRUP" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="LHSEQN" Type="decimal" Precision="9" Scale="0" />
+          <Property Name="LHUSER" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="LHAXTC" Type="varchar" MaxLength="10" />
+          <Property Name="LHPTYP" Type="varchar" MaxLength="1" />
+          <Property Name="LHOODS" Type="varchar" MaxLength="1" />
+          <Property Name="LHEFTH" Type="varchar" MaxLength="254" />
+          <Property Name="DEPTCODE" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="tb_checkdulieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datadate" Type="datetime" />
+          <Property Name="tbcount" Type="int" />
+          <Property Name="tablename" Type="nvarchar" MaxLength="255" />
+          <Property Name="thucte" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_loaiKH">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="TenMa" Type="nvarchar" MaxLength="255" />
+          <Property Name="TenTPKT" Type="nvarchar" MaxLength="255" />
+          <Property Name="Loai" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="X1PCMS">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="ISD" />
+            <PropertyRef Name="ISM" />
+            <PropertyRef Name="ISY" />
+            <PropertyRef Name="CARDD" />
+            <PropertyRef Name="AC1" />
+            <PropertyRef Name="AC2" />
+            <PropertyRef Name="AC3" />
+            <PropertyRef Name="SHRTNM" />
+            <PropertyRef Name="CUID" />
+            <PropertyRef Name="TYP" />
+            <PropertyRef Name="OPER" />
+            <PropertyRef Name="AD1" />
+          </Key>
+          <Property Name="DATADATE" Type="datetime" />
+          <Property Name="BRANCH" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="LASTMDATE" Type="datetime" />
+          <Property Name="ISD" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ISM" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ISY" Type="decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="CARDD" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="AC1" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="AC2" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="AC3" Type="nvarchar" MaxLength="19" Nullable="false" />
+          <Property Name="SHRTNM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CUID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TYP" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OPER" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="LMDATE" Type="datetime" />
+          <Property Name="DELC" Type="char" MaxLength="5" />
+          <Property Name="LGLID" Type="char" MaxLength="40" />
+          <Property Name="CDSTAT" Type="char" MaxLength="4" />
+          <Property Name="AD1" Type="nvarchar" MaxLength="254" Nullable="false" />
+          <Property Name="AD2" Type="nvarchar" MaxLength="254" />
+          <Property Name="AD3" Type="char" MaxLength="40" />
+          <Property Name="AD4" Type="char" MaxLength="40" />
+        </EntityType>
+        <Function Name="BcDuno_HuyDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="BcDuno_HuyDong_tangGiam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+          <Parameter Name="retr" Type="nvarchar(max)" Mode="InOut" />
+        </Function>
+        <Function Name="BcTuan_HDV_Vay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytruoc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="BcTuan_HDV_Vay_chiTiet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytruoc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="binhquantiengui" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="loaikh" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="bqtienguiThang" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <Parameter Name="listcif" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="check_ngay_dl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tablename" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaydlbd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaydlkt" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="DoanhSoTientheoCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="getCIFInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetFullCIFInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cif" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="GetMonthList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="month" Type="datetime" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="GiaoDichBienDongHDV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytruoc" Type="datetime" Mode="In" />
+          <Parameter Name="Limit" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="GiaoDichBienDongTienVay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytruoc" Type="datetime" Mode="In" />
+          <Parameter Name="Limit" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="GL_SoDuTK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="tkgl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+          <Parameter Name="branch" Type="int" Mode="In" />
+          <Parameter Name="tien" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="laytygia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="laytygia_ngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="laytygia_tungay_denngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="laytygiangay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="LichSuGiaoDichTheoCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cifno" Type="decimal" Mode="In" />
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="Loai" Type="char" Mode="In" />
+        </Function>
+        <Function Name="LichSuGiaoDichTheoTK" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TRACCT" Type="decimal" Mode="In" />
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="Loai" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ListDates" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="char" Mode="In" />
+          <Parameter Name="EndDate" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Date" Type="datetime" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="Lsgd_GL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tkgl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="branch" Type="int" Mode="In" />
+          <Parameter Name="TRCTYP" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="LsgdGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tkgl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="branch" Type="int" Mode="In" />
+          <Parameter Name="TRCTYP" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="lmdate" Type="datetime" />
+                <Property Name="debit" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="credit" Type="decimal" Precision="18" Scale="0" />
+                <Property Name="gldescription" Type="nvarchar" MaxLength="255" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="LsTienGui" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="MuaBanNgoaiTe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Ngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="PhieuDoiChieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cifno" Type="decimal" Mode="In" />
+          <Parameter Name="CurrentDate" Type="datetime" Mode="In" />
+          <Parameter Name="bds" Type="int" Mode="In" />
+          <Parameter Name="loc" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="phiPos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybc" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SaoKeCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="saokethauchi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="tk" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SaoKeTienVay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
+          <Parameter Name="tkvay" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SoDuKHTienGui" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybc" Type="datetime" Mode="In" />
+          <Parameter Name="loaikh" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SoDuKHTienGui_ChiTiet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybc" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SoDuTaiTD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybc" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SoDuTKGL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tkgl" Type="nvarchar" Mode="In" />
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+          <Parameter Name="branch" Type="int" Mode="In" />
+          <Parameter Name="tien" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="thauchi_mpa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ThongBaoDuNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cif" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="ThongBaoNoDenHan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cif" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="ThuNoThuLai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TinhPhiTheoCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TonQuy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TuNgay" Type="datetime" Mode="In" />
+          <Parameter Name="DenNgay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="TraCuuGLERP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tkgl" Type="decimal" Mode="In" />
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="tracuulsgl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tkgl" Type="decimal" Mode="In" />
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="branch" Type="int" Mode="In" />
+          <Parameter Name="TRCTYP" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="TraGoc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydl" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytragoctungay" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytragocdenngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="TraLai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydl" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytragoctungay" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytragocdenngay" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="dlgocModelStoreContainer">
+          <EntitySet Name="tb_checkdulieu" EntityType="Self.tb_checkdulieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_loaiKH" EntityType="Self.tb_loaiKH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DDDHIS_DATE" EntityType="Self.DDDHIS_DATE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DDDHIS_DATE].[DATADATE] AS [DATADATE], 
+    [DDDHIS_DATE].[BATCH] AS [BATCH], 
+    [DDDHIS_DATE].[SEQ] AS [SEQ], 
+    [DDDHIS_DATE].[TRBR] AS [TRBR], 
+    [DDDHIS_DATE].[TRSOBR] AS [TRSOBR], 
+    [DDDHIS_DATE].[TRACCT] AS [TRACCT], 
+    [DDDHIS_DATE].[TRATYP] AS [TRATYP], 
+    [DDDHIS_DATE].[TRANCD] AS [TRANCD], 
+    [DDDHIS_DATE].[AMT] AS [AMT], 
+    [DDDHIS_DATE].[TRCTYP] AS [TRCTYP], 
+    [DDDHIS_DATE].[DORC] AS [DORC], 
+    [DDDHIS_DATE].[BORI] AS [BORI], 
+    [DDDHIS_DATE].[TREFF6] AS [TREFF6], 
+    [DDDHIS_DATE].[TRSUPV] AS [TRSUPV], 
+    [DDDHIS_DATE].[TRUSER] AS [TRUSER], 
+    [DDDHIS_DATE].[TRDAT6] AS [TRDAT6], 
+    [DDDHIS_DATE].[TRTIME] AS [TRTIME], 
+    [DDDHIS_DATE].[DDGRUP] AS [DDGRUP], 
+    [DDDHIS_DATE].[TREFTH] AS [TREFTH], 
+    [DDDHIS_DATE].[TRTKTN] AS [TRTKTN], 
+    [DDDHIS_DATE].[BRANCH] AS [BRANCH], 
+    [DDDHIS_DATE].[LASTMDATE] AS [LASTMDATE], 
+    [DDDHIS_DATE].[LMDATE] AS [LMDATE], 
+    [DDDHIS_DATE].[AUXTRC] AS [AUXTRC], 
+    [DDDHIS_DATE].[DEPTCODE] AS [DEPTCODE]
+    FROM [dbo].[DDDHIS_DATE] AS [DDDHIS_DATE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DDMAST_DATE" EntityType="Self.DDMAST_DATE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DDMAST_DATE].[DATADATE] AS [DATADATE], 
+    [DDMAST_DATE].[BRANCH] AS [BRANCH], 
+    [DDMAST_DATE].[ACNAME] AS [ACNAME], 
+    [DDMAST_DATE].[CIFNO] AS [CIFNO], 
+    [DDMAST_DATE].[ACCTNO] AS [ACCTNO], 
+    [DDMAST_DATE].[SCCODE] AS [SCCODE], 
+    [DDMAST_DATE].[DDGRUP] AS [DDGRUP], 
+    [DDMAST_DATE].[RATE] AS [RATE], 
+    [DDMAST_DATE].[DDMUID] AS [DDMUID], 
+    [DDMAST_DATE].[DDCTYP] AS [DDCTYP], 
+    [DDMAST_DATE].[DATOP6] AS [DATOP6], 
+    [DDMAST_DATE].[DLA6] AS [DLA6], 
+    [DDMAST_DATE].[CBAL] AS [CBAL], 
+    [DDMAST_DATE].[ACCRUE] AS [ACCRUE], 
+    [DDMAST_DATE].[HOLD] AS [HOLD], 
+    [DDMAST_DATE].[PGDID] AS [PGDID], 
+    [DDMAST_DATE].[STATUS] AS [STATUS], 
+    [DDMAST_DATE].[PVAR1] AS [PVAR1], 
+    [DDMAST_DATE].[PVAR] AS [PVAR], 
+    [DDMAST_DATE].[AMTDRC] AS [AMTDRC], 
+    [DDMAST_DATE].[AMTCR] AS [AMTCR], 
+    [DDMAST_DATE].[CLASS] AS [CLASS], 
+    [DDMAST_DATE].[DMPRDC] AS [DMPRDC], 
+    [DDMAST_DATE].[DDCDEC] AS [DDCDEC], 
+    [DDMAST_DATE].[ACTYPE] AS [ACTYPE], 
+    [DDMAST_DATE].[LMDATE] AS [LMDATE], 
+    [DDMAST_DATE].[ODPROT] AS [ODPROT], 
+    [DDMAST_DATE].[ODDLIM] AS [ODDLIM], 
+    [DDMAST_DATE].[OTRATE] AS [OTRATE], 
+    [DDMAST_DATE].[OTDTE] AS [OTDTE], 
+    [DDMAST_DATE].[OTEXP] AS [OTEXP], 
+    [DDMAST_DATE].[OTDTE2] AS [OTDTE2], 
+    [DDMAST_DATE].[OTEXP2] AS [OTEXP2], 
+    [DDMAST_DATE].[ODINT] AS [ODINT], 
+    [DDMAST_DATE].[ODEXSS] AS [ODEXSS], 
+    [DDMAST_DATE].[PFLOOR] AS [PFLOOR], 
+    [DDMAST_DATE].[PCEIL] AS [PCEIL], 
+    [DDMAST_DATE].[ORATE] AS [ORATE], 
+    [DDMAST_DATE].[DEPTCODE] AS [DEPTCODE], 
+    [DDMAST_DATE].[OTRTN] AS [OTRTN], 
+    [DDMAST_DATE].[OTPVR1] AS [OTPVR1], 
+    [DDMAST_DATE].[OTPVAR] AS [OTPVAR], 
+    [DDMAST_DATE].[OTCEIL] AS [OTCEIL], 
+    [DDMAST_DATE].[OTFLOR] AS [OTFLOR], 
+    [DDMAST_DATE].[ODUNAC] AS [ODUNAC]
+    FROM [dbo].[DDMAST_DATE] AS [DDMAST_DATE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GLHIST" EntityType="Self.GLHIST" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GLHIST].[DataDate] AS [DataDate], 
+    [GLHIST].[LMDATE] AS [LMDATE], 
+    [GLHIST].[BRANCH] AS [BRANCH], 
+    [GLHIST].[GTACCT] AS [GTACCT], 
+    [GLHIST].[TRDORC] AS [TRDORC], 
+    [GLHIST].[TRAMT] AS [TRAMT], 
+    [GLHIST].[TRDAT6] AS [TRDAT6], 
+    [GLHIST].[TREFF] AS [TREFF], 
+    [GLHIST].[TRDESC] AS [TRDESC], 
+    [GLHIST].[TRCTYP] AS [TRCTYP], 
+    [GLHIST].[TRCFYR] AS [TRCFYR], 
+    [GLHIST].[TREFTH] AS [TREFTH], 
+    [GLHIST].[TRUSR2] AS [TRUSR2], 
+    [GLHIST].[TRUSRN] AS [TRUSRN], 
+    [GLHIST].[TRAUXT] AS [TRAUXT], 
+    [GLHIST].[TRSEQ] AS [TRSEQ], 
+    [GLHIST].[TRTKTN] AS [TRTKTN], 
+    [GLHIST].[TRSTAT] AS [TRSTAT], 
+    [GLHIST].[DEPTCODE] AS [DEPTCODE]
+    FROM [dbo].[GLHIST] AS [GLHIST]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GLHIST_ERP" EntityType="Self.GLHIST_ERP" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GLHIST_ERP].[DataDate] AS [DataDate], 
+    [GLHIST_ERP].[LMDATE] AS [LMDATE], 
+    [GLHIST_ERP].[BRANCH] AS [BRANCH], 
+    [GLHIST_ERP].[GTACCT] AS [GTACCT], 
+    [GLHIST_ERP].[TRDORC] AS [TRDORC], 
+    [GLHIST_ERP].[TRAMT] AS [TRAMT], 
+    [GLHIST_ERP].[TRDAT6] AS [TRDAT6], 
+    [GLHIST_ERP].[TREFF] AS [TREFF], 
+    [GLHIST_ERP].[TRDESC] AS [TRDESC], 
+    [GLHIST_ERP].[TRCTYP] AS [TRCTYP], 
+    [GLHIST_ERP].[TRCFYR] AS [TRCFYR], 
+    [GLHIST_ERP].[TREFTH] AS [TREFTH], 
+    [GLHIST_ERP].[TRUSR2] AS [TRUSR2], 
+    [GLHIST_ERP].[TRUSRN] AS [TRUSRN], 
+    [GLHIST_ERP].[TRAUXT] AS [TRAUXT], 
+    [GLHIST_ERP].[TRSEQ] AS [TRSEQ], 
+    [GLHIST_ERP].[TRTKTN] AS [TRTKTN], 
+    [GLHIST_ERP].[TRSTAT] AS [TRSTAT], 
+    [GLHIST_ERP].[trsys] AS [trsys], 
+    [GLHIST_ERP].[DEPTCODE] AS [DEPTCODE]
+    FROM [dbo].[GLHIST_ERP] AS [GLHIST_ERP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GLMAST" EntityType="Self.GLMAST" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GLMAST].[DataDate] AS [DataDate], 
+    [GLMAST].[LMDATE] AS [LMDATE], 
+    [GLMAST].[BRANCH] AS [BRANCH], 
+    [GLMAST].[ACCTGL] AS [ACCTGL], 
+    [GLMAST].[GMCTYP] AS [GMCTYP], 
+    [GLMAST].[GMCFYR] AS [GMCFYR], 
+    [GLMAST].[TITLE] AS [TITLE], 
+    [GLMAST].[CURBAL] AS [CURBAL], 
+    [GLMAST].[DRATDY] AS [DRATDY], 
+    [GLMAST].[CRATDY] AS [CRATDY], 
+    [GLMAST].[DRAWTD] AS [DRAWTD], 
+    [GLMAST].[CRAWTD] AS [CRAWTD], 
+    [GLMAST].[DRAMTD] AS [DRAMTD], 
+    [GLMAST].[CRAMTD] AS [CRAMTD], 
+    [GLMAST].[DRAQTD] AS [DRAQTD], 
+    [GLMAST].[CRAQTD] AS [CRAQTD], 
+    [GLMAST].[DRAYTD] AS [DRAYTD], 
+    [GLMAST].[CRAYTD] AS [CRAYTD], 
+    [GLMAST].[DECMEB] AS [DECMEB], 
+    [GLMAST].[ACTYPE] AS [ACTYPE], 
+    [GLMAST].[ACTCAT] AS [ACTCAT], 
+    [GLMAST].[CHGTDY] AS [CHGTDY], 
+    [GLMAST].[NORBAL] AS [NORBAL]
+    FROM [dbo].[GLMAST] AS [GLMAST]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GLMAST_ERP" EntityType="Self.GLMAST_ERP" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GLMAST_ERP].[DataDate] AS [DataDate], 
+    [GLMAST_ERP].[LMDATE] AS [LMDATE], 
+    [GLMAST_ERP].[BRANCH] AS [BRANCH], 
+    [GLMAST_ERP].[ACCTGL] AS [ACCTGL], 
+    [GLMAST_ERP].[GMCTYP] AS [GMCTYP], 
+    [GLMAST_ERP].[GMCFYR] AS [GMCFYR], 
+    [GLMAST_ERP].[TITLE] AS [TITLE], 
+    [GLMAST_ERP].[CURBAL] AS [CURBAL], 
+    [GLMAST_ERP].[DRATDY] AS [DRATDY], 
+    [GLMAST_ERP].[CRATDY] AS [CRATDY], 
+    [GLMAST_ERP].[DRAWTD] AS [DRAWTD], 
+    [GLMAST_ERP].[CRAWTD] AS [CRAWTD], 
+    [GLMAST_ERP].[DRAMTD] AS [DRAMTD], 
+    [GLMAST_ERP].[CRAMTD] AS [CRAMTD], 
+    [GLMAST_ERP].[DRAQTD] AS [DRAQTD], 
+    [GLMAST_ERP].[CRAQTD] AS [CRAQTD], 
+    [GLMAST_ERP].[DRAYTD] AS [DRAYTD], 
+    [GLMAST_ERP].[CRAYTD] AS [CRAYTD], 
+    [GLMAST_ERP].[DECMEB] AS [DECMEB], 
+    [GLMAST_ERP].[ACTYPE] AS [ACTYPE], 
+    [GLMAST_ERP].[ACTCAT] AS [ACTCAT], 
+    [GLMAST_ERP].[CHGTDY] AS [CHGTDY], 
+    [GLMAST_ERP].[NORBAL] AS [NORBAL]
+    FROM [dbo].[GLMAST_ERP] AS [GLMAST_ERP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="LNDHIS_DATE" EntityType="Self.LNDHIS_DATE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LNDHIS_DATE].[BRANCH] AS [BRANCH], 
+    [LNDHIS_DATE].[ACCT_BRN] AS [ACCT_BRN], 
+    [LNDHIS_DATE].[DATADATE] AS [DATADATE], 
+    [LNDHIS_DATE].[LHACCT] AS [LHACCT], 
+    [LNDHIS_DATE].[LHATYP] AS [LHATYP], 
+    [LNDHIS_DATE].[LHTRAN] AS [LHTRAN], 
+    [LNDHIS_DATE].[LHDORC] AS [LHDORC], 
+    [LNDHIS_DATE].[LHAFFT] AS [LHAFFT], 
+    [LNDHIS_DATE].[LHCUR] AS [LHCUR], 
+    [LNDHIS_DATE].[LHAMT] AS [LHAMT], 
+    [LNDHIS_DATE].[LHEFD6] AS [LHEFD6], 
+    [LNDHIS_DATE].[LHGRUP] AS [LHGRUP], 
+    [LNDHIS_DATE].[LHSEQN] AS [LHSEQN], 
+    [LNDHIS_DATE].[LHUSER] AS [LHUSER], 
+    [LNDHIS_DATE].[LHAXTC] AS [LHAXTC], 
+    [LNDHIS_DATE].[LHPTYP] AS [LHPTYP], 
+    [LNDHIS_DATE].[LHOODS] AS [LHOODS], 
+    [LNDHIS_DATE].[LHEFTH] AS [LHEFTH], 
+    [LNDHIS_DATE].[DEPTCODE] AS [DEPTCODE]
+    FROM [dbo].[LNDHIS_DATE] AS [LNDHIS_DATE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="X1PCMS" EntityType="Self.X1PCMS" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [X1PCMS].[DATADATE] AS [DATADATE], 
+    [X1PCMS].[BRANCH] AS [BRANCH], 
+    [X1PCMS].[LASTMDATE] AS [LASTMDATE], 
+    [X1PCMS].[ISD] AS [ISD], 
+    [X1PCMS].[ISM] AS [ISM], 
+    [X1PCMS].[ISY] AS [ISY], 
+    [X1PCMS].[CARDD] AS [CARDD], 
+    [X1PCMS].[AC1] AS [AC1], 
+    [X1PCMS].[AC2] AS [AC2], 
+    [X1PCMS].[AC3] AS [AC3], 
+    [X1PCMS].[SHRTNM] AS [SHRTNM], 
+    [X1PCMS].[CUID] AS [CUID], 
+    [X1PCMS].[TYP] AS [TYP], 
+    [X1PCMS].[OPER] AS [OPER], 
+    [X1PCMS].[LMDATE] AS [LMDATE], 
+    [X1PCMS].[DELC] AS [DELC], 
+    [X1PCMS].[LGLID] AS [LGLID], 
+    [X1PCMS].[CDSTAT] AS [CDSTAT], 
+    [X1PCMS].[AD1] AS [AD1], 
+    [X1PCMS].[AD2] AS [AD2], 
+    [X1PCMS].[AD3] AS [AD3], 
+    [X1PCMS].[AD4] AS [AD4]
+    FROM [dbo].[X1PCMS] AS [X1PCMS]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dlgocModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GetMonthList_Result">
+          <Property Name="month" Type="DateTime" />
+        </ComplexType>
+        <ComplexType Name="ListDates_Result">
+          <Property Name="Date" Type="DateTime" />
+        </ComplexType>
+        <ComplexType Name="LsgdGL_Result">
+          <Property Name="lmdate" Type="DateTime" />
+          <Property Name="debit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="credit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="gldescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <EntityType Name="DDDHIS_DATE">
+          <Key>
+            <PropertyRef Name="BATCH" />
+            <PropertyRef Name="SEQ" />
+            <PropertyRef Name="TRSOBR" />
+            <PropertyRef Name="TRACCT" />
+            <PropertyRef Name="TRATYP" />
+            <PropertyRef Name="TRANCD" />
+            <PropertyRef Name="AMT" />
+            <PropertyRef Name="TRCTYP" />
+            <PropertyRef Name="DORC" />
+            <PropertyRef Name="BORI" />
+            <PropertyRef Name="TRUSER" />
+            <PropertyRef Name="TRDAT6" />
+            <PropertyRef Name="DDGRUP" />
+            <PropertyRef Name="TREFTH" />
+          </Key>
+          <Property Name="DATADATE" Type="DateTime" Precision="3" />
+          <Property Name="BATCH" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="SEQ" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
+          <Property Name="TRBR" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="TRSOBR" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="TRACCT" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="TRATYP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TRANCD" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="AMT" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="TRCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DORC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BORI" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TREFF6" Type="DateTime" Precision="3" />
+          <Property Name="TRSUPV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TRUSER" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TRDAT6" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TRTIME" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="DDGRUP" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="TREFTH" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRTKTN" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="BRANCH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="LASTMDATE" Type="DateTime" Precision="3" />
+          <Property Name="LMDATE" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="AUXTRC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DDMAST_DATE">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="CIFNO" />
+            <PropertyRef Name="ACCTNO" />
+            <PropertyRef Name="SCCODE" />
+            <PropertyRef Name="DDGRUP" />
+            <PropertyRef Name="RATE" />
+            <PropertyRef Name="DDMUID" />
+            <PropertyRef Name="DDCTYP" />
+            <PropertyRef Name="CBAL" />
+            <PropertyRef Name="ACCRUE" />
+            <PropertyRef Name="HOLD" />
+            <PropertyRef Name="PGDID" />
+            <PropertyRef Name="PVAR1" />
+            <PropertyRef Name="PVAR" />
+            <PropertyRef Name="AMTDRC" />
+            <PropertyRef Name="AMTCR" />
+            <PropertyRef Name="CLASS" />
+            <PropertyRef Name="DMPRDC" />
+            <PropertyRef Name="DDCDEC" />
+            <PropertyRef Name="ACTYPE" />
+          </Key>
+          <Property Name="DATADATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="ACNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CIFNO" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="ACCTNO" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="SCCODE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DDGRUP" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="RATE" Type="Decimal" Precision="11" Scale="9" Nullable="false" />
+          <Property Name="DDMUID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DDCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DATOP6" Type="DateTime" Precision="3" />
+          <Property Name="DLA6" Type="DateTime" Precision="3" />
+          <Property Name="CBAL" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="ACCRUE" Type="Decimal" Precision="15" Scale="5" Nullable="false" />
+          <Property Name="HOLD" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="PGDID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PVAR1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PVAR" Type="Decimal" Precision="11" Scale="9" Nullable="false" />
+          <Property Name="AMTDRC" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="AMTCR" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
+          <Property Name="CLASS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DMPRDC" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="DDCDEC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ACTYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="ODPROT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ODDLIM" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="OTRATE" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="OTDTE" Type="DateTime" Precision="3" />
+          <Property Name="OTEXP" Type="DateTime" Precision="3" />
+          <Property Name="OTDTE2" Type="DateTime" Precision="3" />
+          <Property Name="OTEXP2" Type="DateTime" Precision="3" />
+          <Property Name="ODINT" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="ODEXSS" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="PFLOOR" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="PCEIL" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="ORATE" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="OTRTN" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="OTPVR1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="OTPVAR" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="OTCEIL" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="OTFLOR" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="ODUNAC" Type="Decimal" Precision="11" Scale="5" />
+        </EntityType>
+        <EntityContainer Name="dlgocEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DDDHIS_DATE" EntityType="Self.DDDHIS_DATE" />
+          <EntitySet Name="DDMAST_DATE" EntityType="Self.DDMAST_DATE" />
+          <FunctionImport Name="GetMonthList" ReturnType="Collection(dlgocModel.GetMonthList_Result)" IsComposable="true">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ListDates" ReturnType="Collection(dlgocModel.ListDates_Result)" IsComposable="true">
+            <Parameter Name="StartDate" Mode="In" Type="String" />
+            <Parameter Name="EndDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LsgdGL" ReturnType="Collection(dlgocModel.LsgdGL_Result)" IsComposable="true">
+            <Parameter Name="tkgl" Mode="In" Type="String" />
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="branch" Mode="In" Type="Int32" />
+            <Parameter Name="TRCTYP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="binhquantiengui" ReturnType="Collection(dlgocModel.binhquantiengui_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="loaikh" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="bqtienguiThang">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="listcif" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="check_ngay_dl">
+            <Parameter Name="tablename" Mode="In" Type="String" />
+            <Parameter Name="ngaydlbd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaydlkt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="DoanhSoTientheoCif" ReturnType="Collection(dlgocModel.DoanhSoTientheoCif_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getCIFInfo" ReturnType="Collection(dlgocModel.getCIFInfo_Result)" />
+          <FunctionImport Name="laytygia" />
+          <FunctionImport Name="laytygia_ngay" ReturnType="Collection(dlgocModel.laytygia_ngay_Result)">
+          <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="laytygia_tungay_denngay" ReturnType="Collection(dlgocModel.laytygia_tungay_denngay_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="LichSuGiaoDichTheoCIF" ReturnType="Collection(dlgocModel.LichSuGiaoDichTheoCIF_Result)">
+            <Parameter Name="cifno" Mode="In" Type="Decimal" />
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="Loai" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LichSuGiaoDichTheoTK" ReturnType="Collection(dlgocModel.LichSuGiaoDichTheoTK_Result)">
+            <Parameter Name="TRACCT" Mode="In" Type="Decimal" />
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="Loai" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Lsgd_GL" ReturnType="Collection(dlgocModel.Lsgd_GL_Result)">
+            <Parameter Name="tkgl" Mode="In" Type="String" />
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="branch" Mode="In" Type="Int32" />
+            <Parameter Name="TRCTYP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="LsTienGui">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SaoKeCif" ReturnType="Collection(dlgocModel.SaoKeCif_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SoDuKHTienGui" ReturnType="Collection(dlgocModel.SoDuKHTienGui_Result)">
+            <Parameter Name="ngaybc" Mode="In" Type="DateTime" />
+            <Parameter Name="loaikh" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SoDuKHTienGui_ChiTiet" ReturnType="Collection(dlgocModel.SoDuKHTienGui_ChiTiet_Result)">
+            <Parameter Name="ngaybc" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SoDuTKGL" ReturnType="Collection(Decimal)">
+            <Parameter Name="tkgl" Mode="In" Type="String" />
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="branch" Mode="In" Type="Int32" />
+            <Parameter Name="tien" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ThuNoThuLai" ReturnType="Collection(dlgocModel.ThuNoThuLai_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tb_checkdulieu" EntityType="dlgocModel.tb_checkdulieu" />
+          <EntitySet Name="tb_loaiKH" EntityType="dlgocModel.tb_loaiKH" />
+          <FunctionImport Name="PhieuDoiChieu" ReturnType="Collection(dlgocModel.PhieuDoiChieu_Result)">
+            <Parameter Name="cifno" Mode="In" Type="Decimal" />
+            <Parameter Name="CurrentDate" Mode="In" Type="DateTime" />
+            <Parameter Name="bds" Mode="In" Type="Int32" />
+            <Parameter Name="loc" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SoDuTaiTD" ReturnType="Collection(dlgocModel.SoDuTaiTD_Result)">
+          <Parameter Name="ngaybc" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="TinhPhiTheoCif" ReturnType="Collection(dlgocModel.TinhPhiTheoCif_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="X1PCMS" EntityType="dlgocModel.X1PCMS" />
+          <EntitySet Name="GLHISTs" EntityType="dlgocModel.GLHIST" />
+          <EntitySet Name="GLMASTs" EntityType="dlgocModel.GLMAST" />
+          <EntitySet Name="LNDHIS_DATE" EntityType="dlgocModel.LNDHIS_DATE" />
+          <FunctionImport Name="TonQuy" ReturnType="Collection(dlgocModel.TonQuy_Result)">
+            <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
+            <Parameter Name="DenNgay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SaoKeTienVay" ReturnType="Collection(dlgocModel.SaoKeTienVay_Result)">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="tkvay" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="laytygiangay" ReturnType="Collection(dlgocModel.laytygiangay_Result)">
+          <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="TraGoc" ReturnType="Collection(dlgocModel.TraGoc_Result)">
+            <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytragoctungay" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytragocdenngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="TraLai" ReturnType="Collection(dlgocModel.TraLai_Result)">
+            <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytragoctungay" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytragocdenngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="phiPos" ReturnType="Collection(dlgocModel.phiPos_Result)">
+            <Parameter Name="ngaybc" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="GLHIST_ERP" EntityType="dlgocModel.GLHIST_ERP" />
+          <EntitySet Name="GLMAST_ERP" EntityType="dlgocModel.GLMAST_ERP" />
+          <FunctionImport Name="MuaBanNgoaiTe" ReturnType="Collection(dlgocModel.MuaBanNgoaiTe_Result)">
+          <Parameter Name="Ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="tracuulsgl" ReturnType="Collection(dlgocModel.tracuulsgl_Result)">
+            <Parameter Name="tkgl" Mode="In" Type="Decimal" />
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="branch" Mode="In" Type="Int32" />
+            <Parameter Name="TRCTYP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TraCuuGLERP" ReturnType="Collection(dlgocModel.TraCuuGLERP_Result)">
+            <Parameter Name="tkgl" Mode="In" Type="Decimal" />
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="BcDuno_HuyDong">
+          <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="BcDuno_HuyDong_tangGiam">
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+            <Parameter Name="retr" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="BcTuan_HDV_Vay">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytruoc" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="BcTuan_HDV_Vay_chiTiet">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytruoc" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetFullCIFInfo" ReturnType="Collection(dlgocModel.GetFullCIFInfo_Result)">
+          <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GiaoDichBienDongHDV">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytruoc" Mode="In" Type="DateTime" />
+            <Parameter Name="Limit" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GiaoDichBienDongTienVay">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytruoc" Mode="In" Type="DateTime" />
+            <Parameter Name="Limit" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="thauchi_mpa" ReturnType="Collection(dlgocModel.thauchi_mpa_Result)">
+          <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="saokethauchi" ReturnType="Collection(dlgocModel.saokethauchi_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="tk" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ThongBaoDuNo" ReturnType="Collection(dlgocModel.ThongBaoDuNo_Result)">
+          <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="ThongBaoNoDenHan" ReturnType="Collection(dlgocModel.ThongBaoNoDenHan_Result)">
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="binhquantiengui_Result">
+          <Property Type="Int32" Name="cn" Nullable="true" />
+          <Property Type="Decimal" Name="cif" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="acname" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="loaikh" Nullable="true" MaxLength="2" />
+          <Property Type="Decimal" Name="bq" Nullable="true" Precision="19" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="DoanhSoTientheoCif_Result">
+          <Property Type="Decimal" Name="tracct" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="trctyp" Nullable="true" MaxLength="3" />
+          <Property Type="Decimal" Name="tongco" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongcotm" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongcotk" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongno" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongnotm" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongnotk" Nullable="true" Precision="19" Scale="3" />
+        </ComplexType>
+        <ComplexType Name="getCIFInfo_Result">
+          <Property Type="Decimal" Name="cifno" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="CFNAME" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="CFADDR" Nullable="true" MaxLength="4000" />
+          <Property Type="DateTime" Name="CFBIRD" Nullable="true" Precision="23" />
+          <Property Type="String" Name="loai" Nullable="true" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="LichSuGiaoDichTheoCIF_Result">
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="BATCH" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="SEQ" Nullable="false" Precision="9" Scale="0" />
+          <Property Type="Decimal" Name="TRBR" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRSOBR" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRACCT" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="TRATYP" Nullable="false" MaxLength="1" />
+          <Property Type="Decimal" Name="TRANCD" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="AMT" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="String" Name="TRCTYP" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="DORC" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="TREFF6" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TRSUPV" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TRUSER" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="TRDAT6" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="TRTIME" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="Decimal" Name="DDGRUP" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="TREFTH" Nullable="false" MaxLength="254" />
+          <Property Type="String" Name="TRTKTN" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BRANCH" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="AUXTRC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ACNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CIFNO" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="cbal" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="Chuthich" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="LichSuGiaoDichTheoTK_Result">
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="BATCH" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="SEQ" Nullable="false" Precision="9" Scale="0" />
+          <Property Type="Decimal" Name="TRBR" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRSOBR" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRACCT" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="TRATYP" Nullable="false" MaxLength="1" />
+          <Property Type="Decimal" Name="TRANCD" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="AMT" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="String" Name="TRCTYP" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="DORC" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="TREFF6" Nullable="true" Precision="23" />
+          <Property Type="String" Name="TRSUPV" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TRUSER" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="TRDAT6" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="TRTIME" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="Decimal" Name="DDGRUP" Nullable="false" Precision="3" Scale="0" />
+          <Property Type="String" Name="TREFTH" Nullable="false" MaxLength="254" />
+          <Property Type="String" Name="TRTKTN" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BRANCH" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="AUXTRC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ACNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CIFNO" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="cbal" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="Chuthich" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="Lsgd_GL_Result">
+          <Property Type="DateTime" Name="LMDATE" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="debit" Nullable="false" Precision="17" Scale="2" />
+          <Property Type="Decimal" Name="credit" Nullable="true" Precision="17" Scale="2" />
+          <Property Type="String" Name="chuthich" Nullable="true" MaxLength="295" />
+        </ComplexType>
+        <ComplexType Name="SaoKeCif_Result">
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="String" Name="BRANCH" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ACNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CIFNO" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="TRBR" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRSOBR" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRACCT" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="TRCTYP" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="NoCo" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="tmck" Nullable="false" MaxLength="2" />
+          <Property Type="String" Name="MUABANNT" Nullable="false" MaxLength="5" />
+          <Property Type="Decimal" Name="AMT" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="qd" Nullable="true" Precision="31" Scale="4" />
+          <Property Type="String" Name="TRSUPV" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TRUSER" Nullable="false" MaxLength="10" />
+          <Property Type="DateTime" Name="TRDAT6" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="TRTIME" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="String" Name="TREFTH" Nullable="false" MaxLength="254" />
+          <Property Type="String" Name="AUXTRC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Chuthich" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SoDuKHTienGui_Result">
+          <Property Type="Int32" Name="cn" Nullable="true" />
+          <Property Type="Decimal" Name="cif" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="acname" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="loai" Nullable="true" MaxLength="2" />
+          <Property Type="Decimal" Name="sodu" Nullable="true" Precision="38" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="SoDuKHTienGui_ChiTiet_Result">
+          <Property Type="Decimal" Name="cif" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="acname" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="tk" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="loai" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="sodu" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="indi" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="ThuNoThuLai_Result">
+          <Property Type="String" Name="curtyp" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="giaingan" Nullable="true" Precision="15" Scale="3" />
+          <Property Type="Decimal" Name="thuno" Nullable="true" Precision="15" Scale="3" />
+          <Property Type="Decimal" Name="thulai" Nullable="true" Precision="15" Scale="3" />
+        </ComplexType>
+        <EntityType Name="tb_checkdulieu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datadate" Type="DateTime" Precision="3" />
+          <Property Name="tbcount" Type="Int32" />
+          <Property Name="tablename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="thucte" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_loaiKH">
+          <Key>
+            <PropertyRef Name="MaLoai" />
+          </Key>
+          <Property Name="MaLoai" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="TenMa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TenTPKT" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="PhieuDoiChieu_Result">
+          <Property Type="Decimal" Name="cif" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="cn" Nullable="true" />
+          <Property Type="String" Name="acname" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="tk" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="loaitt" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="sodu" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="qd" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="loaitk" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="addr1" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="tongsodu" Nullable="true" Precision="15" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="SoDuTaiTD_Result">
+          <Property Type="Int32" Name="cn" Nullable="true" />
+          <Property Type="Decimal" Name="cif" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="acname" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="loaikh" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="tk" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="loai" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="loaitt" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="sodu" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="qd" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="phong" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="loaitk" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="gdv" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="TinhPhiTheoCif_Result">
+          <Property Type="String" Name="Titile" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="tkgl" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="curtyp" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="sotien" Nullable="true" Precision="15" Scale="3" />
+        </ComplexType>
+        <EntityType Name="X1PCMS">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="ISD" />
+            <PropertyRef Name="ISM" />
+            <PropertyRef Name="ISY" />
+            <PropertyRef Name="CARDD" />
+            <PropertyRef Name="AC1" />
+            <PropertyRef Name="AC2" />
+            <PropertyRef Name="AC3" />
+            <PropertyRef Name="SHRTNM" />
+            <PropertyRef Name="CUID" />
+            <PropertyRef Name="TYP" />
+            <PropertyRef Name="AD1" />
+            <PropertyRef Name="OPER" />
+          </Key>
+          <Property Name="DATADATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="LASTMDATE" Type="DateTime" Precision="3" />
+          <Property Name="ISD" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="ISM" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="ISY" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="CARDD" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="AC1" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="AC2" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="AC3" Type="String" Nullable="false" MaxLength="19" FixedLength="false" Unicode="true" />
+          <Property Name="SHRTNM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CUID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AD1" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="AD2" Type="String" MaxLength="254" FixedLength="false" Unicode="true" />
+          <Property Name="OPER" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="DELC" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="LGLID" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="CDSTAT" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="AD3" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="AD4" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GLHIST">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="GTACCT" />
+            <PropertyRef Name="TRDORC" />
+            <PropertyRef Name="TRAMT" />
+            <PropertyRef Name="TRDAT6" />
+            <PropertyRef Name="TREFF" />
+            <PropertyRef Name="TRDESC" />
+            <PropertyRef Name="TRCTYP" />
+            <PropertyRef Name="TRCFYR" />
+            <PropertyRef Name="TREFTH" />
+          </Key>
+          <Property Name="DataDate" Type="DateTime" Precision="3" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="GTACCT" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="TRDORC" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TRAMT" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="TRDAT6" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="TREFF" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="TRDESC" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="TRCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TRCFYR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TREFTH" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="TRUSR2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TRUSRN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TRAUXT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TRSEQ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TRTKTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TRSTAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GLMAST">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="ACCTGL" />
+            <PropertyRef Name="GMCTYP" />
+            <PropertyRef Name="GMCFYR" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="CURBAL" />
+            <PropertyRef Name="DRATDY" />
+            <PropertyRef Name="CRATDY" />
+            <PropertyRef Name="DRAWTD" />
+            <PropertyRef Name="CRAWTD" />
+            <PropertyRef Name="DRAMTD" />
+            <PropertyRef Name="CRAMTD" />
+            <PropertyRef Name="DRAQTD" />
+            <PropertyRef Name="CRAQTD" />
+            <PropertyRef Name="DRAYTD" />
+            <PropertyRef Name="CRAYTD" />
+            <PropertyRef Name="DECMEB" />
+            <PropertyRef Name="ACTYPE" />
+            <PropertyRef Name="ACTCAT" />
+            <PropertyRef Name="CHGTDY" />
+          </Key>
+          <Property Name="DataDate" Type="DateTime" Precision="3" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="ACCTGL" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="GMCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="GMCFYR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="CURBAL" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRATDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRATDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAWTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAWTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAMTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAMTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAQTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAQTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAYTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAYTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DECMEB" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="ACTYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ACTCAT" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CHGTDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="NORBAL" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LNDHIS_DATE">
+          <Key>
+            <PropertyRef Name="LHACCT" />
+            <PropertyRef Name="LHATYP" />
+            <PropertyRef Name="LHTRAN" />
+            <PropertyRef Name="LHCUR" />
+            <PropertyRef Name="LHUSER" />
+          </Key>
+          <Property Name="BRANCH" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="ACCT_BRN" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="DATADATE" Type="DateTime" Precision="3" />
+          <Property Name="LHACCT" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="LHATYP" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LHTRAN" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="LHDORC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LHAFFT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LHCUR" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="LHAMT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="LHEFD6" Type="DateTime" Precision="3" />
+          <Property Name="LHGRUP" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="LHSEQN" Type="Decimal" Precision="9" Scale="0" />
+          <Property Name="LHUSER" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="LHAXTC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LHPTYP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LHOODS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LHEFTH" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="TonQuy_Result">
+          <Property Type="DateTime" Name="ngay" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="TraNoc" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="ThotNot" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="HoiSo" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="TongCN" Nullable="true" Precision="19" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="SaoKeTienVay_Result">
+          <Property Type="DateTime" Name="ngay" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="tkvay" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="PHATVAY" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="THUGOC" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="THULAI" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="THULAIQH" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="so_du" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="GDV" Nullable="false" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="TraGoc_Result">
+          <Property Type="String" Name="BRN" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TENKH" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="MAKH" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="class" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="SOTKVAY" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="LOAIVAY" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TIEN" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="NHOMGL" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="AA" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="hanmucTD" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="loaitienAA" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="AAM1H" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="soHD" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="maHD" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="tienHD" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="giatriHD" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="hanmucHD" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSCHOVAY" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHUNO" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHULAI" Nullable="true" Precision="13" Scale="2" />
+          <Property Type="Decimal" Name="SODU" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="trangthai" Nullable="true" Precision="1" Scale="0" />
+          <Property Type="String" Name="odind" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CHISOQH" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="LAICD" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="Decimal" Name="LAIPHAT" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="Decimal" Name="KYHAN" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="loaikh" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="KYTRALAI" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="LS" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="DateTime" Name="NGAYVAY" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="NGAYDAOHAN" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="xemlails" Nullable="true" Precision="23" />
+          <Property Type="String" Name="prcode" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="userview" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usercode" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="TRAGOCTT" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ngayqh" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="billgoc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="TRALAITT" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="billlai" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SOLANGIAHAN" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DSVAYNAM" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHUNONAM" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSVAYTHANG" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHUNOTHANG" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="THULAINAM" Nullable="true" Precision="13" Scale="2" />
+          <Property Type="Decimal" Name="THULAITHANG" Nullable="true" Precision="13" Scale="2" />
+          <Property Type="String" Name="cbtd" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="deptcd" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="String" Name="phong" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="pln" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="phanloai" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="mucdich" Nullable="true" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="TraLai_Result">
+          <Property Type="String" Name="BRN" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TENKH" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="MAKH" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="class" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="SOTKVAY" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="LOAIVAY" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TIEN" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="NHOMGL" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="AA" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="hanmucTD" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="loaitienAA" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="AAM1H" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="soHD" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="maHD" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="tienHD" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="giatriHD" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="hanmucHD" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSCHOVAY" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHUNO" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHULAI" Nullable="true" Precision="13" Scale="2" />
+          <Property Type="Decimal" Name="SODU" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="trangthai" Nullable="true" Precision="1" Scale="0" />
+          <Property Type="String" Name="odind" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CHISOQH" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="LAICD" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="Decimal" Name="LAIPHAT" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="Decimal" Name="KYHAN" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="loaikh" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="KYTRALAI" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="LS" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="DateTime" Name="NGAYVAY" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="NGAYDAOHAN" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="xemlails" Nullable="true" Precision="23" />
+          <Property Type="String" Name="prcode" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="userview" Nullable="true" Precision="23" />
+          <Property Type="String" Name="usercode" Nullable="true" MaxLength="5" />
+          <Property Type="DateTime" Name="TRAGOCTT" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ngayqh" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="billgoc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="TRALAITT" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="billlai" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="SOLANGIAHAN" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="Decimal" Name="DSVAYNAM" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHUNONAM" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSVAYTHANG" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DSTHUNOTHANG" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="THULAINAM" Nullable="true" Precision="13" Scale="2" />
+          <Property Type="Decimal" Name="THULAITHANG" Nullable="true" Precision="13" Scale="2" />
+          <Property Type="String" Name="cbtd" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="deptcd" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="String" Name="phong" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="pln" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="phanloai" Nullable="false" MaxLength="8" />
+          <Property Type="String" Name="mucdich" Nullable="true" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="phiPos_Result">
+          <Property Type="DateTime" Name="DataDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="sotien" Nullable="false" Precision="17" Scale="2" />
+          <Property Type="String" Name="TRCTYP" Nullable="false" MaxLength="4" />
+          <Property Type="String" Name="TREFTH" Nullable="false" MaxLength="254" />
+          <Property Type="Int32" Name="MADVCNT" Nullable="true" />
+          <Property Type="String" Name="mathietbi" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="tendiadiem" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="TRSEQ" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="TRTKTN" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="GLHIST_ERP">
+          <Key>
+            <PropertyRef Name="DataDate" />
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="GTACCT" />
+            <PropertyRef Name="TRAMT" />
+          </Key>
+          <Property Name="DataDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="GTACCT" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="TRDORC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TRAMT" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="TRDAT6" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="TREFF" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="TRDESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TRCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TRCFYR" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TREFTH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TRUSR2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TRUSRN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TRAUXT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TRSEQ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TRTKTN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TRSTAT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="trsys" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GLMAST_ERP">
+          <Key>
+            <PropertyRef Name="DataDate" />
+            <PropertyRef Name="ACCTGL" />
+          </Key>
+          <Property Name="DataDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="ACCTGL" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="GMCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="GMCFYR" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TITLE" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CURBAL" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="DRATDY" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="CRATDY" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="DRAWTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="CRAWTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="DRAMTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="CRAMTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="DRAQTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="CRAQTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="DRAYTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="CRAYTD" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="DECMEB" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="ACTYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ACTCAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CHGTDY" Type="Decimal" Precision="17" Scale="2" />
+          <Property Name="NORBAL" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="MuaBanNgoaiTe_Result">
+          <Property Type="Int32" Name="branch" Nullable="true" />
+          <Property Type="Decimal" Name="acctgl" Nullable="true" Precision="16" Scale="0" />
+          <Property Type="String" Name="title" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="tien" Nullable="true" MaxLength="5" />
+          <Property Type="Decimal" Name="nt" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="qd" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="qdusd" Nullable="true" Precision="19" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="laytygiangay_Result">
+          <Property Type="DateTime" Name="ngay" Nullable="true" Precision="23" />
+          <Property Type="String" Name="loai" Nullable="false" MaxLength="4" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="laytygia_tungay_denngay_Result">
+          <Property Type="DateTime" Name="LMDATE" Nullable="true" Precision="23" />
+          <Property Type="String" Name="loai" Nullable="false" MaxLength="4" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="laytygia_ngay_Result">
+          <Property Type="String" Name="loai" Nullable="false" MaxLength="4" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="tracuulsgl_Result">
+          <Property Type="DateTime" Name="DataDate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="BRANCH" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="GTACCT" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="debit" Nullable="false" Precision="17" Scale="2" />
+          <Property Type="Decimal" Name="credit" Nullable="true" Precision="17" Scale="2" />
+          <Property Type="String" Name="chuthich" Nullable="true" />
+          <Property Type="Decimal" Name="TRDAT6" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="Decimal" Name="TREFF" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="String" Name="TRCTYP" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="TRCFYR" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="TRUSR2" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TRUSRN" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TRAUXT" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="TRSEQ" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="TRTKTN" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TRSTAT" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="trsys" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DEPTCODE" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="TraCuuGLERP_Result">
+          <Property Type="DateTime" Name="datadate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="acctgl" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="title" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="gmctyp" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="Soduhientai" Nullable="true" Precision="17" Scale="2" />
+          <Property Type="Decimal" Name="DSCoNgay" Nullable="true" Precision="17" Scale="2" />
+          <Property Type="Decimal" Name="DSNoNgay" Nullable="true" Precision="17" Scale="2" />
+          <Property Type="Decimal" Name="psngay" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="psthang" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="psNAM" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="GMCFYR" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="BRANCH" Nullable="true" Precision="5" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="GetFullCIFInfo_Result">
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="BRANCH" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="String" Name="CFNAME" Nullable="false" MaxLength="255" />
+          <Property Type="Decimal" Name="CFCIFN" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="CFSSNO" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CFSSCD" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="CFINDI" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFCLAS" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFBUST" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="CFCITZ" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="TAXCOD" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CFORG6" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="LMDATE" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CFMUID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CFADDR" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="DIENTHOAI" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="FAX" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CONAME" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CFLGID" Nullable="true" MaxLength="3" />
+          <Property Type="DateTime" Name="CFBIRD" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CFSEX" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFSIC3" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFSIC5" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="CFIDI6" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="String" Name="MOBIL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CFNA7" Nullable="true" MaxLength="40" />
+          <Property Type="Boolean" Name="Xoa" Nullable="true" />
+          <Property Type="DateTime" Name="ngayxoa" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="thauchi_mpa_Result">
+          <Property Type="DateTime" Name="datadate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="CIFNO" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="ACNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CFACCN" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="CFATYP" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="CFMSG" Nullable="false" MaxLength="256" />
+          <Property Type="String" Name="CFMUIC" Nullable="false" MaxLength="3" />
+          <Property Type="DateTime" Name="CFMPD6" Nullable="true" Precision="16" />
+          <Property Type="DateTime" Name="CFDLM" Nullable="true" Precision="16" />
+          <Property Type="String" Name="CFMUID" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="CFDPCD" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="phong" Nullable="true" MaxLength="13" />
+          <Property Type="String" Name="CFJOBT" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="mabds" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="tencb" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="sodu" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="String" Name="ODPROT" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="ODDLIM" Nullable="true" Precision="15" Scale="0" />
+          <Property Type="Decimal" Name="OTRATE" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="DateTime" Name="OTDTE" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="OTEXP" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="OTDTE2" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="OTEXP2" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="ODINT" Nullable="true" Precision="15" Scale="5" />
+          <Property Type="Decimal" Name="ODEXSS" Nullable="true" Precision="15" Scale="5" />
+          <Property Type="Decimal" Name="ORATE" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="OTRTN" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="OTPVR1" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="OTPVAR" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="OTCEIL" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="OTFLOR" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="ODUNAC" Nullable="true" Precision="11" Scale="5" />
+        </ComplexType>
+        <ComplexType Name="saokethauchi_Result">
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="BRANCH" Nullable="false" Precision="5" Scale="0" />
+          <Property Type="String" Name="ACNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CIFNO" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="ACCTNO" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="CBAL" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="laicongdon" Nullable="false" Precision="15" Scale="5" />
+          <Property Type="Decimal" Name="sodubihold" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="soduphatsinhnothang" Nullable="false" Precision="15" Scale="2" />
+          <Property Type="String" Name="ODPROT" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="hanmuc" Nullable="true" Precision="15" Scale="0" />
+          <Property Type="Decimal" Name="laisuat" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="DateTime" Name="ngaytaotc" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ngayhethan" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ngaytaolantruoc" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="ngayhethanlantruoc" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="laitc" Nullable="true" Precision="15" Scale="5" />
+          <Property Type="Decimal" Name="laiphat" Nullable="true" Precision="15" Scale="5" />
+          <Property Type="Decimal" Name="PFLOOR" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="PCEIL" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="ORATE" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="String" Name="DEPTCODE" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="loaitc" Nullable="true" MaxLength="49" />
+          <Property Type="String" Name="OTPVR1" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="OTPVAR" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="OTCEIL" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="OTFLOR" Nullable="true" Precision="11" Scale="9" />
+          <Property Type="Decimal" Name="ODUNAC" Nullable="true" Precision="11" Scale="5" />
+        </ComplexType>
+        <ComplexType Name="ThongBaoDuNo_Result">
+          <Property Type="Decimal" Name="socif" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="khachhang" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="taikhoan" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="DateTime" Name="ngayduyet" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tiente" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="duno" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="DateTime" Name="kyhanlai" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="laicd" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="Decimal" Name="phaitra" Nullable="true" Precision="18" Scale="5" />
+          <Property Type="Decimal" Name="laiphat" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="String" Name="loaisaoke" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="quanhe" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="ngaydl" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="ThongBaoNoDenHan_Result">
+          <Property Type="Decimal" Name="socif" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="khachhang" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="taikhoan" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="tiente" Nullable="true" MaxLength="4" />
+          <Property Type="DateTime" Name="kyhangoc" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="phaitra" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="quanhe" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="macbtd" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="Datadate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dlgocModelStoreContainer" CdmEntityContainer="dlgocEntities">
+          <EntitySetMapping Name="DDDHIS_DATE">
+            <EntityTypeMapping TypeName="dlgocModel.DDDHIS_DATE">
+              <MappingFragment StoreEntitySet="DDDHIS_DATE">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BATCH" ColumnName="BATCH" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="TRBR" ColumnName="TRBR" />
+                <ScalarProperty Name="TRSOBR" ColumnName="TRSOBR" />
+                <ScalarProperty Name="TRACCT" ColumnName="TRACCT" />
+                <ScalarProperty Name="TRATYP" ColumnName="TRATYP" />
+                <ScalarProperty Name="TRANCD" ColumnName="TRANCD" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="DORC" ColumnName="DORC" />
+                <ScalarProperty Name="BORI" ColumnName="BORI" />
+                <ScalarProperty Name="TREFF6" ColumnName="TREFF6" />
+                <ScalarProperty Name="TRSUPV" ColumnName="TRSUPV" />
+                <ScalarProperty Name="TRUSER" ColumnName="TRUSER" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRTIME" ColumnName="TRTIME" />
+                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LASTMDATE" ColumnName="LASTMDATE" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="AUXTRC" ColumnName="AUXTRC" />
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DDMAST_DATE">
+            <EntityTypeMapping TypeName="dlgocModel.DDMAST_DATE">
+              <MappingFragment StoreEntitySet="DDMAST_DATE">
+                <ScalarProperty Name="ODUNAC" ColumnName="ODUNAC" />
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
+                <ScalarProperty Name="SCCODE" ColumnName="SCCODE" />
+                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="DDMUID" ColumnName="DDMUID" />
+                <ScalarProperty Name="DDCTYP" ColumnName="DDCTYP" />
+                <ScalarProperty Name="DATOP6" ColumnName="DATOP6" />
+                <ScalarProperty Name="DLA6" ColumnName="DLA6" />
+                <ScalarProperty Name="CBAL" ColumnName="CBAL" />
+                <ScalarProperty Name="ACCRUE" ColumnName="ACCRUE" />
+                <ScalarProperty Name="HOLD" ColumnName="HOLD" />
+                <ScalarProperty Name="PGDID" ColumnName="PGDID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PVAR1" ColumnName="PVAR1" />
+                <ScalarProperty Name="PVAR" ColumnName="PVAR" />
+                <ScalarProperty Name="AMTDRC" ColumnName="AMTDRC" />
+                <ScalarProperty Name="AMTCR" ColumnName="AMTCR" />
+                <ScalarProperty Name="CLASS" ColumnName="CLASS" />
+                <ScalarProperty Name="DMPRDC" ColumnName="DMPRDC" />
+                <ScalarProperty Name="DDCDEC" ColumnName="DDCDEC" />
+                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="ODPROT" ColumnName="ODPROT" />
+                <ScalarProperty Name="ODDLIM" ColumnName="ODDLIM" />
+                <ScalarProperty Name="OTRATE" ColumnName="OTRATE" />
+                <ScalarProperty Name="OTDTE" ColumnName="OTDTE" />
+                <ScalarProperty Name="OTEXP" ColumnName="OTEXP" />
+                <ScalarProperty Name="OTDTE2" ColumnName="OTDTE2" />
+                <ScalarProperty Name="OTEXP2" ColumnName="OTEXP2" />
+                <ScalarProperty Name="ODINT" ColumnName="ODINT" />
+                <ScalarProperty Name="ODEXSS" ColumnName="ODEXSS" />
+                <ScalarProperty Name="PFLOOR" ColumnName="PFLOOR" />
+                <ScalarProperty Name="PCEIL" ColumnName="PCEIL" />
+                <ScalarProperty Name="ORATE" ColumnName="ORATE" />
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="OTRTN" ColumnName="OTRTN" />
+                <ScalarProperty Name="OTPVR1" ColumnName="OTPVR1" />
+                <ScalarProperty Name="OTPVAR" ColumnName="OTPVAR" />
+                <ScalarProperty Name="OTCEIL" ColumnName="OTCEIL" />
+                <ScalarProperty Name="OTFLOR" ColumnName="OTFLOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="dlgocModel.Store.GetMonthList" FunctionImportName="GetMonthList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.GetMonthList_Result">
+                <ScalarProperty Name="month" ColumnName="month" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="dlgocModel.Store.ListDates" FunctionImportName="ListDates">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.ListDates_Result">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="dlgocModel.Store.LsgdGL" FunctionImportName="LsgdGL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.LsgdGL_Result">
+                <ScalarProperty Name="lmdate" ColumnName="lmdate" />
+                <ScalarProperty Name="debit" ColumnName="debit" />
+                <ScalarProperty Name="credit" ColumnName="credit" />
+                <ScalarProperty Name="gldescription" ColumnName="gldescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="binhquantiengui" FunctionName="dlgocModel.Store.binhquantiengui">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.binhquantiengui_Result">
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="loaikh" ColumnName="loaikh" />
+                <ScalarProperty Name="bq" ColumnName="bq" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="bqtienguiThang" FunctionName="dlgocModel.Store.bqtienguiThang" />
+          <FunctionImportMapping FunctionImportName="check_ngay_dl" FunctionName="dlgocModel.Store.check_ngay_dl" />
+          <FunctionImportMapping FunctionImportName="DoanhSoTientheoCif" FunctionName="dlgocModel.Store.DoanhSoTientheoCif">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.DoanhSoTientheoCif_Result">
+                <ScalarProperty Name="tracct" ColumnName="tracct" />
+                <ScalarProperty Name="trctyp" ColumnName="trctyp" />
+                <ScalarProperty Name="tongco" ColumnName="tongco" />
+                <ScalarProperty Name="tongcotm" ColumnName="tongcotm" />
+                <ScalarProperty Name="tongcotk" ColumnName="tongcotk" />
+                <ScalarProperty Name="tongno" ColumnName="tongno" />
+                <ScalarProperty Name="tongnotm" ColumnName="tongnotm" />
+                <ScalarProperty Name="tongnotk" ColumnName="tongnotk" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getCIFInfo" FunctionName="dlgocModel.Store.getCIFInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.getCIFInfo_Result">
+                <ScalarProperty Name="cifno" ColumnName="cifno" />
+                <ScalarProperty Name="CFNAME" ColumnName="CFNAME" />
+                <ScalarProperty Name="CFADDR" ColumnName="CFADDR" />
+                <ScalarProperty Name="CFBIRD" ColumnName="CFBIRD" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="laytygia" FunctionName="dlgocModel.Store.laytygia" />
+          <FunctionImportMapping FunctionImportName="laytygia_ngay" FunctionName="dlgocModel.Store.laytygia_ngay" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.laytygia_ngay_Result">
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="laytygia_tungay_denngay" FunctionName="dlgocModel.Store.laytygia_tungay_denngay" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.laytygia_tungay_denngay_Result">
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LichSuGiaoDichTheoCIF" FunctionName="dlgocModel.Store.LichSuGiaoDichTheoCIF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.LichSuGiaoDichTheoCIF_Result">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BATCH" ColumnName="BATCH" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="TRBR" ColumnName="TRBR" />
+                <ScalarProperty Name="TRSOBR" ColumnName="TRSOBR" />
+                <ScalarProperty Name="TRACCT" ColumnName="TRACCT" />
+                <ScalarProperty Name="TRATYP" ColumnName="TRATYP" />
+                <ScalarProperty Name="TRANCD" ColumnName="TRANCD" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="DORC" ColumnName="DORC" />
+                <ScalarProperty Name="TREFF6" ColumnName="TREFF6" />
+                <ScalarProperty Name="TRSUPV" ColumnName="TRSUPV" />
+                <ScalarProperty Name="TRUSER" ColumnName="TRUSER" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRTIME" ColumnName="TRTIME" />
+                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="AUXTRC" ColumnName="AUXTRC" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="cbal" ColumnName="cbal" />
+                <ScalarProperty Name="Chuthich" ColumnName="Chuthich" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LichSuGiaoDichTheoTK" FunctionName="dlgocModel.Store.LichSuGiaoDichTheoTK">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.LichSuGiaoDichTheoTK_Result">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BATCH" ColumnName="BATCH" />
+                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
+                <ScalarProperty Name="TRBR" ColumnName="TRBR" />
+                <ScalarProperty Name="TRSOBR" ColumnName="TRSOBR" />
+                <ScalarProperty Name="TRACCT" ColumnName="TRACCT" />
+                <ScalarProperty Name="TRATYP" ColumnName="TRATYP" />
+                <ScalarProperty Name="TRANCD" ColumnName="TRANCD" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="DORC" ColumnName="DORC" />
+                <ScalarProperty Name="TREFF6" ColumnName="TREFF6" />
+                <ScalarProperty Name="TRSUPV" ColumnName="TRSUPV" />
+                <ScalarProperty Name="TRUSER" ColumnName="TRUSER" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRTIME" ColumnName="TRTIME" />
+                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="AUXTRC" ColumnName="AUXTRC" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="cbal" ColumnName="cbal" />
+                <ScalarProperty Name="Chuthich" ColumnName="Chuthich" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Lsgd_GL" FunctionName="dlgocModel.Store.Lsgd_GL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.Lsgd_GL_Result">
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="debit" ColumnName="debit" />
+                <ScalarProperty Name="credit" ColumnName="credit" />
+                <ScalarProperty Name="chuthich" ColumnName="chuthich" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LsTienGui" FunctionName="dlgocModel.Store.LsTienGui" />
+          <FunctionImportMapping FunctionImportName="SaoKeCif" FunctionName="dlgocModel.Store.SaoKeCif">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SaoKeCif_Result">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="TRBR" ColumnName="TRBR" />
+                <ScalarProperty Name="TRSOBR" ColumnName="TRSOBR" />
+                <ScalarProperty Name="TRACCT" ColumnName="TRACCT" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="NoCo" ColumnName="NoCo" />
+                <ScalarProperty Name="tmck" ColumnName="tmck" />
+                <ScalarProperty Name="MUABANNT" ColumnName="MUABANNT" />
+                <ScalarProperty Name="AMT" ColumnName="AMT" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+                <ScalarProperty Name="qd" ColumnName="qd" />
+                <ScalarProperty Name="TRSUPV" ColumnName="TRSUPV" />
+                <ScalarProperty Name="TRUSER" ColumnName="TRUSER" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRTIME" ColumnName="TRTIME" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="AUXTRC" ColumnName="AUXTRC" />
+                <ScalarProperty Name="Chuthich" ColumnName="Chuthich" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SoDuKHTienGui" FunctionName="dlgocModel.Store.SoDuKHTienGui">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SoDuKHTienGui_Result">
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="sodu" ColumnName="sodu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SoDuKHTienGui_ChiTiet" FunctionName="dlgocModel.Store.SoDuKHTienGui_ChiTiet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SoDuKHTienGui_ChiTiet_Result">
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="tk" ColumnName="tk" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="sodu" ColumnName="sodu" />
+                <ScalarProperty Name="indi" ColumnName="indi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SoDuTKGL" FunctionName="dlgocModel.Store.SoDuTKGL" />
+          <FunctionImportMapping FunctionImportName="ThuNoThuLai" FunctionName="dlgocModel.Store.ThuNoThuLai">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.ThuNoThuLai_Result">
+                <ScalarProperty Name="curtyp" ColumnName="curtyp" />
+                <ScalarProperty Name="giaingan" ColumnName="giaingan" />
+                <ScalarProperty Name="thuno" ColumnName="thuno" />
+                <ScalarProperty Name="thulai" ColumnName="thulai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tb_checkdulieu">
+            <EntityTypeMapping TypeName="dlgocModel.tb_checkdulieu">
+              <MappingFragment StoreEntitySet="tb_checkdulieu">
+                <ScalarProperty Name="thucte" ColumnName="thucte" />
+                <ScalarProperty Name="tablename" ColumnName="tablename" />
+                <ScalarProperty Name="tbcount" ColumnName="tbcount" />
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_loaiKH">
+            <EntityTypeMapping TypeName="dlgocModel.tb_loaiKH">
+              <MappingFragment StoreEntitySet="tb_loaiKH">
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="TenTPKT" ColumnName="TenTPKT" />
+                <ScalarProperty Name="TenMa" ColumnName="TenMa" />
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PhieuDoiChieu" FunctionName="dlgocModel.Store.PhieuDoiChieu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.PhieuDoiChieu_Result">
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="tk" ColumnName="tk" />
+                <ScalarProperty Name="loaitt" ColumnName="loaitt" />
+                <ScalarProperty Name="sodu" ColumnName="sodu" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+                <ScalarProperty Name="qd" ColumnName="qd" />
+                <ScalarProperty Name="loaitk" ColumnName="loaitk" />
+                <ScalarProperty Name="addr1" ColumnName="addr1" />
+                <ScalarProperty Name="tongsodu" ColumnName="tongsodu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SoDuTaiTD" FunctionName="dlgocModel.Store.SoDuTaiTD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SoDuTaiTD_Result">
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="loaikh" ColumnName="loaikh" />
+                <ScalarProperty Name="tk" ColumnName="tk" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="loaitt" ColumnName="loaitt" />
+                <ScalarProperty Name="sodu" ColumnName="sodu" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+                <ScalarProperty Name="qd" ColumnName="qd" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+                <ScalarProperty Name="loaitk" ColumnName="loaitk" />
+                <ScalarProperty Name="gdv" ColumnName="gdv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TinhPhiTheoCif" FunctionName="dlgocModel.Store.TinhPhiTheoCif">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TinhPhiTheoCif_Result">
+                <ScalarProperty Name="Titile" ColumnName="Titile" />
+                <ScalarProperty Name="tkgl" ColumnName="tkgl" />
+                <ScalarProperty Name="curtyp" ColumnName="curtyp" />
+                <ScalarProperty Name="sotien" ColumnName="sotien" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="X1PCMS">
+            <EntityTypeMapping TypeName="dlgocModel.X1PCMS">
+              <MappingFragment StoreEntitySet="X1PCMS">
+                <ScalarProperty Name="AD4" ColumnName="AD4" />
+                <ScalarProperty Name="AD3" ColumnName="AD3" />
+                <ScalarProperty Name="CDSTAT" ColumnName="CDSTAT" />
+                <ScalarProperty Name="LGLID" ColumnName="LGLID" />
+                <ScalarProperty Name="DELC" ColumnName="DELC" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="OPER" ColumnName="OPER" />
+                <ScalarProperty Name="AD2" ColumnName="AD2" />
+                <ScalarProperty Name="AD1" ColumnName="AD1" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="CUID" ColumnName="CUID" />
+                <ScalarProperty Name="SHRTNM" ColumnName="SHRTNM" />
+                <ScalarProperty Name="AC3" ColumnName="AC3" />
+                <ScalarProperty Name="AC2" ColumnName="AC2" />
+                <ScalarProperty Name="AC1" ColumnName="AC1" />
+                <ScalarProperty Name="CARDD" ColumnName="CARDD" />
+                <ScalarProperty Name="ISY" ColumnName="ISY" />
+                <ScalarProperty Name="ISM" ColumnName="ISM" />
+                <ScalarProperty Name="ISD" ColumnName="ISD" />
+                <ScalarProperty Name="LASTMDATE" ColumnName="LASTMDATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GLHISTs">
+            <EntityTypeMapping TypeName="dlgocModel.GLHIST">
+              <MappingFragment StoreEntitySet="GLHIST">
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="TRSTAT" ColumnName="TRSTAT" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
+                <ScalarProperty Name="TRAUXT" ColumnName="TRAUXT" />
+                <ScalarProperty Name="TRUSRN" ColumnName="TRUSRN" />
+                <ScalarProperty Name="TRUSR2" ColumnName="TRUSR2" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="TRCFYR" ColumnName="TRCFYR" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="TRDESC" ColumnName="TRDESC" />
+                <ScalarProperty Name="TREFF" ColumnName="TREFF" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRAMT" ColumnName="TRAMT" />
+                <ScalarProperty Name="TRDORC" ColumnName="TRDORC" />
+                <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GLMASTs">
+            <EntityTypeMapping TypeName="dlgocModel.GLMAST">
+              <MappingFragment StoreEntitySet="GLMAST">
+                <ScalarProperty Name="NORBAL" ColumnName="NORBAL" />
+                <ScalarProperty Name="CHGTDY" ColumnName="CHGTDY" />
+                <ScalarProperty Name="ACTCAT" ColumnName="ACTCAT" />
+                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
+                <ScalarProperty Name="DECMEB" ColumnName="DECMEB" />
+                <ScalarProperty Name="CRAYTD" ColumnName="CRAYTD" />
+                <ScalarProperty Name="DRAYTD" ColumnName="DRAYTD" />
+                <ScalarProperty Name="CRAQTD" ColumnName="CRAQTD" />
+                <ScalarProperty Name="DRAQTD" ColumnName="DRAQTD" />
+                <ScalarProperty Name="CRAMTD" ColumnName="CRAMTD" />
+                <ScalarProperty Name="DRAMTD" ColumnName="DRAMTD" />
+                <ScalarProperty Name="CRAWTD" ColumnName="CRAWTD" />
+                <ScalarProperty Name="DRAWTD" ColumnName="DRAWTD" />
+                <ScalarProperty Name="CRATDY" ColumnName="CRATDY" />
+                <ScalarProperty Name="DRATDY" ColumnName="DRATDY" />
+                <ScalarProperty Name="CURBAL" ColumnName="CURBAL" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="GMCFYR" ColumnName="GMCFYR" />
+                <ScalarProperty Name="GMCTYP" ColumnName="GMCTYP" />
+                <ScalarProperty Name="ACCTGL" ColumnName="ACCTGL" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LNDHIS_DATE">
+            <EntityTypeMapping TypeName="dlgocModel.LNDHIS_DATE">
+              <MappingFragment StoreEntitySet="LNDHIS_DATE">
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="LHEFTH" ColumnName="LHEFTH" />
+                <ScalarProperty Name="LHOODS" ColumnName="LHOODS" />
+                <ScalarProperty Name="LHPTYP" ColumnName="LHPTYP" />
+                <ScalarProperty Name="LHAXTC" ColumnName="LHAXTC" />
+                <ScalarProperty Name="LHUSER" ColumnName="LHUSER" />
+                <ScalarProperty Name="LHSEQN" ColumnName="LHSEQN" />
+                <ScalarProperty Name="LHGRUP" ColumnName="LHGRUP" />
+                <ScalarProperty Name="LHEFD6" ColumnName="LHEFD6" />
+                <ScalarProperty Name="LHAMT" ColumnName="LHAMT" />
+                <ScalarProperty Name="LHCUR" ColumnName="LHCUR" />
+                <ScalarProperty Name="LHAFFT" ColumnName="LHAFFT" />
+                <ScalarProperty Name="LHDORC" ColumnName="LHDORC" />
+                <ScalarProperty Name="LHTRAN" ColumnName="LHTRAN" />
+                <ScalarProperty Name="LHATYP" ColumnName="LHATYP" />
+                <ScalarProperty Name="LHACCT" ColumnName="LHACCT" />
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="ACCT_BRN" ColumnName="ACCT_BRN" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TonQuy" FunctionName="dlgocModel.Store.TonQuy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TonQuy_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="TraNoc" ColumnName="TraNoc" />
+                <ScalarProperty Name="ThotNot" ColumnName="ThotNot" />
+                <ScalarProperty Name="HoiSo" ColumnName="HoiSo" />
+                <ScalarProperty Name="TongCN" ColumnName="TongCN" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaoKeTienVay" FunctionName="dlgocModel.Store.SaoKeTienVay" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SaoKeTienVay_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="tkvay" ColumnName="tkvay" />
+                <ScalarProperty Name="PHATVAY" ColumnName="PHATVAY" />
+                <ScalarProperty Name="THUGOC" ColumnName="THUGOC" />
+                <ScalarProperty Name="THULAI" ColumnName="THULAI" />
+                <ScalarProperty Name="THULAIQH" ColumnName="THULAIQH" />
+                <ScalarProperty Name="so_du" ColumnName="so_du" />
+                <ScalarProperty Name="GDV" ColumnName="GDV" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="laytygiangay" FunctionName="dlgocModel.Store.laytygiangay" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.laytygiangay_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TraGoc" FunctionName="dlgocModel.Store.TraGoc">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TraGoc_Result">
+                <ScalarProperty Name="BRN" ColumnName="BRN" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="SOTKVAY" ColumnName="SOTKVAY" />
+                <ScalarProperty Name="LOAIVAY" ColumnName="LOAIVAY" />
+                <ScalarProperty Name="TIEN" ColumnName="TIEN" />
+                <ScalarProperty Name="NHOMGL" ColumnName="NHOMGL" />
+                <ScalarProperty Name="AA" ColumnName="AA" />
+                <ScalarProperty Name="hanmucTD" ColumnName="hanmucTD" />
+                <ScalarProperty Name="loaitienAA" ColumnName="loaitienAA" />
+                <ScalarProperty Name="AAM1H" ColumnName="AAM1H" />
+                <ScalarProperty Name="soHD" ColumnName="soHD" />
+                <ScalarProperty Name="maHD" ColumnName="maHD" />
+                <ScalarProperty Name="tienHD" ColumnName="tienHD" />
+                <ScalarProperty Name="giatriHD" ColumnName="giatriHD" />
+                <ScalarProperty Name="hanmucHD" ColumnName="hanmucHD" />
+                <ScalarProperty Name="DSCHOVAY" ColumnName="DSCHOVAY" />
+                <ScalarProperty Name="DSTHUNO" ColumnName="DSTHUNO" />
+                <ScalarProperty Name="DSTHULAI" ColumnName="DSTHULAI" />
+                <ScalarProperty Name="SODU" ColumnName="SODU" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="odind" ColumnName="odind" />
+                <ScalarProperty Name="CHISOQH" ColumnName="CHISOQH" />
+                <ScalarProperty Name="LAICD" ColumnName="LAICD" />
+                <ScalarProperty Name="LAIPHAT" ColumnName="LAIPHAT" />
+                <ScalarProperty Name="KYHAN" ColumnName="KYHAN" />
+                <ScalarProperty Name="loaikh" ColumnName="loaikh" />
+                <ScalarProperty Name="KYTRALAI" ColumnName="KYTRALAI" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="NGAYVAY" ColumnName="NGAYVAY" />
+                <ScalarProperty Name="NGAYDAOHAN" ColumnName="NGAYDAOHAN" />
+                <ScalarProperty Name="xemlails" ColumnName="xemlails" />
+                <ScalarProperty Name="prcode" ColumnName="prcode" />
+                <ScalarProperty Name="userview" ColumnName="userview" />
+                <ScalarProperty Name="usercode" ColumnName="usercode" />
+                <ScalarProperty Name="TRAGOCTT" ColumnName="TRAGOCTT" />
+                <ScalarProperty Name="ngayqh" ColumnName="ngayqh" />
+                <ScalarProperty Name="billgoc" ColumnName="billgoc" />
+                <ScalarProperty Name="TRALAITT" ColumnName="TRALAITT" />
+                <ScalarProperty Name="billlai" ColumnName="billlai" />
+                <ScalarProperty Name="SOLANGIAHAN" ColumnName="SOLANGIAHAN" />
+                <ScalarProperty Name="DSVAYNAM" ColumnName="DSVAYNAM" />
+                <ScalarProperty Name="DSTHUNONAM" ColumnName="DSTHUNONAM" />
+                <ScalarProperty Name="DSVAYTHANG" ColumnName="DSVAYTHANG" />
+                <ScalarProperty Name="DSTHUNOTHANG" ColumnName="DSTHUNOTHANG" />
+                <ScalarProperty Name="THULAINAM" ColumnName="THULAINAM" />
+                <ScalarProperty Name="THULAITHANG" ColumnName="THULAITHANG" />
+                <ScalarProperty Name="cbtd" ColumnName="cbtd" />
+                <ScalarProperty Name="deptcd" ColumnName="deptcd" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+                <ScalarProperty Name="pln" ColumnName="pln" />
+                <ScalarProperty Name="phanloai" ColumnName="phanloai" />
+                <ScalarProperty Name="mucdich" ColumnName="mucdich" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TraLai" FunctionName="dlgocModel.Store.TraLai">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TraLai_Result">
+                <ScalarProperty Name="BRN" ColumnName="BRN" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="SOTKVAY" ColumnName="SOTKVAY" />
+                <ScalarProperty Name="LOAIVAY" ColumnName="LOAIVAY" />
+                <ScalarProperty Name="TIEN" ColumnName="TIEN" />
+                <ScalarProperty Name="NHOMGL" ColumnName="NHOMGL" />
+                <ScalarProperty Name="AA" ColumnName="AA" />
+                <ScalarProperty Name="hanmucTD" ColumnName="hanmucTD" />
+                <ScalarProperty Name="loaitienAA" ColumnName="loaitienAA" />
+                <ScalarProperty Name="AAM1H" ColumnName="AAM1H" />
+                <ScalarProperty Name="soHD" ColumnName="soHD" />
+                <ScalarProperty Name="maHD" ColumnName="maHD" />
+                <ScalarProperty Name="tienHD" ColumnName="tienHD" />
+                <ScalarProperty Name="giatriHD" ColumnName="giatriHD" />
+                <ScalarProperty Name="hanmucHD" ColumnName="hanmucHD" />
+                <ScalarProperty Name="DSCHOVAY" ColumnName="DSCHOVAY" />
+                <ScalarProperty Name="DSTHUNO" ColumnName="DSTHUNO" />
+                <ScalarProperty Name="DSTHULAI" ColumnName="DSTHULAI" />
+                <ScalarProperty Name="SODU" ColumnName="SODU" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="odind" ColumnName="odind" />
+                <ScalarProperty Name="CHISOQH" ColumnName="CHISOQH" />
+                <ScalarProperty Name="LAICD" ColumnName="LAICD" />
+                <ScalarProperty Name="LAIPHAT" ColumnName="LAIPHAT" />
+                <ScalarProperty Name="KYHAN" ColumnName="KYHAN" />
+                <ScalarProperty Name="loaikh" ColumnName="loaikh" />
+                <ScalarProperty Name="KYTRALAI" ColumnName="KYTRALAI" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="NGAYVAY" ColumnName="NGAYVAY" />
+                <ScalarProperty Name="NGAYDAOHAN" ColumnName="NGAYDAOHAN" />
+                <ScalarProperty Name="xemlails" ColumnName="xemlails" />
+                <ScalarProperty Name="prcode" ColumnName="prcode" />
+                <ScalarProperty Name="userview" ColumnName="userview" />
+                <ScalarProperty Name="usercode" ColumnName="usercode" />
+                <ScalarProperty Name="TRAGOCTT" ColumnName="TRAGOCTT" />
+                <ScalarProperty Name="ngayqh" ColumnName="ngayqh" />
+                <ScalarProperty Name="billgoc" ColumnName="billgoc" />
+                <ScalarProperty Name="TRALAITT" ColumnName="TRALAITT" />
+                <ScalarProperty Name="billlai" ColumnName="billlai" />
+                <ScalarProperty Name="SOLANGIAHAN" ColumnName="SOLANGIAHAN" />
+                <ScalarProperty Name="DSVAYNAM" ColumnName="DSVAYNAM" />
+                <ScalarProperty Name="DSTHUNONAM" ColumnName="DSTHUNONAM" />
+                <ScalarProperty Name="DSVAYTHANG" ColumnName="DSVAYTHANG" />
+                <ScalarProperty Name="DSTHUNOTHANG" ColumnName="DSTHUNOTHANG" />
+                <ScalarProperty Name="THULAINAM" ColumnName="THULAINAM" />
+                <ScalarProperty Name="THULAITHANG" ColumnName="THULAITHANG" />
+                <ScalarProperty Name="cbtd" ColumnName="cbtd" />
+                <ScalarProperty Name="deptcd" ColumnName="deptcd" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+                <ScalarProperty Name="pln" ColumnName="pln" />
+                <ScalarProperty Name="phanloai" ColumnName="phanloai" />
+                <ScalarProperty Name="mucdich" ColumnName="mucdich" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="phiPos" FunctionName="dlgocModel.Store.phiPos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.phiPos_Result">
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+                <ScalarProperty Name="sotien" ColumnName="sotien" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="MADVCNT" ColumnName="MADVCNT" />
+                <ScalarProperty Name="mathietbi" ColumnName="mathietbi" />
+                <ScalarProperty Name="tendiadiem" ColumnName="tendiadiem" />
+                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="GLHIST_ERP">
+            <EntityTypeMapping TypeName="dlgocModel.GLHIST_ERP">
+              <MappingFragment StoreEntitySet="GLHIST_ERP">
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="trsys" ColumnName="trsys" />
+                <ScalarProperty Name="TRSTAT" ColumnName="TRSTAT" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
+                <ScalarProperty Name="TRAUXT" ColumnName="TRAUXT" />
+                <ScalarProperty Name="TRUSRN" ColumnName="TRUSRN" />
+                <ScalarProperty Name="TRUSR2" ColumnName="TRUSR2" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="TRCFYR" ColumnName="TRCFYR" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="TRDESC" ColumnName="TRDESC" />
+                <ScalarProperty Name="TREFF" ColumnName="TREFF" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRAMT" ColumnName="TRAMT" />
+                <ScalarProperty Name="TRDORC" ColumnName="TRDORC" />
+                <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GLMAST_ERP">
+            <EntityTypeMapping TypeName="dlgocModel.GLMAST_ERP">
+              <MappingFragment StoreEntitySet="GLMAST_ERP">
+                <ScalarProperty Name="NORBAL" ColumnName="NORBAL" />
+                <ScalarProperty Name="CHGTDY" ColumnName="CHGTDY" />
+                <ScalarProperty Name="ACTCAT" ColumnName="ACTCAT" />
+                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
+                <ScalarProperty Name="DECMEB" ColumnName="DECMEB" />
+                <ScalarProperty Name="CRAYTD" ColumnName="CRAYTD" />
+                <ScalarProperty Name="DRAYTD" ColumnName="DRAYTD" />
+                <ScalarProperty Name="CRAQTD" ColumnName="CRAQTD" />
+                <ScalarProperty Name="DRAQTD" ColumnName="DRAQTD" />
+                <ScalarProperty Name="CRAMTD" ColumnName="CRAMTD" />
+                <ScalarProperty Name="DRAMTD" ColumnName="DRAMTD" />
+                <ScalarProperty Name="CRAWTD" ColumnName="CRAWTD" />
+                <ScalarProperty Name="DRAWTD" ColumnName="DRAWTD" />
+                <ScalarProperty Name="CRATDY" ColumnName="CRATDY" />
+                <ScalarProperty Name="DRATDY" ColumnName="DRATDY" />
+                <ScalarProperty Name="CURBAL" ColumnName="CURBAL" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="GMCFYR" ColumnName="GMCFYR" />
+                <ScalarProperty Name="GMCTYP" ColumnName="GMCTYP" />
+                <ScalarProperty Name="ACCTGL" ColumnName="ACCTGL" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="MuaBanNgoaiTe" FunctionName="dlgocModel.Store.MuaBanNgoaiTe" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.MuaBanNgoaiTe_Result">
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="acctgl" ColumnName="acctgl" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="tien" ColumnName="tien" />
+                <ScalarProperty Name="nt" ColumnName="nt" />
+                <ScalarProperty Name="qd" ColumnName="qd" />
+                <ScalarProperty Name="qdusd" ColumnName="qdusd" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="tracuulsgl" FunctionName="dlgocModel.Store.tracuulsgl">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.tracuulsgl_Result">
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
+                <ScalarProperty Name="debit" ColumnName="debit" />
+                <ScalarProperty Name="credit" ColumnName="credit" />
+                <ScalarProperty Name="chuthich" ColumnName="chuthich" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TREFF" ColumnName="TREFF" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="TRCFYR" ColumnName="TRCFYR" />
+                <ScalarProperty Name="TRUSR2" ColumnName="TRUSR2" />
+                <ScalarProperty Name="TRUSRN" ColumnName="TRUSRN" />
+                <ScalarProperty Name="TRAUXT" ColumnName="TRAUXT" />
+                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="TRSTAT" ColumnName="TRSTAT" />
+                <ScalarProperty Name="trsys" ColumnName="trsys" />
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TraCuuGLERP" FunctionName="dlgocModel.Store.TraCuuGLERP">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TraCuuGLERP_Result">
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
+                <ScalarProperty Name="acctgl" ColumnName="acctgl" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="gmctyp" ColumnName="gmctyp" />
+                <ScalarProperty Name="Soduhientai" ColumnName="Soduhientai" />
+                <ScalarProperty Name="DSCoNgay" ColumnName="DSCoNgay" />
+                <ScalarProperty Name="DSNoNgay" ColumnName="DSNoNgay" />
+                <ScalarProperty Name="psngay" ColumnName="psngay" />
+                <ScalarProperty Name="psthang" ColumnName="psthang" />
+                <ScalarProperty Name="psNAM" ColumnName="psNAM" />
+                <ScalarProperty Name="GMCFYR" ColumnName="GMCFYR" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="BcDuno_HuyDong" FunctionName="dlgocModel.Store.BcDuno_HuyDong" />
+          <FunctionImportMapping FunctionImportName="BcDuno_HuyDong_tangGiam" FunctionName="dlgocModel.Store.BcDuno_HuyDong_tangGiam" />
+          <FunctionImportMapping FunctionImportName="BcTuan_HDV_Vay" FunctionName="dlgocModel.Store.BcTuan_HDV_Vay" />
+          <FunctionImportMapping FunctionImportName="BcTuan_HDV_Vay_chiTiet" FunctionName="dlgocModel.Store.BcTuan_HDV_Vay_chiTiet" />
+          <FunctionImportMapping FunctionImportName="GetFullCIFInfo" FunctionName="dlgocModel.Store.GetFullCIFInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.GetFullCIFInfo_Result">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="CFNAME" ColumnName="CFNAME" />
+                <ScalarProperty Name="CFCIFN" ColumnName="CFCIFN" />
+                <ScalarProperty Name="CFSSNO" ColumnName="CFSSNO" />
+                <ScalarProperty Name="CFSSCD" ColumnName="CFSSCD" />
+                <ScalarProperty Name="CFINDI" ColumnName="CFINDI" />
+                <ScalarProperty Name="CFCLAS" ColumnName="CFCLAS" />
+                <ScalarProperty Name="CFBUST" ColumnName="CFBUST" />
+                <ScalarProperty Name="CFCITZ" ColumnName="CFCITZ" />
+                <ScalarProperty Name="TAXCOD" ColumnName="TAXCOD" />
+                <ScalarProperty Name="CFORG6" ColumnName="CFORG6" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="CFMUID" ColumnName="CFMUID" />
+                <ScalarProperty Name="CFADDR" ColumnName="CFADDR" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="CONAME" ColumnName="CONAME" />
+                <ScalarProperty Name="CFLGID" ColumnName="CFLGID" />
+                <ScalarProperty Name="CFBIRD" ColumnName="CFBIRD" />
+                <ScalarProperty Name="CFSEX" ColumnName="CFSEX" />
+                <ScalarProperty Name="CFSIC3" ColumnName="CFSIC3" />
+                <ScalarProperty Name="CFSIC5" ColumnName="CFSIC5" />
+                <ScalarProperty Name="CFIDI6" ColumnName="CFIDI6" />
+                <ScalarProperty Name="MOBIL" ColumnName="MOBIL" />
+                <ScalarProperty Name="CFNA7" ColumnName="CFNA7" />
+                <ScalarProperty Name="Xoa" ColumnName="Xoa" />
+                <ScalarProperty Name="ngayxoa" ColumnName="ngayxoa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GiaoDichBienDongHDV" FunctionName="dlgocModel.Store.GiaoDichBienDongHDV" />
+          <FunctionImportMapping FunctionImportName="GiaoDichBienDongTienVay" FunctionName="dlgocModel.Store.GiaoDichBienDongTienVay" />
+          <FunctionImportMapping FunctionImportName="thauchi_mpa" FunctionName="dlgocModel.Store.thauchi_mpa">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.thauchi_mpa_Result">
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CFACCN" ColumnName="CFACCN" />
+                <ScalarProperty Name="CFATYP" ColumnName="CFATYP" />
+                <ScalarProperty Name="CFMSG" ColumnName="CFMSG" />
+                <ScalarProperty Name="CFMUIC" ColumnName="CFMUIC" />
+                <ScalarProperty Name="CFMPD6" ColumnName="CFMPD6" />
+                <ScalarProperty Name="CFDLM" ColumnName="CFDLM" />
+                <ScalarProperty Name="CFMUID" ColumnName="CFMUID" />
+                <ScalarProperty Name="CFDPCD" ColumnName="CFDPCD" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+                <ScalarProperty Name="CFJOBT" ColumnName="CFJOBT" />
+                <ScalarProperty Name="mabds" ColumnName="mabds" />
+                <ScalarProperty Name="tencb" ColumnName="tencb" />
+                <ScalarProperty Name="sodu" ColumnName="sodu" />
+                <ScalarProperty Name="ODPROT" ColumnName="ODPROT" />
+                <ScalarProperty Name="ODDLIM" ColumnName="ODDLIM" />
+                <ScalarProperty Name="OTRATE" ColumnName="OTRATE" />
+                <ScalarProperty Name="OTDTE" ColumnName="OTDTE" />
+                <ScalarProperty Name="OTEXP" ColumnName="OTEXP" />
+                <ScalarProperty Name="OTDTE2" ColumnName="OTDTE2" />
+                <ScalarProperty Name="OTEXP2" ColumnName="OTEXP2" />
+                <ScalarProperty Name="ODINT" ColumnName="ODINT" />
+                <ScalarProperty Name="ODEXSS" ColumnName="ODEXSS" />
+                <ScalarProperty Name="ORATE" ColumnName="ORATE" />
+                <ScalarProperty Name="OTRTN" ColumnName="OTRTN" />
+                <ScalarProperty Name="OTPVR1" ColumnName="OTPVR1" />
+                <ScalarProperty Name="OTPVAR" ColumnName="OTPVAR" />
+                <ScalarProperty Name="OTCEIL" ColumnName="OTCEIL" />
+                <ScalarProperty Name="OTFLOR" ColumnName="OTFLOR" />
+                <ScalarProperty Name="ODUNAC" ColumnName="ODUNAC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="saokethauchi" FunctionName="dlgocModel.Store.saokethauchi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.saokethauchi_Result">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
+                <ScalarProperty Name="CBAL" ColumnName="CBAL" />
+                <ScalarProperty Name="laicongdon" ColumnName="laicongdon" />
+                <ScalarProperty Name="sodubihold" ColumnName="sodubihold" />
+                <ScalarProperty Name="soduphatsinhnothang" ColumnName="soduphatsinhnothang" />
+                <ScalarProperty Name="ODPROT" ColumnName="ODPROT" />
+                <ScalarProperty Name="hanmuc" ColumnName="hanmuc" />
+                <ScalarProperty Name="laisuat" ColumnName="laisuat" />
+                <ScalarProperty Name="ngaytaotc" ColumnName="ngaytaotc" />
+                <ScalarProperty Name="ngayhethan" ColumnName="ngayhethan" />
+                <ScalarProperty Name="ngaytaolantruoc" ColumnName="ngaytaolantruoc" />
+                <ScalarProperty Name="ngayhethanlantruoc" ColumnName="ngayhethanlantruoc" />
+                <ScalarProperty Name="laitc" ColumnName="laitc" />
+                <ScalarProperty Name="laiphat" ColumnName="laiphat" />
+                <ScalarProperty Name="PFLOOR" ColumnName="PFLOOR" />
+                <ScalarProperty Name="PCEIL" ColumnName="PCEIL" />
+                <ScalarProperty Name="ORATE" ColumnName="ORATE" />
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="loaitc" ColumnName="loaitc" />
+                <ScalarProperty Name="OTPVR1" ColumnName="OTPVR1" />
+                <ScalarProperty Name="OTPVAR" ColumnName="OTPVAR" />
+                <ScalarProperty Name="OTCEIL" ColumnName="OTCEIL" />
+                <ScalarProperty Name="OTFLOR" ColumnName="OTFLOR" />
+                <ScalarProperty Name="ODUNAC" ColumnName="ODUNAC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ThongBaoDuNo" FunctionName="dlgocModel.Store.ThongBaoDuNo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.ThongBaoDuNo_Result">
+                <ScalarProperty Name="socif" ColumnName="socif" />
+                <ScalarProperty Name="khachhang" ColumnName="khachhang" />
+                <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+                <ScalarProperty Name="ngayduyet" ColumnName="ngayduyet" />
+                <ScalarProperty Name="tiente" ColumnName="tiente" />
+                <ScalarProperty Name="duno" ColumnName="duno" />
+                <ScalarProperty Name="kyhanlai" ColumnName="kyhanlai" />
+                <ScalarProperty Name="laicd" ColumnName="laicd" />
+                <ScalarProperty Name="phaitra" ColumnName="phaitra" />
+                <ScalarProperty Name="laiphat" ColumnName="laiphat" />
+                <ScalarProperty Name="loaisaoke" ColumnName="loaisaoke" />
+                <ScalarProperty Name="quanhe" ColumnName="quanhe" />
+                <ScalarProperty Name="ngaydl" ColumnName="ngaydl" />
+                <ScalarProperty Name="denngay" ColumnName="denngay" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ThongBaoNoDenHan" FunctionName="dlgocModel.Store.ThongBaoNoDenHan">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.ThongBaoNoDenHan_Result">
+                <ScalarProperty Name="socif" ColumnName="socif" />
+                <ScalarProperty Name="khachhang" ColumnName="khachhang" />
+                <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+                <ScalarProperty Name="tiente" ColumnName="tiente" />
+                <ScalarProperty Name="kyhangoc" ColumnName="kyhangoc" />
+                <ScalarProperty Name="phaitra" ColumnName="phaitra" />
+                <ScalarProperty Name="quanhe" ColumnName="quanhe" />
+                <ScalarProperty Name="macbtd" ColumnName="macbtd" />
+                <ScalarProperty Name="Datadate" ColumnName="Datadate" />
+                <ScalarProperty Name="denngay" ColumnName="denngay" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

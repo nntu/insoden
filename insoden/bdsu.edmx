@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="bdsuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="deptcode" />
+          </Key>
+          <Property Name="deptcode" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="TenPhong" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tb_ql_CIF">
+          <Key>
+            <PropertyRef Name="cif" />
+            <PropertyRef Name="accno" />
+          </Key>
+          <Property Name="cif" Type="int" Nullable="false" />
+          <Property Name="accno" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="User_mo" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenUserMo" Type="nvarchar" MaxLength="255" />
+          <Property Name="User_duyet" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenUserDuyet" Type="nvarchar" MaxLength="255" />
+          <Property Name="NgayMo" Type="datetime" />
+          <Property Name="NgayDL" Type="datetime" />
+          <Property Name="TenKh" Type="nvarchar" MaxLength="255" />
+          <Property Name="noidungej" Type="text" />
+          <Property Name="curraccno" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="EJSEQNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="JRNLSEQNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="dept_unhap" Type="varchar" MaxLength="5" />
+          <Property Name="dept_uduyet" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="tbbdsuser">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngaytao" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblBranch">
+          <Key>
+            <PropertyRef Name="BRANCHCODE" />
+          </Key>
+          <Property Name="BRANCHCODE" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="BRANCHNAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="tbPrinter">
+          <Key>
+            <PropertyRef Name="WorkStation" />
+          </Key>
+          <Property Name="WorkStation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="printerService" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbsothe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="masothe" Type="nvarchar" MaxLength="16" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="255" />
+          <Property Name="ngay" Type="datetime" />
+          <Property Name="gio" Type="time" Precision="7" />
+          <Property Name="trangthai" Type="nvarchar" MaxLength="5" />
+          <Property Name="branch" Type="int" />
+          <Property Name="ngayadd" Type="datetime" />
+          <Property Name="ngaybc" Type="datetime" />
+          <Property Name="LoaiThe" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="255" />
+          <Property Name="servicethe" Type="nvarchar" MaxLength="50" />
+          <Property Name="sotk" Type="nvarchar" MaxLength="255" />
+          <Property Name="cmnd" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngay802" Type="datetime" />
+          <Property Name="usertacdong" Type="nvarchar" MaxLength="255" />
+          <Property Name="cif" Type="int" />
+        </EntityType>
+        <EntityType Name="tbXoaATM">
+          <Key>
+            <PropertyRef Name="masothe" />
+          </Key>
+          <Property Name="masothe" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="55" />
+          <Property Name="ngayxoa" Type="datetime" />
+          <Property Name="userxoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="userduyet" Type="nvarchar" MaxLength="50" />
+          <Property Name="ngaybc" Type="datetime" Nullable="false" />
+          <Property Name="branch" Type="int" />
+          <Property Name="REMARKS1" Type="nvarchar" MaxLength="255" />
+          <Property Name="REMARKS2" Type="nvarchar" MaxLength="255" />
+          <Property Name="cif" Type="int" />
+        </EntityType>
+        <EntityContainer Name="bdsuModelStoreContainer">
+          <EntitySet Name="dept" EntityType="Self.dept" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ql_CIF" EntityType="Self.tb_ql_CIF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbbdsuser" EntityType="Self.tbbdsuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBranch" EntityType="Self.tblBranch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPrinter" EntityType="Self.tbPrinter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbsothe" EntityType="Self.tbsothe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbXoaATM" EntityType="Self.tbXoaATM" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bdsuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbPrinter">
+          <Key>
+            <PropertyRef Name="WorkStation" />
+          </Key>
+          <Property Name="WorkStation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="printerService" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbsothe">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="masothe" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Hoten" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngay" Type="DateTime" Precision="3" />
+          <Property Name="gio" Type="Time" Precision="7" />
+          <Property Name="trangthai" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="branch" Type="Int32" />
+          <Property Name="ngayadd" Type="DateTime" Precision="3" />
+          <Property Name="ngaybc" Type="DateTime" Precision="3" />
+          <Property Name="LoaiThe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="servicethe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sotk" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cmnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngay802" Type="DateTime" Precision="3" />
+          <Property Name="usertacdong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cif" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="bdsuEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbPrinters" EntityType="Self.tbPrinter" />
+          <EntitySet Name="tbsothes" EntityType="Self.tbsothe" />
+          <EntitySet Name="tbbdsusers" EntityType="bdsuModel.tbbdsuser" />
+          <EntitySet Name="tbXoaATMs" EntityType="bdsuModel.tbXoaATM" />
+          <EntitySet Name="tb_ql_CIF" EntityType="bdsuModel.tb_ql_CIF" />
+          <EntitySet Name="tblBranches" EntityType="bdsuModel.tblBranch" />
+          <EntitySet Name="depts" EntityType="bdsuModel.dept" />
+        </EntityContainer>
+        <EntityType Name="tbbdsuser">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ngaytao" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbXoaATM">
+          <Key>
+            <PropertyRef Name="masothe" />
+          </Key>
+          <Property Name="masothe" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Hoten" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="ngayxoa" Type="DateTime" Precision="3" />
+          <Property Name="userxoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userduyet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ngaybc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="branch" Type="Int32" />
+          <Property Name="REMARKS1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="REMARKS2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="cif" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tb_ql_CIF">
+          <Key>
+            <PropertyRef Name="cif" />
+            <PropertyRef Name="accno" />
+          </Key>
+          <Property Name="cif" Type="Int32" Nullable="false" />
+          <Property Name="accno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_mo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenUserMo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="User_duyet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenUserDuyet" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NgayMo" Type="DateTime" Precision="3" />
+          <Property Name="NgayDL" Type="DateTime" Precision="3" />
+          <Property Name="TenKh" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="noidungej" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="curraccno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="EJSEQNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JRNLSEQNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dept_unhap" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="dept_uduyet" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblBranch">
+          <Key>
+            <PropertyRef Name="BRANCHCODE" />
+          </Key>
+          <Property Name="BRANCHCODE" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="BRANCHNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="dept">
+          <Key>
+            <PropertyRef Name="deptcode" />
+          </Key>
+          <Property Name="deptcode" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="TenPhong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bdsuModelStoreContainer" CdmEntityContainer="bdsuEntities">
+          <EntitySetMapping Name="tbPrinters">
+            <EntityTypeMapping TypeName="bdsuModel.tbPrinter">
+              <MappingFragment StoreEntitySet="tbPrinter">
+                <ScalarProperty Name="WorkStation" ColumnName="WorkStation" />
+                <ScalarProperty Name="printerService" ColumnName="printerService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbsothes">
+            <EntityTypeMapping TypeName="bdsuModel.tbsothe">
+              <MappingFragment StoreEntitySet="tbsothe">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="masothe" ColumnName="masothe" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="gio" ColumnName="gio" />
+                <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="ngayadd" ColumnName="ngayadd" />
+                <ScalarProperty Name="ngaybc" ColumnName="ngaybc" />
+                <ScalarProperty Name="LoaiThe" ColumnName="LoaiThe" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="servicethe" ColumnName="servicethe" />
+                <ScalarProperty Name="sotk" ColumnName="sotk" />
+                <ScalarProperty Name="cmnd" ColumnName="cmnd" />
+                <ScalarProperty Name="ngay802" ColumnName="ngay802" />
+                <ScalarProperty Name="usertacdong" ColumnName="usertacdong" />
+                <ScalarProperty Name="cif" ColumnName="cif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbbdsusers">
+            <EntityTypeMapping TypeName="bdsuModel.tbbdsuser">
+              <MappingFragment StoreEntitySet="tbbdsuser">
+                <ScalarProperty Name="ngaytao" ColumnName="ngaytao" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbXoaATMs">
+            <EntityTypeMapping TypeName="bdsuModel.tbXoaATM">
+              <MappingFragment StoreEntitySet="tbXoaATM">
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="REMARKS2" ColumnName="REMARKS2" />
+                <ScalarProperty Name="REMARKS1" ColumnName="REMARKS1" />
+                <ScalarProperty Name="branch" ColumnName="branch" />
+                <ScalarProperty Name="ngaybc" ColumnName="ngaybc" />
+                <ScalarProperty Name="userduyet" ColumnName="userduyet" />
+                <ScalarProperty Name="userxoa" ColumnName="userxoa" />
+                <ScalarProperty Name="ngayxoa" ColumnName="ngayxoa" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="masothe" ColumnName="masothe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ql_CIF">
+            <EntityTypeMapping TypeName="bdsuModel.tb_ql_CIF">
+              <MappingFragment StoreEntitySet="tb_ql_CIF">
+                <ScalarProperty Name="dept_uduyet" ColumnName="dept_uduyet" />
+                <ScalarProperty Name="dept_unhap" ColumnName="dept_unhap" />
+                <ScalarProperty Name="JRNLSEQNO" ColumnName="JRNLSEQNO" />
+                <ScalarProperty Name="EJSEQNO" ColumnName="EJSEQNO" />
+                <ScalarProperty Name="IDNo" ColumnName="IDNo" />
+                <ScalarProperty Name="curraccno" ColumnName="curraccno" />
+                <ScalarProperty Name="noidungej" ColumnName="noidungej" />
+                <ScalarProperty Name="TenKh" ColumnName="TenKh" />
+                <ScalarProperty Name="NgayDL" ColumnName="NgayDL" />
+                <ScalarProperty Name="NgayMo" ColumnName="NgayMo" />
+                <ScalarProperty Name="TenUserDuyet" ColumnName="TenUserDuyet" />
+                <ScalarProperty Name="User_duyet" ColumnName="User_duyet" />
+                <ScalarProperty Name="TenUserMo" ColumnName="TenUserMo" />
+                <ScalarProperty Name="User_mo" ColumnName="User_mo" />
+                <ScalarProperty Name="accno" ColumnName="accno" />
+                <ScalarProperty Name="cif" ColumnName="cif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBranches">
+            <EntityTypeMapping TypeName="bdsuModel.tblBranch">
+              <MappingFragment StoreEntitySet="tblBranch">
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="BRANCHNAME" ColumnName="BRANCHNAME" />
+                <ScalarProperty Name="BRANCHCODE" ColumnName="BRANCHCODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="depts">
+            <EntityTypeMapping TypeName="bdsuModel.dept">
+              <MappingFragment StoreEntitySet="dept">
+                <ScalarProperty Name="TenPhong" ColumnName="TenPhong" />
+                <ScalarProperty Name="deptcode" ColumnName="deptcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
