@@ -1,23 +1,25 @@
-﻿using DevExpress.XtraEditors;
-using Ionic.Zip;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration;
-using System.Data;
+
 using System.Data.Entity.Core.Objects;
 using System.Deployment.Application;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using Ionic.Zip;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace insoden
 {
@@ -46,7 +48,7 @@ namespace insoden
         private string _tempdir;
 
         // List<tk> ltk;
-        private inPhieuDoiChieu _ttnghang;
+        private ThongTinNganHang _ttnghang;
 
         private string _clickOnceLocation;
         private List<dcdienluc> dchieu = new List<dcdienluc>();
@@ -62,9 +64,7 @@ namespace insoden
         private ObjectResult<TinhPhiTheoCif_Result> _phi;
 
         private ObjectResult<SaoKeCif_Result> _saoke;
-
-        private List<saokeTienVay> _sktv = new List<saokeTienVay>();
-
+        
         public MainForm()
         {
             _dbin = new List<DatainNoCo>();
@@ -167,8 +167,8 @@ namespace insoden
 
         private void bt_atmXoa_Click(object sender, EventArgs e)
         {
-            var dbbds = new bdsuEntities();
-            IQueryable<tbXoaATM> ds = from p in dbbds.tbXoaATMs
+        
+            IQueryable<tbXoaATM> ds = from p in _dbbdsu.tbXoaATMs
                                       where p.ngayxoa >= dtp_atmxoa_ngaydau.Value && p.ngayxoa <= dtp_atmxoa_ngaycuoi.Value
                                       select p;
 
@@ -179,13 +179,22 @@ namespace insoden
         {
             if (tb_dkMayin.Text != "")
             {
-                var dbbds = new bdsuEntities();
+            
                 string machineName = Environment.MachineName;
                 //      dbbds.tbPrinters.Attach(new tbPrinter() { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
-                dbbds.tbPrinters.Add(new tbPrinter { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
-                dbbds.SaveChanges();
+                tbPrinter tbprinter =    _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+                if (tbprinter == null)
+                {
+                    _dbbdsu.tbPrinters.Add(new tbPrinter { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
+                  
+                }
+                else {
+                    tbprinter.printerService = tb_dkMayin.Text.Trim();
+                   
+                }
+                _dbbdsu.SaveChanges();
+                MessageBox.Show(@"Đã Thêm / cập nhật");
 
-                MessageBox.Show(@"Da them");
             }
             else
             {
@@ -237,7 +246,7 @@ namespace insoden
 
         private void bt_exportexcel_saoke_Click(object sender, EventArgs e)
         {
-            var _pathToFile = Path.Combine(_clickOnceLocation, @"saoketk.xlsx");
+            var pathToFile = Path.Combine(_clickOnceLocation, @"saoketk.xlsx");
             if (_dbin == null || _dbin.Count == 0)
             {
                 MessageBox.Show(@"Chưa có DL");
@@ -247,7 +256,7 @@ namespace insoden
                 SaveFileExcel.FileName = "saoke_";
                 if (SaveFileExcel.ShowDialog() == DialogResult.OK)
                 {
-                    var temp = new FileInfo(_pathToFile);
+                    var temp = new FileInfo(pathToFile);
                     using (var pck = new ExcelPackage(temp))
                     {
                         ExcelWorksheet wsList = pck.Workbook.Worksheets[1];
@@ -399,7 +408,7 @@ namespace insoden
             {
                 if (cb_ipdc_ck.Checked)
                 {
-                    var finbc = new InpdcGD(_lcif, _ttnghang);
+                    var finbc = new frmInpdcGD(_lcif, _ttnghang);
                     finbc.Show();
                 }
                 else
@@ -449,7 +458,7 @@ namespace insoden
 
                 string str = soCa + " tai " + str3;
                 string str2 = "~n 1 ";
-                str2 = (str2 + " ~V 13 ~H 40 ~t " + fullname) + " ~V 14 ~H 45 ~t " + Lib.Split_ALong_Line(str, 40, 1);
+                str2 = (str2 + " ~V 13 ~H 40 ~t " + fullname) + " ~V 14 ~H 45 ~t " + Lib.Split_ALong_Line(str, 40);
 
                 int num = Convert.ToInt32(mtb_solanin.Text.Trim());
                 lb_solanin.Text = mtb_solanin.Text.Trim();
@@ -547,7 +556,7 @@ namespace insoden
 
         private void bt_lsgl_xuat_Click(object sender, EventArgs e)
         {
-            var _pathToFile = Path.Combine(_clickOnceLocation, @"gl_70217.xlsx");
+            var pathToFile = Path.Combine(_clickOnceLocation, @"gl_70217.xlsx");
 
             if (_listLsGl == null || _listLsGl.Count == 0)
             {
@@ -558,7 +567,7 @@ namespace insoden
                 SaveFileExcel.FileName = "gl_";
                 if (SaveFileExcel.ShowDialog() == DialogResult.OK)
                 {
-                    var temp = new FileInfo(_pathToFile);
+                    var temp = new FileInfo(pathToFile);
                     using (var pck = new ExcelPackage(temp))
                     {
                         decimal glacc = Convert.ToDecimal(tb_lsgl_tkgl.Text.Trim());
@@ -648,7 +657,7 @@ namespace insoden
 
             TenChiNhanh = config["TenChiNhanh"];
             DiaChi = config["DiaChi"];
-            _ttnghang = new inPhieuDoiChieu
+            _ttnghang = new ThongTinNganHang
             {
                 tencn_vi = config["tencn_vi"],
                 tencn_en = config["tencn_en"],
@@ -696,7 +705,7 @@ namespace insoden
                         cbal = cbal,
                         currtyp = currtyp,
                         acctyp = acctyp,
-                        cfindi = cfindi,
+                        cfindi = cfindi
                     });
                     _ttnghang.cifno = tb_cif_pdc.Text;
                     _ttnghang.cfname1 = cfname1;
@@ -715,52 +724,55 @@ namespace insoden
             {
                 string filereport = Path.GetFileName(fd.FileName);
 
-                string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
-                string mainstring = "BIDVBITCKT4" + filereport;
-
-                var password = new string(mainstring.ToCharArray().Reverse().ToArray());
-                using (ZipFile zip = ZipFile.Read(fd.FileName))
+                if (filereport != null)
                 {
-                    string bc = "ISW810P";
-                    ZipEntry a = zip[bc + bds];
-                    if (a == null)
+                    string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
+                    string mainstring = "BIDVBITCKT4" + filereport;
+
+                    var password = new string(mainstring.ToCharArray().Reverse().ToArray());
+                    using (var zip = ZipFile.Read(fd.FileName))
                     {
-                        MessageBox.Show(@"Khong co bc 810");
-                    }
-                    else
-                    {
-                        a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
-                        using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
+                        string bc = "ISW810P";
+                        var a = zip[bc + bds];
+                        if (a == null)
                         {
-                            String line;
-                            // Read and display lines from the file until the end of
-                            // the file is reached.
-
-                            while ((line = sr.ReadLine()) != null)
+                            MessageBox.Show(@"Khong co bc 810");
+                        }
+                        else
+                        {
+                            a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
+                            using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
                             {
-                                if (line.Length == 85)
-                                {
-                                    string stt = line.Substring(4, 7).Trim();
-                                    string sothe = line.Substring(12, 20).Trim();
-                                    string hoten = line.Substring(33, 40).Trim();
-                                    string ngaythang = line.Substring(73).Trim().Replace("  ", " ");
-                                    if (ngaythang.Length == 7) { ngaythang = "0" + ngaythang; }
-                                    DateTime r = DateTime.ParseExact(ngaythang, "dd/MM/yy", CultureInfo.InvariantCulture);
+                                string line;
+                                // Read and display lines from the file until the end of
+                                // the file is reached.
 
-                                    _dsbc810.Add(new ClBc810
+                                while ((line = sr.ReadLine()) != null)
+                                {
+                                    if (line.Length == 85)
                                     {
-                                        Stt = Convert.ToInt32(stt),
-                                        SoThe = sothe,
-                                        HoTen = hoten,
-                                        Ngaystr = ngaythang,
-                                        NgayMo = r
-                                    });
+                                        string stt = line.Substring(4, 7).Trim();
+                                        string sothe = line.Substring(12, 20).Trim();
+                                        string hoten = line.Substring(33, 40).Trim();
+                                        string ngaythang = line.Substring(73).Trim().Replace("  ", " ");
+                                        if (ngaythang.Length == 7) { ngaythang = "0" + ngaythang; }
+                                        DateTime r = DateTime.ParseExact(ngaythang, "dd/MM/yy", CultureInfo.InvariantCulture);
+
+                                        _dsbc810.Add(new ClBc810
+                                        {
+                                            Stt = Convert.ToInt32(stt),
+                                            SoThe = sothe,
+                                            HoTen = hoten,
+                                            Ngaystr = ngaythang,
+                                            NgayMo = r
+                                        });
+                                    }
                                 }
                             }
-                        }
 
-                        RW_gc_bc810.DataSource = new BindingSource(_dsbc810, "");
-                        RW_gv_bc810.BestFitColumns();
+                            RW_gc_bc810.DataSource = new BindingSource(_dsbc810, "");
+                            RW_gv_bc810.BestFitColumns();
+                        }
                     }
                 }
             }
@@ -774,114 +786,115 @@ namespace insoden
             {
                 string filereport = Path.GetFileName(fd.FileName);
 
-                string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
-                string mainstring = "BIDVBITCKT4" + filereport;
-
-                var password = new string(mainstring.ToCharArray().Reverse().ToArray());
-
-                using (ZipFile zip = ZipFile.Read(fd.FileName))
+                if (filereport != null)
                 {
-                    string bc = "ISW833P";
-                    ZipEntry a = zip[bc + bds];
-                    if (a == null)
+                    string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
+                    string mainstring = "BIDVBITCKT4" + filereport;
+
+                    var password = new string(mainstring.ToCharArray().Reverse().ToArray());
+
+                    using (ZipFile zip = ZipFile.Read(fd.FileName))
                     {
-                        MessageBox.Show(@"Khong co bc 833");
-                    }
-                    else
-                    {
-                        a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
-                        using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
+                        string bc = "ISW833P";
+                        ZipEntry a = zip[bc + bds];
+                        if (a == null)
                         {
-                            String line;
-                            // Read and display lines from the file until the end of
-                            // the file is reached.
-                            string status = "";
-                            while ((line = sr.ReadLine()) != null)
+                            MessageBox.Show(@"Khong co bc 833");
+                        }
+                        else
+                        {
+                            a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
+                            using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
                             {
-                                if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
+                                String line;
+                                // Read and display lines from the file until the end of
+                                // the file is reached.
+                                string status = "";
+                                while ((line = sr.ReadLine()) != null)
                                 {
-                                    if (line.Length < 50)
+                                    if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
                                     {
-                                        status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
-                                            line.Length - line.IndexOf(":", StringComparison.Ordinal));
-                                        status = status.Replace(":", "").Trim();
+                                        if (line.Length < 50)
+                                        {
+                                            status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
+                                                line.Length - line.IndexOf(":", StringComparison.Ordinal));
+                                            status = status.Replace(":", "").Trim();
+                                        }
+                                    }
+
+                                    if (line.Length == 76)
+                                    {
+                                        string stt = line.Substring(4, 7).Trim();
+                                        string sothe = line.Substring(12, 20).Trim();
+                                        string hoten = line.Substring(33, 25).Trim();
+                                        string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
+
+                                        string[] hhh = ngaythang.Split(' ');
+                                        string ngay = hhh[0];
+
+                                        string gio = "00:00:00";
+                                        gio = hhh.Length > 2 ? hhh[2] : hhh[1];
+                                        TimeSpan time = TimeSpan.Parse(gio);
+                                        if (ngay.Length == 7) ngay = "0" + ngay;
+                                        DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
+
+                                        dsbc833.Add(new ClBc833
+                                        {
+                                            Stt = Convert.ToInt32(stt),
+                                            SoThe = sothe,
+                                            HoTen = hoten,
+                                            Ngaystr = ngaythang,
+                                            TrangThai = status,
+                                            NgayMo = r + time
+                                        });
                                     }
                                 }
-
-                                if (line.Length == 76)
-                                {
-                                    string stt = line.Substring(4, 7).Trim();
-                                    string sothe = line.Substring(12, 20).Trim();
-                                    string hoten = line.Substring(33, 25).Trim();
-                                    string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
-
-                                    string[] hhh = ngaythang.Split(' ');
-                                    string ngay = hhh[0];
-
-                                    string gio = "00:00:00";
-                                    gio = hhh.Length > 2 ? hhh[2] : hhh[1];
-                                    TimeSpan time = TimeSpan.Parse(gio);
-                                    if (ngay.Length == 7) ngay = "0" + ngay;
-                                    DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
-
-                                    dsbc833.Add(new ClBc833
-                                    {
-                                        Stt = Convert.ToInt32(stt),
-                                        SoThe = sothe,
-                                        HoTen = hoten,
-                                        Ngaystr = ngaythang,
-                                        TrangThai = status,
-                                        NgayMo = r + time,
-                                    });
-                                }
                             }
-                        }
 
-                        var temp = (from p in dsbc833
+                            var temp = (from p in dsbc833
 
-                                    join d in _db.X1PCMS
-                                        on new
-                                        {
-                                            SoThe = p.SoThe,
-                                            TrangThai = p.TrangThai
-                                        }
-                                            equals
-                                            new
-                                            {
-                                                SoThe = d.CARDD == null ? string.Empty : d.CARDD.Trim(),
-                                                TrangThai = d.CDSTAT == null ? string.Empty : d.CDSTAT.Trim()
-                                            }
-                                    into g
-                                    from su in g.DefaultIfEmpty()
-
-                                    join c in _dbbdsu.tbsothes
-                                       on new
-                                       {
-                                           SoThe = p.SoThe,
-                                           TrangThai = p.TrangThai
-                                       }
-                                        equals
-                                            new
-                                            {
-                                                SoThe = c.masothe,
-                                                TrangThai = c.trangthai
-                                            }
-                                    into gj
-                                    from subpet in gj.DefaultIfEmpty()
-
-                                    select new ClBc833
+                                join d in _db.X1PCMS
+                                    on new
                                     {
-                                        Stt = p.Stt,
-                                        SoThe = p.SoThe,
-                                        HoTen = p.HoTen,
-                                        Ngaystr = p.Ngaystr,
-                                        TrangThai = p.TrangThai,
-                                        NgayMo = p.NgayMo,
-                                        NguoiMo = (su == null ? subpet == null ? String.Empty : subpet.usertacdong : su.OPER)
-                                    }).ToList();
-                        _dsbc833 = temp;
-                        RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");
-                        RW_gv_bc833.BestFitColumns();
+                                        p.SoThe, p.TrangThai
+                                    }
+                                    equals
+                                    new
+                                    {
+                                        SoThe = d.CARDD?.Trim() ?? string.Empty,
+                                        TrangThai = d.CDSTAT?.Trim() ?? string.Empty
+                                    }
+                                    into g
+                                from su in g.DefaultIfEmpty()
+
+                                join c in _dbbdsu.tbsothes
+                                    on new
+                                    {
+                                        p.SoThe, p.TrangThai
+                                    }
+                                    equals
+                                    new
+                                    {
+                                        SoThe = c.masothe,
+                                        TrangThai = c.trangthai
+                                    }
+                                    into gj
+                                from subpet in gj.DefaultIfEmpty()
+
+                                select new ClBc833
+                                {
+                                    Stt = p.Stt,
+                                    SoThe = p.SoThe,
+                                    HoTen = p.HoTen,
+                                    Ngaystr = p.Ngaystr,
+                                    TrangThai = p.TrangThai,
+                                    NgayMo = p.NgayMo,
+                                    NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER)
+                                }).ToList();
+                            _dsbc833 = temp;
+                            RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");
+                            RW_gv_bc833.BestFitColumns();
+                        }
                     }
                 }
             }
@@ -1026,7 +1039,7 @@ namespace insoden
 
         private void bt_tracuucif_Click(object sender, EventArgs e)
         {
-            var dbbds = new bdsuEntities();
+             
             var noidung = maskedTextBox2.Text.Trim();
             if (noidung == "")
             {
@@ -1037,9 +1050,9 @@ namespace insoden
                 switch (cb_tratk_tim.SelectedIndex)
                 {
                     case 0:
-                        var dstk = from p in dbbds.tb_ql_CIF
-                                   join c in dbbds.depts on p.dept_unhap equals c.deptcode into deptnhap
-                                   join d in dbbds.depts on p.dept_uduyet equals d.deptcode into deptduyet
+                        var dstk = from p in _dbbdsu.tb_ql_CIF
+                                   join c in _dbbdsu.depts on p.dept_unhap equals c.deptcode into deptnhap
+                                   join d in _dbbdsu.depts on p.dept_uduyet equals d.deptcode into deptduyet
                                    from subpet in deptnhap.DefaultIfEmpty()
                                    from subpet1 in deptduyet.DefaultIfEmpty()
                                    where p.accno == noidung
@@ -1063,9 +1076,9 @@ namespace insoden
 
                     case 1:
                         int cif = Convert.ToInt32(noidung);
-                        var dscif = from p in dbbds.tb_ql_CIF
-                                    join c in dbbds.depts on p.dept_unhap equals c.deptcode into deptnhap
-                                    join d in dbbds.depts on p.dept_uduyet equals d.deptcode into deptduyet
+                        var dscif = from p in _dbbdsu.tb_ql_CIF
+                                    join c in _dbbdsu.depts on p.dept_unhap equals c.deptcode into deptnhap
+                                    join d in _dbbdsu.depts on p.dept_uduyet equals d.deptcode into deptduyet
                                     from subpet in deptnhap.DefaultIfEmpty()
                                     from subpet1 in deptduyet.DefaultIfEmpty()
                                     where p.cif == cif
@@ -1089,9 +1102,9 @@ namespace insoden
                         break;
 
                     case 2:
-                        var dsten = from p in dbbds.tb_ql_CIF
-                                    join c in dbbds.depts on p.dept_unhap equals c.deptcode into deptnhap
-                                    join d in dbbds.depts on p.dept_uduyet equals d.deptcode into deptduyet
+                        var dsten = from p in _dbbdsu.tb_ql_CIF
+                                    join c in _dbbdsu.depts on p.dept_unhap equals c.deptcode into deptnhap
+                                    join d in _dbbdsu.depts on p.dept_uduyet equals d.deptcode into deptduyet
                                     from subpet in deptnhap.DefaultIfEmpty()
                                     from subpet1 in deptduyet.DefaultIfEmpty()
                                     where p.TenKh.Contains(noidung)
@@ -1118,7 +1131,7 @@ namespace insoden
 
         private void bt_tracuutheatm_Click(object sender, EventArgs e)
         {
-            var dbbds = new bdsuEntities();
+            
             if (maskedTextBox3.Text == "")
             {
                 MessageBox.Show(@"Chưa nhập số liệu");
@@ -1130,23 +1143,23 @@ namespace insoden
                 {
                     case 0:
                         // tìm theo mã số thẻ
-                        dssothe = dbbds.tbsothes.Where(p => p.masothe.Contains(maskedTextBox3.Text)).ToList();
+                        dssothe = _dbbdsu.tbsothes.Where(p => p.masothe.Contains(maskedTextBox3.Text)).ToList();
                         break;
 
                     case 1:
                         // tìm theo cif
                         var cif = Convert.ToInt32(maskedTextBox3.Text);
-                        dssothe = dbbds.tbsothes.Where(p => p.cif.Value == cif).ToList();
+                        dssothe = _dbbdsu.tbsothes.Where(p => p.cif.Value == cif).ToList();
                         break;
 
                     case 2:
                         // tìm theo tên
-                        dssothe = dbbds.tbsothes.Where(p => p.Hoten.Contains(maskedTextBox3.Text)).ToList();
+                        dssothe = _dbbdsu.tbsothes.Where(p => p.Hoten.Contains(maskedTextBox3.Text)).ToList();
                         break;
 
                     case 3:
                         // tìm theo tên
-                        dssothe = dbbds.tbsothes.Where(p => p.cmnd.Contains(maskedTextBox3.Text)).ToList();
+                        dssothe = _dbbdsu.tbsothes.Where(p => p.cmnd.Contains(maskedTextBox3.Text)).ToList();
                         break;
                 }
 
@@ -1281,7 +1294,7 @@ namespace insoden
             }
 
             int stt = 1;
-            decimal ghico = 0;
+            decimal ghico;
             foreach (LichSuGiaoDichTheoTK_Result value in re)
             {
                 string gio = value.TRTIME.ToString();
@@ -1316,11 +1329,9 @@ namespace insoden
                         .Trim();
                 var prov = new MaskedTextProvider("###-##-##-######-#");
                 prov.Set(value.TRACCT.ToString(CultureInfo.InvariantCulture));
-                string formattk = prov.ToDisplayString();
-                string loaigd;
-                loaigd = value.DORC == "D" ? "No" : "Co";
+              //  string formattk = prov.ToDisplayString();
 
-                decimal ghino = 0;
+                decimal ghino;
                 if (value.DORC == "D")
                 {
                     sodu = sodu - value.AMT;
@@ -1333,7 +1344,7 @@ namespace insoden
                     ghico = value.AMT; ghino = 0;
                 }
                 if (value.cbal != null)
-                    dchieu.Add(new dcdienluc()
+                    dchieu.Add(new dcdienluc
                     {
                         STT = stt,
                         LoaiTien = value.TRCTYP,
@@ -1537,10 +1548,10 @@ namespace insoden
             }
             else
             {
-                var dbbds = new bdsuEntities();
+             
 
                 var brach = sotk.Substring(0, 3);
-                var thongtin = dbbds.tblBranches.FirstOrDefault(c => c.BRANCHCODE.Contains(brach));
+                var thongtin = _dbbdsu.tblBranches.FirstOrDefault(c => c.BRANCHCODE.Contains(brach));
                 if (thongtin != null)
                 {
                     tb_tenchinhanh.Text = thongtin.BRANCHNAME.ToUpper().Trim();
@@ -1673,8 +1684,8 @@ namespace insoden
 
         private void button7_Click(object sender, EventArgs e)
         {
-            var tungay = (DateTime)dtp_td_tg_tungay.Value;
-            var denngay = (DateTime)dtp_td_tg_denngay.Value;
+            var tungay = dtp_td_tg_tungay.Value;
+            var denngay = dtp_td_tg_denngay.Value;
 
             var trlai = _db.TraGoc(_ngaydl, tungay, denngay);
             gc_td_tragoc.DataSource = new BindingSource(trlai, "");
@@ -1775,16 +1786,18 @@ namespace insoden
                     break;
             }
         }
-
+        Config _cf;
         private void Form1_Load(object sender, EventArgs e)
         {
+            _cf = Config.Load();
+        
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 Version myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
                 Text = Text +
                        $" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}";
             }
-            System.Reflection.Assembly assemblyInfo = System.Reflection.Assembly.GetExecutingAssembly();
+            Assembly assemblyInfo = Assembly.GetExecutingAssembly();
             //Location is where the assembly is run from
 
             //CodeBase is the location of the ClickOnce deployment files
@@ -1882,8 +1895,7 @@ namespace insoden
                         var prov = new MaskedTextProvider("###-##-##-######-#");
                         prov.Set(value.TRACCT.ToString(CultureInfo.InvariantCulture));
                         var formattk = prov.ToDisplayString();
-                        string loaigd;
-                        loaigd = value.DORC == "D" ? "No" : "Co";
+                        var loaigd = value.DORC == "D" ? "No" : "Co";
                         if (value.AUXTRC.Trim() != "" && listma.FirstOrDefault(c => c.Id == value.AUXTRC.Trim()) == null)
                         {
                             listma.Add(new ListItem
@@ -2078,13 +2090,13 @@ namespace insoden
 
         private void OpenExplorer(string dir)
         {
-            var result = MessageBox.Show($"Xuất Bc thành công \n File Lưu tại {dir} \n Bạn Có muốn mở file", "OpenFile", MessageBoxButtons.YesNo,
+            var result = MessageBox.Show($"Xuất Bc thành công \n File Lưu tại {dir} \n Bạn Có muốn mở file", @"OpenFile", MessageBoxButtons.YesNo,
                                    MessageBoxIcon.Question);
 
             // If the no button was pressed ...
             if (result == DialogResult.Yes)
             {
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                Process.Start(new ProcessStartInfo
                 {
                     FileName = dir,
                     UseShellExecute = true,
@@ -2106,30 +2118,29 @@ namespace insoden
             lb_mayinso.Text = @"Đang lấy Thông Tin Máy in";
             tb_LayTTinSosec.Visible = false;
             bt_insosec.Visible = false;
-            panel1.Enabled = false;
+            
             tb_tenchinhanh.Text = TenChiNhanh;
             tb_diachi.Text = DiaChi;
 
-            var bdsuEntities = new bdsuEntities();
+            
 
             string machineName = Environment.MachineName;
-            tbPrinter tbprinter =
-                bdsuEntities.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+            var tbprinter =
+                _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
             if (tbprinter != null)
             {
                 _printerIp = tbprinter.printerService;
                 lb_mayinso.Text = $@"Địa chỉ máy: {machineName} - Địa Chỉ Máy In: {_printerIp}";
-                tb_LayTTinSosec.Visible = true;
-                bt_insosec.Visible = true;
                 tb_LayTTinSosec.Enabled = true;
-                bt_insosec.Enabled = true;
+                bt_insosec.Enabled = true;                
+                tb_dkMayin.Text = _printerIp;
             }
             else
             {
                 MessageBox.Show($"Máy {machineName} Chưa Khai Báo Máy in");
                 tb_LayTTinSosec.Enabled = false;
                 bt_insosec.Enabled = false;
-                panel1.Enabled = true;
+                 
             }
         }
 
@@ -2149,7 +2160,7 @@ namespace insoden
             }
             else
             {
-                decimal glacc = Convert.ToDecimal(textEdit1.Text.Trim());
+                var glacc = Convert.ToDecimal(textEdit1.Text.Trim());
                 var ngaydl = (DateTime)dtp_gl_ngay.EditValue;
                 IQueryable<GLHIST> listgl = from p in _db.GLHISTs
                                             where p.GTACCT == glacc && p.DataDate == ngaydl.Date
@@ -2183,7 +2194,7 @@ namespace insoden
                         wsList.Cells["A1"].LoadFromCollection(_lsglhist, true);
                         wsList.Column(1).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
                         wsList.Column(2).Style.Numberformat.Format = "dd/MM/yyyy hh:mm:ss";
-                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
+                        for (var i = 1; i <= wsList.Dimension.End.Column; i++)
                         {
                             wsList.Column(i).AutoFit();
                         }
@@ -2201,7 +2212,7 @@ namespace insoden
             {
                 // this is worker thread
                 UpdateLabelTextDelegate del = UpdateLabelText;
-                lb_solanin.Invoke(del, new object[] { newText });
+                lb_solanin.Invoke(del, newText);
             }
             else
             {
@@ -2212,8 +2223,8 @@ namespace insoden
 
         private void bt_td_tl_laytt_Click(object sender, EventArgs e)
         {
-            var tungay = (DateTime)dtp_td_tl_tungay.Value;
-            var denngay = (DateTime)dtp_td_tl_denngay.Value;
+            var tungay = dtp_td_tl_tungay.Value;
+            var denngay = dtp_td_tl_denngay.Value;
 
             var trlai = _db.TraLai(_ngaydl, tungay, denngay);
             gc_td_tralai.DataSource = new BindingSource(trlai, "");
@@ -2250,6 +2261,7 @@ namespace insoden
         }
 
         // Function for read data from Excel worksheet into DataTable
+/*
         private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
         {
             var dt = new DataTable(ws.Name);
@@ -2275,9 +2287,9 @@ namespace insoden
 
             return dt;
         }
+*/
 
-        private List<DatainNoCo> data = new List<DatainNoCo>();
-
+/*
         private void button6_Click_1(object sender, EventArgs e)
         {
             using (var openFileDialog1 = new OpenFileDialog())
@@ -2314,6 +2326,7 @@ namespace insoden
                 }
             }
         }
+*/
 
         private void bt_sk_pos_ltt_Click(object sender, EventArgs e)
         {
@@ -2417,23 +2430,21 @@ namespace insoden
         {
             decimal sochay = 2255;
             string loaitk = "00";
-            switch (cb_tk_sodep_loaitk.SelectedIndex)
+            if (cb_tk_sodep_loaitk.SelectedIndex == 0)
             {
-                case 0:
-                    loaitk = "00";
-                    sochay = 44780;
-                    break;
-
-                case 1:
-                    loaitk = "37";
-                    sochay = 2255;
-                    break;
+                loaitk = "00";
+                sochay = 44780;
+            }
+            else if (cb_tk_sodep_loaitk.SelectedIndex == 1)
+            {
+                loaitk = "37";
+                sochay = 2255;
             }
 
-            string tk = "";
+            string tk;
             tk = mtb_tk_sodep_dautk.Text + loaitk;
             string tkkyvong = tb_tk_sodep_mongmuon.Text;
-            string checktk = tk;
+            string checktk;
             for (decimal i = sochay; i <= 999999; i++)
             {
                 checktk = $"{i:000000}";
@@ -2506,9 +2517,12 @@ namespace insoden
 
         private void bt_TC_SK_laydl_Click(object sender, EventArgs e)
         {
-            var tk = Convert.ToDecimal(mtb_TC_SK_sotk.Text.Replace("-", ""));
-            var thauchi = _db.saokethauchi(dtp_TC_SK_ngaydau.Value, dtp_TC_SK_ngaycuoi.Value, tk);
-            GC_ThauChi_SaoKe.DataSource = new BindingSource(thauchi, "");
+            if (mtb_TC_SK_sotk.Text != null)
+            {
+                var tk = Convert.ToDecimal(mtb_TC_SK_sotk.Text.Replace("-", ""));
+                var thauchi = _db.saokethauchi(dtp_TC_SK_ngaydau.Value, dtp_TC_SK_ngaycuoi.Value, tk);
+                GC_ThauChi_SaoKe.DataSource = new BindingSource(thauchi, "");
+            }
             GV_ThauChi_SaoKe.OptionsView.ColumnAutoWidth = false;
             GV_ThauChi_SaoKe.BestFitColumns();
         }
@@ -2524,18 +2538,81 @@ namespace insoden
             OpenExplorer(SaveFileExcel.FileName);
         }
 
-        private void label54_Click(object sender, EventArgs e)
-        {
-
-        }
+        List<InTBDuNovaLaiVay> _intbdn;
 
         private void bt_tbdn_laysl_Click(object sender, EventArgs e)
         {
             var cif = Convert.ToDecimal(tb_tbdn_cif.Text);
             var tbdn = _db.ThongBaoDuNo(cif);
-            GC_TD_TBDN.DataSource = new BindingSource(tbdn, "");
+            _intbdn = new List<InTBDuNovaLaiVay>();
+            foreach (var i in tbdn) {
+
+                _intbdn.Add(new InTBDuNovaLaiVay()
+                {
+                    Socif = i.socif,
+                    DuNo = (decimal)i.duno,
+                    LaiCongDon = i.laicd ?? 0,
+                    LaiPhaiTra =  i.laicd ?? 0  + i.laiphat ?? 0,
+                    TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
+                    LaiPhat = i.laiphat ?? 0,
+                    LoaiVay = i.loaisaoke,
+                   LoaiTien=  i.tiente
+                    
+                });
+
+            }
+            GC_TD_TBDN.DataSource = new BindingSource(_intbdn, "");
             GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
             GV_TD_TBDN.BestFitColumns();
+        }
+
+        private void bt_td_tbdn_in_Click(object sender, EventArgs e)
+        {
+            ThongTin config;
+            switch (cb_bds_pdc.SelectedIndex){
+               case 0:
+                    config = _cf.HSC;
+                    break;
+                case 1:
+                    config = _cf.TraNoc;
+                    break;
+                case 2:
+                    config = _cf.NinhKieu;
+                    break;
+                case 3:
+                    config = _cf.ThotNot;
+                    break;
+                default:
+                    config = _cf.HSC;
+                    break;
+
+            }
+
+
+            TenChiNhanh = config.TenChiNhanh;
+            DiaChi = config.DiaChi;
+            _ttnghang = new ThongTinNganHang
+            {
+                tencn_vi = config.tencn_vi,
+                tencn_en = config.tencn_en,
+                diachi = config.diachi,
+                tinh = config.tinh,
+                fax = config.fax,
+                dt = config.dt,
+                tennguoiky = config.tennguoiky,
+                chucdanh = config.chucdanh,
+                noinhan = config.noinhan,
+                tenfilechuky = config.tenfilechuky
+
+                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
+            };
+            if (_intbdn.Count == 0) {
+                MessageBox.Show("Chưa có thông tin");
+
+            } else {
+                frmInDuNovaLaivay frm = new frmInDuNovaLaivay(_intbdn, _ttnghang);
+                frm.ShowDialog();
+            }
         }
     }
 }

@@ -43,7 +43,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -53,10 +53,11 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DocumentationFile>
     </DocumentationFile>
-    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -160,6 +161,10 @@
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -173,6 +178,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="bdsu.Context.cs">
       <SubType>Code</SubType>
       <DesignTime>True</DesignTime>
@@ -193,8 +199,39 @@
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="clbc833.cs" />
+    <Compile Include="Config.cs" />
     <Compile Include="dept.cs">
       <DependentUpon>bdsu.tt</DependentUpon>
+    </Compile>
+    <Compile Include="frminbc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frminbc.Designer.cs">
+      <DependentUpon>frminbc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frminbclt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frminbclt.Designer.cs">
+      <DependentUpon>frminbclt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInDuNovaLaivay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInDuNovaLaivay.Designer.cs">
+      <DependentUpon>frmInDuNovaLaivay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frminpdc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frminpdc.Designer.cs">
+      <DependentUpon>frminpdc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInpdcGD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInpdcGD.Designer.cs">
+      <DependentUpon>frmInpdcGD.cs</DependentUpon>
     </Compile>
     <Compile Include="GetFullCIFInfo_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
@@ -211,12 +248,7 @@
     <Compile Include="GLMAST_ERP.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="InpdcGD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InpdcGD.Designer.cs">
-      <DependentUpon>InpdcGD.cs</DependentUpon>
-    </Compile>
+    <Compile Include="InTBDuNovaLaiVay.cs" />
     <Compile Include="laytygiangay_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -269,24 +301,6 @@
     <Compile Include="GetMonthList_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="inbc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="inbc.Designer.cs">
-      <DependentUpon>inbc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="inbclt.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="inbclt.Designer.cs">
-      <DependentUpon>inbclt.cs</DependentUpon>
-    </Compile>
-    <Compile Include="inpdc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="inpdc.Designer.cs">
-      <DependentUpon>inpdc.cs</DependentUpon>
-    </Compile>
     <Compile Include="LichSuGiaoDichTheoCIF_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -325,12 +339,26 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="tbdn.cs">
+      <DependentUpon>tbdn.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="tbdunovalaivay.cs">
+      <DependentUpon>tbdunovalaivay.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="pdcgiamdoc.cs">
       <DependentUpon>pdcgiamdoc.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="pdc.cs">
       <AutoGen>True</AutoGen>
@@ -434,21 +462,24 @@
     <Content Include="gl_70217.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="InpdcGD.resx">
-      <DependentUpon>InpdcGD.cs</DependentUpon>
+    <EmbeddedResource Include="frminbc.resx">
+      <DependentUpon>frminbc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frminbclt.resx">
+      <DependentUpon>frminbclt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInDuNovaLaivay.resx">
+      <DependentUpon>frmInDuNovaLaivay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frminpdc.resx">
+      <DependentUpon>frminpdc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInpdcGD.resx">
+      <DependentUpon>frmInpdcGD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="nocoa5 - Copy.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>nocoa5 - Copy.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="inbc.resx">
-      <DependentUpon>inbc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="inbclt.resx">
-      <DependentUpon>inbclt.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="inpdc.resx">
-      <DependentUpon>inpdc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -461,6 +492,16 @@
     <EmbeddedResource Include="nocoa5.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>nocoa5.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tbdn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>tbdn.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tbdunovalaivay.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>tbdunovalaivay.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="pdc.rpt">
@@ -573,6 +614,9 @@
     <Content Include="saoketk.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

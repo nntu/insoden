@@ -7,10 +7,10 @@ namespace insoden
     public partial class Inpdc : Form
     {
         private IList<incif> lCif;
-        private inPhieuDoiChieu ttThongtin;
+        private ThongTinNganHang ttThongtin;
    //     private bool _chuky;
 
-        public Inpdc(IList<incif> aCif, inPhieuDoiChieu ttThongtinnganhang)
+        public Inpdc(IList<incif> aCif, ThongTinNganHang ttThongtinnganhang)
         {
             lCif = aCif;
             ttThongtin = ttThongtinnganhang;

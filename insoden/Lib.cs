@@ -41,7 +41,7 @@ namespace insoden
             return rv;
         }
 
-        public static string Split_ALong_Line(string str, int maxValue, short i1)
+        public static string Split_ALong_Line(string str, int maxValue )
         {
             while (String.CompareOrdinal(str, str.Replace("  ", " ")) != 0)
             {
@@ -54,5 +54,6 @@ namespace insoden
             int num = str.Substring(0, maxValue).LastIndexOf(" ", StringComparison.Ordinal);
             return (str.Substring(0, num) + " ~V 15 ~H 25 ~t " + str.Substring(num + 1).Trim() + " ");
         }
+
     }
 }

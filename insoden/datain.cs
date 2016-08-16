@@ -57,7 +57,7 @@ namespace insoden
         public string id_name { get; set; }
     }
 
-    public class inPhieuDoiChieu
+    public class ThongTinNganHang
     {
         public string tencn_vi { get; set; }
 

@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace insoden
 {
-    public partial class InpdcGD : Form
+    public partial class frmInpdcGD : Form
     {
         private IList<incif> lCif;
-        private inPhieuDoiChieu ttThongtin;
+        private ThongTinNganHang ttThongtin;
 
-        public InpdcGD(IList<incif> aCif, inPhieuDoiChieu ttThongtinnganhang)
+        public frmInpdcGD(IList<incif> aCif, ThongTinNganHang ttThongtinnganhang)
         {
             lCif = aCif;
             ttThongtin = ttThongtinnganhang;
@@ -17,7 +17,7 @@ namespace insoden
             InitializeComponent();
         }
 
-        public InpdcGD()
+        public frmInpdcGD()
         {
             InitializeComponent();
         }
