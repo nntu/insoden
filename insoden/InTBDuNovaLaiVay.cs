@@ -9,6 +9,8 @@ namespace insoden
     {
         public decimal Socif { get; set; }
         public string TaiKhoan { get; set; }
+
+        public string TenKhachHang { get; set; }
         public decimal DuNo { get; set; }
         public decimal LaiCongDon{ get; set; }
         public decimal LaiPhat { get; set; }
