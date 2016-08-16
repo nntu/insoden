@@ -2545,6 +2545,7 @@ namespace insoden
             var cif = Convert.ToDecimal(tb_tbdn_cif.Text);
             var tbdn = _db.ThongBaoDuNo(cif);
             _intbdn = new List<InTBDuNovaLaiVay>();
+
             foreach (var i in tbdn) {
 
                 _intbdn.Add(new InTBDuNovaLaiVay()
@@ -2557,7 +2558,7 @@ namespace insoden
                     LaiPhat = i.laiphat ?? 0,
                     LoaiVay = i.loaisaoke,
                    LoaiTien=  i.tiente
-                    
+                    ,TenKhachHang = i.khachhang
                 });
 
             }

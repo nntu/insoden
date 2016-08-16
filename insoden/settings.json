@@ -1,6 +1,6 @@
 ﻿{
   "HSC": {
-    "TenChiNhanh": "CN NHTMCP DT&amp;PT TP CAN THO",
+    "TenChiNhanh": "NGAN HANG NHTMCP DT&amp;PT TP CAN THO",
     "DiaChi": "12 DUONG HOA BINH - CAN THO",
     "tencn_vi": "CHI NHÁNH CẦN THƠ",
     "tencn_en": "CAN THO BRANCH",
@@ -14,7 +14,7 @@
     "tenfilechuky": "chuky.bmp"
   },
   "TraNoc": {
-    "TenChiNhanh": "CN NHTMCP DT&amp;PT TP CAN THO",
+    "TenChiNhanh": "NGAN HANG NHTMCP DT&amp;PT TP CAN THO",
     "DiaChi": "Lộ 31A KCN Trà Nóc 1 - Q.Bình Thủy - TPCT",
     "tencn_vi": "Phòng GD KCN Trà Nóc",
     "tencn_en": "CAN THO BRANCH",
@@ -22,37 +22,37 @@
     "tinh": "Cần Thơ",
     "fax": "0710-820832",
     "dt": "07103-818787",
-    "tennguoiky": "Nguyễn Thế Kế",
+    "tennguoiky": "DƯƠNG PHỦ DIỄM TRANG",
     "chucdanh": "GIÁM ĐỐC",
-    "noinhan": "Hội sở Chi nhánh",
+    "noinhan": "Phòng GD KCN Trà Nóc",
     "tenfilechuky": "chuky.bmp"
   },
   "ThotNot": {
-    "TenChiNhanh": "CN NHTMCP DT&amp;PT TP CAN THO",
-    "DiaChi": "12 DUONG HOA BINH - CAN THO",
-    "tencn_vi": "CHI NHÁNH CẦN THƠ",
+    "TenChiNhanh": "NGAN HANG NHTMCP DT&amp;PT TP CAN THO",
+    "DiaChi": "So 258 Quoc lo 91 KV Long Thanh 1",
+    "tencn_vi": "Phòng GD Thốt Nốt",
     "tencn_en": "CAN THO BRANCH",
-    "diachi": "12 Hòa Bình Q. Ninh Kiều - TP. Cần Thơ",
+    "diachi": "Số 258 Quốc lộ 91 KV Long Thạnh 1",
     "tinh": "Cần Thơ",
     "fax": "0710-820832",
     "dt": "07103-818787",
-    "tennguoiky": "Nguyễn Thế Kế",
+    "tennguoiky": "",
     "chucdanh": "GIÁM ĐỐC",
-    "noinhan": "Hội sở Chi nhánh",
+    "noinhan": "Phòng GD Thốt Nốt",
     "tenfilechuky": "chuky.bmp"
   },
   "NinhKieu": {
-    "TenChiNhanh": "CN NHTMCP DT&amp;PT TP CAN THO",
-    "DiaChi": "12 DUONG HOA BINH - CAN THO",
-    "tencn_vi": "CHI NHÁNH CẦN THƠ",
+    "TenChiNhanh": "NGAN HANG NHTMCP DT&amp;PT TP CAN THO",
+    "DiaChi": "Số 29-31 Châu Văn Liêm",
+    "tencn_vi": "Phòng GD KCN Ninh Kiều",
     "tencn_en": "CAN THO BRANCH",
-    "diachi": "12 Hòa Bình Q. Ninh Kiều - TP. Cần Thơ",
+    "diachi": "Số 29-31 Châu Văn Liêm",
     "tinh": "Cần Thơ",
     "fax": "0710-820832",
     "dt": "07103-818787",
-    "tennguoiky": "Nguyễn Thế Kế",
+    "tennguoiky": "",
     "chucdanh": "GIÁM ĐỐC",
-    "noinhan": "Hội sở Chi nhánh",
+    "noinhan": "Phòng GD KCN Ninh Kiều",
     "tenfilechuky": "chuky.bmp"
   }
 }
