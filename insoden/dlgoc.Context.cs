@@ -33,10 +33,10 @@ namespace insoden
         public virtual DbSet<tb_loaiKH> tb_loaiKH { get; set; }
         public virtual DbSet<X1PCMS> X1PCMS { get; set; }
         public virtual DbSet<GLHIST> GLHISTs { get; set; }
-        public virtual DbSet<GLMAST> GLMASTs { get; set; }
         public virtual DbSet<LNDHIS_DATE> LNDHIS_DATE { get; set; }
         public virtual DbSet<GLHIST_ERP> GLHIST_ERP { get; set; }
         public virtual DbSet<GLMAST_ERP> GLMAST_ERP { get; set; }
+        public virtual DbSet<GLMAST> GLMASTs { get; set; }
     
         [DbFunction("dlgocEntities", "GetMonthList")]
         public virtual IQueryable<GetMonthList_Result> GetMonthList(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)

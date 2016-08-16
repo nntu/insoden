@@ -198,7 +198,13 @@
     <Compile Include="binhquantiengui_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="clbc833.cs" />
+    <Compile Include="frmInTBNoDenHan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInTBNoDenHan.Designer.cs">
+      <DependentUpon>frmInTBNoDenHan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\clbc833.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="dept.cs">
       <DependentUpon>bdsu.tt</DependentUpon>
@@ -248,7 +254,7 @@
     <Compile Include="GLMAST_ERP.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="InTBDuNovaLaiVay.cs" />
+    <Compile Include="Model\InTBDuNovaLaiVay.cs" />
     <Compile Include="laytygiangay_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -261,6 +267,7 @@
     <Compile Include="LNDHIS_DATE.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\InTBNoDenHan.cs" />
     <Compile Include="MuaBanNgoaiTe_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -270,7 +277,7 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="datain.cs" />
+    <Compile Include="Model\datain.cs" />
     <Compile Include="DDDHIS_DATE.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -339,19 +346,18 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="tbdn.cs">
-      <DependentUpon>tbdn.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="tbdunovalaivay.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>tbdunovalaivay.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tbtkdenhan.cs">
+      <DependentUpon>tbtkdenhan.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="pdcgiamdoc.cs">
       <DependentUpon>pdcgiamdoc.rpt</DependentUpon>
@@ -477,6 +483,9 @@
     <EmbeddedResource Include="frmInpdcGD.resx">
       <DependentUpon>frmInpdcGD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInTBNoDenHan.resx">
+      <DependentUpon>frmInTBNoDenHan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="nocoa5 - Copy.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>nocoa5 - Copy.cs</LastGenOutput>
@@ -494,14 +503,13 @@
       <LastGenOutput>nocoa5.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="tbdn.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>tbdn.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
     <EmbeddedResource Include="tbdunovalaivay.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>tbdunovalaivay.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tbtkdenhan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>tbtkdenhan.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="pdc.rpt">

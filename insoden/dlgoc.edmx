@@ -1048,7 +1048,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           </FunctionImport>
           <EntitySet Name="X1PCMS" EntityType="dlgocModel.X1PCMS" />
           <EntitySet Name="GLHISTs" EntityType="dlgocModel.GLHIST" />
-          <EntitySet Name="GLMASTs" EntityType="dlgocModel.GLMAST" />
           <EntitySet Name="LNDHIS_DATE" EntityType="dlgocModel.LNDHIS_DATE" />
           <FunctionImport Name="TonQuy" ReturnType="Collection(dlgocModel.TonQuy_Result)">
             <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
@@ -1133,8 +1132,9 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="cif" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="ThongBaoNoDenHan" ReturnType="Collection(dlgocModel.ThongBaoNoDenHan_Result)">
-            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          <Parameter Name="cif" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="GLMASTs" EntityType="dlgocModel.GLMAST" />
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
           <Property Type="Int32" Name="cn" Nullable="true" />
@@ -1388,53 +1388,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Name="TRTKTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TRSTAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="GLMAST">
-          <Key>
-            <PropertyRef Name="BRANCH" />
-            <PropertyRef Name="ACCTGL" />
-            <PropertyRef Name="GMCTYP" />
-            <PropertyRef Name="GMCFYR" />
-            <PropertyRef Name="TITLE" />
-            <PropertyRef Name="CURBAL" />
-            <PropertyRef Name="DRATDY" />
-            <PropertyRef Name="CRATDY" />
-            <PropertyRef Name="DRAWTD" />
-            <PropertyRef Name="CRAWTD" />
-            <PropertyRef Name="DRAMTD" />
-            <PropertyRef Name="CRAMTD" />
-            <PropertyRef Name="DRAQTD" />
-            <PropertyRef Name="CRAQTD" />
-            <PropertyRef Name="DRAYTD" />
-            <PropertyRef Name="CRAYTD" />
-            <PropertyRef Name="DECMEB" />
-            <PropertyRef Name="ACTYPE" />
-            <PropertyRef Name="ACTCAT" />
-            <PropertyRef Name="CHGTDY" />
-          </Key>
-          <Property Name="DataDate" Type="DateTime" Precision="3" />
-          <Property Name="LMDATE" Type="DateTime" Precision="3" />
-          <Property Name="BRANCH" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
-          <Property Name="ACCTGL" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="GMCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="GMCFYR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="CURBAL" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="DRATDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="CRATDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="DRAWTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="CRAWTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="DRAMTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="CRAMTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="DRAQTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="CRAQTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="DRAYTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="CRAYTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="DECMEB" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="ACTYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="ACTCAT" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="CHGTDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="NORBAL" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="LNDHIS_DATE">
           <Key>
@@ -1828,17 +1781,66 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="DateTime" Name="ngaydl" Nullable="true" Precision="23" />
           <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="GLMAST">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="ACCTGL" />
+            <PropertyRef Name="GMCTYP" />
+            <PropertyRef Name="GMCFYR" />
+            <PropertyRef Name="TITLE" />
+            <PropertyRef Name="CURBAL" />
+            <PropertyRef Name="DRATDY" />
+            <PropertyRef Name="CRATDY" />
+            <PropertyRef Name="DRAWTD" />
+            <PropertyRef Name="CRAWTD" />
+            <PropertyRef Name="DRAMTD" />
+            <PropertyRef Name="CRAMTD" />
+            <PropertyRef Name="DRAQTD" />
+            <PropertyRef Name="CRAQTD" />
+            <PropertyRef Name="DRAYTD" />
+            <PropertyRef Name="CRAYTD" />
+            <PropertyRef Name="DECMEB" />
+            <PropertyRef Name="ACTYPE" />
+            <PropertyRef Name="ACTCAT" />
+            <PropertyRef Name="CHGTDY" />
+          </Key>
+          <Property Name="DataDate" Type="DateTime" Precision="3" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="ACCTGL" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="GMCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="GMCFYR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="CURBAL" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRATDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRATDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAWTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAWTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAMTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAMTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAQTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAQTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DRAYTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="CRAYTD" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="DECMEB" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="ACTYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ACTCAT" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CHGTDY" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="NORBAL" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
         <ComplexType Name="ThongBaoNoDenHan_Result">
           <Property Type="Decimal" Name="socif" Nullable="false" Precision="19" Scale="0" />
           <Property Type="String" Name="khachhang" Nullable="true" MaxLength="40" />
           <Property Type="Decimal" Name="taikhoan" Nullable="false" Precision="19" Scale="0" />
           <Property Type="String" Name="tiente" Nullable="true" MaxLength="4" />
           <Property Type="DateTime" Name="kyhangoc" Nullable="true" Precision="23" />
-          <Property Type="Decimal" Name="phaitra" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="DUNO" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="gocdh" Nullable="true" Precision="18" Scale="0" />
           <Property Type="String" Name="quanhe" Nullable="true" MaxLength="1" />
-          <Property Type="String" Name="macbtd" Nullable="true" MaxLength="10" />
-          <Property Type="DateTime" Name="Datadate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="loaisaoke" Nullable="false" MaxLength="3" />
           <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="thang" Nullable="true" />
+          <Property Type="DateTime" Name="datadate" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2256,35 +2258,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
                 <ScalarProperty Name="TRAMT" ColumnName="TRAMT" />
                 <ScalarProperty Name="TRDORC" ColumnName="TRDORC" />
                 <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
-                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
-                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
-                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="GLMASTs">
-            <EntityTypeMapping TypeName="dlgocModel.GLMAST">
-              <MappingFragment StoreEntitySet="GLMAST">
-                <ScalarProperty Name="NORBAL" ColumnName="NORBAL" />
-                <ScalarProperty Name="CHGTDY" ColumnName="CHGTDY" />
-                <ScalarProperty Name="ACTCAT" ColumnName="ACTCAT" />
-                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
-                <ScalarProperty Name="DECMEB" ColumnName="DECMEB" />
-                <ScalarProperty Name="CRAYTD" ColumnName="CRAYTD" />
-                <ScalarProperty Name="DRAYTD" ColumnName="DRAYTD" />
-                <ScalarProperty Name="CRAQTD" ColumnName="CRAQTD" />
-                <ScalarProperty Name="DRAQTD" ColumnName="DRAQTD" />
-                <ScalarProperty Name="CRAMTD" ColumnName="CRAMTD" />
-                <ScalarProperty Name="DRAMTD" ColumnName="DRAMTD" />
-                <ScalarProperty Name="CRAWTD" ColumnName="CRAWTD" />
-                <ScalarProperty Name="DRAWTD" ColumnName="DRAWTD" />
-                <ScalarProperty Name="CRATDY" ColumnName="CRATDY" />
-                <ScalarProperty Name="DRATDY" ColumnName="DRATDY" />
-                <ScalarProperty Name="CURBAL" ColumnName="CURBAL" />
-                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
-                <ScalarProperty Name="GMCFYR" ColumnName="GMCFYR" />
-                <ScalarProperty Name="GMCTYP" ColumnName="GMCTYP" />
-                <ScalarProperty Name="ACCTGL" ColumnName="ACCTGL" />
                 <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
                 <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
                 <ScalarProperty Name="DataDate" ColumnName="DataDate" />
@@ -2735,14 +2708,45 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
                 <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
                 <ScalarProperty Name="tiente" ColumnName="tiente" />
                 <ScalarProperty Name="kyhangoc" ColumnName="kyhangoc" />
-                <ScalarProperty Name="phaitra" ColumnName="phaitra" />
+                <ScalarProperty Name="DUNO" ColumnName="DUNO" />
+                <ScalarProperty Name="gocdh" ColumnName="gocdh" />
                 <ScalarProperty Name="quanhe" ColumnName="quanhe" />
-                <ScalarProperty Name="macbtd" ColumnName="macbtd" />
-                <ScalarProperty Name="Datadate" ColumnName="Datadate" />
+                <ScalarProperty Name="loaisaoke" ColumnName="loaisaoke" />
                 <ScalarProperty Name="denngay" ColumnName="denngay" />
+                <ScalarProperty Name="thang" ColumnName="thang" />
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="GLMASTs">
+            <EntityTypeMapping TypeName="dlgocModel.GLMAST">
+              <MappingFragment StoreEntitySet="GLMAST">
+                <ScalarProperty Name="NORBAL" ColumnName="NORBAL" />
+                <ScalarProperty Name="CHGTDY" ColumnName="CHGTDY" />
+                <ScalarProperty Name="ACTCAT" ColumnName="ACTCAT" />
+                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
+                <ScalarProperty Name="DECMEB" ColumnName="DECMEB" />
+                <ScalarProperty Name="CRAYTD" ColumnName="CRAYTD" />
+                <ScalarProperty Name="DRAYTD" ColumnName="DRAYTD" />
+                <ScalarProperty Name="CRAQTD" ColumnName="CRAQTD" />
+                <ScalarProperty Name="DRAQTD" ColumnName="DRAQTD" />
+                <ScalarProperty Name="CRAMTD" ColumnName="CRAMTD" />
+                <ScalarProperty Name="DRAMTD" ColumnName="DRAMTD" />
+                <ScalarProperty Name="CRAWTD" ColumnName="CRAWTD" />
+                <ScalarProperty Name="DRAWTD" ColumnName="DRAWTD" />
+                <ScalarProperty Name="CRATDY" ColumnName="CRATDY" />
+                <ScalarProperty Name="DRATDY" ColumnName="DRATDY" />
+                <ScalarProperty Name="CURBAL" ColumnName="CURBAL" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="GMCFYR" ColumnName="GMCFYR" />
+                <ScalarProperty Name="GMCTYP" ColumnName="GMCTYP" />
+                <ScalarProperty Name="ACCTGL" ColumnName="ACCTGL" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

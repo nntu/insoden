@@ -2538,17 +2538,16 @@ namespace insoden
             OpenExplorer(SaveFileExcel.FileName);
         }
 
-        List<InTBDuNovaLaiVay> _intbdn;
+        List<InTBDuNovaLaiVay> _InTBDuNovaLaiVay;
 
         private void bt_tbdn_laysl_Click(object sender, EventArgs e)
         {
             var cif = Convert.ToDecimal(tb_tbdn_cif.Text);
             var tbdn = _db.ThongBaoDuNo(cif);
-            _intbdn = new List<InTBDuNovaLaiVay>();
+            _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
 
             foreach (var i in tbdn) {
-
-                _intbdn.Add(new InTBDuNovaLaiVay()
+                _InTBDuNovaLaiVay.Add(new InTBDuNovaLaiVay()
                 {
                     Socif = i.socif,
                     DuNo = (decimal)i.duno,
@@ -2562,7 +2561,7 @@ namespace insoden
                 });
 
             }
-            GC_TD_TBDN.DataSource = new BindingSource(_intbdn, "");
+            GC_TD_TBDN.DataSource = new BindingSource(_InTBDuNovaLaiVay, "");
             GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
             GV_TD_TBDN.BestFitColumns();
         }
@@ -2570,7 +2569,7 @@ namespace insoden
         private void bt_td_tbdn_in_Click(object sender, EventArgs e)
         {
             ThongTin config;
-            switch (cb_bds_pdc.SelectedIndex){
+            switch (cb_td_tbdnuno.SelectedIndex){
                case 0:
                     config = _cf.HSC;
                     break;
@@ -2607,11 +2606,90 @@ namespace insoden
 
                 //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
             };
-            if (_intbdn.Count == 0) {
+            if (_InTBDuNovaLaiVay.Count == 0) {
                 MessageBox.Show("Chưa có thông tin");
 
             } else {
-                frmInDuNovaLaivay frm = new frmInDuNovaLaivay(_intbdn, _ttnghang);
+                frmInDuNovaLaivay frm = new frmInDuNovaLaivay(_InTBDuNovaLaiVay, _ttnghang);
+                frm.ShowDialog();
+            }
+        }
+        List<InTBNoDenHan> _InTBNoDenHan;
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var cif = Convert.ToDecimal(tb_td_tbndh_cif.Text);
+            var ds = _db.ThongBaoNoDenHan(cif);
+            _InTBNoDenHan = new List<InTBNoDenHan>();
+
+            foreach (var i in ds) {
+                _InTBNoDenHan.Add(new InTBNoDenHan()
+                {
+
+                    Socif = i.socif,
+                    DuNo = i.DUNO ?? 0,
+                    Gocdh = i.gocdh ?? 0,
+                    Kyhangoc = i.kyhangoc.Value,
+                    LoaiTien =i.tiente,
+                    LoaiVay = i.loaisaoke,
+                    TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
+                    TenKhachHang = i.khachhang,
+                    quanhe = i.quanhe, thang     = i.thang.Value, Datadate=i.datadate.Value
+
+                });
+
+            }
+            GC_TD_TBNDH.DataSource = new BindingSource(_InTBNoDenHan, "");
+            GV_TD_TBNDH.OptionsView.ColumnAutoWidth = false;
+            GV_TD_TBNDH.BestFitColumns();
+        }
+
+        private void bt_td_tbndh_in_Click(object sender, EventArgs e)
+        {
+            ThongTin config;
+            switch (cb_td_tbndh_noi.SelectedIndex)
+            {
+                case 0:
+                    config = _cf.HSC;
+                    break;
+                case 1:
+                    config = _cf.TraNoc;
+                    break;
+                case 2:
+                    config = _cf.NinhKieu;
+                    break;
+                case 3:
+                    config = _cf.ThotNot;
+                    break;
+                default:
+                    config = _cf.HSC;
+                    break;
+
+            }
+            TenChiNhanh = config.TenChiNhanh;
+            DiaChi = config.DiaChi;
+            _ttnghang = new ThongTinNganHang
+            {
+                tencn_vi = config.tencn_vi,
+                tencn_en = config.tencn_en,
+                diachi = config.diachi,
+                tinh = config.tinh,
+                fax = config.fax,
+                dt = config.dt,
+                tennguoiky = config.tennguoiky,
+                chucdanh = config.chucdanh,
+                noinhan = config.noinhan,
+                tenfilechuky = config.tenfilechuky
+
+                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
+            };
+            if (_InTBNoDenHan.Count == 0)
+            {
+                MessageBox.Show("Chưa có thông tin");
+
+            }
+            else
+            {
+                frmInTBNoDenHan frm = new frmInTBNoDenHan(_InTBNoDenHan, _ttnghang);
                 frm.ShowDialog();
             }
         }

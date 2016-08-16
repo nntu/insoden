@@ -18,10 +18,12 @@ namespace insoden
         public decimal taikhoan { get; set; }
         public string tiente { get; set; }
         public Nullable<System.DateTime> kyhangoc { get; set; }
-        public Nullable<decimal> phaitra { get; set; }
+        public Nullable<decimal> DUNO { get; set; }
+        public Nullable<decimal> gocdh { get; set; }
         public string quanhe { get; set; }
-        public string macbtd { get; set; }
-        public Nullable<System.DateTime> Datadate { get; set; }
+        public string loaisaoke { get; set; }
         public Nullable<System.DateTime> denngay { get; set; }
+        public Nullable<int> thang { get; set; }
+        public Nullable<System.DateTime> datadate { get; set; }
     }
 }
