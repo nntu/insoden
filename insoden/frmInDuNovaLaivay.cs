@@ -36,7 +36,7 @@ namespace insoden
             tbdunovalaivay1.SetParameterValue("TenNH_vi", string.Format("{0}", _ttThongtin.tencn_vi));
             tbdunovalaivay1.SetParameterValue("TenNH_en", string.Format("{0}", _ttThongtin.tencn_en));
             tbdunovalaivay1.SetParameterValue("DiaChiNH", string.Format("{0}", _ttThongtin.diachi));
-            tbdunovalaivay1.SetParameterValue("NgayDC", _ttThongtin.ngaycuoiky);
+            tbdunovalaivay1.SetParameterValue("NgayDC", DateTime.Now);
             tbdunovalaivay1.SetParameterValue("DienThoai", _ttThongtin.dt);
             tbdunovalaivay1.SetParameterValue("PhongLH", _ttThongtin.noinhan);
 

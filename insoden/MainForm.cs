@@ -1817,6 +1817,8 @@ namespace insoden
             cb_lsgl_bds.SelectedIndex = 0;
             cb_gl_tiente.SelectedIndex = 0;
             cb_bds_pdc.SelectedIndex = 0;
+            cb_td_tbdnuno.SelectedIndex = 0;
+            cb_td_tbndh_noi.SelectedIndex = 0;
 
             _tempdir = Application.StartupPath + "/temp";
             if (!Directory.Exists(_tempdir))
@@ -2557,7 +2559,8 @@ namespace insoden
                     LaiPhat = i.laiphat ?? 0,
                     LoaiVay = i.loaisaoke,
                    LoaiTien=  i.tiente
-                    ,TenKhachHang = i.khachhang
+                    ,TenKhachHang = i.khachhang,
+                   NgayDL =i.ngaydl.Value
                 });
 
             }

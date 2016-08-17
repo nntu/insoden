@@ -7,6 +7,7 @@ namespace insoden
 {
     public class InTBDuNovaLaiVay
     {
+        public DateTime NgayDL { get; set; }
         public decimal Socif { get; set; }
         public string TaiKhoan { get; set; }
         public string TenKhachHang { get; set; }

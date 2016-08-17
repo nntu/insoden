@@ -25,23 +25,23 @@ namespace insoden
         }
         private void frmInTBNoDenHan_Load(object sender, EventArgs e)
         {
-            tbtkdenhan1.SetDataSource(_InTBNoDenHan);
-            tbtkdenhan1.Refresh();
-            crystalReportViewer1.ReportSource = tbtkdenhan1;
+            tbnovaydenhan1.SetDataSource(_InTBNoDenHan);
+            tbnovaydenhan1.Refresh();
+            crystalReportViewer1.ReportSource = tbnovaydenhan1;
 
-            tbtkdenhan1.SetParameterValue("HoTen", string.Format("{0}{1}", _ttThongtin.cfname1, _ttThongtin.cfname2));
-            tbtkdenhan1.SetParameterValue("DiaChi", string.Format("{0}{1}", _ttThongtin.addr1, _ttThongtin.addr2));
-            tbtkdenhan1.SetParameterValue("TenNH_vi", string.Format("{0}", _ttThongtin.tencn_vi));
-            tbtkdenhan1.SetParameterValue("TenNH_en", string.Format("{0}", _ttThongtin.tencn_en));
-            tbtkdenhan1.SetParameterValue("DiaChiNH", string.Format("{0}", _ttThongtin.diachi));
-            tbtkdenhan1.SetParameterValue("NgayDC", _ttThongtin.ngaycuoiky);
-            tbtkdenhan1.SetParameterValue("DienThoai", _ttThongtin.dt);
-            tbtkdenhan1.SetParameterValue("PhongLH", _ttThongtin.noinhan);
+            tbnovaydenhan1.SetParameterValue("HoTen", string.Format("{0}{1}", _ttThongtin.cfname1, _ttThongtin.cfname2));
+            tbnovaydenhan1.SetParameterValue("DiaChi", string.Format("{0}{1}", _ttThongtin.addr1, _ttThongtin.addr2));
+            tbnovaydenhan1.SetParameterValue("TenNH_vi", string.Format("{0}", _ttThongtin.tencn_vi));
+            tbnovaydenhan1.SetParameterValue("TenNH_en", string.Format("{0}", _ttThongtin.tencn_en));
+            tbnovaydenhan1.SetParameterValue("DiaChiNH", string.Format("{0}", _ttThongtin.diachi));
+            tbnovaydenhan1.SetParameterValue("NgayDC", DateTime.Now);
+            tbnovaydenhan1.SetParameterValue("DienThoai", _ttThongtin.dt);
+            tbnovaydenhan1.SetParameterValue("PhongLH", _ttThongtin.noinhan);
 
-            tbtkdenhan1.SetParameterValue("tennguoiky", _ttThongtin.tennguoiky);
-            tbtkdenhan1.SetParameterValue("chucdanh", _ttThongtin.chucdanh);
+            tbnovaydenhan1.SetParameterValue("tennguoiky", _ttThongtin.tennguoiky);
+            tbnovaydenhan1.SetParameterValue("chucdanh", _ttThongtin.chucdanh);
 
-            tbtkdenhan1.SetParameterValue("chuky", AppDomain.CurrentDomain.BaseDirectory + _ttThongtin.tenfilechuky);
+            tbnovaydenhan1.SetParameterValue("chuky", AppDomain.CurrentDomain.BaseDirectory + _ttThongtin.tenfilechuky);
         }
     }
 }

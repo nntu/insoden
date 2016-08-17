@@ -30,7 +30,7 @@
     <PublisherName>BIDVCanTho</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>211</ApplicationRevision>
+    <ApplicationRevision>213</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -352,8 +352,8 @@
       <DependentUpon>tbdunovalaivay.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="tbtkdenhan.cs">
-      <DependentUpon>tbtkdenhan.rpt</DependentUpon>
+    <Compile Include="tbnovaydenhan.cs">
+      <DependentUpon>tbnovaydenhan.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -507,9 +507,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>tbdunovalaivay.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="tbtkdenhan.rpt">
+    <EmbeddedResource Include="tbnovaydenhan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>tbtkdenhan.cs</LastGenOutput>
+      <LastGenOutput>tbnovaydenhan.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="pdc.rpt">

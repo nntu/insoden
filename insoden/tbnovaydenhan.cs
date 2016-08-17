@@ -16,14 +16,14 @@ namespace insoden {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class tbtkdenhan : ReportClass {
+    public class tbnovaydenhan : ReportClass {
         
-        public tbtkdenhan() {
+        public tbnovaydenhan() {
         }
         
         public override string ResourceName {
             get {
-                return "tbtkdenhan.rpt";
+                return "tbnovaydenhan.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace insoden {
         
         public override string FullResourceName {
             get {
-                return "insoden.tbtkdenhan.rpt";
+                return "insoden.tbnovaydenhan.rpt";
             }
             set {
                 // Do nothing
@@ -82,7 +82,7 @@ namespace insoden {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section DetailSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -210,9 +210,9 @@ namespace insoden {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedtbtkdenhan : Component, ICachedReport {
+    public class Cachedtbnovaydenhan : Component, ICachedReport {
         
-        public Cachedtbtkdenhan() {
+        public Cachedtbnovaydenhan() {
         }
         
         [Browsable(false)]
@@ -249,7 +249,7 @@ namespace insoden {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            tbtkdenhan rpt = new tbtkdenhan();
+            tbnovaydenhan rpt = new tbnovaydenhan();
             rpt.Site = this.Site;
             return rpt;
         }
