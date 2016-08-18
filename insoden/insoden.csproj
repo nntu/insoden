@@ -30,7 +30,7 @@
     <PublisherName>BIDVCanTho</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>213</ApplicationRevision>
+    <ApplicationRevision>215</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -90,7 +90,7 @@
     <ApplicationIcon>Document-Write.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>insoden_2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
@@ -161,6 +161,10 @@
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Lex.Db, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lex.Db.1.2.6\lib\net40\Lex.Db.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -204,6 +208,8 @@
     <Compile Include="frmInTBNoDenHan.Designer.cs">
       <DependentUpon>frmInTBNoDenHan.cs</DependentUpon>
     </Compile>
+    <Compile Include="glconfig.cs" />
+    <Compile Include="Model\CifInfo.cs" />
     <Compile Include="Model\clbc833.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="dept.cs">
@@ -268,6 +274,7 @@
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\InTBNoDenHan.cs" />
+    <Compile Include="Model\tkgl.cs" />
     <Compile Include="MuaBanNgoaiTe_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -542,6 +549,12 @@
     <Content Include="dienlucnk.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="data\CifInfo.data">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\CifInfo.index">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="dlgoc.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>dlgoc.edmx</DependentUpon>
@@ -575,6 +588,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="MAU.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gl.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="insoden_2_TemporaryKey.pfx" />
@@ -622,9 +638,9 @@
     <Content Include="saoketk.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="settings.json">
+    <Content Include="settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

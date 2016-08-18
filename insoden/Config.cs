@@ -8,7 +8,7 @@ namespace insoden
 {
     public class Config : AppSettings<Config>
     {
-        public ThongTin HSC = new ThongTin() { };
+         public ThongTin HSC = new ThongTin() { };
         public ThongTin TraNoc = new ThongTin() { };
         public ThongTin NinhKieu = new ThongTin() { };
         public ThongTin ThotNot = new ThongTin() { };

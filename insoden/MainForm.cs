@@ -20,6 +20,7 @@ using DevExpress.XtraEditors;
 using Ionic.Zip;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using Lex.Db;
 
 namespace insoden
 {
@@ -64,7 +65,7 @@ namespace insoden
         private ObjectResult<TinhPhiTheoCif_Result> _phi;
 
         private ObjectResult<SaoKeCif_Result> _saoke;
-        
+
         public MainForm()
         {
             _dbin = new List<DatainNoCo>();
@@ -167,7 +168,7 @@ namespace insoden
 
         private void bt_atmXoa_Click(object sender, EventArgs e)
         {
-        
+
             IQueryable<tbXoaATM> ds = from p in _dbbdsu.tbXoaATMs
                                       where p.ngayxoa >= dtp_atmxoa_ngaydau.Value && p.ngayxoa <= dtp_atmxoa_ngaycuoi.Value
                                       select p;
@@ -179,18 +180,19 @@ namespace insoden
         {
             if (tb_dkMayin.Text != "")
             {
-            
+
                 string machineName = Environment.MachineName;
                 //      dbbds.tbPrinters.Attach(new tbPrinter() { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
-                tbPrinter tbprinter =    _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+                tbPrinter tbprinter = _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
                 if (tbprinter == null)
                 {
                     _dbbdsu.tbPrinters.Add(new tbPrinter { WorkStation = machineName, printerService = tb_dkMayin.Text.Trim() });
-                  
+
                 }
-                else {
+                else
+                {
                     tbprinter.printerService = tb_dkMayin.Text.Trim();
-                   
+
                 }
                 _dbbdsu.SaveChanges();
                 MessageBox.Show(@"Đã Thêm / cập nhật");
@@ -853,44 +855,46 @@ namespace insoden
 
                             var temp = (from p in dsbc833
 
-                                join d in _db.X1PCMS
-                                    on new
-                                    {
-                                        p.SoThe, p.TrangThai
-                                    }
-                                    equals
-                                    new
-                                    {
-                                        SoThe = d.CARDD?.Trim() ?? string.Empty,
-                                        TrangThai = d.CDSTAT?.Trim() ?? string.Empty
-                                    }
-                                    into g
-                                from su in g.DefaultIfEmpty()
+                                        join d in _db.X1PCMS
+                                            on new
+                                            {
+                                                p.SoThe,
+                                                p.TrangThai
+                                            }
+                                            equals
+                                            new
+                                            {
+                                                SoThe = d.CARDD?.Trim() ?? string.Empty,
+                                                TrangThai = d.CDSTAT?.Trim() ?? string.Empty
+                                            }
+                                            into g
+                                        from su in g.DefaultIfEmpty()
 
-                                join c in _dbbdsu.tbsothes
-                                    on new
-                                    {
-                                        p.SoThe, p.TrangThai
-                                    }
-                                    equals
-                                    new
-                                    {
-                                        SoThe = c.masothe,
-                                        TrangThai = c.trangthai
-                                    }
-                                    into gj
-                                from subpet in gj.DefaultIfEmpty()
+                                        join c in _dbbdsu.tbsothes
+                                            on new
+                                            {
+                                                p.SoThe,
+                                                p.TrangThai
+                                            }
+                                            equals
+                                            new
+                                            {
+                                                SoThe = c.masothe,
+                                                TrangThai = c.trangthai
+                                            }
+                                            into gj
+                                        from subpet in gj.DefaultIfEmpty()
 
-                                select new ClBc833
-                                {
-                                    Stt = p.Stt,
-                                    SoThe = p.SoThe,
-                                    HoTen = p.HoTen,
-                                    Ngaystr = p.Ngaystr,
-                                    TrangThai = p.TrangThai,
-                                    NgayMo = p.NgayMo,
-                                    NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER)
-                                }).ToList();
+                                        select new ClBc833
+                                        {
+                                            Stt = p.Stt,
+                                            SoThe = p.SoThe,
+                                            HoTen = p.HoTen,
+                                            Ngaystr = p.Ngaystr,
+                                            TrangThai = p.TrangThai,
+                                            NgayMo = p.NgayMo,
+                                            NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER)
+                                        }).ToList();
                             _dsbc833 = temp;
                             RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");
                             RW_gv_bc833.BestFitColumns();
@@ -1039,7 +1043,7 @@ namespace insoden
 
         private void bt_tracuucif_Click(object sender, EventArgs e)
         {
-             
+
             var noidung = maskedTextBox2.Text.Trim();
             if (noidung == "")
             {
@@ -1131,7 +1135,7 @@ namespace insoden
 
         private void bt_tracuutheatm_Click(object sender, EventArgs e)
         {
-            
+
             if (maskedTextBox3.Text == "")
             {
                 MessageBox.Show(@"Chưa nhập số liệu");
@@ -1314,7 +1318,7 @@ namespace insoden
                 DateTime t;
                 if (!DateTime.TryParseExact(gio, "HHmmss", CultureInfo.CurrentCulture, DateTimeStyles.None, out t))
                 {
-                    t = DateTime.ParseExact("000000", "HHmmss", CultureInfo.CurrentCulture); 
+                    t = DateTime.ParseExact("000000", "HHmmss", CultureInfo.CurrentCulture);
                 }
 
                 var ngaygd = new DateTime(value.TRDAT6.Year, value.TRDAT6.Month, value.TRDAT6.Day, t.Hour,
@@ -1329,7 +1333,7 @@ namespace insoden
                         .Trim();
                 var prov = new MaskedTextProvider("###-##-##-######-#");
                 prov.Set(value.TRACCT.ToString(CultureInfo.InvariantCulture));
-              //  string formattk = prov.ToDisplayString();
+                //  string formattk = prov.ToDisplayString();
 
                 decimal ghino;
                 if (value.DORC == "D")
@@ -1548,7 +1552,7 @@ namespace insoden
             }
             else
             {
-             
+
 
                 var brach = sotk.Substring(0, 3);
                 var thongtin = _dbbdsu.tblBranches.FirstOrDefault(c => c.BRANCHCODE.Contains(brach));
@@ -1787,10 +1791,11 @@ namespace insoden
             }
         }
         Config _cf;
+        DbInstance _localdb;
         private void Form1_Load(object sender, EventArgs e)
         {
             _cf = Config.Load();
-        
+
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 Version myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
@@ -1820,7 +1825,30 @@ namespace insoden
             cb_td_tbdnuno.SelectedIndex = 0;
             cb_td_tbndh_noi.SelectedIndex = 0;
 
+            _localdb = new DbInstance(_clickOnceLocation + @"/data");
+            _localdb.Map<CifInfo>().Automap(i => i.cifno);
+            _localdb.Initialize();
+
             _tempdir = Application.StartupPath + "/temp";
+
+            var _glconfig = glconfig.Load("gl.json");
+            AutoCompleteStringCollection atcgl = new AutoCompleteStringCollection();
+
+            foreach (var i in _glconfig.dstkgl)
+            {
+                var item = string.Format("{0:0.##} - {1}", i.tk, i.tentk);
+                atcgl.Add(item);
+                cb_gl_lsgl_tk.Items.Add(item);
+                cb_gl_tracuugl_tk.Items.Add(item);
+
+            }
+         
+            cb_gl_lsgl_tk.AutoCompleteCustomSource = atcgl;
+       
+            cb_gl_tracuugl_tk.AutoCompleteCustomSource = atcgl;
+
+
+
             if (!Directory.Exists(_tempdir))
             {
                 Directory.CreateDirectory(_tempdir);
@@ -1831,11 +1859,13 @@ namespace insoden
                 foreach (var filePath in filePaths)
                     File.Delete(filePath);
             }
+
+
         }
 
         private void LayThongTinTheoCif()
         {
-            var listma = new List<ListItem> { new ListItem { Id = "0", Name = "in Tat cả" } };
+            var listma = new List<ListItem> { new ListItem { Id = "0", Name = "in Tất cả" } };
 
             string loai;
 
@@ -1981,7 +2011,7 @@ namespace insoden
                 }
                 else
                 {
-                    var re = _db.LichSuGiaoDichTheoTK(sotk,dtp_tungay.Value, dtp_denngay.Value, loai);
+                    var re = _db.LichSuGiaoDichTheoTK(sotk, dtp_tungay.Value, dtp_denngay.Value, loai);
                     _dbin = new List<DatainNoCo>();
 
                     var ngaytruocdo = dtp_tungay.Value.AddDays(-1);
@@ -2012,7 +2042,7 @@ namespace insoden
                         DateTime t;
                         if (!DateTime.TryParseExact(gio, "HHmmss", CultureInfo.CurrentCulture, DateTimeStyles.None, out t))
                         {
-                            t = DateTime.ParseExact("000000", "HHmmss", CultureInfo.CurrentCulture); 
+                            t = DateTime.ParseExact("000000", "HHmmss", CultureInfo.CurrentCulture);
                         }
 
                         var ngaygd = new DateTime(value.TRDAT6.Year, value.TRDAT6.Month, value.TRDAT6.Day, t.Hour,
@@ -2118,23 +2148,23 @@ namespace insoden
         private void tb_in_sec_Enter(object sender, EventArgs e)
         {
             lb_mayinso.Text = @"Đang lấy Thông Tin Máy in";
-            tb_LayTTinSosec.Visible = false;
-            bt_insosec.Visible = false;
-            
+            tb_LayTTinSosec.Visible = true;
+            bt_insosec.Visible = true;
+            panel1.Visible = true;
             tb_tenchinhanh.Text = TenChiNhanh;
             tb_diachi.Text = DiaChi;
 
-            
+            tb_dkMayin.Visible = true;
 
             string machineName = Environment.MachineName;
-            var tbprinter =
-                _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+            var tbprinter = _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+
             if (tbprinter != null)
             {
                 _printerIp = tbprinter.printerService;
                 lb_mayinso.Text = $@"Địa chỉ máy: {machineName} - Địa Chỉ Máy In: {_printerIp}";
                 tb_LayTTinSosec.Enabled = true;
-                bt_insosec.Enabled = true;                
+                bt_insosec.Enabled = true;
                 tb_dkMayin.Text = _printerIp;
             }
             else
@@ -2142,7 +2172,7 @@ namespace insoden
                 MessageBox.Show($"Máy {machineName} Chưa Khai Báo Máy in");
                 tb_LayTTinSosec.Enabled = false;
                 bt_insosec.Enabled = false;
-                 
+
             }
         }
 
@@ -2263,72 +2293,72 @@ namespace insoden
         }
 
         // Function for read data from Excel worksheet into DataTable
-/*
-        private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
-        {
-            var dt = new DataTable(ws.Name);
-            var totalCols = ws.Dimension.End.Column;
-            var totalRows = ws.Dimension.End.Row;
-            var startRow = hasHeader ? 2 : 1;
-            foreach (var firstRowCell in ws.Cells[1, 1, 1, totalCols])
-            {
-                dt.Columns.Add(hasHeader ? firstRowCell.Text : $"Column {firstRowCell.Start.Column}");
-            }
-
-            for (var rowNum = startRow; rowNum <= totalRows; rowNum++)
-            {
-                var wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
-                var dr = dt.NewRow();
-                foreach (var cell in wsRow)
+        /*
+                private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
                 {
-                    dr[cell.Start.Column - 1] = cell.Text;
-                }
-
-                dt.Rows.Add(dr);
-            }
-
-            return dt;
-        }
-*/
-
-/*
-        private void button6_Click_1(object sender, EventArgs e)
-        {
-            using (var openFileDialog1 = new OpenFileDialog())
-            {
-                openFileDialog1.Filter = @"Excel File (*.xlsx)|*.xlsx";
-                openFileDialog1.FilterIndex = 1;
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    try
+                    var dt = new DataTable(ws.Name);
+                    var totalCols = ws.Dimension.End.Column;
+                    var totalRows = ws.Dimension.End.Row;
+                    var startRow = hasHeader ? 2 : 1;
+                    foreach (var firstRowCell in ws.Cells[1, 1, 1, totalCols])
                     {
-                        using (ExcelPackage pck = new ExcelPackage())
-                        {
-                            // Open the Excel file and load it to the ExcelPackage
-                            using (var stream = File.OpenRead(openFileDialog1.FileName))
-                            {
-                                pck.Load(stream);
-                            }
+                        dt.Columns.Add(hasHeader ? firstRowCell.Text : $"Column {firstRowCell.Start.Column}");
+                    }
 
-                            ExcelWorksheet ws = pck.Workbook.Worksheets.First();
-                            int totalCols = ws.Dimension.End.Column;
-                            int totalRows = ws.Dimension.End.Row;
-                            int startRow = 2;
-                            ExcelRange wsRow;
-                            for (int rowNum = startRow; rowNum <= totalRows; rowNum++)
+                    for (var rowNum = startRow; rowNum <= totalRows; rowNum++)
+                    {
+                        var wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
+                        var dr = dt.NewRow();
+                        foreach (var cell in wsRow)
+                        {
+                            dr[cell.Start.Column - 1] = cell.Text;
+                        }
+
+                        dt.Rows.Add(dr);
+                    }
+
+                    return dt;
+                }
+        */
+
+        /*
+                private void button6_Click_1(object sender, EventArgs e)
+                {
+                    using (var openFileDialog1 = new OpenFileDialog())
+                    {
+                        openFileDialog1.Filter = @"Excel File (*.xlsx)|*.xlsx";
+                        openFileDialog1.FilterIndex = 1;
+                        if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                        {
+                            try
                             {
-                                wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
+                                using (ExcelPackage pck = new ExcelPackage())
+                                {
+                                    // Open the Excel file and load it to the ExcelPackage
+                                    using (var stream = File.OpenRead(openFileDialog1.FileName))
+                                    {
+                                        pck.Load(stream);
+                                    }
+
+                                    ExcelWorksheet ws = pck.Workbook.Worksheets.First();
+                                    int totalCols = ws.Dimension.End.Column;
+                                    int totalRows = ws.Dimension.End.Row;
+                                    int startRow = 2;
+                                    ExcelRange wsRow;
+                                    for (int rowNum = startRow; rowNum <= totalRows; rowNum++)
+                                    {
+                                        wsRow = ws.Cells[rowNum, 1, rowNum, totalCols];
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(@"Import failed. Original error: " + ex.Message);
                             }
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(@"Import failed. Original error: " + ex.Message);
-                    }
                 }
-            }
-        }
-*/
+        */
 
         private void bt_sk_pos_ltt_Click(object sender, EventArgs e)
         {
@@ -2396,14 +2426,17 @@ namespace insoden
 
         private void bt_gl_erp_laytt_Click(object sender, EventArgs e)
         {
-            if (txt_gl_erp_gl.Text.Trim() == "")
+            var tk = cb_gl_lsgl_tk.SelectedItem.ToString();
+
+            if (tk.Trim() == "")
             {
-                MessageBox.Show(@"Chưa nhập TK GL");
+                MessageBox.Show(@"Chưa chọn TK GL");
             }
             else
             {
                 //  IQueryable<GLHIST_ERP> listgl;
-                var glacc = Convert.ToDecimal(txt_gl_erp_gl.Text.Trim());
+                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
+                var glacc = Convert.ToDecimal(gl.Trim());
                 var ngaybd = (DateTime)de_gl_erp_datdau.EditValue;
                 var ngaykt = (DateTime)de_gl_erp_ketthuc.EditValue;
                 var tiente = (string)cb_gl_erp_loaitien.SelectedItem;
@@ -2470,19 +2503,21 @@ namespace insoden
 
         private void bt_gl_trc_laytt_Click(object sender, EventArgs e)
         {
-            if (tb_gl_trc_tk.Text == "")
+            var tk = cb_gl_tracuugl_tk.SelectedItem.ToString();
+            if (tk == "")
             {
                 MessageBox.Show(@"Chưa nhập tk GL");
             }
             else
             {
-                var tkgl = Convert.ToDecimal(tb_gl_trc_tk.Text);
+                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
+                var tkgl = Convert.ToDecimal(gl);
                 var ngaybd = (DateTime)de_gl_trc_nbd.EditValue;
                 var ngaykt = (DateTime)de_gl_trc_nkt.EditValue;
 
-                var gl = _db.TraCuuGLERP(tkgl, ngaybd, ngaykt);
+                var tracuugl = _db.TraCuuGLERP(tkgl, ngaybd, ngaykt);
 
-                gridControl2.DataSource = new BindingSource(gl, "");
+                gridControl2.DataSource = new BindingSource(tracuugl, "");
                 gridView2.BestFitColumns();
             }
         }
@@ -2544,36 +2579,70 @@ namespace insoden
 
         private void bt_tbdn_laysl_Click(object sender, EventArgs e)
         {
-            var cif = Convert.ToDecimal(tb_tbdn_cif.Text);
-            var tbdn = _db.ThongBaoDuNo(cif);
-            _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
+            var cifstring = cb_td_tbdn_tk.Text.ToString();
+            var cifno = Lib.ExtractNumber(cifstring);
 
-            foreach (var i in tbdn) {
-                _InTBDuNovaLaiVay.Add(new InTBDuNovaLaiVay()
-                {
-                    Socif = i.socif,
-                    DuNo = (decimal)i.duno,
-                    LaiCongDon = i.laicd ?? 0,
-                    LaiPhaiTra =  i.laicd ?? 0  + i.laiphat ?? 0,
-                    TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                    LaiPhat = i.laiphat ?? 0,
-                    LoaiVay = i.loaisaoke,
-                   LoaiTien=  i.tiente
-                    ,TenKhachHang = i.khachhang,
-                   NgayDL =i.ngaydl.Value
-                });
-
+            if (cifno.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
             }
-            GC_TD_TBDN.DataSource = new BindingSource(_InTBDuNovaLaiVay, "");
-            GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
-            GV_TD_TBDN.BestFitColumns();
+            else
+            {
+                var cif = Convert.ToDecimal(cifno);
+
+                var tbdn = _db.ThongBaoDuNo(cif).AsEnumerable().Cast<ThongBaoDuNo_Result>().ToList(); 
+
+                _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
+               
+                if (tbdn.Count == 0)
+                {
+                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
+                }
+                else
+                {
+                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c=>c.cifno == cif);
+
+                    if (ciflocal == null)
+                    {
+                        _localdb.Table<CifInfo>().Save(new CifInfo()
+                        {
+                            cifno = tbdn.ToList()[0].socif,
+                            acname = tbdn.ToList()[0].khachhang
+                        });
+
+                    }
+                    
+                    foreach (var i in tbdn)
+                    {
+                        _InTBDuNovaLaiVay.Add(new InTBDuNovaLaiVay()
+                        {
+                            Socif = i.socif,
+                            DuNo = (decimal)i.duno,
+                            LaiCongDon = i.laicd ?? 0,
+                            LaiPhaiTra = i.laicd ?? 0 + i.laiphat ?? 0,
+                            TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
+                            LaiPhat = i.laiphat ?? 0,
+                            LoaiVay = i.loaisaoke,
+                            LoaiTien = i.tiente
+                            ,
+                            TenKhachHang = i.khachhang,
+                            NgayDL = i.ngaydl.Value
+                        });
+
+                    }
+                }
+                GC_TD_TBDN.DataSource = new BindingSource(_InTBDuNovaLaiVay, "");
+                GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
+                GV_TD_TBDN.BestFitColumns();
+            }
         }
 
         private void bt_td_tbdn_in_Click(object sender, EventArgs e)
         {
             ThongTin config;
-            switch (cb_td_tbdnuno.SelectedIndex){
-               case 0:
+            switch (cb_td_tbdnuno.SelectedIndex)
+            {
+                case 0:
                     config = _cf.HSC;
                     break;
                 case 1:
@@ -2609,10 +2678,13 @@ namespace insoden
 
                 //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
             };
-            if (_InTBDuNovaLaiVay.Count == 0) {
+            if (_InTBDuNovaLaiVay.Count == 0)
+            {
                 MessageBox.Show("Chưa có thông tin");
 
-            } else {
+            }
+            else
+            {
                 frmInDuNovaLaivay frm = new frmInDuNovaLaivay(_InTBDuNovaLaiVay, _ttnghang);
                 frm.ShowDialog();
             }
@@ -2620,30 +2692,65 @@ namespace insoden
         List<InTBNoDenHan> _InTBNoDenHan;
         private void button14_Click(object sender, EventArgs e)
         {
-            var cif = Convert.ToDecimal(tb_td_tbndh_cif.Text);
-            var ds = _db.ThongBaoNoDenHan(cif);
-            _InTBNoDenHan = new List<InTBNoDenHan>();
+           
 
-            foreach (var i in ds) {
-                _InTBNoDenHan.Add(new InTBNoDenHan()
-                {
-
-                    Socif = i.socif,
-                    DuNo = i.DUNO ?? 0,
-                    Gocdh = i.gocdh ?? 0,
-                    Kyhangoc = i.kyhangoc.Value,
-                    LoaiTien =i.tiente,
-                    LoaiVay = i.loaisaoke,
-                    TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                    TenKhachHang = i.khachhang,
-                    quanhe = i.quanhe, thang     = i.thang.Value, Datadate=i.datadate.Value
-
-                });
-
+                 var cifstring = cb_td_tbndh_tk.Text;
+           
+            if (cifstring.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
             }
-            GC_TD_TBNDH.DataSource = new BindingSource(_InTBNoDenHan, "");
-            GV_TD_TBNDH.OptionsView.ColumnAutoWidth = false;
-            GV_TD_TBNDH.BestFitColumns();
+            else
+            {
+                var cifno = Lib.ExtractNumber(cifstring);
+                var cif = Convert.ToDecimal(cifno);
+                var ds = _db.ThongBaoNoDenHan(cif).AsEnumerable().Cast<ThongBaoNoDenHan_Result>().ToList(); ;
+
+                _InTBNoDenHan = new List<InTBNoDenHan>();
+
+                if (ds.Count == 0)
+                {
+                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
+                }
+                else
+                {
+                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c => c.cifno == cif);
+
+                    if (ciflocal == null)
+                    {
+                        _localdb.Table<CifInfo>().Save(new CifInfo()
+                        {
+                            cifno = ds.ToList()[0].socif,
+                            acname = ds.ToList()[0].khachhang
+                        });
+
+                    }
+
+                    foreach (var i in ds)
+                    {
+                        _InTBNoDenHan.Add(new InTBNoDenHan()
+                        {
+
+                            Socif = i.socif,
+                            DuNo = i.DUNO ?? 0,
+                            Gocdh = i.gocdh ?? 0,
+                            Kyhangoc = i.kyhangoc.Value,
+                            LoaiTien = i.tiente,
+                            LoaiVay = i.loaisaoke,
+                            TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
+                            TenKhachHang = i.khachhang,
+                            quanhe = i.quanhe,
+                            thang = i.thang.Value,
+                            Datadate = i.datadate.Value
+
+                        });
+
+                    }
+                }
+                GC_TD_TBNDH.DataSource = new BindingSource(_InTBNoDenHan, "");
+                GV_TD_TBNDH.OptionsView.ColumnAutoWidth = false;
+                GV_TD_TBNDH.BestFitColumns();
+            }
         }
 
         private void bt_td_tbndh_in_Click(object sender, EventArgs e)
@@ -2695,6 +2802,31 @@ namespace insoden
                 frmInTBNoDenHan frm = new frmInTBNoDenHan(_InTBNoDenHan, _ttnghang);
                 frm.ShowDialog();
             }
+        }
+
+        private void tb_in_sec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_main_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_TinDung_Enter(object sender, EventArgs e)
+        {
+            var cif = _localdb.Table<CifInfo>();
+            AutoCompleteStringCollection cifatc = new AutoCompleteStringCollection();
+            foreach (var i in cif)
+            {
+               
+                cb_td_tbdn_tk.Items.Add(string.Format("{0} - {1}", i.cifno, i.acname));
+                cb_td_tbndh_tk.Items.Add(string.Format("{0} - {1}", i.cifno, i.acname));
+                cifatc.Add(string.Format("{0} - {1}", i.cifno, i.acname));
+            }
+            cb_td_tbdn_tk.AutoCompleteCustomSource = cifatc;
+            cb_td_tbndh_tk.AutoCompleteCustomSource = cifatc;
         }
     }
 }

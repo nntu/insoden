@@ -315,6 +315,7 @@
             this.colTongCN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtp_gl_lsglerp = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl15 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.cb_gl_lsgl_tk = new System.Windows.Forms.ComboBox();
             this.cb_gl_erp_loaitien = new System.Windows.Forms.ComboBox();
             this.cb_gl_erp_bds = new System.Windows.Forms.ComboBox();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -322,7 +323,6 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.txt_gl_erp_gl = new DevExpress.XtraEditors.TextEdit();
             this.de_gl_erp_ketthuc = new DevExpress.XtraEditors.DateEdit();
             this.de_gl_erp_datdau = new DevExpress.XtraEditors.DateEdit();
             this.bt_gl_erp_xuatexcel = new System.Windows.Forms.Button();
@@ -350,12 +350,12 @@
             this.colColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
             this.splitContainerControl16 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.cb_gl_tracuugl_tk = new System.Windows.Forms.ComboBox();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.de_gl_trc_nkt = new DevExpress.XtraEditors.DateEdit();
             this.de_gl_trc_nbd = new DevExpress.XtraEditors.DateEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.tb_gl_trc_tk = new DevExpress.XtraEditors.TextEdit();
             this.button10 = new System.Windows.Forms.Button();
             this.bt_gl_trc_laytt = new System.Windows.Forms.Button();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
@@ -605,9 +605,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainerControl19 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.cb_td_tbdn_tk = new System.Windows.Forms.ComboBox();
             this.cb_td_tbdnuno = new System.Windows.Forms.ComboBox();
             this.bt_td_tbdn_in = new System.Windows.Forms.Button();
-            this.tb_tbdn_cif = new System.Windows.Forms.TextBox();
             this.button12 = new System.Windows.Forms.Button();
             this.bt_tbdn_laysl = new System.Windows.Forms.Button();
             this.label55 = new System.Windows.Forms.Label();
@@ -617,7 +617,6 @@
             this.splitContainerControl20 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.bt_td_tbndh_in = new System.Windows.Forms.Button();
-            this.tb_td_tbndh_cif = new System.Windows.Forms.TextBox();
             this.cb_td_tbndh_noi = new System.Windows.Forms.ComboBox();
             this.button13 = new System.Windows.Forms.Button();
             this.bt_td_tbndh_laydl = new System.Windows.Forms.Button();
@@ -742,6 +741,7 @@
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tracuulsglResult2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cb_td_tbndh_tk = new System.Windows.Forms.ComboBox();
             this.tb_main.SuspendLayout();
             this.tp_saoke.SuspendLayout();
             this.tb_sk_saokeds.SuspendLayout();
@@ -865,7 +865,6 @@
             this.xtp_gl_lsglerp.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl15)).BeginInit();
             this.splitContainerControl15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_gl_erp_gl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_erp_ketthuc.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_erp_ketthuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_erp_datdau.Properties.CalendarTimeProperties)).BeginInit();
@@ -880,7 +879,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_trc_nkt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_trc_nbd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_trc_nbd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_gl_trc_tk.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.traCuuGLERPResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
@@ -1004,6 +1002,7 @@
             this.tb_main.SelectedIndex = 0;
             this.tb_main.Size = new System.Drawing.Size(703, 545);
             this.tb_main.TabIndex = 16;
+            this.tb_main.Click += new System.EventHandler(this.tb_main_Click);
             // 
             // tp_saoke
             // 
@@ -2772,6 +2771,7 @@
             this.tb_in_sec.TabIndex = 5;
             this.tb_in_sec.Text = "In So SEC";
             this.tb_in_sec.UseVisualStyleBackColor = true;
+            this.tb_in_sec.Click += new System.EventHandler(this.tb_in_sec_Click);
             this.tb_in_sec.Enter += new System.EventHandler(this.tb_in_sec_Enter);
             // 
             // panel1
@@ -2780,7 +2780,6 @@
             this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.bt_dkmayin);
             this.panel1.Controls.Add(this.tb_dkMayin);
-            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(27, 271);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(375, 130);
@@ -2858,7 +2857,6 @@
             // 
             // bt_insosec
             // 
-            this.bt_insosec.Enabled = false;
             this.bt_insosec.Location = new System.Drawing.Point(25, 224);
             this.bt_insosec.Name = "bt_insosec";
             this.bt_insosec.Size = new System.Drawing.Size(75, 23);
@@ -2878,7 +2876,6 @@
             // 
             // tb_LayTTinSosec
             // 
-            this.tb_LayTTinSosec.Enabled = false;
             this.tb_LayTTinSosec.Location = new System.Drawing.Point(320, 47);
             this.tb_LayTTinSosec.Name = "tb_LayTTinSosec";
             this.tb_LayTTinSosec.Size = new System.Drawing.Size(87, 23);
@@ -3877,6 +3874,7 @@
             this.splitContainerControl15.Horizontal = false;
             this.splitContainerControl15.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl15.Name = "splitContainerControl15";
+            this.splitContainerControl15.Panel1.Controls.Add(this.cb_gl_lsgl_tk);
             this.splitContainerControl15.Panel1.Controls.Add(this.cb_gl_erp_loaitien);
             this.splitContainerControl15.Panel1.Controls.Add(this.cb_gl_erp_bds);
             this.splitContainerControl15.Panel1.Controls.Add(this.labelControl9);
@@ -3884,7 +3882,6 @@
             this.splitContainerControl15.Panel1.Controls.Add(this.labelControl12);
             this.splitContainerControl15.Panel1.Controls.Add(this.labelControl13);
             this.splitContainerControl15.Panel1.Controls.Add(this.labelControl14);
-            this.splitContainerControl15.Panel1.Controls.Add(this.txt_gl_erp_gl);
             this.splitContainerControl15.Panel1.Controls.Add(this.de_gl_erp_ketthuc);
             this.splitContainerControl15.Panel1.Controls.Add(this.de_gl_erp_datdau);
             this.splitContainerControl15.Panel1.Controls.Add(this.bt_gl_erp_xuatexcel);
@@ -3893,9 +3890,19 @@
             this.splitContainerControl15.Panel2.Controls.Add(this.gc_gl_lsglerp);
             this.splitContainerControl15.Panel2.Text = "Panel2";
             this.splitContainerControl15.Size = new System.Drawing.Size(687, 488);
-            this.splitContainerControl15.SplitterPosition = 78;
+            this.splitContainerControl15.SplitterPosition = 101;
             this.splitContainerControl15.TabIndex = 1;
             this.splitContainerControl15.Text = "splitContainerControl15";
+            // 
+            // cb_gl_lsgl_tk
+            // 
+            this.cb_gl_lsgl_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_gl_lsgl_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cb_gl_lsgl_tk.FormattingEnabled = true;
+            this.cb_gl_lsgl_tk.Location = new System.Drawing.Point(37, 24);
+            this.cb_gl_lsgl_tk.Name = "cb_gl_lsgl_tk";
+            this.cb_gl_lsgl_tk.Size = new System.Drawing.Size(243, 21);
+            this.cb_gl_lsgl_tk.TabIndex = 7;
             // 
             // cb_gl_erp_loaitien
             // 
@@ -3933,7 +3940,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(310, 25);
+            this.labelControl9.Location = new System.Drawing.Point(307, 52);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(37, 13);
             this.labelControl9.TabIndex = 4;
@@ -3957,7 +3964,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(180, 25);
+            this.labelControl13.Location = new System.Drawing.Point(304, 24);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(40, 13);
             this.labelControl13.TabIndex = 4;
@@ -3971,17 +3978,10 @@
             this.labelControl14.TabIndex = 4;
             this.labelControl14.Text = "TK GL";
             // 
-            // txt_gl_erp_gl
-            // 
-            this.txt_gl_erp_gl.Location = new System.Drawing.Point(36, 21);
-            this.txt_gl_erp_gl.Name = "txt_gl_erp_gl";
-            this.txt_gl_erp_gl.Size = new System.Drawing.Size(128, 20);
-            this.txt_gl_erp_gl.TabIndex = 3;
-            // 
             // de_gl_erp_ketthuc
             // 
             this.de_gl_erp_ketthuc.EditValue = new System.DateTime(2015, 11, 23, 0, 0, 0, 0);
-            this.de_gl_erp_ketthuc.Location = new System.Drawing.Point(353, 21);
+            this.de_gl_erp_ketthuc.Location = new System.Drawing.Point(350, 49);
             this.de_gl_erp_ketthuc.Name = "de_gl_erp_ketthuc";
             this.de_gl_erp_ketthuc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -3998,7 +3998,7 @@
             // de_gl_erp_datdau
             // 
             this.de_gl_erp_datdau.EditValue = new System.DateTime(2015, 11, 23, 0, 0, 0, 0);
-            this.de_gl_erp_datdau.Location = new System.Drawing.Point(225, 21);
+            this.de_gl_erp_datdau.Location = new System.Drawing.Point(350, 18);
             this.de_gl_erp_datdau.Name = "de_gl_erp_datdau";
             this.de_gl_erp_datdau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -4014,7 +4014,7 @@
             // 
             // bt_gl_erp_xuatexcel
             // 
-            this.bt_gl_erp_xuatexcel.Location = new System.Drawing.Point(122, 51);
+            this.bt_gl_erp_xuatexcel.Location = new System.Drawing.Point(141, 75);
             this.bt_gl_erp_xuatexcel.Name = "bt_gl_erp_xuatexcel";
             this.bt_gl_erp_xuatexcel.Size = new System.Drawing.Size(65, 23);
             this.bt_gl_erp_xuatexcel.TabIndex = 1;
@@ -4024,7 +4024,7 @@
             // 
             // bt_gl_erp_laytt
             // 
-            this.bt_gl_erp_laytt.Location = new System.Drawing.Point(36, 51);
+            this.bt_gl_erp_laytt.Location = new System.Drawing.Point(36, 75);
             this.bt_gl_erp_laytt.Name = "bt_gl_erp_laytt";
             this.bt_gl_erp_laytt.Size = new System.Drawing.Size(80, 23);
             this.bt_gl_erp_laytt.TabIndex = 1;
@@ -4040,7 +4040,7 @@
             this.gc_gl_lsglerp.Location = new System.Drawing.Point(0, 0);
             this.gc_gl_lsglerp.MainView = this.gv_gl_lsglerp;
             this.gc_gl_lsglerp.Name = "gc_gl_lsglerp";
-            this.gc_gl_lsglerp.Size = new System.Drawing.Size(687, 398);
+            this.gc_gl_lsglerp.Size = new System.Drawing.Size(687, 375);
             this.gc_gl_lsglerp.TabIndex = 0;
             this.gc_gl_lsglerp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_gl_lsglerp});
@@ -4222,25 +4222,35 @@
             this.splitContainerControl16.Horizontal = false;
             this.splitContainerControl16.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl16.Name = "splitContainerControl16";
+            this.splitContainerControl16.Panel1.Controls.Add(this.cb_gl_tracuugl_tk);
             this.splitContainerControl16.Panel1.Controls.Add(this.labelControl16);
             this.splitContainerControl16.Panel1.Controls.Add(this.labelControl17);
             this.splitContainerControl16.Panel1.Controls.Add(this.de_gl_trc_nkt);
             this.splitContainerControl16.Panel1.Controls.Add(this.de_gl_trc_nbd);
             this.splitContainerControl16.Panel1.Controls.Add(this.labelControl15);
-            this.splitContainerControl16.Panel1.Controls.Add(this.tb_gl_trc_tk);
             this.splitContainerControl16.Panel1.Controls.Add(this.button10);
             this.splitContainerControl16.Panel1.Controls.Add(this.bt_gl_trc_laytt);
             this.splitContainerControl16.Panel1.Text = "Panel1";
             this.splitContainerControl16.Panel2.Controls.Add(this.gridControl2);
             this.splitContainerControl16.Panel2.Text = "Panel2";
             this.splitContainerControl16.Size = new System.Drawing.Size(687, 488);
-            this.splitContainerControl16.SplitterPosition = 59;
+            this.splitContainerControl16.SplitterPosition = 82;
             this.splitContainerControl16.TabIndex = 1;
             this.splitContainerControl16.Text = "splitContainerControl16";
             // 
+            // cb_gl_tracuugl_tk
+            // 
+            this.cb_gl_tracuugl_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_gl_tracuugl_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cb_gl_tracuugl_tk.FormattingEnabled = true;
+            this.cb_gl_tracuugl_tk.Location = new System.Drawing.Point(49, 26);
+            this.cb_gl_tracuugl_tk.Name = "cb_gl_tracuugl_tk";
+            this.cb_gl_tracuugl_tk.Size = new System.Drawing.Size(243, 21);
+            this.cb_gl_tracuugl_tk.TabIndex = 9;
+            // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(347, 29);
+            this.labelControl16.Location = new System.Drawing.Point(332, 46);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(37, 13);
             this.labelControl16.TabIndex = 7;
@@ -4248,7 +4258,7 @@
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(217, 29);
+            this.labelControl17.Location = new System.Drawing.Point(330, 16);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(40, 13);
             this.labelControl17.TabIndex = 8;
@@ -4257,7 +4267,7 @@
             // de_gl_trc_nkt
             // 
             this.de_gl_trc_nkt.EditValue = new System.DateTime(2015, 11, 23, 0, 0, 0, 0);
-            this.de_gl_trc_nkt.Location = new System.Drawing.Point(390, 25);
+            this.de_gl_trc_nkt.Location = new System.Drawing.Point(375, 42);
             this.de_gl_trc_nkt.Name = "de_gl_trc_nkt";
             this.de_gl_trc_nkt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -4274,7 +4284,7 @@
             // de_gl_trc_nbd
             // 
             this.de_gl_trc_nbd.EditValue = new System.DateTime(2015, 11, 23, 0, 0, 0, 0);
-            this.de_gl_trc_nbd.Location = new System.Drawing.Point(262, 25);
+            this.de_gl_trc_nbd.Location = new System.Drawing.Point(375, 12);
             this.de_gl_trc_nbd.Name = "de_gl_trc_nbd";
             this.de_gl_trc_nbd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -4290,18 +4300,11 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(3, 29);
+            this.labelControl15.Location = new System.Drawing.Point(16, 31);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(27, 13);
             this.labelControl15.TabIndex = 4;
             this.labelControl15.Text = "TK GL";
-            // 
-            // tb_gl_trc_tk
-            // 
-            this.tb_gl_trc_tk.Location = new System.Drawing.Point(51, 25);
-            this.tb_gl_trc_tk.Name = "tb_gl_trc_tk";
-            this.tb_gl_trc_tk.Size = new System.Drawing.Size(128, 20);
-            this.tb_gl_trc_tk.TabIndex = 3;
             // 
             // button10
             // 
@@ -4334,7 +4337,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(687, 417);
+            this.gridControl2.Size = new System.Drawing.Size(687, 394);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -4480,6 +4483,7 @@
             this.tb_TinDung.TabIndex = 12;
             this.tb_TinDung.Text = "Tín dụng";
             this.tb_TinDung.UseVisualStyleBackColor = true;
+            this.tb_TinDung.Enter += new System.EventHandler(this.tb_TinDung_Enter);
             // 
             // tb
             // 
@@ -6622,9 +6626,9 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.cb_td_tbdn_tk);
             this.groupBox12.Controls.Add(this.cb_td_tbdnuno);
             this.groupBox12.Controls.Add(this.bt_td_tbdn_in);
-            this.groupBox12.Controls.Add(this.tb_tbdn_cif);
             this.groupBox12.Controls.Add(this.button12);
             this.groupBox12.Controls.Add(this.bt_tbdn_laysl);
             this.groupBox12.Controls.Add(this.label55);
@@ -6634,6 +6638,16 @@
             this.groupBox12.TabIndex = 21;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Chọn khách hàng:";
+            // 
+            // cb_td_tbdn_tk
+            // 
+            this.cb_td_tbdn_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_td_tbdn_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cb_td_tbdn_tk.FormattingEnabled = true;
+            this.cb_td_tbdn_tk.Location = new System.Drawing.Point(46, 20);
+            this.cb_td_tbdn_tk.Name = "cb_td_tbdn_tk";
+            this.cb_td_tbdn_tk.Size = new System.Drawing.Size(214, 21);
+            this.cb_td_tbdn_tk.TabIndex = 17;
             // 
             // cb_td_tbdnuno
             // 
@@ -6657,13 +6671,6 @@
             this.bt_td_tbdn_in.Text = "In";
             this.bt_td_tbdn_in.UseVisualStyleBackColor = true;
             this.bt_td_tbdn_in.Click += new System.EventHandler(this.bt_td_tbdn_in_Click);
-            // 
-            // tb_tbdn_cif
-            // 
-            this.tb_tbdn_cif.Location = new System.Drawing.Point(78, 20);
-            this.tb_tbdn_cif.Name = "tb_tbdn_cif";
-            this.tb_tbdn_cif.Size = new System.Drawing.Size(171, 21);
-            this.tb_tbdn_cif.TabIndex = 14;
             // 
             // button12
             // 
@@ -6739,8 +6746,8 @@
             // 
             // groupBox13
             // 
+            this.groupBox13.Controls.Add(this.cb_td_tbndh_tk);
             this.groupBox13.Controls.Add(this.bt_td_tbndh_in);
-            this.groupBox13.Controls.Add(this.tb_td_tbndh_cif);
             this.groupBox13.Controls.Add(this.cb_td_tbndh_noi);
             this.groupBox13.Controls.Add(this.button13);
             this.groupBox13.Controls.Add(this.bt_td_tbndh_laydl);
@@ -6761,13 +6768,6 @@
             this.bt_td_tbndh_in.Text = "in";
             this.bt_td_tbndh_in.UseVisualStyleBackColor = true;
             this.bt_td_tbndh_in.Click += new System.EventHandler(this.bt_td_tbndh_in_Click);
-            // 
-            // tb_td_tbndh_cif
-            // 
-            this.tb_td_tbndh_cif.Location = new System.Drawing.Point(51, 22);
-            this.tb_td_tbndh_cif.Name = "tb_td_tbndh_cif";
-            this.tb_td_tbndh_cif.Size = new System.Drawing.Size(213, 21);
-            this.tb_td_tbndh_cif.TabIndex = 14;
             // 
             // cb_td_tbndh_noi
             // 
@@ -7858,6 +7858,16 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // cb_td_tbndh_tk
+            // 
+            this.cb_td_tbndh_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_td_tbndh_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cb_td_tbndh_tk.FormattingEnabled = true;
+            this.cb_td_tbndh_tk.Location = new System.Drawing.Point(51, 22);
+            this.cb_td_tbndh_tk.Name = "cb_td_tbndh_tk";
+            this.cb_td_tbndh_tk.Size = new System.Drawing.Size(214, 21);
+            this.cb_td_tbndh_tk.TabIndex = 19;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8009,7 +8019,6 @@
             this.xtp_gl_lsglerp.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl15)).EndInit();
             this.splitContainerControl15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txt_gl_erp_gl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_erp_ketthuc.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_erp_ketthuc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_erp_datdau.Properties.CalendarTimeProperties)).EndInit();
@@ -8024,7 +8033,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_trc_nkt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_trc_nbd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_gl_trc_nbd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_gl_trc_tk.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.traCuuGLERPResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
@@ -8669,7 +8677,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraEditors.LabelControl labelControl14;
-        private DevExpress.XtraEditors.TextEdit txt_gl_erp_gl;
         private DevExpress.XtraEditors.DateEdit de_gl_erp_ketthuc;
         private DevExpress.XtraEditors.DateEdit de_gl_erp_datdau;
         private System.Windows.Forms.Button bt_gl_erp_xuatexcel;
@@ -8715,7 +8722,6 @@
         private DevExpress.XtraEditors.DateEdit de_gl_trc_nkt;
         private DevExpress.XtraEditors.DateEdit de_gl_trc_nbd;
         private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraEditors.TextEdit tb_gl_trc_tk;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button bt_gl_trc_laytt;
         private DevExpress.XtraGrid.GridControl gridControl2;
@@ -8827,12 +8833,10 @@
         private System.Windows.Forms.Label label55;
         private DevExpress.XtraGrid.GridControl GC_TD_TBDN;
         private DevExpress.XtraGrid.Views.Grid.GridView GV_TD_TBDN;
-        private System.Windows.Forms.TextBox tb_tbdn_cif;
         private System.Windows.Forms.BindingSource thongBaoDuNoResultBindingSource;
         private System.Windows.Forms.TabPage tabPage7;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl20;
         private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.TextBox tb_td_tbndh_cif;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button bt_td_tbndh_laydl;
         private System.Windows.Forms.Label label53;
@@ -8842,6 +8846,10 @@
         private System.Windows.Forms.ComboBox cb_td_tbdnuno;
         private System.Windows.Forms.ComboBox cb_td_tbndh_noi;
         private System.Windows.Forms.Button bt_td_tbndh_in;
+        private System.Windows.Forms.ComboBox cb_gl_lsgl_tk;
+        private System.Windows.Forms.ComboBox cb_gl_tracuugl_tk;
+        private System.Windows.Forms.ComboBox cb_td_tbdn_tk;
+        private System.Windows.Forms.ComboBox cb_td_tbndh_tk;
     }
 }
 

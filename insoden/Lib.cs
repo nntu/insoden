@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace insoden
 {
@@ -53,6 +54,11 @@ namespace insoden
             }
             int num = str.Substring(0, maxValue).LastIndexOf(" ", StringComparison.Ordinal);
             return (str.Substring(0, num) + " ~V 15 ~H 25 ~t " + str.Substring(num + 1).Trim() + " ");
+        }
+        public static string ExtractNumber(string original)
+        {
+
+            return Regex.Match(original, @"\d+").Value;
         }
 
     }

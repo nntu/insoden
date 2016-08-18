@@ -13,7 +13,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
 
-namespace insoden
+namespace databasedb
 {
     public class AppSettings<T> where T : new()
     {
