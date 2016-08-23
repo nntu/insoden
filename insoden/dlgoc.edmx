@@ -422,6 +422,9 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="branch" Type="int" Mode="In" />
           <Parameter Name="tien" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="LayTKThanhToanTheoCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cif" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="laytygia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="laytygia_ngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngay" Type="datetime" Mode="In" />
@@ -548,6 +551,14 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
           <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TinhThuLaiGocTheoCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dNgayLaiDen" Type="datetime" Mode="In" />
+          <Parameter Name="cifno" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="TinhThuLaiTheoCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dNgayLaiDen" Type="datetime" Mode="In" />
+          <Parameter Name="cifno" Type="decimal" Mode="In" />
         </Function>
         <Function Name="TonQuy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TuNgay" Type="datetime" Mode="In" />
@@ -1135,6 +1146,17 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="cif" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="GLMASTs" EntityType="dlgocModel.GLMAST" />
+          <FunctionImport Name="TinhThuLaiGocTheoCIF" ReturnType="Collection(dlgocModel.TinhThuLaiGocTheoCIF_Result)">
+            <Parameter Name="dNgayLaiDen" Mode="In" Type="DateTime" />
+            <Parameter Name="cifno" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="TinhThuLaiTheoCIF" ReturnType="Collection(dlgocModel.TinhThuLaiTheoCIF_Result)">
+            <Parameter Name="dNgayLaiDen" Mode="In" Type="DateTime" />
+            <Parameter Name="cifno" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="LayTKThanhToanTheoCIF" ReturnType="Collection(dlgocModel.LayTKThanhToanTheoCIF_Result)">
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
           <Property Type="Int32" Name="cn" Nullable="true" />
@@ -1841,6 +1863,38 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
           <Property Type="Int32" Name="thang" Nullable="true" />
           <Property Type="DateTime" Name="datadate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="TinhThuLaiGocTheoCIF_Result">
+          <Property Type="Decimal" Name="taikhoan" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="DateTime" Name="ngaydl" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tiente" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="bilprn" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="duno" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="BILint" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="laicongdon" Nullable="true" Precision="38" Scale="11" />
+          <Property Type="Decimal" Name="laitracham" Nullable="true" Precision="38" Scale="10" />
+          <Property Type="Decimal" Name="TONGLAI" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="DateTime" Name="LICH_DH" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="socif" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="khachhang" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="TinhThuLaiTheoCIF_Result">
+          <Property Type="Decimal" Name="taikhoan" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="DateTime" Name="ngaydl" Nullable="true" Precision="23" />
+          <Property Type="String" Name="tiente" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="BILint" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="laicongdon" Nullable="true" Precision="38" Scale="11" />
+          <Property Type="Decimal" Name="laitracham" Nullable="true" Precision="38" Scale="10" />
+          <Property Type="Decimal" Name="TONGLAI" Nullable="true" Precision="17" Scale="5" />
+          <Property Type="DateTime" Name="LICH_DH" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="denngay" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="socif" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="khachhang" Nullable="true" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="LayTKThanhToanTheoCIF_Result">
+          <Property Type="Decimal" Name="CIFNO" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="ACCTNO" Nullable="false" Precision="19" Scale="0" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2747,6 +2801,50 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TinhThuLaiGocTheoCIF" FunctionName="dlgocModel.Store.TinhThuLaiGocTheoCIF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TinhThuLaiGocTheoCIF_Result">
+                <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+                <ScalarProperty Name="ngaydl" ColumnName="ngaydl" />
+                <ScalarProperty Name="tiente" ColumnName="tiente" />
+                <ScalarProperty Name="bilprn" ColumnName="bilprn" />
+                <ScalarProperty Name="duno" ColumnName="duno" />
+                <ScalarProperty Name="BILint" ColumnName="BILint" />
+                <ScalarProperty Name="laicongdon" ColumnName="laicongdon" />
+                <ScalarProperty Name="laitracham" ColumnName="laitracham" />
+                <ScalarProperty Name="TONGLAI" ColumnName="TONGLAI" />
+                <ScalarProperty Name="LICH_DH" ColumnName="LICH_DH" />
+                <ScalarProperty Name="denngay" ColumnName="denngay" />
+                <ScalarProperty Name="socif" ColumnName="socif" />
+                <ScalarProperty Name="khachhang" ColumnName="khachhang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TinhThuLaiTheoCIF" FunctionName="dlgocModel.Store.TinhThuLaiTheoCIF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TinhThuLaiTheoCIF_Result">
+                <ScalarProperty Name="taikhoan" ColumnName="taikhoan" />
+                <ScalarProperty Name="ngaydl" ColumnName="ngaydl" />
+                <ScalarProperty Name="tiente" ColumnName="tiente" />
+                <ScalarProperty Name="BILint" ColumnName="BILint" />
+                <ScalarProperty Name="laicongdon" ColumnName="laicongdon" />
+                <ScalarProperty Name="laitracham" ColumnName="laitracham" />
+                <ScalarProperty Name="TONGLAI" ColumnName="TONGLAI" />
+                <ScalarProperty Name="LICH_DH" ColumnName="LICH_DH" />
+                <ScalarProperty Name="denngay" ColumnName="denngay" />
+                <ScalarProperty Name="socif" ColumnName="socif" />
+                <ScalarProperty Name="khachhang" ColumnName="khachhang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="LayTKThanhToanTheoCIF" FunctionName="dlgocModel.Store.LayTKThanhToanTheoCIF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.LayTKThanhToanTheoCIF_Result">
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

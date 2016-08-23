@@ -34,38 +34,34 @@ namespace insoden
         private const int PrinterPort = 8989;
         private readonly dlgocEntities _db;
         private readonly List<ClBc810> _dsbc810 = new List<ClBc810>();
+        Config _cf;
+        private string _clickOnceLocation;
         private bdsuEntities _dbbdsu;
         private List<DatainNoCo> _dbin;
+        private ObjectResult<DoanhSoTientheoCif_Result> _doanhso;
         private List<ClBc833> _dsbc833 = new List<ClBc833>();
         private List<X1PCMS> _dsX1Pcms;
+        private ObjectResult<ThuNoThuLai_Result> _giainganthuno;
+        List<InTBDuNovaLaiVay> _InTBDuNovaLaiVay;
+        List<InTBNoDenHan> _InTBNoDenHan;
         private List<incif> _lcif;
         private List<GLHIST> _listLsGl = new List<GLHIST>();
         private List<SoDuTaiTD_Result> _listsodutd;
+        DbInstance _localdb;
         private NetworkStream _ls;
         private List<GLHIST> _lsglhist;
+        private DateTime? _ngaydl;
+        private ObjectResult<TinhPhiTheoCif_Result> _phi;
         private bool _printed;
         private string _printerIp = "10.141.2.35";
+        private ObjectResult<SaoKeCif_Result> _saoke;
         private TcpClient _tcpcl;
         private string _tempdir;
 
         // List<tk> ltk;
         private ThongTinNganHang _ttnghang;
-
-        private string _clickOnceLocation;
         private List<dcdienluc> dchieu = new List<dcdienluc>();
-
-        private ObjectResult<DoanhSoTientheoCif_Result> _doanhso;
-
         private List<ClBc833> dsbc833 = new List<ClBc833>();
-
-        private ObjectResult<ThuNoThuLai_Result> _giainganthuno;
-
-        private DateTime? _ngaydl;
-
-        private ObjectResult<TinhPhiTheoCif_Result> _phi;
-
-        private ObjectResult<SaoKeCif_Result> _saoke;
-
         public MainForm()
         {
             _dbin = new List<DatainNoCo>();
@@ -73,7 +69,7 @@ namespace insoden
             _dbbdsu = new bdsuEntities();
             _db.Database.CommandTimeout = 300000;
             InitializeComponent();
-        }
+          }
 
         private delegate void UpdateLabelTextDelegate(string newText);
 
@@ -341,6 +337,43 @@ namespace insoden
             }
         }
 
+        private void bt_gl_erp_laytt_Click(object sender, EventArgs e)
+        {
+            var tk = cb_gl_lsgl_tk.SelectedItem.ToString();
+
+            if (tk.Trim() == "")
+            {
+                MessageBox.Show(@"Chưa chọn TK GL");
+            }
+            else
+            {
+                //  IQueryable<GLHIST_ERP> listgl;
+                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
+                var glacc = Convert.ToDecimal(gl.Trim());
+                var ngaybd = (DateTime)de_gl_erp_datdau.EditValue;
+                var ngaykt = (DateTime)de_gl_erp_ketthuc.EditValue;
+                var tiente = (string)cb_gl_erp_loaitien.SelectedItem;
+                var bds = Convert.ToInt32(cb_gl_erp_bds.SelectedItem);
+
+                var lsgl = _db.tracuulsgl(glacc, ngaybd, ngaykt, bds, tiente.Trim());
+
+                //       _listLsGl = listgl.ToList();
+                gc_gl_lsglerp.DataSource = new BindingSource(lsgl, "");
+                gv_gl_lsglerp.BestFitColumns();
+            }
+        }
+
+        private void bt_gl_erp_xuatexcel_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gv_gl_lsglerp.OptionsPrint.AutoWidth = false;
+                gv_gl_lsglerp.BestFitColumns();
+                gv_gl_lsglerp.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
         private void bt_gl_LayTonQuy_Click(object sender, EventArgs e)
         {
             var tungay = (DateTime)de_ql_tq_tungay.EditValue;
@@ -365,6 +398,27 @@ namespace insoden
                 RW_gc_gl_tonquy.ExportToXlsx(SaveFileExcel.FileName);
             }
             OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_gl_trc_laytt_Click(object sender, EventArgs e)
+        {
+            var tk = cb_gl_tracuugl_tk.SelectedItem.ToString();
+            if (tk == "")
+            {
+                MessageBox.Show(@"Chưa nhập tk GL");
+            }
+            else
+            {
+                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
+                var tkgl = Convert.ToDecimal(gl);
+                var ngaybd = (DateTime)de_gl_trc_nbd.EditValue;
+                var ngaykt = (DateTime)de_gl_trc_nkt.EditValue;
+
+                var tracuugl = _db.TraCuuGLERP(tkgl, ngaybd, ngaykt);
+
+                gridControl2.DataSource = new BindingSource(tracuugl, "");
+                gridView2.BestFitColumns();
+            }
         }
 
         private void bt_hdv_xuatexel_Click(object sender, EventArgs e)
@@ -641,6 +695,31 @@ namespace insoden
                     }
                     OpenExplorer(SaveFileExcel.FileName);
                 }
+            }
+        }
+
+        private void bt_n_ttnt_laydl_Click(object sender, EventArgs e)
+        {
+            var ngoaite = _db.MuaBanNgoaiTe(dtp_n_ttnt_ngay.Value).ToList();
+
+            var tygia = _db.laytygiangay(dtp_n_ttnt_ngay.Value);
+            if (ngoaite.Count > 0)
+            {
+                gc_nguon_ttnt.DataSource = new BindingSource(ngoaite, "");
+                gv_nguon_ttnt.OptionsView.ColumnAutoWidth = false;
+                gv_nguon_ttnt.OptionsView.BestFitMaxRowCount = -1;
+                gv_nguon_ttnt.BestFitColumns();
+
+                gc_nguon_ttnt_tygia.DataSource = new BindingSource(tygia, "");
+                gv_nguon_ttnt_tygia.OptionsView.ColumnAutoWidth = false;
+                gv_nguon_ttnt_tygia.OptionsView.BestFitMaxRowCount = -1;
+                gv_nguon_ttnt_tygia.BestFitColumns();
+                var sumqdusd = ngoaite.Sum(p => p.qdusd);
+                textBox1.Text = $"{sumqdusd:0,0.00}";
+            }
+            else
+            {
+                MessageBox.Show(@"Chưa có dl");
             }
         }
 
@@ -977,6 +1056,16 @@ namespace insoden
             }
         }
 
+        private void bt_sk_pos_ltt_Click(object sender, EventArgs e)
+        {
+            var phipos = _db.phiPos(dtk_sk_pos_bd.Value, dtk_sk_pos_kt.Value);
+            gc_sk_phipos.DataSource = new BindingSource(phipos, "");
+
+            gv_sk_phipos.OptionsView.ColumnAutoWidth = false;
+            gv_sk_phipos.OptionsView.BestFitMaxRowCount = -1;
+            gv_sk_phipos.BestFitColumns();
+        }
+
         private void bt_SK_xuatxls_Click(object sender, EventArgs e)
         {
             if (_saoke == null)
@@ -1034,6 +1123,275 @@ namespace insoden
 
             gc_hdv.DataSource = new BindingSource(_listsodutd, "");
             gv_hdv.BestFitColumns();
+        }
+
+        private void bt_tbdn_laysl_Click(object sender, EventArgs e)
+        {
+            var cifstring = cb_td_tbdn_tk.Text.ToString();
+            var cifno = Lib.ExtractNumber(cifstring);
+
+            if (cifno.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
+            }
+            else
+            {
+                var cif = Convert.ToDecimal(cifno);
+
+                var tbdn = _db.ThongBaoDuNo(cif).AsEnumerable().Cast<ThongBaoDuNo_Result>().ToList();
+
+                _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
+
+                if (tbdn.Count == 0)
+                {
+                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
+                }
+                else
+                {
+                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c => c.cifno == cif);
+
+                    if (ciflocal == null)
+                    {
+                        _localdb.Table<CifInfo>().Save(new CifInfo()
+                        {
+                            cifno = tbdn.ToList()[0].socif,
+                            acname = tbdn.ToList()[0].khachhang
+                        });
+
+                    }
+
+                    foreach (var i in tbdn)
+                    {
+                        _InTBDuNovaLaiVay.Add(new InTBDuNovaLaiVay()
+                        {
+                            Socif = i.socif,
+                            DuNo = (decimal)i.duno,
+                            LaiCongDon = i.laicd ?? 0,
+                            LaiPhaiTra = i.laicd ?? 0 + i.laiphat ?? 0,
+                            TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
+                            LaiPhat = i.laiphat ?? 0,
+                            LoaiVay = i.loaisaoke,
+                            LoaiTien = i.tiente
+                            ,
+                            TenKhachHang = i.khachhang,
+                            NgayDL = i.ngaydl.Value
+                        });
+
+                    }
+                }
+                GC_TD_TBDN.DataSource = new BindingSource(_InTBDuNovaLaiVay, "");
+                GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
+                GV_TD_TBDN.BestFitColumns();
+            }
+        }
+
+        private void bt_TC_SK_laydl_Click(object sender, EventArgs e)
+        {
+            if (mtb_TC_SK_sotk.Text != null)
+            {
+                var tk = Convert.ToDecimal(mtb_TC_SK_sotk.Text.Replace("-", ""));
+                var thauchi = _db.saokethauchi(dtp_TC_SK_ngaydau.Value, dtp_TC_SK_ngaycuoi.Value, tk);
+                GC_ThauChi_SaoKe.DataSource = new BindingSource(thauchi, "");
+            }
+            GV_ThauChi_SaoKe.OptionsView.ColumnAutoWidth = false;
+            GV_ThauChi_SaoKe.BestFitColumns();
+        }
+
+        private void bt_tc_tcmpa_laysdtc_Click(object sender, EventArgs e)
+        {
+            var thauchi = _db.thauchi_mpa(dtp_tcmpa_tc_ngay.Value);
+            gc_tcmpa.DataSource = new BindingSource(thauchi, "");
+            gv_tcmpa.OptionsView.ColumnAutoWidth = false;
+            gv_tcmpa.BestFitColumns();
+        }
+
+        private void bt_tc_tcmpa_xuatexcel_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gv_tcmpa.OptionsPrint.AutoWidth = false;
+                gv_tcmpa.BestFitColumns();
+                gv_tcmpa.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void bt_td_pyctl_thulai_Click(object sender, EventArgs e)
+        {
+
+
+            var cifstring = cb_td_pyctl_tk.Text;
+
+            if (cifstring.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
+            }
+            else
+            {
+                var cifno = Lib.ExtractNumber(cifstring);
+                var cif = Convert.ToDecimal(cifno);
+                var tinhthulai = _db.TinhThuLaiTheoCIF(dtp_td_pyctl_ngaytl.Value, cif).AsEnumerable().Cast<TinhThuLaiTheoCIF_Result>().ToList();
+                if (tinhthulai.Count == 0)
+                {
+                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
+                }
+                else
+                {
+                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c => c.cifno == cif);
+
+                    if (ciflocal == null)
+                    {
+                        _localdb.Table<CifInfo>().Save(new CifInfo()
+                        {
+                            cifno = tinhthulai.ToList()[0].socif,
+                            acname = tinhthulai.ToList()[0].khachhang
+                        });
+
+                    }
+                    var tktt = _db.LayTKThanhToanTheoCIF(cif).AsEnumerable().Cast<LayTKThanhToanTheoCIF_Result>().ToList();
+
+                    panelControl1.Controls.Clear();
+                    UC_thulai tl = new UC_thulai(tinhthulai, tktt);
+                    tl.Dock = DockStyle.Fill;
+                    panelControl1.Controls.Add(tl);
+                }
+
+            }
+        }
+
+        private void bt_td_tbdn_in_Click(object sender, EventArgs e)
+        {
+            ThongTin config;
+            switch (cb_td_tbdnuno.SelectedIndex)
+            {
+                case 0:
+                    config = _cf.HSC;
+                    break;
+                case 1:
+                    config = _cf.TraNoc;
+                    break;
+                case 2:
+                    config = _cf.NinhKieu;
+                    break;
+                case 3:
+                    config = _cf.ThotNot;
+                    break;
+                default:
+                    config = _cf.HSC;
+                    break;
+
+            }
+
+
+            TenChiNhanh = config.TenChiNhanh;
+            DiaChi = config.DiaChi;
+            _ttnghang = new ThongTinNganHang
+            {
+                tencn_vi = config.tencn_vi,
+                tencn_en = config.tencn_en,
+                diachi = config.diachi,
+                tinh = config.tinh,
+                fax = config.fax,
+                dt = config.dt,
+                tennguoiky = config.tennguoiky,
+                chucdanh = config.chucdanh,
+                noinhan = config.noinhan,
+                tenfilechuky = config.tenfilechuky
+
+                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
+            };
+            if (_InTBDuNovaLaiVay.Count == 0)
+            {
+                MessageBox.Show("Chưa có thông tin");
+
+            }
+            else
+            {
+                frmInDuNovaLaivay frm = new frmInDuNovaLaivay(_InTBDuNovaLaiVay, _ttnghang);
+                frm.ShowDialog();
+            }
+        }
+
+        private void bt_td_tbndh_in_Click(object sender, EventArgs e)
+        {
+            ThongTin config;
+            switch (cb_td_tbndh_noi.SelectedIndex)
+            {
+                case 0:
+                    config = _cf.HSC;
+                    break;
+                case 1:
+                    config = _cf.TraNoc;
+                    break;
+                case 2:
+                    config = _cf.NinhKieu;
+                    break;
+                case 3:
+                    config = _cf.ThotNot;
+                    break;
+                default:
+                    config = _cf.HSC;
+                    break;
+
+            }
+            TenChiNhanh = config.TenChiNhanh;
+            DiaChi = config.DiaChi;
+            _ttnghang = new ThongTinNganHang
+            {
+                tencn_vi = config.tencn_vi,
+                tencn_en = config.tencn_en,
+                diachi = config.diachi,
+                tinh = config.tinh,
+                fax = config.fax,
+                dt = config.dt,
+                tennguoiky = config.tennguoiky,
+                chucdanh = config.chucdanh,
+                noinhan = config.noinhan,
+                tenfilechuky = config.tenfilechuky
+
+                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
+            };
+            if (_InTBNoDenHan.Count == 0)
+            {
+                MessageBox.Show("Chưa có thông tin");
+
+            }
+            else
+            {
+                frmInTBNoDenHan frm = new frmInTBNoDenHan(_InTBNoDenHan, _ttnghang);
+                frm.ShowDialog();
+            }
+        }
+
+        private void bt_td_tl_laytt_Click(object sender, EventArgs e)
+        {
+            var tungay = dtp_td_tl_tungay.Value;
+            var denngay = dtp_td_tl_denngay.Value;
+
+            var trlai = _db.TraLai(_ngaydl, tungay, denngay);
+            gc_td_tralai.DataSource = new BindingSource(trlai, "");
+
+            gv_td_tralai.OptionsView.ColumnAutoWidth = false;
+            gv_td_tralai.OptionsView.BestFitMaxRowCount = -1;
+            gv_td_tralai.BestFitColumns();
+        }
+
+        private void bt_td_tl_xuatexel_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "saoke_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                gv_td_tralai.OptionsPrint.AutoWidth = false;
+                gv_td_tralai.BestFitColumns();
+                gc_td_tralai.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
         }
 
         private void bt_thaythongtincif_Click(object sender, EventArgs e)
@@ -1442,6 +1800,91 @@ namespace insoden
             gridControl1.DataSource = new BindingSource(dchieu, "");
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gridView2.OptionsPrint.AutoWidth = false;
+                gridView2.BestFitColumns();
+                gridView2.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                GV_ThauChi_SaoKe.OptionsPrint.AutoWidth = false;
+                GV_ThauChi_SaoKe.BestFitColumns();
+                GV_ThauChi_SaoKe.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+
+
+            var cifstring = cb_td_tbndh_tk.Text;
+
+            if (cifstring.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
+            }
+            else
+            {
+                var cifno = Lib.ExtractNumber(cifstring);
+                var cif = Convert.ToDecimal(cifno);
+                var ds = _db.ThongBaoNoDenHan(cif).AsEnumerable().Cast<ThongBaoNoDenHan_Result>().ToList();
+
+                _InTBNoDenHan = new List<InTBNoDenHan>();
+
+                if (ds.Count == 0)
+                {
+                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
+                }
+                else
+                {
+                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c => c.cifno == cif);
+
+                    if (ciflocal == null)
+                    {
+                        _localdb.Table<CifInfo>().Save(new CifInfo()
+                        {
+                            cifno = ds.ToList()[0].socif,
+                            acname = ds.ToList()[0].khachhang
+                        });
+
+                    }
+
+                    foreach (var i in ds)
+                    {
+                        _InTBNoDenHan.Add(new InTBNoDenHan()
+                        {
+
+                            Socif = i.socif,
+                            DuNo = i.DUNO ?? 0,
+                            Gocdh = i.gocdh ?? 0,
+                            Kyhangoc = i.kyhangoc.Value,
+                            LoaiTien = i.tiente,
+                            LoaiVay = i.loaisaoke,
+                            TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
+                            TenKhachHang = i.khachhang,
+                            quanhe = i.quanhe,
+                            thang = i.thang.Value,
+                            Datadate = i.datadate.Value
+
+                        });
+
+                    }
+                }
+                GC_TD_TBNDH.DataSource = new BindingSource(_InTBNoDenHan, "");
+                GV_TD_TBNDH.OptionsView.ColumnAutoWidth = false;
+                GV_TD_TBNDH.BestFitColumns();
+            }
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             var pathToFile = Path.Combine(_clickOnceLocation, @"MAU.xlsx");
@@ -1686,6 +2129,24 @@ namespace insoden
             OpenExplorer(SaveFileExcel.FileName);
         }
 
+        private void button6_Click_2(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "saokepos_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                gv_sk_phipos.OptionsPrint.AutoWidth = false;
+                gv_sk_phipos.BestFitColumns();
+                gv_sk_phipos.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
         private void button7_Click(object sender, EventArgs e)
         {
             var tungay = dtp_td_tg_tungay.Value;
@@ -1699,8 +2160,73 @@ namespace insoden
             gv_td_tragoc.BestFitColumns();
         }
 
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                gv_nguon_ttnt.OptionsPrint.AutoWidth = false;
+                gv_nguon_ttnt.BestFitColumns();
+                gv_nguon_ttnt.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            decimal sochay = 2255;
+            string loaitk = "00";
+            if (cb_tk_sodep_loaitk.SelectedIndex == 0)
+            {
+                loaitk = "00";
+                sochay = 44780;
+            }
+            else if (cb_tk_sodep_loaitk.SelectedIndex == 1)
+            {
+                loaitk = "37";
+                sochay = 2255;
+            }
+
+            string tk;
+            tk = mtb_tk_sodep_dautk.Text + loaitk;
+            string tkkyvong = tb_tk_sodep_mongmuon.Text;
+            string checktk;
+            for (decimal i = sochay; i <= 999999; i++)
+            {
+                checktk = $"{i:000000}";
+                string a = Lib.chkDigitAccountNo(tk + checktk);
+
+                //  lb_tk_sodep_ketqua.Items.Add(a);
+                if (a.IndexOf(tkkyvong, StringComparison.Ordinal) != -1)
+                {
+                    var check = _dbbdsu.tb_ql_CIF.FirstOrDefault(c => c.accno == a);
+                    if (check != null)
+                    {
+                        richTextBox1.AppendText(a + " - Đã dùng \n");
+                    }
+                    else
+                    {
+                        richTextBox1.AppendText(a + "\n");
+                    }
+                }
+            }
+        }
+
         private void cb_gl_tiente_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void cb_td_pyctl_tk_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox comboBox = (System.Windows.Forms.ComboBox)sender;
+
+            // Save the selected employee's name, because we will remove
+            // the employee's name from the list.
+            var tenkh = (string)comboBox.SelectedItem;
+            if (tenkh != "")
+            {
+                textBox2.Text = tenkh.Substring(tenkh.IndexOf("-", StringComparison.Ordinal) + 1);
+            }
+
         }
 
         private string check_checkbox()
@@ -1790,8 +2316,6 @@ namespace insoden
                     break;
             }
         }
-        Config _cf;
-        DbInstance _localdb;
         private void Form1_Load(object sender, EventArgs e)
         {
             _cf = Config.Load();
@@ -1840,13 +2364,13 @@ namespace insoden
                 atcgl.Add(item);
                 cb_gl_lsgl_tk.Items.Add(item);
                 cb_gl_tracuugl_tk.Items.Add(item);
-
+             
             }
          
             cb_gl_lsgl_tk.AutoCompleteCustomSource = atcgl;
        
             cb_gl_tracuugl_tk.AutoCompleteCustomSource = atcgl;
-
+           
 
 
             if (!Directory.Exists(_tempdir))
@@ -2137,45 +2661,6 @@ namespace insoden
             }
         }
 
-        private void tc_td_tragoc_Enter(object sender, EventArgs e)
-        {
-            _ngaydl = (from p in _db.tb_checkdulieu
-                       where p.tablename == "loanmonth"
-                       select p.datadate).Max();
-            if (_ngaydl != null) lb_ngaydl.Text = _ngaydl.Value.ToShortDateString();
-        }
-
-        private void tb_in_sec_Enter(object sender, EventArgs e)
-        {
-            lb_mayinso.Text = @"Đang lấy Thông Tin Máy in";
-            tb_LayTTinSosec.Visible = true;
-            bt_insosec.Visible = true;
-            panel1.Visible = true;
-            tb_tenchinhanh.Text = TenChiNhanh;
-            tb_diachi.Text = DiaChi;
-
-            tb_dkMayin.Visible = true;
-
-            string machineName = Environment.MachineName;
-            var tbprinter = _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
-
-            if (tbprinter != null)
-            {
-                _printerIp = tbprinter.printerService;
-                lb_mayinso.Text = $@"Địa chỉ máy: {machineName} - Địa Chỉ Máy In: {_printerIp}";
-                tb_LayTTinSosec.Enabled = true;
-                bt_insosec.Enabled = true;
-                tb_dkMayin.Text = _printerIp;
-            }
-            else
-            {
-                MessageBox.Show($"Máy {machineName} Chưa Khai Báo Máy in");
-                tb_LayTTinSosec.Enabled = false;
-                bt_insosec.Enabled = false;
-
-            }
-        }
-
         private void tb_cif_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -2238,6 +2723,79 @@ namespace insoden
             }
         }
 
+        private void tb_in_sec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_in_sec_Enter(object sender, EventArgs e)
+        {
+            lb_mayinso.Text = @"Đang lấy Thông Tin Máy in";
+            tb_LayTTinSosec.Visible = true;
+            bt_insosec.Visible = true;
+            panel1.Visible = true;
+            tb_tenchinhanh.Text = TenChiNhanh;
+            tb_diachi.Text = DiaChi;
+
+            tb_dkMayin.Visible = true;
+
+            string machineName = Environment.MachineName;
+            var tbprinter = _dbbdsu.tbPrinters.FirstOrDefault(c => c.WorkStation.Contains(machineName.ToUpper()));
+
+            if (tbprinter != null)
+            {
+                _printerIp = tbprinter.printerService;
+                lb_mayinso.Text = $@"Địa chỉ máy: {machineName} - Địa Chỉ Máy In: {_printerIp}";
+                tb_LayTTinSosec.Enabled = true;
+                bt_insosec.Enabled = true;
+                tb_dkMayin.Text = _printerIp;
+            }
+            else
+            {
+                MessageBox.Show($"Máy {machineName} Chưa Khai Báo Máy in");
+                tb_LayTTinSosec.Enabled = false;
+                bt_insosec.Enabled = false;
+
+            }
+        }
+
+        private void tb_main_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_TinDung_Enter(object sender, EventArgs e)
+        {
+            var cif = _localdb.Table<CifInfo>();
+            AutoCompleteStringCollection cifatc = new AutoCompleteStringCollection();
+            foreach (var i in cif)
+            {
+                var item = string.Format("{0} - {1}", i.cifno, i.acname);
+                cb_td_tbdn_tk.Items.Add(item);
+                cb_td_tbndh_tk.Items.Add(item);
+                cifatc.Add(item);
+                cb_td_pyctl_tk.Items.Add(item);
+            }
+            cb_td_tbdn_tk.AutoCompleteCustomSource = cifatc;
+            cb_td_tbndh_tk.AutoCompleteCustomSource = cifatc;
+            cb_td_pyctl_tk.AutoCompleteCustomSource = cifatc;
+        }
+
+        private void tb_tralai_Enter(object sender, EventArgs e)
+        {
+            _ngaydl = (from p in _db.tb_checkdulieu
+                       where p.tablename == "loanmonth"
+                       select p.datadate).Max();
+            if (_ngaydl != null) lb_td_tl_ngaydl.Text = _ngaydl.Value.ToShortDateString();
+        }
+
+        private void tc_td_tragoc_Enter(object sender, EventArgs e)
+        {
+            _ngaydl = (from p in _db.tb_checkdulieu
+                       where p.tablename == "loanmonth"
+                       select p.datadate).Max();
+            if (_ngaydl != null) lb_ngaydl.Text = _ngaydl.Value.ToShortDateString();
+        }
         private void UpdateLabelText(string newText)
         {
             if (lb_solanin.InvokeRequired)
@@ -2252,46 +2810,6 @@ namespace insoden
                 lb_solanin.Text = newText;
             }
         }
-
-        private void bt_td_tl_laytt_Click(object sender, EventArgs e)
-        {
-            var tungay = dtp_td_tl_tungay.Value;
-            var denngay = dtp_td_tl_denngay.Value;
-
-            var trlai = _db.TraLai(_ngaydl, tungay, denngay);
-            gc_td_tralai.DataSource = new BindingSource(trlai, "");
-
-            gv_td_tralai.OptionsView.ColumnAutoWidth = false;
-            gv_td_tralai.OptionsView.BestFitMaxRowCount = -1;
-            gv_td_tralai.BestFitColumns();
-        }
-
-        private void tb_tralai_Enter(object sender, EventArgs e)
-        {
-            _ngaydl = (from p in _db.tb_checkdulieu
-                       where p.tablename == "loanmonth"
-                       select p.datadate).Max();
-            if (_ngaydl != null) lb_td_tl_ngaydl.Text = _ngaydl.Value.ToShortDateString();
-        }
-
-        private void bt_td_tl_xuatexel_Click(object sender, EventArgs e)
-        {
-            SaveFileExcel.FileName = "saoke_";
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                var fi = new FileInfo(SaveFileExcel.FileName);
-
-                if (fi.Exists)
-                {
-                    fi.Delete();
-                }
-                gv_td_tralai.OptionsPrint.AutoWidth = false;
-                gv_td_tralai.BestFitColumns();
-                gc_td_tralai.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
         // Function for read data from Excel worksheet into DataTable
         /*
                 private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
@@ -2359,474 +2877,5 @@ namespace insoden
                     }
                 }
         */
-
-        private void bt_sk_pos_ltt_Click(object sender, EventArgs e)
-        {
-            var phipos = _db.phiPos(dtk_sk_pos_bd.Value, dtk_sk_pos_kt.Value);
-            gc_sk_phipos.DataSource = new BindingSource(phipos, "");
-
-            gv_sk_phipos.OptionsView.ColumnAutoWidth = false;
-            gv_sk_phipos.OptionsView.BestFitMaxRowCount = -1;
-            gv_sk_phipos.BestFitColumns();
-        }
-
-        private void button6_Click_2(object sender, EventArgs e)
-        {
-            SaveFileExcel.FileName = "saokepos_";
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                var fi = new FileInfo(SaveFileExcel.FileName);
-
-                if (fi.Exists)
-                {
-                    fi.Delete();
-                }
-                gv_sk_phipos.OptionsPrint.AutoWidth = false;
-                gv_sk_phipos.BestFitColumns();
-                gv_sk_phipos.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
-        private void bt_n_ttnt_laydl_Click(object sender, EventArgs e)
-        {
-            var ngoaite = _db.MuaBanNgoaiTe(dtp_n_ttnt_ngay.Value).ToList();
-
-            var tygia = _db.laytygiangay(dtp_n_ttnt_ngay.Value);
-            if (ngoaite.Count > 0)
-            {
-                gc_nguon_ttnt.DataSource = new BindingSource(ngoaite, "");
-                gv_nguon_ttnt.OptionsView.ColumnAutoWidth = false;
-                gv_nguon_ttnt.OptionsView.BestFitMaxRowCount = -1;
-                gv_nguon_ttnt.BestFitColumns();
-
-                gc_nguon_ttnt_tygia.DataSource = new BindingSource(tygia, "");
-                gv_nguon_ttnt_tygia.OptionsView.ColumnAutoWidth = false;
-                gv_nguon_ttnt_tygia.OptionsView.BestFitMaxRowCount = -1;
-                gv_nguon_ttnt_tygia.BestFitColumns();
-                var sumqdusd = ngoaite.Sum(p => p.qdusd);
-                textBox1.Text = $"{sumqdusd:0,0.00}";
-            }
-            else
-            {
-                MessageBox.Show(@"Chưa có dl");
-            }
-        }
-
-        private void button7_Click_1(object sender, EventArgs e)
-        {
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                gv_nguon_ttnt.OptionsPrint.AutoWidth = false;
-                gv_nguon_ttnt.BestFitColumns();
-                gv_nguon_ttnt.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
-        private void bt_gl_erp_laytt_Click(object sender, EventArgs e)
-        {
-            var tk = cb_gl_lsgl_tk.SelectedItem.ToString();
-
-            if (tk.Trim() == "")
-            {
-                MessageBox.Show(@"Chưa chọn TK GL");
-            }
-            else
-            {
-                //  IQueryable<GLHIST_ERP> listgl;
-                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
-                var glacc = Convert.ToDecimal(gl.Trim());
-                var ngaybd = (DateTime)de_gl_erp_datdau.EditValue;
-                var ngaykt = (DateTime)de_gl_erp_ketthuc.EditValue;
-                var tiente = (string)cb_gl_erp_loaitien.SelectedItem;
-                var bds = Convert.ToInt32(cb_gl_erp_bds.SelectedItem);
-
-                var lsgl = _db.tracuulsgl(glacc, ngaybd, ngaykt, bds, tiente.Trim());
-
-                //       _listLsGl = listgl.ToList();
-                gc_gl_lsglerp.DataSource = new BindingSource(lsgl, "");
-                gv_gl_lsglerp.BestFitColumns();
-            }
-        }
-
-        private void bt_gl_erp_xuatexcel_Click(object sender, EventArgs e)
-        {
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                gv_gl_lsglerp.OptionsPrint.AutoWidth = false;
-                gv_gl_lsglerp.BestFitColumns();
-                gv_gl_lsglerp.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            decimal sochay = 2255;
-            string loaitk = "00";
-            if (cb_tk_sodep_loaitk.SelectedIndex == 0)
-            {
-                loaitk = "00";
-                sochay = 44780;
-            }
-            else if (cb_tk_sodep_loaitk.SelectedIndex == 1)
-            {
-                loaitk = "37";
-                sochay = 2255;
-            }
-
-            string tk;
-            tk = mtb_tk_sodep_dautk.Text + loaitk;
-            string tkkyvong = tb_tk_sodep_mongmuon.Text;
-            string checktk;
-            for (decimal i = sochay; i <= 999999; i++)
-            {
-                checktk = $"{i:000000}";
-                string a = Lib.chkDigitAccountNo(tk + checktk);
-
-                //  lb_tk_sodep_ketqua.Items.Add(a);
-                if (a.IndexOf(tkkyvong, StringComparison.Ordinal) != -1)
-                {
-                    var check = _dbbdsu.tb_ql_CIF.FirstOrDefault(c => c.accno == a);
-                    if (check != null)
-                    {
-                        richTextBox1.AppendText(a + " - Đã dùng \n");
-                    }
-                    else
-                    {
-                        richTextBox1.AppendText(a + "\n");
-                    }
-                }
-            }
-        }
-
-        private void bt_gl_trc_laytt_Click(object sender, EventArgs e)
-        {
-            var tk = cb_gl_tracuugl_tk.SelectedItem.ToString();
-            if (tk == "")
-            {
-                MessageBox.Show(@"Chưa nhập tk GL");
-            }
-            else
-            {
-                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
-                var tkgl = Convert.ToDecimal(gl);
-                var ngaybd = (DateTime)de_gl_trc_nbd.EditValue;
-                var ngaykt = (DateTime)de_gl_trc_nkt.EditValue;
-
-                var tracuugl = _db.TraCuuGLERP(tkgl, ngaybd, ngaykt);
-
-                gridControl2.DataSource = new BindingSource(tracuugl, "");
-                gridView2.BestFitColumns();
-            }
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                gridView2.OptionsPrint.AutoWidth = false;
-                gridView2.BestFitColumns();
-                gridView2.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
-        private void bt_tc_tcmpa_laysdtc_Click(object sender, EventArgs e)
-        {
-            var thauchi = _db.thauchi_mpa(dtp_tcmpa_tc_ngay.Value);
-            gc_tcmpa.DataSource = new BindingSource(thauchi, "");
-            gv_tcmpa.OptionsView.ColumnAutoWidth = false;
-            gv_tcmpa.BestFitColumns();
-        }
-
-        private void bt_tc_tcmpa_xuatexcel_Click(object sender, EventArgs e)
-        {
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                gv_tcmpa.OptionsPrint.AutoWidth = false;
-                gv_tcmpa.BestFitColumns();
-                gv_tcmpa.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
-        private void bt_TC_SK_laydl_Click(object sender, EventArgs e)
-        {
-            if (mtb_TC_SK_sotk.Text != null)
-            {
-                var tk = Convert.ToDecimal(mtb_TC_SK_sotk.Text.Replace("-", ""));
-                var thauchi = _db.saokethauchi(dtp_TC_SK_ngaydau.Value, dtp_TC_SK_ngaycuoi.Value, tk);
-                GC_ThauChi_SaoKe.DataSource = new BindingSource(thauchi, "");
-            }
-            GV_ThauChi_SaoKe.OptionsView.ColumnAutoWidth = false;
-            GV_ThauChi_SaoKe.BestFitColumns();
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                GV_ThauChi_SaoKe.OptionsPrint.AutoWidth = false;
-                GV_ThauChi_SaoKe.BestFitColumns();
-                GV_ThauChi_SaoKe.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
-
-        List<InTBDuNovaLaiVay> _InTBDuNovaLaiVay;
-
-        private void bt_tbdn_laysl_Click(object sender, EventArgs e)
-        {
-            var cifstring = cb_td_tbdn_tk.Text.ToString();
-            var cifno = Lib.ExtractNumber(cifstring);
-
-            if (cifno.Trim() == "")
-            {
-                MessageBox.Show("Chưa nhập cif");
-            }
-            else
-            {
-                var cif = Convert.ToDecimal(cifno);
-
-                var tbdn = _db.ThongBaoDuNo(cif).AsEnumerable().Cast<ThongBaoDuNo_Result>().ToList(); 
-
-                _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
-               
-                if (tbdn.Count == 0)
-                {
-                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
-                }
-                else
-                {
-                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c=>c.cifno == cif);
-
-                    if (ciflocal == null)
-                    {
-                        _localdb.Table<CifInfo>().Save(new CifInfo()
-                        {
-                            cifno = tbdn.ToList()[0].socif,
-                            acname = tbdn.ToList()[0].khachhang
-                        });
-
-                    }
-                    
-                    foreach (var i in tbdn)
-                    {
-                        _InTBDuNovaLaiVay.Add(new InTBDuNovaLaiVay()
-                        {
-                            Socif = i.socif,
-                            DuNo = (decimal)i.duno,
-                            LaiCongDon = i.laicd ?? 0,
-                            LaiPhaiTra = i.laicd ?? 0 + i.laiphat ?? 0,
-                            TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                            LaiPhat = i.laiphat ?? 0,
-                            LoaiVay = i.loaisaoke,
-                            LoaiTien = i.tiente
-                            ,
-                            TenKhachHang = i.khachhang,
-                            NgayDL = i.ngaydl.Value
-                        });
-
-                    }
-                }
-                GC_TD_TBDN.DataSource = new BindingSource(_InTBDuNovaLaiVay, "");
-                GV_TD_TBDN.OptionsView.ColumnAutoWidth = false;
-                GV_TD_TBDN.BestFitColumns();
-            }
-        }
-
-        private void bt_td_tbdn_in_Click(object sender, EventArgs e)
-        {
-            ThongTin config;
-            switch (cb_td_tbdnuno.SelectedIndex)
-            {
-                case 0:
-                    config = _cf.HSC;
-                    break;
-                case 1:
-                    config = _cf.TraNoc;
-                    break;
-                case 2:
-                    config = _cf.NinhKieu;
-                    break;
-                case 3:
-                    config = _cf.ThotNot;
-                    break;
-                default:
-                    config = _cf.HSC;
-                    break;
-
-            }
-
-
-            TenChiNhanh = config.TenChiNhanh;
-            DiaChi = config.DiaChi;
-            _ttnghang = new ThongTinNganHang
-            {
-                tencn_vi = config.tencn_vi,
-                tencn_en = config.tencn_en,
-                diachi = config.diachi,
-                tinh = config.tinh,
-                fax = config.fax,
-                dt = config.dt,
-                tennguoiky = config.tennguoiky,
-                chucdanh = config.chucdanh,
-                noinhan = config.noinhan,
-                tenfilechuky = config.tenfilechuky
-
-                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
-            };
-            if (_InTBDuNovaLaiVay.Count == 0)
-            {
-                MessageBox.Show("Chưa có thông tin");
-
-            }
-            else
-            {
-                frmInDuNovaLaivay frm = new frmInDuNovaLaivay(_InTBDuNovaLaiVay, _ttnghang);
-                frm.ShowDialog();
-            }
-        }
-        List<InTBNoDenHan> _InTBNoDenHan;
-        private void button14_Click(object sender, EventArgs e)
-        {
-           
-
-                 var cifstring = cb_td_tbndh_tk.Text;
-           
-            if (cifstring.Trim() == "")
-            {
-                MessageBox.Show("Chưa nhập cif");
-            }
-            else
-            {
-                var cifno = Lib.ExtractNumber(cifstring);
-                var cif = Convert.ToDecimal(cifno);
-                var ds = _db.ThongBaoNoDenHan(cif).AsEnumerable().Cast<ThongBaoNoDenHan_Result>().ToList(); ;
-
-                _InTBNoDenHan = new List<InTBNoDenHan>();
-
-                if (ds.Count == 0)
-                {
-                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
-                }
-                else
-                {
-                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c => c.cifno == cif);
-
-                    if (ciflocal == null)
-                    {
-                        _localdb.Table<CifInfo>().Save(new CifInfo()
-                        {
-                            cifno = ds.ToList()[0].socif,
-                            acname = ds.ToList()[0].khachhang
-                        });
-
-                    }
-
-                    foreach (var i in ds)
-                    {
-                        _InTBNoDenHan.Add(new InTBNoDenHan()
-                        {
-
-                            Socif = i.socif,
-                            DuNo = i.DUNO ?? 0,
-                            Gocdh = i.gocdh ?? 0,
-                            Kyhangoc = i.kyhangoc.Value,
-                            LoaiTien = i.tiente,
-                            LoaiVay = i.loaisaoke,
-                            TaiKhoan = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                            TenKhachHang = i.khachhang,
-                            quanhe = i.quanhe,
-                            thang = i.thang.Value,
-                            Datadate = i.datadate.Value
-
-                        });
-
-                    }
-                }
-                GC_TD_TBNDH.DataSource = new BindingSource(_InTBNoDenHan, "");
-                GV_TD_TBNDH.OptionsView.ColumnAutoWidth = false;
-                GV_TD_TBNDH.BestFitColumns();
-            }
-        }
-
-        private void bt_td_tbndh_in_Click(object sender, EventArgs e)
-        {
-            ThongTin config;
-            switch (cb_td_tbndh_noi.SelectedIndex)
-            {
-                case 0:
-                    config = _cf.HSC;
-                    break;
-                case 1:
-                    config = _cf.TraNoc;
-                    break;
-                case 2:
-                    config = _cf.NinhKieu;
-                    break;
-                case 3:
-                    config = _cf.ThotNot;
-                    break;
-                default:
-                    config = _cf.HSC;
-                    break;
-
-            }
-            TenChiNhanh = config.TenChiNhanh;
-            DiaChi = config.DiaChi;
-            _ttnghang = new ThongTinNganHang
-            {
-                tencn_vi = config.tencn_vi,
-                tencn_en = config.tencn_en,
-                diachi = config.diachi,
-                tinh = config.tinh,
-                fax = config.fax,
-                dt = config.dt,
-                tennguoiky = config.tennguoiky,
-                chucdanh = config.chucdanh,
-                noinhan = config.noinhan,
-                tenfilechuky = config.tenfilechuky
-
-                //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
-            };
-            if (_InTBNoDenHan.Count == 0)
-            {
-                MessageBox.Show("Chưa có thông tin");
-
-            }
-            else
-            {
-                frmInTBNoDenHan frm = new frmInTBNoDenHan(_InTBNoDenHan, _ttnghang);
-                frm.ShowDialog();
-            }
-        }
-
-        private void tb_in_sec_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_main_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_TinDung_Enter(object sender, EventArgs e)
-        {
-            var cif = _localdb.Table<CifInfo>();
-            AutoCompleteStringCollection cifatc = new AutoCompleteStringCollection();
-            foreach (var i in cif)
-            {
-               
-                cb_td_tbdn_tk.Items.Add(string.Format("{0} - {1}", i.cifno, i.acname));
-                cb_td_tbndh_tk.Items.Add(string.Format("{0} - {1}", i.cifno, i.acname));
-                cifatc.Add(string.Format("{0} - {1}", i.cifno, i.acname));
-            }
-            cb_td_tbdn_tk.AutoCompleteCustomSource = cifatc;
-            cb_td_tbndh_tk.AutoCompleteCustomSource = cifatc;
-        }
     }
 }

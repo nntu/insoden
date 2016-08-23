@@ -209,6 +209,9 @@
       <DependentUpon>frmInTBNoDenHan.cs</DependentUpon>
     </Compile>
     <Compile Include="glconfig.cs" />
+    <Compile Include="LayTKThanhToanTheoCIF_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CifInfo.cs" />
     <Compile Include="Model\clbc833.cs" />
     <Compile Include="Config.cs" />
@@ -274,6 +277,7 @@
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\InTBNoDenHan.cs" />
+    <Compile Include="Model\ThuLai.cs" />
     <Compile Include="Model\tkgl.cs" />
     <Compile Include="MuaBanNgoaiTe_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
@@ -450,6 +454,12 @@
     <Compile Include="TinhPhiTheoCif_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="TinhThuLaiGocTheoCIF_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TinhThuLaiTheoCIF_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="TonQuy_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -464,6 +474,12 @@
     </Compile>
     <Compile Include="TraLai_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UC_thulai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_thulai.Designer.cs">
+      <DependentUpon>UC_thulai.cs</DependentUpon>
     </Compile>
     <Compile Include="X1PCMS.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
@@ -528,6 +544,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_thulai.resx">
+      <DependentUpon>UC_thulai.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bdsu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -617,8 +636,11 @@
     <None Include="Properties\DataSources\SaoKeTienVay_Result.datasource" />
     <None Include="Properties\DataSources\thauchi_mpa_Result.datasource" />
     <None Include="Properties\DataSources\ThongBaoDuNo_Result.datasource" />
+    <None Include="Properties\DataSources\ThuLai.datasource" />
+    <None Include="Properties\DataSources\ThuLai1.datasource" />
     <None Include="Properties\DataSources\ThuNoThuLai_Result.datasource" />
     <None Include="Properties\DataSources\TinhPhiTheoCif_Result.datasource" />
+    <None Include="Properties\DataSources\TinhThuLaiTheoCIF_Result.datasource" />
     <None Include="Properties\DataSources\TonQuy_Result.datasource" />
     <None Include="Properties\DataSources\TraCuuGLERP_Result.datasource" />
     <None Include="Properties\DataSources\TraCuuGLERP_Result1.datasource" />

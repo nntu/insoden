@@ -671,5 +671,40 @@ namespace insoden
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThongBaoNoDenHan_Result>("ThongBaoNoDenHan", cifParameter);
         }
+    
+        public virtual ObjectResult<TinhThuLaiGocTheoCIF_Result> TinhThuLaiGocTheoCIF(Nullable<System.DateTime> dNgayLaiDen, Nullable<decimal> cifno)
+        {
+            var dNgayLaiDenParameter = dNgayLaiDen.HasValue ?
+                new ObjectParameter("dNgayLaiDen", dNgayLaiDen) :
+                new ObjectParameter("dNgayLaiDen", typeof(System.DateTime));
+    
+            var cifnoParameter = cifno.HasValue ?
+                new ObjectParameter("cifno", cifno) :
+                new ObjectParameter("cifno", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TinhThuLaiGocTheoCIF_Result>("TinhThuLaiGocTheoCIF", dNgayLaiDenParameter, cifnoParameter);
+        }
+    
+        public virtual ObjectResult<TinhThuLaiTheoCIF_Result> TinhThuLaiTheoCIF(Nullable<System.DateTime> dNgayLaiDen, Nullable<decimal> cifno)
+        {
+            var dNgayLaiDenParameter = dNgayLaiDen.HasValue ?
+                new ObjectParameter("dNgayLaiDen", dNgayLaiDen) :
+                new ObjectParameter("dNgayLaiDen", typeof(System.DateTime));
+    
+            var cifnoParameter = cifno.HasValue ?
+                new ObjectParameter("cifno", cifno) :
+                new ObjectParameter("cifno", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TinhThuLaiTheoCIF_Result>("TinhThuLaiTheoCIF", dNgayLaiDenParameter, cifnoParameter);
+        }
+    
+        public virtual ObjectResult<LayTKThanhToanTheoCIF_Result> LayTKThanhToanTheoCIF(Nullable<decimal> cif)
+        {
+            var cifParameter = cif.HasValue ?
+                new ObjectParameter("cif", cif) :
+                new ObjectParameter("cif", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LayTKThanhToanTheoCIF_Result>("LayTKThanhToanTheoCIF", cifParameter);
+        }
     }
 }
