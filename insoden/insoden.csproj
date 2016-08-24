@@ -475,11 +475,17 @@
     <Compile Include="TraLai_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
-    <Compile Include="UC_thulai.cs">
+    <Compile Include="UC_ThuGoLai.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC_thulai.Designer.cs">
-      <DependentUpon>UC_thulai.cs</DependentUpon>
+    <Compile Include="UC_ThuGoLai.Designer.cs">
+      <DependentUpon>UC_ThuGoLai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_ThuLai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_ThuLai.Designer.cs">
+      <DependentUpon>UC_ThuLai.cs</DependentUpon>
     </Compile>
     <Compile Include="X1PCMS.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
@@ -545,8 +551,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC_thulai.resx">
-      <DependentUpon>UC_thulai.cs</DependentUpon>
+    <EmbeddedResource Include="UC_ThuGoLai.resx">
+      <DependentUpon>UC_ThuGoLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_ThuLai.resx">
+      <DependentUpon>UC_ThuLai.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bdsu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -1251,7 +1251,7 @@ namespace insoden
                     var tktt = _db.LayTKThanhToanTheoCIF(cif).AsEnumerable().Cast<LayTKThanhToanTheoCIF_Result>().ToList();
 
                     panelControl1.Controls.Clear();
-                    UC_thulai tl = new UC_thulai(tinhthulai, tktt,comboBox2.Text);
+                    UC_ThuLai tl = new UC_ThuLai(tinhthulai, tktt,comboBox2.Text);
                     tl.Dock = DockStyle.Fill;
                     tl.SetLocaltion( _clickOnceLocation);
                     panelControl1.Controls.Add(tl);

@@ -14,7 +14,7 @@ using OfficeOpenXml.Style;
 
 namespace insoden
 {
-    public partial class UC_thulai : DevExpress.XtraEditors.XtraUserControl
+    public partial class UC_ThuLai : DevExpress.XtraEditors.XtraUserControl
     {
         List<LayTKThanhToanTheoCIF_Result> _ciftk;
         List<ThuLai> _inthulai;
@@ -25,7 +25,7 @@ namespace insoden
         public void SetLocaltion(string clickOnceLocation) {
             _clickOnceLocation = clickOnceLocation;
         }
-        public UC_thulai(List<TinhThuLaiTheoCIF_Result> tp, List< LayTKThanhToanTheoCIF_Result> ciftk,string phong)
+        public UC_ThuLai(List<TinhThuLaiTheoCIF_Result> tp, List< LayTKThanhToanTheoCIF_Result> ciftk,string phong)
         {
             _tp = tp;
             _ciftk = ciftk;
@@ -33,7 +33,7 @@ namespace insoden
             _phongthu = phong;
             InitializeComponent();
         }
-        public UC_thulai( )
+        public UC_ThuLai( )
         {
             InitializeComponent();
         }
