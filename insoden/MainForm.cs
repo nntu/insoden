@@ -21,11 +21,12 @@ using Ionic.Zip;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Lex.Db;
-
+using NLog;
 namespace insoden
 {
     public partial class MainForm : XtraForm
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         public string Data2Print;
         public string DiaChi;
         public string TenChiNhanh;
@@ -2319,23 +2320,29 @@ namespace insoden
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             _cf = Config.Load();
-
+          
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 Version myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
                 Text = Text +
                        $" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}";
+              //  logger.Info($" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}");
             }
             Assembly assemblyInfo = Assembly.GetExecutingAssembly();
             //Location is where the assembly is run from
-
+           
             //CodeBase is the location of the ClickOnce deployment files
             var uriCodeBase = new Uri(assemblyInfo.CodeBase);
 
             _clickOnceLocation = Path.GetDirectoryName(uriCodeBase.LocalPath);
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(uriCodeBase.LocalPath);
 
-            DateTime now = DateTime.Today.AddDays(-1);
+            logger.Info(fileVersionInfo.FileVersion);
+
+
+         DateTime now = DateTime.Today.AddDays(-1);
             ipdc_date.Value = dtp_tungay.Value = dtp_denngay.Value = now;
             dtp_lsgl_ngaybd.EditValue = dtp_lsgl_ngaykt.EditValue = now;
             de_gl_erp_datdau.EditValue = de_gl_erp_ketthuc.EditValue = now;
