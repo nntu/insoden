@@ -1251,7 +1251,7 @@ namespace insoden
                     var tktt = _db.LayTKThanhToanTheoCIF(cif).AsEnumerable().Cast<LayTKThanhToanTheoCIF_Result>().ToList();
 
                     panelControl1.Controls.Clear();
-                    UC_ThuLai tl = new UC_ThuLai(tinhthulai, tktt,comboBox2.Text);
+                    UC_ThuLai tl = new UC_ThuLai(tinhthulai, tktt,cb_td_pyctl_noigui.Text);
                     tl.Dock = DockStyle.Fill;
                     tl.SetLocaltion( _clickOnceLocation);
                     panelControl1.Controls.Add(tl);
@@ -2342,6 +2342,8 @@ namespace insoden
             de_gl_trc_nbd.EditValue = de_gl_trc_nkt.EditValue = now;
             dtp_gl_ngay.DateTime = dtp_tcmpa_tc_ngay.Value = dtp__ngaycuoi_cif.Value =
                     dtp__ngaydau_cif.Value = dtp_atmxoa_ngaydau.Value = dtp_atmxoa_ngaycuoi.Value = now;
+            dtp_td_pyctl_ngaytl.Value = now;
+
             cb_tratk_tim.SelectedIndex = 0;
             cb_ATM_tracuthe.SelectedIndex = 0;
             cb_lsgl_bds.SelectedIndex = 0;
@@ -2349,6 +2351,7 @@ namespace insoden
             cb_bds_pdc.SelectedIndex = 0;
             cb_td_tbdnuno.SelectedIndex = 0;
             cb_td_tbndh_noi.SelectedIndex = 0;
+            cb_td_pyctl_noigui.SelectedIndex = 0;
 
             _localdb = new DbInstance(_clickOnceLocation + @"/data");
             _localdb.Map<CifInfo>().Automap(i => i.cifno);
@@ -2847,7 +2850,7 @@ namespace insoden
                     var tktt = _db.LayTKThanhToanTheoCIF(cif).AsEnumerable().Cast<LayTKThanhToanTheoCIF_Result>().ToList();
 
                     panelControl1.Controls.Clear();
-                    var tl = new UC_ThuGocLai(tinhthulai, tktt, comboBox2.Text);
+                    var tl = new UC_ThuGocLai(tinhthulai, tktt, cb_td_pyctl_noigui.Text);
                     tl.Dock = DockStyle.Fill;
                     tl.SetLocaltion(_clickOnceLocation);
                     panelControl1.Controls.Add(tl);

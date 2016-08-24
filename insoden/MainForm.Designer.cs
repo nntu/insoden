@@ -627,17 +627,14 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.splitContainerControl21 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dtp_td_pyctl_ngaytl = new System.Windows.Forms.DateTimePicker();
             this.cb_td_pyctl_tk = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cb_td_pyctl_noigui = new System.Windows.Forms.ComboBox();
             this.bt_td_pyctl_thulai = new System.Windows.Forms.Button();
             this.bt_Td_pyctl_thugoclai = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
@@ -6892,17 +6889,14 @@
             // 
             // groupBox14
             // 
-            this.groupBox14.Controls.Add(this.comboBox3);
-            this.groupBox14.Controls.Add(this.label59);
             this.groupBox14.Controls.Add(this.label58);
             this.groupBox14.Controls.Add(this.label57);
             this.groupBox14.Controls.Add(this.textBox3);
             this.groupBox14.Controls.Add(this.textBox2);
             this.groupBox14.Controls.Add(this.label56);
-            this.groupBox14.Controls.Add(this.dateTimePicker2);
             this.groupBox14.Controls.Add(this.dtp_td_pyctl_ngaytl);
             this.groupBox14.Controls.Add(this.cb_td_pyctl_tk);
-            this.groupBox14.Controls.Add(this.comboBox2);
+            this.groupBox14.Controls.Add(this.cb_td_pyctl_noigui);
             this.groupBox14.Controls.Add(this.bt_td_pyctl_thulai);
             this.groupBox14.Controls.Add(this.bt_Td_pyctl_thugoclai);
             this.groupBox14.Controls.Add(this.label54);
@@ -6912,25 +6906,6 @@
             this.groupBox14.TabIndex = 21;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Chọn khách hàng:";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(98, 136);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(214, 21);
-            this.comboBox3.TabIndex = 31;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(8, 139);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(53, 13);
-            this.label59.TabIndex = 30;
-            this.label59.Text = "Số TK thu";
             // 
             // label58
             // 
@@ -6973,15 +6948,6 @@
             this.label56.TabIndex = 22;
             this.label56.Text = "Tính lãi đến ngày";
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(307, 55);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(98, 21);
-            this.dateTimePicker2.TabIndex = 21;
-            // 
             // dtp_td_pyctl_ngaytl
             // 
             this.dtp_td_pyctl_ngaytl.CustomFormat = "dd/MM/yyyy";
@@ -7002,23 +6968,23 @@
             this.cb_td_pyctl_tk.TabIndex = 19;
             this.cb_td_pyctl_tk.SelectedIndexChanged += new System.EventHandler(this.cb_td_pyctl_tk_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cb_td_pyctl_noigui
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cb_td_pyctl_noigui.FormattingEnabled = true;
+            this.cb_td_pyctl_noigui.Items.AddRange(new object[] {
             "PHÒNG DỊCH VỤ KHÁCH HÀNG CÁ NHÂN",
             "PHÒNG DỊCH VỤ KHÁCH HÀNG DOANH NGHIỆP",
             "PHÒNG GIAO DỊCH TRÀ NÓC",
             "PHÒNG GIAO DỊCH THỐT NỐT",
             "PHÒNG GIAO DỊCH NINH KIỀU"});
-            this.comboBox2.Location = new System.Drawing.Point(284, 22);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 17;
+            this.cb_td_pyctl_noigui.Location = new System.Drawing.Point(307, 22);
+            this.cb_td_pyctl_noigui.Name = "cb_td_pyctl_noigui";
+            this.cb_td_pyctl_noigui.Size = new System.Drawing.Size(297, 21);
+            this.cb_td_pyctl_noigui.TabIndex = 17;
             // 
             // bt_td_pyctl_thulai
             // 
-            this.bt_td_pyctl_thulai.Location = new System.Drawing.Point(424, 20);
+            this.bt_td_pyctl_thulai.Location = new System.Drawing.Point(41, 151);
             this.bt_td_pyctl_thulai.Name = "bt_td_pyctl_thulai";
             this.bt_td_pyctl_thulai.Size = new System.Drawing.Size(98, 23);
             this.bt_td_pyctl_thulai.TabIndex = 13;
@@ -7028,7 +6994,7 @@
             // 
             // bt_Td_pyctl_thugoclai
             // 
-            this.bt_Td_pyctl_thugoclai.Location = new System.Drawing.Point(424, 49);
+            this.bt_Td_pyctl_thugoclai.Location = new System.Drawing.Point(167, 151);
             this.bt_Td_pyctl_thugoclai.Name = "bt_Td_pyctl_thugoclai";
             this.bt_Td_pyctl_thugoclai.Size = new System.Drawing.Size(98, 23);
             this.bt_Td_pyctl_thugoclai.TabIndex = 13;
@@ -9080,17 +9046,14 @@
         private System.Windows.Forms.TabPage tabPage8;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl21;
         private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dtp_td_pyctl_ngaytl;
         private System.Windows.Forms.ComboBox cb_td_pyctl_tk;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cb_td_pyctl_noigui;
         private System.Windows.Forms.Button bt_td_pyctl_thulai;
         private System.Windows.Forms.Button bt_Td_pyctl_thugoclai;
         private System.Windows.Forms.Label label54;

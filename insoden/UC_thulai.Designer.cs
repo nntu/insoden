@@ -147,6 +147,8 @@
             // 
             // colSoTienPhaiTra
             // 
+            this.colSoTienPhaiTra.DisplayFormat.FormatString = "D";
+            this.colSoTienPhaiTra.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSoTienPhaiTra.FieldName = "SoTienPhaiTra";
             this.colSoTienPhaiTra.Name = "colSoTienPhaiTra";
             this.colSoTienPhaiTra.Visible = true;
