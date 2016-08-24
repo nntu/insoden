@@ -10,5 +10,7 @@
         public decimal LaiTraCham { get; set; }
         public string PhuongThucTra { get; set; }
         public string GhiChu { get; set; }
+
+        public string LoaiTien { get; set; }
     }
 }

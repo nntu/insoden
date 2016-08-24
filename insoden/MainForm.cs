@@ -35,7 +35,7 @@ namespace insoden
         private readonly dlgocEntities _db;
         private readonly List<ClBc810> _dsbc810 = new List<ClBc810>();
         Config _cf;
-        private string _clickOnceLocation;
+        public static string _clickOnceLocation;
         private bdsuEntities _dbbdsu;
         private List<DatainNoCo> _dbin;
         private ObjectResult<DoanhSoTientheoCif_Result> _doanhso;
@@ -1253,6 +1253,7 @@ namespace insoden
                     panelControl1.Controls.Clear();
                     UC_thulai tl = new UC_thulai(tinhthulai, tktt);
                     tl.Dock = DockStyle.Fill;
+                    tl.SetLocaltion( _clickOnceLocation);
                     panelControl1.Controls.Add(tl);
                 }
 
@@ -2644,7 +2645,7 @@ namespace insoden
             }
         }
 
-        private void OpenExplorer(string dir)
+        public static void OpenExplorer(string dir)
         {
             var result = MessageBox.Show($"Xuất Bc thành công \n File Lưu tại {dir} \n Bạn Có muốn mở file", @"OpenFile", MessageBoxButtons.YesNo,
                                    MessageBoxIcon.Question);
