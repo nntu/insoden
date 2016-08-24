@@ -36,9 +36,6 @@
             this.GC_TD_Pyctl_ThuLai = new DevExpress.XtraGrid.GridControl();
             this.thuLaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GV_TD_Pyctl_ThuLai = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
-            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colTenKh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCif = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltkvay = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -46,8 +43,11 @@
             this.colLaiCongDon = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLaiTraCham = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPhuongThucTra = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoaiTien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -55,8 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GC_TD_Pyctl_ThuLai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_TD_Pyctl_ThuLai)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,27 +141,6 @@
             this.GV_TD_Pyctl_ThuLai.Name = "GV_TD_Pyctl_ThuLai";
             this.GV_TD_Pyctl_ThuLai.CustomRowCellEdit += new DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventHandler(this.GV_TD_Pyctl_ThuLai_CustomRowCellEdit);
             // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            // 
-            // repositoryItemComboBox1
-            // 
-            this.repositoryItemComboBox1.AutoHeight = false;
-            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
-            // 
-            // repositoryItemComboBox2
-            // 
-            this.repositoryItemComboBox2.AutoHeight = false;
-            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
-            // 
             // colTenKh
             // 
             this.colTenKh.FieldName = "TenKh";
@@ -212,6 +191,13 @@
             this.colPhuongThucTra.Visible = true;
             this.colPhuongThucTra.VisibleIndex = 6;
             // 
+            // repositoryItemComboBox1
+            // 
+            this.repositoryItemComboBox1.AutoHeight = false;
+            this.repositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox1.Name = "repositoryItemComboBox1";
+            // 
             // colGhiChu
             // 
             this.colGhiChu.FieldName = "GhiChu";
@@ -225,6 +211,20 @@
             this.colLoaiTien.Name = "colLoaiTien";
             this.colLoaiTien.Visible = true;
             this.colLoaiTien.VisibleIndex = 8;
+            // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            // 
+            // repositoryItemComboBox2
+            // 
+            this.repositoryItemComboBox2.AutoHeight = false;
+            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
             // 
             // UC_thulai
             // 
@@ -241,8 +241,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.GC_TD_Pyctl_ThuLai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_TD_Pyctl_ThuLai)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             this.ResumeLayout(false);
 

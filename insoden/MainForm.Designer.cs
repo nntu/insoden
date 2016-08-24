@@ -7006,10 +7006,11 @@
             // 
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "Hội Sở",
-            "Trà Nóc",
-            "Ninh Kiều",
-            "Thốt Nốt"});
+            "PHÒNG DỊCH VỤ KHÁCH HÀNG CÁ NHÂN",
+            "PHÒNG DỊCH VỤ KHÁCH HÀNG DOANH NGHIỆP",
+            "PHÒNG GIAO DỊCH TRÀ NÓC",
+            "PHÒNG GIAO DỊCH THỐT NỐT",
+            "PHÒNG GIAO DỊCH NINH KIỀU"});
             this.comboBox2.Location = new System.Drawing.Point(284, 22);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);

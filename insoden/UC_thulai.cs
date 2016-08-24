@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace insoden
 {
@@ -18,16 +19,18 @@ namespace insoden
         List<LayTKThanhToanTheoCIF_Result> _ciftk;
         List<ThuLai> _inthulai;
         List<TinhThuLaiTheoCIF_Result> _tp;
+        string _phongthu = "";
         public static string _clickOnceLocation;
 
         public void SetLocaltion(string clickOnceLocation) {
             _clickOnceLocation = clickOnceLocation;
         }
-        public UC_thulai(List<TinhThuLaiTheoCIF_Result> tp, List< LayTKThanhToanTheoCIF_Result> ciftk)
+        public UC_thulai(List<TinhThuLaiTheoCIF_Result> tp, List< LayTKThanhToanTheoCIF_Result> ciftk,string phong)
         {
             _tp = tp;
             _ciftk = ciftk;
             _inthulai = new List<ThuLai>();
+            _phongthu = phong;
             InitializeComponent();
         }
         public UC_thulai( )
@@ -50,27 +53,49 @@ namespace insoden
                     const int startRow = 13;
 
                     int row = startRow;
-                    
-
+                    var loaitien = "VND";
+                  
                     for (int i = 0; i < GV_TD_Pyctl_ThuLai.DataRowCount; i++)
                     {
- 
                         wsList.InsertRow(row, 1);
+                       // if (GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString() != loaitien) {
+                       ////     wsList.InsertRow(row, 1);
+                       //     wsList.Cells[row, 1].Value = a;
+                       //     wsList.Cells[row, 2].Value = "Tổng cộng " + GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
+                       //     wsList.Cells[row, 2].Style.Font.Bold = true;
+                       //  //   wsList.Cells["A" + startRow + ":B" + row].Merge = true;
+                       //     //wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row - 1);
+                       //     //wsList.Cells[row, 3].Formula = string.Format("Sum(C{0}:C{1})", row - 1, startRow - 1 +a);
+                       //     a++;
+                       // }
+                       
                         wsList.Cells[row, 2].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i,"tkvay").ToString();
-
                         wsList.Cells[row, 3].Value = Convert.ToDecimal(GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LaiCongDon"));
                         wsList.Cells[row, 3].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
                         wsList.Cells[row, 4].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LaiTraCham");
-                        wsList.Cells[row, 4].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
-                        wsList.Cells[row, 5].Value = "";
-
-                        var ptt = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "PhuongThucTra") ;
-                        wsList.Cells[row, 6].Value = ptt.ToString();
+                        wsList.Cells[row, 4].Style.Numberformat.Format = "#,##0.00;-#,##0.00";                       
+                        wsList.Cells[row, 6].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "PhuongThucTra").ToString();
                         wsList.Cells[row, 7].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "GhiChu").ToString();
+                        wsList.Cells[row, 8].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
+                        wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row - 1);
 
-                        wsList.Cells[row,5].Formula = string.Format("Sum(C{0}:D{0})", row - 1);
-
+                        loaitien = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
+                        row++;
                     }
+                    string local = "A" + startRow + ":H" + row;
+                    var cell = wsList.Cells[local];
+                    var border = cell.Style.Border;
+                    border.BorderAround(ExcelBorderStyle.Thin);
+                    border.Bottom.Style = ExcelBorderStyle.Thin;
+                    border.Top.Style = ExcelBorderStyle.Thin;
+                    border.Left.Style = ExcelBorderStyle.Thin;
+                    border.Right.Style = ExcelBorderStyle.Thin;
+
+                    wsList.Cells["A10"].Value = wsList.Cells["A10"].Value + " " +  GV_TD_Pyctl_ThuLai.GetRowCellValue(1, "Cif");
+                    wsList.Cells["A9"].Value = wsList.Cells["A9"].Value + " " +  GV_TD_Pyctl_ThuLai.GetRowCellValue(1, "TenKh");
+                    wsList.Cells["E3"].Value = string.Format(@"Ngày {0} tháng {1} năm {2}",DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " +_phongthu;
+
                     var fi = new FileInfo(SaveFileExcel.FileName);
 
                     if (fi.Exists)
@@ -106,10 +131,18 @@ namespace insoden
             foreach(var i in _ciftk) {
                 repositoryItemComboBox1.Items.Add(string.Format(@"{0:###-##-##-######-#}", i.ACCTNO));
             }
-            repositoryItemComboBox1.Items.Add("Tien Mat");
+            repositoryItemComboBox1.Items.Add("Tiền Mặt");
 
             foreach (var i in _tp)
-            {
+            {   var tk = _ciftk.FirstOrDefault(c => c.DDCTYP == i.tiente && c.BRANCH == 740);
+                string ptra = "";
+                if (tk != null)
+                {
+                    ptra = string.Format(@"{0:###-##-##-######-#}", tk.ACCTNO);
+                }
+                else {
+                    ptra = "Tiền Mặt";
+                }
                 _inthulai.Add(new ThuLai()
                 {
                     Cif = i.socif,
@@ -117,7 +150,7 @@ namespace insoden
                     LaiCongDon = i.laicongdon ?? 0,
                     LaiTraCham = i.laitracham ?? 0,
                     SoTienPhaiTra = (i.laicongdon ?? 0) + (i.laitracham ?? 0),
-                    PhuongThucTra = "Tien Mat",
+                    PhuongThucTra =ptra,
                     tkvay = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
                     GhiChu = @"Ngày tính lãi " + i.denngay.Value.ToShortDateString(),
                     LoaiTien = i.tiente

@@ -15,5 +15,7 @@ namespace insoden
     {
         public decimal CIFNO { get; set; }
         public decimal ACCTNO { get; set; }
+        public string DDCTYP { get; set; }
+        public decimal BRANCH { get; set; }
     }
 }

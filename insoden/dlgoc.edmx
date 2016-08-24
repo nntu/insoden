@@ -1895,6 +1895,8 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
         <ComplexType Name="LayTKThanhToanTheoCIF_Result">
           <Property Type="Decimal" Name="CIFNO" Nullable="false" Precision="19" Scale="0" />
           <Property Type="Decimal" Name="ACCTNO" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="DDCTYP" Nullable="false" MaxLength="4" />
+          <Property Type="Decimal" Name="BRANCH" Nullable="false" Precision="5" Scale="0" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2842,6 +2844,8 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               <ComplexTypeMapping TypeName="dlgocModel.LayTKThanhToanTheoCIF_Result">
                 <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
                 <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
+                <ScalarProperty Name="DDCTYP" ColumnName="DDCTYP" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
