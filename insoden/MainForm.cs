@@ -2811,6 +2811,50 @@ namespace insoden
                 lb_solanin.Text = newText;
             }
         }
+
+        private void bt_Td_pyctl_thugoclai_Click(object sender, EventArgs e)
+        {
+
+
+            var cifstring = cb_td_pyctl_tk.Text;
+
+            if (cifstring.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
+            }
+            else
+            {
+                var cifno = Lib.ExtractNumber(cifstring);
+                var cif = Convert.ToDecimal(cifno);
+                var tinhthulai = _db.TinhThuLaiGocTheoCIF(dtp_td_pyctl_ngaytl.Value, cif).AsEnumerable().Cast<TinhThuLaiGocTheoCIF_Result>().ToList();
+                if (tinhthulai.Count == 0)
+                {
+                    MessageBox.Show("Sai Cif hoặc cif không có tk vay");
+                }
+                else
+                {
+                    var ciflocal = _localdb.Table<CifInfo>().FirstOrDefault(c => c.cifno == cif);
+
+                    if (ciflocal == null)
+                    {
+                        _localdb.Table<CifInfo>().Save(new CifInfo()
+                        {
+                            cifno = tinhthulai.ToList()[0].socif,
+                            acname = tinhthulai.ToList()[0].khachhang
+                        });
+
+                    }
+                    var tktt = _db.LayTKThanhToanTheoCIF(cif).AsEnumerable().Cast<LayTKThanhToanTheoCIF_Result>().ToList();
+
+                    panelControl1.Controls.Clear();
+                    var tl = new UC_ThuGocLai(tinhthulai, tktt, comboBox2.Text);
+                    tl.Dock = DockStyle.Fill;
+                    tl.SetLocaltion(_clickOnceLocation);
+                    panelControl1.Controls.Add(tl);
+                }
+
+            }
+        }
         // Function for read data from Excel worksheet into DataTable
         /*
                 private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)

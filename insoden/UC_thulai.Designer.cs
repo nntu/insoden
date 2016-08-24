@@ -32,7 +32,6 @@
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.bt_td_pyctl_thulai_xuatexcel = new System.Windows.Forms.Button();
-            this.bt_td_pyctl_thulai_in = new System.Windows.Forms.Button();
             this.GC_TD_Pyctl_ThuLai = new DevExpress.XtraGrid.GridControl();
             this.thuLaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.GV_TD_Pyctl_ThuLai = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -46,8 +45,6 @@
             this.repositoryItemComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoaiTien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.repositoryItemComboBox2 = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -56,8 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_TD_Pyctl_ThuLai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -78,7 +73,6 @@
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.bt_td_pyctl_thulai_xuatexcel);
-            this.panelControl1.Controls.Add(this.bt_td_pyctl_thulai_in);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
@@ -96,15 +90,6 @@
             this.bt_td_pyctl_thulai_xuatexcel.UseVisualStyleBackColor = true;
             this.bt_td_pyctl_thulai_xuatexcel.Click += new System.EventHandler(this.bt_td_pyctl_thulai_xuatexcel_Click);
             // 
-            // bt_td_pyctl_thulai_in
-            // 
-            this.bt_td_pyctl_thulai_in.Location = new System.Drawing.Point(17, 6);
-            this.bt_td_pyctl_thulai_in.Name = "bt_td_pyctl_thulai_in";
-            this.bt_td_pyctl_thulai_in.Size = new System.Drawing.Size(75, 23);
-            this.bt_td_pyctl_thulai_in.TabIndex = 0;
-            this.bt_td_pyctl_thulai_in.Text = "In";
-            this.bt_td_pyctl_thulai_in.UseVisualStyleBackColor = true;
-            // 
             // GC_TD_Pyctl_ThuLai
             // 
             this.GC_TD_Pyctl_ThuLai.DataSource = this.thuLaiBindingSource;
@@ -113,9 +98,7 @@
             this.GC_TD_Pyctl_ThuLai.MainView = this.GV_TD_Pyctl_ThuLai;
             this.GC_TD_Pyctl_ThuLai.Name = "GC_TD_Pyctl_ThuLai";
             this.GC_TD_Pyctl_ThuLai.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit1,
-            this.repositoryItemComboBox1,
-            this.repositoryItemComboBox2});
+            this.repositoryItemComboBox1});
             this.GC_TD_Pyctl_ThuLai.Size = new System.Drawing.Size(667, 251);
             this.GC_TD_Pyctl_ThuLai.TabIndex = 0;
             this.GC_TD_Pyctl_ThuLai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -212,26 +195,12 @@
             this.colLoaiTien.Visible = true;
             this.colLoaiTien.VisibleIndex = 8;
             // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            // 
-            // repositoryItemComboBox2
-            // 
-            this.repositoryItemComboBox2.AutoHeight = false;
-            this.repositoryItemComboBox2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemComboBox2.Name = "repositoryItemComboBox2";
-            // 
-            // UC_thulai
+            // UC_ThuLai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainerControl1);
-            this.Name = "UC_thulai";
+            this.Name = "UC_ThuLai";
             this.Size = new System.Drawing.Size(667, 302);
             this.Load += new System.EventHandler(this.UC_thulai_Load);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -242,8 +211,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_TD_Pyctl_ThuLai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemComboBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -252,13 +219,10 @@
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.Button bt_td_pyctl_thulai_in;
         private DevExpress.XtraGrid.GridControl GC_TD_Pyctl_ThuLai;
         private DevExpress.XtraGrid.Views.Grid.GridView GV_TD_Pyctl_ThuLai;
         private System.Windows.Forms.Button bt_td_pyctl_thulai_xuatexcel;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit1;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemComboBox repositoryItemComboBox2;
         private System.Windows.Forms.BindingSource thuLaiBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colTenKh;
         private DevExpress.XtraGrid.Columns.GridColumn colCif;

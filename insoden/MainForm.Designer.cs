@@ -639,7 +639,7 @@
             this.cb_td_pyctl_tk = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.bt_td_pyctl_thulai = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.bt_Td_pyctl_thugoclai = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.tb_nguon = new System.Windows.Forms.TabPage();
@@ -6904,7 +6904,7 @@
             this.groupBox14.Controls.Add(this.cb_td_pyctl_tk);
             this.groupBox14.Controls.Add(this.comboBox2);
             this.groupBox14.Controls.Add(this.bt_td_pyctl_thulai);
-            this.groupBox14.Controls.Add(this.button16);
+            this.groupBox14.Controls.Add(this.bt_Td_pyctl_thugoclai);
             this.groupBox14.Controls.Add(this.label54);
             this.groupBox14.Location = new System.Drawing.Point(12, 16);
             this.groupBox14.Name = "groupBox14";
@@ -7026,14 +7026,15 @@
             this.bt_td_pyctl_thulai.UseVisualStyleBackColor = true;
             this.bt_td_pyctl_thulai.Click += new System.EventHandler(this.bt_td_pyctl_thulai_Click);
             // 
-            // button16
+            // bt_Td_pyctl_thugoclai
             // 
-            this.button16.Location = new System.Drawing.Point(424, 49);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(98, 23);
-            this.button16.TabIndex = 13;
-            this.button16.Text = "Thu gốc Lãi";
-            this.button16.UseVisualStyleBackColor = true;
+            this.bt_Td_pyctl_thugoclai.Location = new System.Drawing.Point(424, 49);
+            this.bt_Td_pyctl_thugoclai.Name = "bt_Td_pyctl_thugoclai";
+            this.bt_Td_pyctl_thugoclai.Size = new System.Drawing.Size(98, 23);
+            this.bt_Td_pyctl_thugoclai.TabIndex = 13;
+            this.bt_Td_pyctl_thugoclai.Text = "Thu gốc Lãi";
+            this.bt_Td_pyctl_thugoclai.UseVisualStyleBackColor = true;
+            this.bt_Td_pyctl_thugoclai.Click += new System.EventHandler(this.bt_Td_pyctl_thugoclai_Click);
             // 
             // label54
             // 
@@ -9091,7 +9092,7 @@
         private System.Windows.Forms.ComboBox cb_td_pyctl_tk;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button bt_td_pyctl_thulai;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button bt_Td_pyctl_thugoclai;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.BindingSource thuLaiBindingSource1;
         private DevExpress.XtraEditors.PanelControl panelControl1;

@@ -77,7 +77,7 @@ namespace insoden
                         wsList.Cells[row, 6].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "PhuongThucTra").ToString();
                         wsList.Cells[row, 7].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "GhiChu").ToString();
                         wsList.Cells[row, 8].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
-                        wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row - 1);
+                        wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row );
 
                         loaitien = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
                         row++;

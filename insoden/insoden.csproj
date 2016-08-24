@@ -169,6 +169,14 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.0.0\lib\net40\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Windows.Forms.4.2.3\lib\net35\NLog.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -277,16 +285,11 @@
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\InTBNoDenHan.cs" />
+    <Compile Include="Model\ThuGocLai.cs" />
     <Compile Include="Model\ThuLai.cs" />
     <Compile Include="Model\tkgl.cs" />
     <Compile Include="MuaBanNgoaiTe_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
-    </Compile>
-    <Compile Include="nocoa5 - Copy.cs">
-      <DependentUpon>nocoa5 - Copy.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Model\datain.cs" />
     <Compile Include="DDDHIS_DATE.cs">
@@ -515,10 +518,6 @@
     <EmbeddedResource Include="frmInTBNoDenHan.resx">
       <DependentUpon>frmInTBNoDenHan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="nocoa5 - Copy.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>nocoa5 - Copy.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -645,6 +644,7 @@
     <None Include="Properties\DataSources\SaoKeTienVay_Result.datasource" />
     <None Include="Properties\DataSources\thauchi_mpa_Result.datasource" />
     <None Include="Properties\DataSources\ThongBaoDuNo_Result.datasource" />
+    <None Include="Properties\DataSources\ThuGocLai.datasource" />
     <None Include="Properties\DataSources\ThuLai.datasource" />
     <None Include="Properties\DataSources\ThuLai1.datasource" />
     <None Include="Properties\DataSources\ThuNoThuLai_Result.datasource" />
@@ -673,6 +673,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="thulai.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="thugoclai.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
