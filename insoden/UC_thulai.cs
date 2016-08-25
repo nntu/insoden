@@ -57,18 +57,7 @@ namespace insoden
                   
                     for (int i = 0; i < GV_TD_Pyctl_ThuLai.DataRowCount; i++)
                     {
-                        wsList.InsertRow(row, 1);
-                       // if (GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString() != loaitien) {
-                       ////     wsList.InsertRow(row, 1);
-                       //     wsList.Cells[row, 1].Value = a;
-                       //     wsList.Cells[row, 2].Value = "Tổng cộng " + GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
-                       //     wsList.Cells[row, 2].Style.Font.Bold = true;
-                       //  //   wsList.Cells["A" + startRow + ":B" + row].Merge = true;
-                       //     //wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row - 1);
-                       //     //wsList.Cells[row, 3].Formula = string.Format("Sum(C{0}:C{1})", row - 1, startRow - 1 +a);
-                       //     a++;
-                       // }
-                       
+                        wsList.InsertRow(row, 1);                
                         wsList.Cells[row, 2].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i,"tkvay").ToString();
                         wsList.Cells[row, 3].Value = Convert.ToDecimal(GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LaiCongDon"));
                         wsList.Cells[row, 3].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
@@ -78,7 +67,6 @@ namespace insoden
                         wsList.Cells[row, 7].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "GhiChu").ToString();
                         wsList.Cells[row, 8].Value = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
                         wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row );
-
                         loaitien = GV_TD_Pyctl_ThuLai.GetRowCellValue(i, "LoaiTien").ToString();
                         row++;
                     }
@@ -96,6 +84,11 @@ namespace insoden
                     wsList.Cells["E3"].Value = string.Format(@"Ngày {0} tháng {1} năm {2}",DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                     wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " +_phongthu;
 
+                    wsList = pck.Workbook.Worksheets[2];
+                    wsList.Cells["A1"].LoadFromCollection(_tp, true);
+                    wsList.Column(2).Style.Numberformat.Format = "dd/MM/yyyy";
+                    wsList.Column(8).Style.Numberformat.Format = "dd/MM/yyyy";
+                    wsList.Column(9).Style.Numberformat.Format = "dd/MM/yyyy";
                     var fi = new FileInfo(SaveFileExcel.FileName);
 
                     if (fi.Exists)

@@ -862,125 +862,132 @@ namespace insoden
 
         private void bt_rw_bx833_loadfile_Click(object sender, EventArgs e)
         {
-            dsbc833.Clear();
-            var fd = new OpenFileDialog();
-            if (fd.ShowDialog() == DialogResult.OK) // Test result.
+            try
             {
-                string filereport = Path.GetFileName(fd.FileName);
-
-                if (filereport != null)
+                dsbc833.Clear();
+                var fd = new OpenFileDialog();
+                if (fd.ShowDialog() == DialogResult.OK) // Test result.
                 {
-                    string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
-                    string mainstring = "BIDVBITCKT4" + filereport;
+                    string filereport = Path.GetFileName(fd.FileName);
 
-                    var password = new string(mainstring.ToCharArray().Reverse().ToArray());
-
-                    using (ZipFile zip = ZipFile.Read(fd.FileName))
+                    if (filereport != null)
                     {
-                        string bc = "ISW833P";
-                        ZipEntry a = zip[bc + bds];
-                        if (a == null)
+                        string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
+                        string mainstring = "BIDVBITCKT4" + filereport;
+
+                        var password = new string(mainstring.ToCharArray().Reverse().ToArray());
+
+                        using (ZipFile zip = ZipFile.Read(fd.FileName))
                         {
-                            MessageBox.Show(@"Khong co bc 833");
-                        }
-                        else
-                        {
-                            a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
-                            using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
+                            string bc = "ISW833P";
+                            ZipEntry a = zip[bc + bds];
+                            if (a == null)
                             {
-                                String line;
-                                // Read and display lines from the file until the end of
-                                // the file is reached.
-                                string status = "";
-                                while ((line = sr.ReadLine()) != null)
+                                MessageBox.Show(@"Khong co bc 833");
+                            }
+                            else
+                            {
+                                a.ExtractWithPassword(_tempdir, ExtractExistingFileAction.OverwriteSilently, password);
+                                using (var sr = new StreamReader(_tempdir + "\\" + bc + bds))
                                 {
-                                    if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
+                                    String line;
+                                    // Read and display lines from the file until the end of
+                                    // the file is reached.
+                                    string status = "";
+                                    while ((line = sr.ReadLine()) != null)
                                     {
-                                        if (line.Length < 50)
+                                        if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
                                         {
-                                            status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
-                                                line.Length - line.IndexOf(":", StringComparison.Ordinal));
-                                            status = status.Replace(":", "").Trim();
+                                            if (line.Length < 50)
+                                            {
+                                                status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
+                                                    line.Length - line.IndexOf(":", StringComparison.Ordinal));
+                                                status = status.Replace(":", "").Trim();
+                                            }
+                                        }
+
+                                        if (line.Length == 76)
+                                        {
+                                            string stt = line.Substring(4, 7).Trim();
+                                            string sothe = line.Substring(12, 20).Trim();
+                                            string hoten = line.Substring(33, 25).Trim();
+                                            string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
+
+                                            string[] hhh = ngaythang.Split(' ');
+                                            string ngay = hhh[0];
+
+                                            string gio = "00:00:00";
+                                            gio = hhh.Length > 2 ? hhh[2] : hhh[1];
+                                            TimeSpan time = TimeSpan.Parse(gio);
+                                            if (ngay.Length == 7) ngay = "0" + ngay;
+                                            DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
+
+                                            dsbc833.Add(new ClBc833
+                                            {
+                                                Stt = Convert.ToInt32(stt),
+                                                SoThe = sothe,
+                                                HoTen = hoten,
+                                                Ngaystr = ngaythang,
+                                                TrangThai = status,
+                                                NgayMo = r + time
+                                            });
                                         }
                                     }
-
-                                    if (line.Length == 76)
-                                    {
-                                        string stt = line.Substring(4, 7).Trim();
-                                        string sothe = line.Substring(12, 20).Trim();
-                                        string hoten = line.Substring(33, 25).Trim();
-                                        string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
-
-                                        string[] hhh = ngaythang.Split(' ');
-                                        string ngay = hhh[0];
-
-                                        string gio = "00:00:00";
-                                        gio = hhh.Length > 2 ? hhh[2] : hhh[1];
-                                        TimeSpan time = TimeSpan.Parse(gio);
-                                        if (ngay.Length == 7) ngay = "0" + ngay;
-                                        DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
-
-                                        dsbc833.Add(new ClBc833
-                                        {
-                                            Stt = Convert.ToInt32(stt),
-                                            SoThe = sothe,
-                                            HoTen = hoten,
-                                            Ngaystr = ngaythang,
-                                            TrangThai = status,
-                                            NgayMo = r + time
-                                        });
-                                    }
                                 }
+
+                                var temp = (from p in dsbc833
+
+                                            join d in _db.X1PCMS
+                                                on new
+                                                {
+                                                    p.SoThe,
+                                                    p.TrangThai
+                                                }
+                                                equals
+                                                new
+                                                {
+                                                    SoThe = d.CARDD?.Trim() ?? string.Empty,
+                                                    TrangThai = d.CDSTAT?.Trim() ?? string.Empty
+                                                }
+                                                into g
+                                            from su in g.DefaultIfEmpty()
+
+                                            join c in _dbbdsu.tbsothes
+                                                on new
+                                                {
+                                                    p.SoThe,
+                                                    p.TrangThai
+                                                }
+                                                equals
+                                                new
+                                                {
+                                                    SoThe = c.masothe,
+                                                    TrangThai = c.trangthai
+                                                }
+                                                into gj
+                                            from subpet in gj.DefaultIfEmpty()
+
+                                            select new ClBc833
+                                            {
+                                                Stt = p.Stt,
+                                                SoThe = p.SoThe,
+                                                HoTen = p.HoTen,
+                                                Ngaystr = p.Ngaystr,
+                                                TrangThai = p.TrangThai,
+                                                NgayMo = p.NgayMo,
+                                                NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER)
+                                            }).ToList();
+                                _dsbc833 = temp;
+                                RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");
+                                RW_gv_bc833.BestFitColumns();
                             }
-
-                            var temp = (from p in dsbc833
-
-                                        join d in _db.X1PCMS
-                                            on new
-                                            {
-                                                p.SoThe,
-                                                p.TrangThai
-                                            }
-                                            equals
-                                            new
-                                            {
-                                                SoThe = d.CARDD?.Trim() ?? string.Empty,
-                                                TrangThai = d.CDSTAT?.Trim() ?? string.Empty
-                                            }
-                                            into g
-                                        from su in g.DefaultIfEmpty()
-
-                                        join c in _dbbdsu.tbsothes
-                                            on new
-                                            {
-                                                p.SoThe,
-                                                p.TrangThai
-                                            }
-                                            equals
-                                            new
-                                            {
-                                                SoThe = c.masothe,
-                                                TrangThai = c.trangthai
-                                            }
-                                            into gj
-                                        from subpet in gj.DefaultIfEmpty()
-
-                                        select new ClBc833
-                                        {
-                                            Stt = p.Stt,
-                                            SoThe = p.SoThe,
-                                            HoTen = p.HoTen,
-                                            Ngaystr = p.Ngaystr,
-                                            TrangThai = p.TrangThai,
-                                            NgayMo = p.NgayMo,
-                                            NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER)
-                                        }).ToList();
-                            _dsbc833 = temp;
-                            RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");
-                            RW_gv_bc833.BestFitColumns();
                         }
                     }
                 }
+            }
+            catch (Exception ex) {
+                logger.Error(ex);
+
             }
         }
 
@@ -2342,7 +2349,7 @@ namespace insoden
             logger.Info(fileVersionInfo.FileVersion);
 
 
-         DateTime now = DateTime.Today.AddDays(-1);
+            DateTime now = DateTime.Today.AddDays(-1);
             ipdc_date.Value = dtp_tungay.Value = dtp_denngay.Value = now;
             dtp_lsgl_ngaybd.EditValue = dtp_lsgl_ngaykt.EditValue = now;
             de_gl_erp_datdau.EditValue = de_gl_erp_ketthuc.EditValue = now;

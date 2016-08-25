@@ -138,6 +138,7 @@ namespace insoden
                         wsList.Cells[row, 8].Value = GV_TD_Pyctl_ThuGocLai.GetRowCellValue(i, "GhiChu").ToString();
                         wsList.Cells[row, 9].Value = GV_TD_Pyctl_ThuGocLai.GetRowCellValue(i, "LoaiTien").ToString();
                         wsList.Cells[row, 6].Formula = string.Format("Sum(C{0}:E{0})", row);
+                        wsList.Cells[row, 6].Style.Numberformat.Format = "#,##0.00;-#,##0.00";
 
                         loaitien = GV_TD_Pyctl_ThuGocLai.GetRowCellValue(i, "LoaiTien").ToString();
                         row++;
@@ -155,6 +156,12 @@ namespace insoden
                     wsList.Cells["A9"].Value = wsList.Cells["A9"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "TenKh");
                     wsList.Cells["E3"].Value = string.Format(@"Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                     wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " + _phongthu;
+
+                    wsList = pck.Workbook.Worksheets[2];
+                    wsList.Cells["A1"].LoadFromCollection(_tp, true);
+                    wsList.Column(2).Style.Numberformat.Format = "dd/MM/yyyy";
+                    wsList.Column(10).Style.Numberformat.Format = "dd/MM/yyyy";
+                    wsList.Column(11).Style.Numberformat.Format = "dd/MM/yyyy";
 
                     var fi = new FileInfo(SaveFileExcel.FileName);
 

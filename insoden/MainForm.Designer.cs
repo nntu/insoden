@@ -1024,7 +1024,7 @@
             this.tb_main.SelectedIndex = 0;
             this.tb_main.Size = new System.Drawing.Size(703, 545);
             this.tb_main.TabIndex = 16;
-            this.tb_main.Click += new System.EventHandler(this.tb_main_Click);
+        
             // 
             // tp_saoke
             // 
