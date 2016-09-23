@@ -706,5 +706,22 @@ namespace insoden
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LayTKThanhToanTheoCIF_Result>("LayTKThanhToanTheoCIF", cifParameter);
         }
+    
+        public virtual ObjectResult<TraGocLai_Result> TraGocLai(Nullable<System.DateTime> ngaydl, Nullable<System.DateTime> ngaytragoctungay, Nullable<System.DateTime> ngaytragocdenngay)
+        {
+            var ngaydlParameter = ngaydl.HasValue ?
+                new ObjectParameter("ngaydl", ngaydl) :
+                new ObjectParameter("ngaydl", typeof(System.DateTime));
+    
+            var ngaytragoctungayParameter = ngaytragoctungay.HasValue ?
+                new ObjectParameter("ngaytragoctungay", ngaytragoctungay) :
+                new ObjectParameter("ngaytragoctungay", typeof(System.DateTime));
+    
+            var ngaytragocdenngayParameter = ngaytragocdenngay.HasValue ?
+                new ObjectParameter("ngaytragocdenngay", ngaytragocdenngay) :
+                new ObjectParameter("ngaytragocdenngay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TraGocLai_Result>("TraGocLai", ngaydlParameter, ngaytragoctungayParameter, ngaytragocdenngayParameter);
+        }
     }
 }

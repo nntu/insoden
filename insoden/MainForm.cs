@@ -2872,6 +2872,21 @@ namespace insoden
 
             }
         }
+
+        private void bt_td_dhgl_laysl_Click(object sender, EventArgs e)
+        {
+            // var dl = _db.TraGocLai();
+
+            var tungay = dtp_td_dhgl_bd.Value;
+            var denngay = dtp_td_dhgl_kt.Value;
+            var trlai = _db.TraGocLai(_ngaydl, tungay, denngay);
+            GC_td_dhgl.DataSource = new BindingSource(trlai, "");
+            GV_td_dhgl.OptionsView.ColumnAutoWidth = false;
+            GV_td_dhgl.OptionsView.BestFitMaxRowCount = -1;
+            GV_td_dhgl.BestFitColumns();
+
+
+        }
         // Function for read data from Excel worksheet into DataTable
         /*
                 private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
