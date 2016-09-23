@@ -6715,6 +6715,7 @@
             this.bt_td_dhgl_excel.TabIndex = 13;
             this.bt_td_dhgl_excel.Text = "Xuất Excel";
             this.bt_td_dhgl_excel.UseVisualStyleBackColor = true;
+            this.bt_td_dhgl_excel.Click += new System.EventHandler(this.bt_td_dhgl_excel_Click);
             // 
             // bt_td_dhgl_laysl
             // 
@@ -6765,11 +6766,11 @@
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(38, 48);
+            this.label62.Location = new System.Drawing.Point(6, 48);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(87, 13);
+            this.label62.Size = new System.Drawing.Size(126, 13);
             this.label62.TabIndex = 11;
-            this.label62.Text = "Ngày trả gốc từ:";
+            this.label62.Text = "Ngày trả gốc hoac lai từ:";
             // 
             // GC_td_dhgl
             // 

@@ -2891,6 +2891,24 @@ namespace insoden
 
 
         }
+
+        private void bt_td_dhgl_excel_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "dhgl_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                GV_td_dhgl.OptionsPrint.AutoWidth = false;
+                GV_td_dhgl.BestFitColumns();
+                GV_td_dhgl.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
+        }
         // Function for read data from Excel worksheet into DataTable
         /*
                 private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
