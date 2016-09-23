@@ -51,7 +51,7 @@ namespace insoden
         DbInstance _localdb;
         private NetworkStream _ls;
         private List<GLHIST> _lsglhist;
-        private DateTime? _ngaydl;
+        private DateTime? _ngaydl_loanmonth;
         private ObjectResult<TinhPhiTheoCif_Result> _phi;
         private bool _printed;
         private string _printerIp = "10.141.2.35";
@@ -70,7 +70,9 @@ namespace insoden
             _dbbdsu = new bdsuEntities();
             _db.Database.CommandTimeout = 300000;
             InitializeComponent();
-          }
+           
+        
+        }
 
         private delegate void UpdateLabelTextDelegate(string newText);
 
@@ -1377,7 +1379,7 @@ namespace insoden
             var tungay = dtp_td_tl_tungay.Value;
             var denngay = dtp_td_tl_denngay.Value;
 
-            var trlai = _db.TraLai(_ngaydl, tungay, denngay);
+            var trlai = _db.TraLai(_ngaydl_loanmonth, tungay, denngay);
             gc_td_tralai.DataSource = new BindingSource(trlai, "");
 
             gv_td_tralai.OptionsView.ColumnAutoWidth = false;
@@ -2161,7 +2163,7 @@ namespace insoden
             var tungay = dtp_td_tg_tungay.Value;
             var denngay = dtp_td_tg_denngay.Value;
 
-            var trlai = _db.TraGoc(_ngaydl, tungay, denngay);
+            var trlai = _db.TraGoc(_ngaydl_loanmonth, tungay, denngay);
             gc_td_tragoc.DataSource = new BindingSource(trlai, "");
 
             gv_td_tragoc.OptionsView.ColumnAutoWidth = false;
@@ -2402,7 +2404,9 @@ namespace insoden
                     File.Delete(filePath);
             }
 
-
+            _ngaydl_loanmonth = (from p in _db.tb_checkdulieu
+                                 where p.tablename == "loanmonth"
+                                 select p.datadate).Max();
         }
 
         private void LayThongTinTheoCif()
@@ -2801,18 +2805,18 @@ namespace insoden
 
         private void tb_tralai_Enter(object sender, EventArgs e)
         {
-            _ngaydl = (from p in _db.tb_checkdulieu
-                       where p.tablename == "loanmonth"
-                       select p.datadate).Max();
-            if (_ngaydl != null) lb_td_tl_ngaydl.Text = _ngaydl.Value.ToShortDateString();
+          
+             
         }
 
         private void tc_td_tragoc_Enter(object sender, EventArgs e)
         {
-            _ngaydl = (from p in _db.tb_checkdulieu
-                       where p.tablename == "loanmonth"
-                       select p.datadate).Max();
-            if (_ngaydl != null) lb_ngaydl.Text = _ngaydl.Value.ToShortDateString();
+
+            if (_ngaydl_loanmonth != null) {
+                lb_td_tl_ngaydl.Text = _ngaydl_loanmonth.Value.ToShortDateString();
+                lb_ngaydl.Text = _ngaydl_loanmonth.Value.ToShortDateString();
+                lb_dhgl_ngaydl.Text = _ngaydl_loanmonth.Value.ToShortDateString();
+            }
         }
         private void UpdateLabelText(string newText)
         {
@@ -2879,7 +2883,7 @@ namespace insoden
 
             var tungay = dtp_td_dhgl_bd.Value;
             var denngay = dtp_td_dhgl_kt.Value;
-            var trlai = _db.TraGocLai(_ngaydl, tungay, denngay);
+            var trlai = _db.TraGocLai(_ngaydl_loanmonth, tungay, denngay);
             GC_td_dhgl.DataSource = new BindingSource(trlai, "");
             GV_td_dhgl.OptionsView.ColumnAutoWidth = false;
             GV_td_dhgl.OptionsView.BestFitMaxRowCount = -1;

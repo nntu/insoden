@@ -602,6 +602,34 @@
             this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tb_goclai = new System.Windows.Forms.TabPage();
+            this.splitContainerControl22 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.lb_dhgl_ngaydl = new System.Windows.Forms.Label();
+            this.bt_td_dhgl_excel = new System.Windows.Forms.Button();
+            this.bt_td_dhgl_laysl = new System.Windows.Forms.Button();
+            this.label60 = new System.Windows.Forms.Label();
+            this.dtp_td_dhgl_bd = new System.Windows.Forms.DateTimePicker();
+            this.dtp_td_dhgl_kt = new System.Windows.Forms.DateTimePicker();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.GC_td_dhgl = new DevExpress.XtraGrid.GridControl();
+            this.traGocLaiResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GV_td_dhgl = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colBRN1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTENKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAKH1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colclass1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOTKVAY1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTIEN2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSODU2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTRAGOCTT1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colbillgoc1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTRALAITT1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colbilllai1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcbtd1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldeptcd1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colphong2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tb_DuNo = new System.Windows.Forms.TabPage();
             this.splitContainerControl19 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -639,19 +667,6 @@
             this.bt_Td_pyctl_thugoclai = new System.Windows.Forms.Button();
             this.label54 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.tb_goclai = new System.Windows.Forms.TabPage();
-            this.splitContainerControl22 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.bt_td_dhgl_excel = new System.Windows.Forms.Button();
-            this.bt_td_dhgl_laysl = new System.Windows.Forms.Button();
-            this.label60 = new System.Windows.Forms.Label();
-            this.dtp_td_dhgl_bd = new System.Windows.Forms.DateTimePicker();
-            this.dtp_td_dhgl_kt = new System.Windows.Forms.DateTimePicker();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.GC_td_dhgl = new DevExpress.XtraGrid.GridControl();
-            this.GV_td_dhgl = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tb_nguon = new System.Windows.Forms.TabPage();
             this.xtraTabControl3 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
@@ -960,6 +975,13 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_td_tralai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_td_tralai)).BeginInit();
+            this.tb_goclai.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl22)).BeginInit();
+            this.splitContainerControl22.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GC_td_dhgl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traGocLaiResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_td_dhgl)).BeginInit();
             this.tb_DuNo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl19)).BeginInit();
             this.splitContainerControl19.SuspendLayout();
@@ -977,12 +999,6 @@
             this.splitContainerControl21.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.tb_goclai.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl22)).BeginInit();
-            this.splitContainerControl22.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GC_td_dhgl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GV_td_dhgl)).BeginInit();
             this.tb_nguon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).BeginInit();
             this.xtraTabControl3.SuspendLayout();
@@ -6639,6 +6655,263 @@
             this.gridColumn54.Visible = true;
             this.gridColumn54.VisibleIndex = 53;
             // 
+            // tb_goclai
+            // 
+            this.tb_goclai.Controls.Add(this.splitContainerControl22);
+            this.tb_goclai.Location = new System.Drawing.Point(4, 22);
+            this.tb_goclai.Name = "tb_goclai";
+            this.tb_goclai.Padding = new System.Windows.Forms.Padding(3);
+            this.tb_goclai.Size = new System.Drawing.Size(681, 487);
+            this.tb_goclai.TabIndex = 14;
+            this.tb_goclai.Text = "Đến hạn Gốc + Lãi";
+            this.tb_goclai.UseVisualStyleBackColor = true;
+            // 
+            // splitContainerControl22
+            // 
+            this.splitContainerControl22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl22.Horizontal = false;
+            this.splitContainerControl22.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerControl22.Name = "splitContainerControl22";
+            this.splitContainerControl22.Panel1.CaptionLocation = DevExpress.Utils.Locations.Bottom;
+            this.splitContainerControl22.Panel1.Controls.Add(this.groupBox15);
+            this.splitContainerControl22.Panel1.Text = "Panel1";
+            this.splitContainerControl22.Panel2.Controls.Add(this.GC_td_dhgl);
+            this.splitContainerControl22.Panel2.Text = "Panel2";
+            this.splitContainerControl22.Size = new System.Drawing.Size(675, 481);
+            this.splitContainerControl22.SplitterPosition = 102;
+            this.splitContainerControl22.TabIndex = 2;
+            this.splitContainerControl22.Text = "splitContainerControl22";
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.lb_dhgl_ngaydl);
+            this.groupBox15.Controls.Add(this.bt_td_dhgl_excel);
+            this.groupBox15.Controls.Add(this.bt_td_dhgl_laysl);
+            this.groupBox15.Controls.Add(this.label60);
+            this.groupBox15.Controls.Add(this.dtp_td_dhgl_bd);
+            this.groupBox15.Controls.Add(this.dtp_td_dhgl_kt);
+            this.groupBox15.Controls.Add(this.label61);
+            this.groupBox15.Controls.Add(this.label62);
+            this.groupBox15.Location = new System.Drawing.Point(12, 16);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(640, 85);
+            this.groupBox15.TabIndex = 21;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Chọn khách hàng:";
+            // 
+            // lb_dhgl_ngaydl
+            // 
+            this.lb_dhgl_ngaydl.AutoSize = true;
+            this.lb_dhgl_ngaydl.Location = new System.Drawing.Point(96, 16);
+            this.lb_dhgl_ngaydl.Name = "lb_dhgl_ngaydl";
+            this.lb_dhgl_ngaydl.Size = new System.Drawing.Size(0, 13);
+            this.lb_dhgl_ngaydl.TabIndex = 14;
+            // 
+            // bt_td_dhgl_excel
+            // 
+            this.bt_td_dhgl_excel.Location = new System.Drawing.Point(402, 48);
+            this.bt_td_dhgl_excel.Name = "bt_td_dhgl_excel";
+            this.bt_td_dhgl_excel.Size = new System.Drawing.Size(98, 23);
+            this.bt_td_dhgl_excel.TabIndex = 13;
+            this.bt_td_dhgl_excel.Text = "Xuất Excel";
+            this.bt_td_dhgl_excel.UseVisualStyleBackColor = true;
+            // 
+            // bt_td_dhgl_laysl
+            // 
+            this.bt_td_dhgl_laysl.Location = new System.Drawing.Point(402, 20);
+            this.bt_td_dhgl_laysl.Name = "bt_td_dhgl_laysl";
+            this.bt_td_dhgl_laysl.Size = new System.Drawing.Size(98, 23);
+            this.bt_td_dhgl_laysl.TabIndex = 13;
+            this.bt_td_dhgl_laysl.Text = "Lấy thông Tin";
+            this.bt_td_dhgl_laysl.UseVisualStyleBackColor = true;
+            this.bt_td_dhgl_laysl.Click += new System.EventHandler(this.bt_td_dhgl_laysl_Click);
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(38, 17);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(51, 13);
+            this.label60.TabIndex = 10;
+            this.label60.Text = "Ngày DL:";
+            // 
+            // dtp_td_dhgl_bd
+            // 
+            this.dtp_td_dhgl_bd.CustomFormat = "dd/MM/yyyy";
+            this.dtp_td_dhgl_bd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_td_dhgl_bd.Location = new System.Drawing.Point(129, 44);
+            this.dtp_td_dhgl_bd.Name = "dtp_td_dhgl_bd";
+            this.dtp_td_dhgl_bd.Size = new System.Drawing.Size(98, 21);
+            this.dtp_td_dhgl_bd.TabIndex = 1;
+            // 
+            // dtp_td_dhgl_kt
+            // 
+            this.dtp_td_dhgl_kt.CustomFormat = "dd/MM/yyyy";
+            this.dtp_td_dhgl_kt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_td_dhgl_kt.Location = new System.Drawing.Point(262, 44);
+            this.dtp_td_dhgl_kt.Name = "dtp_td_dhgl_kt";
+            this.dtp_td_dhgl_kt.Size = new System.Drawing.Size(98, 21);
+            this.dtp_td_dhgl_kt.TabIndex = 1;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(233, 48);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(27, 13);
+            this.label61.TabIndex = 11;
+            this.label61.Text = "Đến";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(38, 48);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(87, 13);
+            this.label62.TabIndex = 11;
+            this.label62.Text = "Ngày trả gốc từ:";
+            // 
+            // GC_td_dhgl
+            // 
+            this.GC_td_dhgl.Cursor = System.Windows.Forms.Cursors.Default;
+            this.GC_td_dhgl.DataSource = this.traGocLaiResultBindingSource;
+            this.GC_td_dhgl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GC_td_dhgl.Location = new System.Drawing.Point(0, 0);
+            this.GC_td_dhgl.MainView = this.GV_td_dhgl;
+            this.GC_td_dhgl.Name = "GC_td_dhgl";
+            this.GC_td_dhgl.Size = new System.Drawing.Size(675, 367);
+            this.GC_td_dhgl.TabIndex = 0;
+            this.GC_td_dhgl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GV_td_dhgl});
+            // 
+            // traGocLaiResultBindingSource
+            // 
+            this.traGocLaiResultBindingSource.DataSource = typeof(insoden.TraGocLai_Result);
+            // 
+            // GV_td_dhgl
+            // 
+            this.GV_td_dhgl.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colBRN1,
+            this.colTENKH1,
+            this.colMAKH1,
+            this.colclass1,
+            this.colSOTKVAY1,
+            this.colTIEN2,
+            this.colSODU2,
+            this.colTRAGOCTT1,
+            this.colbillgoc1,
+            this.colTRALAITT1,
+            this.colbilllai1,
+            this.colcbtd1,
+            this.coldeptcd1,
+            this.colphong2});
+            this.GV_td_dhgl.GridControl = this.GC_td_dhgl;
+            this.GV_td_dhgl.Name = "GV_td_dhgl";
+            // 
+            // colBRN1
+            // 
+            this.colBRN1.FieldName = "BRN";
+            this.colBRN1.Name = "colBRN1";
+            this.colBRN1.Visible = true;
+            this.colBRN1.VisibleIndex = 0;
+            // 
+            // colTENKH1
+            // 
+            this.colTENKH1.FieldName = "TENKH";
+            this.colTENKH1.Name = "colTENKH1";
+            this.colTENKH1.Visible = true;
+            this.colTENKH1.VisibleIndex = 1;
+            // 
+            // colMAKH1
+            // 
+            this.colMAKH1.FieldName = "MAKH";
+            this.colMAKH1.Name = "colMAKH1";
+            this.colMAKH1.Visible = true;
+            this.colMAKH1.VisibleIndex = 2;
+            // 
+            // colclass1
+            // 
+            this.colclass1.FieldName = "class";
+            this.colclass1.Name = "colclass1";
+            this.colclass1.Visible = true;
+            this.colclass1.VisibleIndex = 3;
+            // 
+            // colSOTKVAY1
+            // 
+            this.colSOTKVAY1.FieldName = "SOTKVAY";
+            this.colSOTKVAY1.Name = "colSOTKVAY1";
+            this.colSOTKVAY1.Visible = true;
+            this.colSOTKVAY1.VisibleIndex = 4;
+            // 
+            // colTIEN2
+            // 
+            this.colTIEN2.FieldName = "TIEN";
+            this.colTIEN2.Name = "colTIEN2";
+            this.colTIEN2.Visible = true;
+            this.colTIEN2.VisibleIndex = 5;
+            // 
+            // colSODU2
+            // 
+            this.colSODU2.DisplayFormat.FormatString = "N2";
+            this.colSODU2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colSODU2.FieldName = "SODU";
+            this.colSODU2.Name = "colSODU2";
+            this.colSODU2.Visible = true;
+            this.colSODU2.VisibleIndex = 6;
+            // 
+            // colTRAGOCTT1
+            // 
+            this.colTRAGOCTT1.FieldName = "TRAGOCTT";
+            this.colTRAGOCTT1.Name = "colTRAGOCTT1";
+            this.colTRAGOCTT1.Visible = true;
+            this.colTRAGOCTT1.VisibleIndex = 7;
+            // 
+            // colbillgoc1
+            // 
+            this.colbillgoc1.DisplayFormat.FormatString = "N2";
+            this.colbillgoc1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colbillgoc1.FieldName = "billgoc";
+            this.colbillgoc1.Name = "colbillgoc1";
+            this.colbillgoc1.Visible = true;
+            this.colbillgoc1.VisibleIndex = 8;
+            // 
+            // colTRALAITT1
+            // 
+            this.colTRALAITT1.FieldName = "TRALAITT";
+            this.colTRALAITT1.Name = "colTRALAITT1";
+            this.colTRALAITT1.Visible = true;
+            this.colTRALAITT1.VisibleIndex = 9;
+            // 
+            // colbilllai1
+            // 
+            this.colbilllai1.DisplayFormat.FormatString = "N2";
+            this.colbilllai1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.colbilllai1.FieldName = "billlai";
+            this.colbilllai1.Name = "colbilllai1";
+            this.colbilllai1.Visible = true;
+            this.colbilllai1.VisibleIndex = 10;
+            // 
+            // colcbtd1
+            // 
+            this.colcbtd1.FieldName = "cbtd";
+            this.colcbtd1.Name = "colcbtd1";
+            this.colcbtd1.Visible = true;
+            this.colcbtd1.VisibleIndex = 11;
+            // 
+            // coldeptcd1
+            // 
+            this.coldeptcd1.FieldName = "deptcd";
+            this.coldeptcd1.Name = "coldeptcd1";
+            this.coldeptcd1.Visible = true;
+            this.coldeptcd1.VisibleIndex = 12;
+            // 
+            // colphong2
+            // 
+            this.colphong2.FieldName = "phong";
+            this.colphong2.Name = "colphong2";
+            this.colphong2.Visible = true;
+            this.colphong2.VisibleIndex = 13;
+            // 
             // tb_DuNo
             // 
             this.tb_DuNo.Controls.Add(this.splitContainerControl19);
@@ -7037,140 +7310,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(675, 250);
             this.panelControl1.TabIndex = 0;
-            // 
-            // tb_goclai
-            // 
-            this.tb_goclai.Controls.Add(this.splitContainerControl22);
-            this.tb_goclai.Location = new System.Drawing.Point(4, 22);
-            this.tb_goclai.Name = "tb_goclai";
-            this.tb_goclai.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_goclai.Size = new System.Drawing.Size(681, 487);
-            this.tb_goclai.TabIndex = 14;
-            this.tb_goclai.Text = "Đến hạn Gốc + Lãi";
-            this.tb_goclai.UseVisualStyleBackColor = true;
-            // 
-            // splitContainerControl22
-            // 
-            this.splitContainerControl22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl22.Horizontal = false;
-            this.splitContainerControl22.Location = new System.Drawing.Point(3, 3);
-            this.splitContainerControl22.Name = "splitContainerControl22";
-            this.splitContainerControl22.Panel1.CaptionLocation = DevExpress.Utils.Locations.Bottom;
-            this.splitContainerControl22.Panel1.Controls.Add(this.groupBox15);
-            this.splitContainerControl22.Panel1.Text = "Panel1";
-            this.splitContainerControl22.Panel2.Controls.Add(this.GC_td_dhgl);
-            this.splitContainerControl22.Panel2.Text = "Panel2";
-            this.splitContainerControl22.Size = new System.Drawing.Size(675, 481);
-            this.splitContainerControl22.SplitterPosition = 102;
-            this.splitContainerControl22.TabIndex = 2;
-            this.splitContainerControl22.Text = "splitContainerControl22";
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.label59);
-            this.groupBox15.Controls.Add(this.bt_td_dhgl_excel);
-            this.groupBox15.Controls.Add(this.bt_td_dhgl_laysl);
-            this.groupBox15.Controls.Add(this.label60);
-            this.groupBox15.Controls.Add(this.dtp_td_dhgl_bd);
-            this.groupBox15.Controls.Add(this.dtp_td_dhgl_kt);
-            this.groupBox15.Controls.Add(this.label61);
-            this.groupBox15.Controls.Add(this.label62);
-            this.groupBox15.Location = new System.Drawing.Point(12, 16);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(640, 85);
-            this.groupBox15.TabIndex = 21;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Chọn khách hàng:";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(96, 16);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(0, 13);
-            this.label59.TabIndex = 14;
-            // 
-            // bt_td_dhgl_excel
-            // 
-            this.bt_td_dhgl_excel.Location = new System.Drawing.Point(402, 48);
-            this.bt_td_dhgl_excel.Name = "bt_td_dhgl_excel";
-            this.bt_td_dhgl_excel.Size = new System.Drawing.Size(98, 23);
-            this.bt_td_dhgl_excel.TabIndex = 13;
-            this.bt_td_dhgl_excel.Text = "Xuất Excel";
-            this.bt_td_dhgl_excel.UseVisualStyleBackColor = true;
-            // 
-            // bt_td_dhgl_laysl
-            // 
-            this.bt_td_dhgl_laysl.Location = new System.Drawing.Point(402, 20);
-            this.bt_td_dhgl_laysl.Name = "bt_td_dhgl_laysl";
-            this.bt_td_dhgl_laysl.Size = new System.Drawing.Size(98, 23);
-            this.bt_td_dhgl_laysl.TabIndex = 13;
-            this.bt_td_dhgl_laysl.Text = "Lấy thông Tin";
-            this.bt_td_dhgl_laysl.UseVisualStyleBackColor = true;
-            this.bt_td_dhgl_laysl.Click += new System.EventHandler(this.bt_td_dhgl_laysl_Click);
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(38, 17);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(51, 13);
-            this.label60.TabIndex = 10;
-            this.label60.Text = "Ngày DL:";
-            // 
-            // dtp_td_dhgl_bd
-            // 
-            this.dtp_td_dhgl_bd.CustomFormat = "dd/MM/yyyy";
-            this.dtp_td_dhgl_bd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_td_dhgl_bd.Location = new System.Drawing.Point(129, 44);
-            this.dtp_td_dhgl_bd.Name = "dtp_td_dhgl_bd";
-            this.dtp_td_dhgl_bd.Size = new System.Drawing.Size(98, 21);
-            this.dtp_td_dhgl_bd.TabIndex = 1;
-            // 
-            // dtp_td_dhgl_kt
-            // 
-            this.dtp_td_dhgl_kt.CustomFormat = "dd/MM/yyyy";
-            this.dtp_td_dhgl_kt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_td_dhgl_kt.Location = new System.Drawing.Point(262, 44);
-            this.dtp_td_dhgl_kt.Name = "dtp_td_dhgl_kt";
-            this.dtp_td_dhgl_kt.Size = new System.Drawing.Size(98, 21);
-            this.dtp_td_dhgl_kt.TabIndex = 1;
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(233, 48);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(27, 13);
-            this.label61.TabIndex = 11;
-            this.label61.Text = "Đến";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(38, 48);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(87, 13);
-            this.label62.TabIndex = 11;
-            this.label62.Text = "Ngày trả gốc từ:";
-            // 
-            // GC_td_dhgl
-            // 
-            this.GC_td_dhgl.Cursor = System.Windows.Forms.Cursors.Default;
-            this.GC_td_dhgl.DataSource = this.traGocResultBindingSource;
-            this.GC_td_dhgl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GC_td_dhgl.Location = new System.Drawing.Point(0, 0);
-            this.GC_td_dhgl.MainView = this.GV_td_dhgl;
-            this.GC_td_dhgl.Name = "GC_td_dhgl";
-            this.GC_td_dhgl.Size = new System.Drawing.Size(675, 367);
-            this.GC_td_dhgl.TabIndex = 0;
-            this.GC_td_dhgl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.GV_td_dhgl});
-            // 
-            // GV_td_dhgl
-            // 
-            this.GV_td_dhgl.GridControl = this.GC_td_dhgl;
-            this.GV_td_dhgl.Name = "GV_td_dhgl";
             // 
             // tb_nguon
             // 
@@ -8428,6 +8567,14 @@
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_td_tralai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_td_tralai)).EndInit();
+            this.tb_goclai.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl22)).EndInit();
+            this.splitContainerControl22.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GC_td_dhgl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traGocLaiResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_td_dhgl)).EndInit();
             this.tb_DuNo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl19)).EndInit();
             this.splitContainerControl19.ResumeLayout(false);
@@ -8448,13 +8595,6 @@
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.tb_goclai.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl22)).EndInit();
-            this.splitContainerControl22.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GC_td_dhgl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GV_td_dhgl)).EndInit();
             this.tb_nguon.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl3)).EndInit();
             this.xtraTabControl3.ResumeLayout(false);
@@ -9222,7 +9362,7 @@
         private System.Windows.Forms.TabPage tb_goclai;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl22;
         private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label lb_dhgl_ngaydl;
         private System.Windows.Forms.Button bt_td_dhgl_excel;
         private System.Windows.Forms.Button bt_td_dhgl_laysl;
         private System.Windows.Forms.Label label60;
@@ -9232,6 +9372,21 @@
         private System.Windows.Forms.Label label62;
         private DevExpress.XtraGrid.GridControl GC_td_dhgl;
         private DevExpress.XtraGrid.Views.Grid.GridView GV_td_dhgl;
+        private System.Windows.Forms.BindingSource traGocLaiResultBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colBRN1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTENKH1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAKH1;
+        private DevExpress.XtraGrid.Columns.GridColumn colclass1;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOTKVAY1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTIEN2;
+        private DevExpress.XtraGrid.Columns.GridColumn colSODU2;
+        private DevExpress.XtraGrid.Columns.GridColumn colTRAGOCTT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colbillgoc1;
+        private DevExpress.XtraGrid.Columns.GridColumn colTRALAITT1;
+        private DevExpress.XtraGrid.Columns.GridColumn colbilllai1;
+        private DevExpress.XtraGrid.Columns.GridColumn colcbtd1;
+        private DevExpress.XtraGrid.Columns.GridColumn coldeptcd1;
+        private DevExpress.XtraGrid.Columns.GridColumn colphong2;
     }
 }
 

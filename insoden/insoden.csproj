@@ -480,6 +480,9 @@
     <Compile Include="tracuulsgl_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="TraGocLai_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="TraGoc_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -667,6 +670,7 @@
     <None Include="Properties\DataSources\TraCuuGLERP_Result1.datasource" />
     <None Include="Properties\DataSources\tracuulsgl_Result.datasource" />
     <None Include="Properties\DataSources\tracuulsgl_Result2.datasource" />
+    <None Include="Properties\DataSources\TraGocLai_Result.datasource" />
     <None Include="Properties\DataSources\TraGoc_Result.datasource" />
     <None Include="Properties\DataSources\X1PCMS.datasource" />
     <None Include="Properties\Settings.settings">
