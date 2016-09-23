@@ -581,6 +581,11 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ngaytragoctungay" Type="datetime" Mode="In" />
           <Parameter Name="ngaytragocdenngay" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="TraGocLai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydl" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytragoctungay" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytragocdenngay" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="TraLai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaydl" Type="datetime" Mode="In" />
           <Parameter Name="ngaytragoctungay" Type="datetime" Mode="In" />
@@ -1155,7 +1160,12 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="cifno" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="LayTKThanhToanTheoCIF" ReturnType="Collection(dlgocModel.LayTKThanhToanTheoCIF_Result)">
-            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="TraGocLai" ReturnType="Collection(dlgocModel.TraGocLai_Result)">
+            <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytragoctungay" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytragocdenngay" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
@@ -1897,6 +1907,22 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="Decimal" Name="ACCTNO" Nullable="false" Precision="19" Scale="0" />
           <Property Type="String" Name="DDCTYP" Nullable="false" MaxLength="4" />
           <Property Type="Decimal" Name="BRANCH" Nullable="false" Precision="5" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="TraGocLai_Result">
+          <Property Type="String" Name="BRN" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TENKH" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="MAKH" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="class" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="SOTKVAY" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="TIEN" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="SODU" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="DateTime" Name="TRAGOCTT" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="billgoc" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="TRALAITT" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="billlai" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="cbtd" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="deptcd" Nullable="true" Precision="3" Scale="0" />
+          <Property Type="String" Name="phong" Nullable="true" MaxLength="9" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2846,6 +2872,26 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
                 <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
                 <ScalarProperty Name="DDCTYP" ColumnName="DDCTYP" />
                 <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TraGocLai" FunctionName="dlgocModel.Store.TraGocLai">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.TraGocLai_Result">
+                <ScalarProperty Name="BRN" ColumnName="BRN" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="MAKH" ColumnName="MAKH" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="SOTKVAY" ColumnName="SOTKVAY" />
+                <ScalarProperty Name="TIEN" ColumnName="TIEN" />
+                <ScalarProperty Name="SODU" ColumnName="SODU" />
+                <ScalarProperty Name="TRAGOCTT" ColumnName="TRAGOCTT" />
+                <ScalarProperty Name="billgoc" ColumnName="billgoc" />
+                <ScalarProperty Name="TRALAITT" ColumnName="TRALAITT" />
+                <ScalarProperty Name="billlai" ColumnName="billlai" />
+                <ScalarProperty Name="cbtd" ColumnName="cbtd" />
+                <ScalarProperty Name="deptcd" ColumnName="deptcd" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

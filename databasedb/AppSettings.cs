@@ -44,7 +44,7 @@ namespace databasedb
         {
             var settings = new JsonSerializerSettings();
             settings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
-            T t = new T();
+            var t = new T();
             if (File.Exists(fileName))
             {
                 var input = File.ReadAllText(fileName);
