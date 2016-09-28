@@ -154,7 +154,7 @@ namespace insoden
 
                     wsList.Cells["A10"].Value = wsList.Cells["A10"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "Cif");
                     wsList.Cells["A9"].Value = wsList.Cells["A9"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "TenKh");
-                    wsList.Cells["E3"].Value = string.Format(@"Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    wsList.Cells["F3"].Value = string.Format(@"Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                     wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " + _phongthu;
 
                     wsList = pck.Workbook.Worksheets[2];
