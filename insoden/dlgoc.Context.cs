@@ -654,22 +654,30 @@ namespace insoden
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<saokethauchi_Result>("saokethauchi", ngaybdParameter, ngayktParameter, tkParameter);
         }
     
-        public virtual ObjectResult<ThongBaoDuNo_Result> ThongBaoDuNo(Nullable<decimal> cif)
+        public virtual ObjectResult<ThongBaoDuNo_Result> ThongBaoDuNo(Nullable<decimal> cif, Nullable<System.DateTime> ngaydl)
         {
             var cifParameter = cif.HasValue ?
                 new ObjectParameter("cif", cif) :
                 new ObjectParameter("cif", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThongBaoDuNo_Result>("ThongBaoDuNo", cifParameter);
+            var ngaydlParameter = ngaydl.HasValue ?
+                new ObjectParameter("ngaydl", ngaydl) :
+                new ObjectParameter("ngaydl", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThongBaoDuNo_Result>("ThongBaoDuNo", cifParameter, ngaydlParameter);
         }
     
-        public virtual ObjectResult<ThongBaoNoDenHan_Result> ThongBaoNoDenHan(Nullable<decimal> cif)
+        public virtual ObjectResult<ThongBaoNoDenHan_Result> ThongBaoNoDenHan(Nullable<decimal> cif, Nullable<System.DateTime> ngaydl)
         {
             var cifParameter = cif.HasValue ?
                 new ObjectParameter("cif", cif) :
                 new ObjectParameter("cif", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThongBaoNoDenHan_Result>("ThongBaoNoDenHan", cifParameter);
+            var ngaydlParameter = ngaydl.HasValue ?
+                new ObjectParameter("ngaydl", ngaydl) :
+                new ObjectParameter("ngaydl", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ThongBaoNoDenHan_Result>("ThongBaoNoDenHan", cifParameter, ngaydlParameter);
         }
     
         public virtual ObjectResult<TinhThuLaiGocTheoCIF_Result> TinhThuLaiGocTheoCIF(Nullable<System.DateTime> dNgayLaiDen, Nullable<decimal> cifno)
@@ -722,6 +730,692 @@ namespace insoden
                 new ObjectParameter("ngaytragocdenngay", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TraGocLai_Result>("TraGocLai", ngaydlParameter, ngaytragoctungayParameter, ngaytragocdenngayParameter);
+        }
+    
+        public virtual int add_cif(Nullable<System.DateTime> dATADATE, Nullable<decimal> bRANCH, string cFNAME, Nullable<decimal> cFCIFN, string cFSSNO, string cFSSCD, string cFINDI, string cFCLAS, string cFBUST, string cFCITZ, string tAXCOD, Nullable<System.DateTime> cFORG6, Nullable<System.DateTime> lMDATE, string cFMUID, string cFADDR, string dIENTHOAI, string fAX, string cONAME, string cFLGID, Nullable<System.DateTime> cFBIRD, string cFSEX, string cFSIC3, string cFSIC5, Nullable<decimal> cFIDI6, string mOBIL, string cFNA7)
+        {
+            var dATADATEParameter = dATADATE.HasValue ?
+                new ObjectParameter("DATADATE", dATADATE) :
+                new ObjectParameter("DATADATE", typeof(System.DateTime));
+    
+            var bRANCHParameter = bRANCH.HasValue ?
+                new ObjectParameter("BRANCH", bRANCH) :
+                new ObjectParameter("BRANCH", typeof(decimal));
+    
+            var cFNAMEParameter = cFNAME != null ?
+                new ObjectParameter("CFNAME", cFNAME) :
+                new ObjectParameter("CFNAME", typeof(string));
+    
+            var cFCIFNParameter = cFCIFN.HasValue ?
+                new ObjectParameter("CFCIFN", cFCIFN) :
+                new ObjectParameter("CFCIFN", typeof(decimal));
+    
+            var cFSSNOParameter = cFSSNO != null ?
+                new ObjectParameter("CFSSNO", cFSSNO) :
+                new ObjectParameter("CFSSNO", typeof(string));
+    
+            var cFSSCDParameter = cFSSCD != null ?
+                new ObjectParameter("CFSSCD", cFSSCD) :
+                new ObjectParameter("CFSSCD", typeof(string));
+    
+            var cFINDIParameter = cFINDI != null ?
+                new ObjectParameter("CFINDI", cFINDI) :
+                new ObjectParameter("CFINDI", typeof(string));
+    
+            var cFCLASParameter = cFCLAS != null ?
+                new ObjectParameter("CFCLAS", cFCLAS) :
+                new ObjectParameter("CFCLAS", typeof(string));
+    
+            var cFBUSTParameter = cFBUST != null ?
+                new ObjectParameter("CFBUST", cFBUST) :
+                new ObjectParameter("CFBUST", typeof(string));
+    
+            var cFCITZParameter = cFCITZ != null ?
+                new ObjectParameter("CFCITZ", cFCITZ) :
+                new ObjectParameter("CFCITZ", typeof(string));
+    
+            var tAXCODParameter = tAXCOD != null ?
+                new ObjectParameter("TAXCOD", tAXCOD) :
+                new ObjectParameter("TAXCOD", typeof(string));
+    
+            var cFORG6Parameter = cFORG6.HasValue ?
+                new ObjectParameter("CFORG6", cFORG6) :
+                new ObjectParameter("CFORG6", typeof(System.DateTime));
+    
+            var lMDATEParameter = lMDATE.HasValue ?
+                new ObjectParameter("LMDATE", lMDATE) :
+                new ObjectParameter("LMDATE", typeof(System.DateTime));
+    
+            var cFMUIDParameter = cFMUID != null ?
+                new ObjectParameter("CFMUID", cFMUID) :
+                new ObjectParameter("CFMUID", typeof(string));
+    
+            var cFADDRParameter = cFADDR != null ?
+                new ObjectParameter("CFADDR", cFADDR) :
+                new ObjectParameter("CFADDR", typeof(string));
+    
+            var dIENTHOAIParameter = dIENTHOAI != null ?
+                new ObjectParameter("DIENTHOAI", dIENTHOAI) :
+                new ObjectParameter("DIENTHOAI", typeof(string));
+    
+            var fAXParameter = fAX != null ?
+                new ObjectParameter("FAX", fAX) :
+                new ObjectParameter("FAX", typeof(string));
+    
+            var cONAMEParameter = cONAME != null ?
+                new ObjectParameter("CONAME", cONAME) :
+                new ObjectParameter("CONAME", typeof(string));
+    
+            var cFLGIDParameter = cFLGID != null ?
+                new ObjectParameter("CFLGID", cFLGID) :
+                new ObjectParameter("CFLGID", typeof(string));
+    
+            var cFBIRDParameter = cFBIRD.HasValue ?
+                new ObjectParameter("CFBIRD", cFBIRD) :
+                new ObjectParameter("CFBIRD", typeof(System.DateTime));
+    
+            var cFSEXParameter = cFSEX != null ?
+                new ObjectParameter("CFSEX", cFSEX) :
+                new ObjectParameter("CFSEX", typeof(string));
+    
+            var cFSIC3Parameter = cFSIC3 != null ?
+                new ObjectParameter("CFSIC3", cFSIC3) :
+                new ObjectParameter("CFSIC3", typeof(string));
+    
+            var cFSIC5Parameter = cFSIC5 != null ?
+                new ObjectParameter("CFSIC5", cFSIC5) :
+                new ObjectParameter("CFSIC5", typeof(string));
+    
+            var cFIDI6Parameter = cFIDI6.HasValue ?
+                new ObjectParameter("CFIDI6", cFIDI6) :
+                new ObjectParameter("CFIDI6", typeof(decimal));
+    
+            var mOBILParameter = mOBIL != null ?
+                new ObjectParameter("MOBIL", mOBIL) :
+                new ObjectParameter("MOBIL", typeof(string));
+    
+            var cFNA7Parameter = cFNA7 != null ?
+                new ObjectParameter("CFNA7", cFNA7) :
+                new ObjectParameter("CFNA7", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("add_cif", dATADATEParameter, bRANCHParameter, cFNAMEParameter, cFCIFNParameter, cFSSNOParameter, cFSSCDParameter, cFINDIParameter, cFCLASParameter, cFBUSTParameter, cFCITZParameter, tAXCODParameter, cFORG6Parameter, lMDATEParameter, cFMUIDParameter, cFADDRParameter, dIENTHOAIParameter, fAXParameter, cONAMEParameter, cFLGIDParameter, cFBIRDParameter, cFSEXParameter, cFSIC3Parameter, cFSIC5Parameter, cFIDI6Parameter, mOBILParameter, cFNA7Parameter);
+        }
+    
+        public virtual int add_dddhist_date(Nullable<System.DateTime> dATADATE, Nullable<decimal> bATCH, Nullable<decimal> sEQ, Nullable<decimal> tRBR, Nullable<decimal> tRSOBR, Nullable<decimal> tRACCT, string tRATYP, Nullable<decimal> tRANCD, Nullable<decimal> aMT, string tRCTYP, string dORC, string bORI, Nullable<System.DateTime> tREFF6, string tRSUPV, string tRUSER, Nullable<System.DateTime> tRDAT6, Nullable<decimal> tRTIME, Nullable<decimal> dDGRUP, string tREFTH, string tRTKTN, string bRANCH, Nullable<System.DateTime> lASTMDATE, string lMDATE, string aUXTRC)
+        {
+            var dATADATEParameter = dATADATE.HasValue ?
+                new ObjectParameter("DATADATE", dATADATE) :
+                new ObjectParameter("DATADATE", typeof(System.DateTime));
+    
+            var bATCHParameter = bATCH.HasValue ?
+                new ObjectParameter("BATCH", bATCH) :
+                new ObjectParameter("BATCH", typeof(decimal));
+    
+            var sEQParameter = sEQ.HasValue ?
+                new ObjectParameter("SEQ", sEQ) :
+                new ObjectParameter("SEQ", typeof(decimal));
+    
+            var tRBRParameter = tRBR.HasValue ?
+                new ObjectParameter("TRBR", tRBR) :
+                new ObjectParameter("TRBR", typeof(decimal));
+    
+            var tRSOBRParameter = tRSOBR.HasValue ?
+                new ObjectParameter("TRSOBR", tRSOBR) :
+                new ObjectParameter("TRSOBR", typeof(decimal));
+    
+            var tRACCTParameter = tRACCT.HasValue ?
+                new ObjectParameter("TRACCT", tRACCT) :
+                new ObjectParameter("TRACCT", typeof(decimal));
+    
+            var tRATYPParameter = tRATYP != null ?
+                new ObjectParameter("TRATYP", tRATYP) :
+                new ObjectParameter("TRATYP", typeof(string));
+    
+            var tRANCDParameter = tRANCD.HasValue ?
+                new ObjectParameter("TRANCD", tRANCD) :
+                new ObjectParameter("TRANCD", typeof(decimal));
+    
+            var aMTParameter = aMT.HasValue ?
+                new ObjectParameter("AMT", aMT) :
+                new ObjectParameter("AMT", typeof(decimal));
+    
+            var tRCTYPParameter = tRCTYP != null ?
+                new ObjectParameter("TRCTYP", tRCTYP) :
+                new ObjectParameter("TRCTYP", typeof(string));
+    
+            var dORCParameter = dORC != null ?
+                new ObjectParameter("DORC", dORC) :
+                new ObjectParameter("DORC", typeof(string));
+    
+            var bORIParameter = bORI != null ?
+                new ObjectParameter("BORI", bORI) :
+                new ObjectParameter("BORI", typeof(string));
+    
+            var tREFF6Parameter = tREFF6.HasValue ?
+                new ObjectParameter("TREFF6", tREFF6) :
+                new ObjectParameter("TREFF6", typeof(System.DateTime));
+    
+            var tRSUPVParameter = tRSUPV != null ?
+                new ObjectParameter("TRSUPV", tRSUPV) :
+                new ObjectParameter("TRSUPV", typeof(string));
+    
+            var tRUSERParameter = tRUSER != null ?
+                new ObjectParameter("TRUSER", tRUSER) :
+                new ObjectParameter("TRUSER", typeof(string));
+    
+            var tRDAT6Parameter = tRDAT6.HasValue ?
+                new ObjectParameter("TRDAT6", tRDAT6) :
+                new ObjectParameter("TRDAT6", typeof(System.DateTime));
+    
+            var tRTIMEParameter = tRTIME.HasValue ?
+                new ObjectParameter("TRTIME", tRTIME) :
+                new ObjectParameter("TRTIME", typeof(decimal));
+    
+            var dDGRUPParameter = dDGRUP.HasValue ?
+                new ObjectParameter("DDGRUP", dDGRUP) :
+                new ObjectParameter("DDGRUP", typeof(decimal));
+    
+            var tREFTHParameter = tREFTH != null ?
+                new ObjectParameter("TREFTH", tREFTH) :
+                new ObjectParameter("TREFTH", typeof(string));
+    
+            var tRTKTNParameter = tRTKTN != null ?
+                new ObjectParameter("TRTKTN", tRTKTN) :
+                new ObjectParameter("TRTKTN", typeof(string));
+    
+            var bRANCHParameter = bRANCH != null ?
+                new ObjectParameter("BRANCH", bRANCH) :
+                new ObjectParameter("BRANCH", typeof(string));
+    
+            var lASTMDATEParameter = lASTMDATE.HasValue ?
+                new ObjectParameter("LASTMDATE", lASTMDATE) :
+                new ObjectParameter("LASTMDATE", typeof(System.DateTime));
+    
+            var lMDATEParameter = lMDATE != null ?
+                new ObjectParameter("LMDATE", lMDATE) :
+                new ObjectParameter("LMDATE", typeof(string));
+    
+            var aUXTRCParameter = aUXTRC != null ?
+                new ObjectParameter("AUXTRC", aUXTRC) :
+                new ObjectParameter("AUXTRC", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("add_dddhist_date", dATADATEParameter, bATCHParameter, sEQParameter, tRBRParameter, tRSOBRParameter, tRACCTParameter, tRATYPParameter, tRANCDParameter, aMTParameter, tRCTYPParameter, dORCParameter, bORIParameter, tREFF6Parameter, tRSUPVParameter, tRUSERParameter, tRDAT6Parameter, tRTIMEParameter, dDGRUPParameter, tREFTHParameter, tRTKTNParameter, bRANCHParameter, lASTMDATEParameter, lMDATEParameter, aUXTRCParameter);
+        }
+    
+        public virtual int add_ddmast_date(Nullable<System.DateTime> dATADATE, Nullable<decimal> bRANCH, string aCNAME, Nullable<decimal> cIFNO, Nullable<decimal> aCCTNO, string sCCODE, Nullable<decimal> dDGRUP, Nullable<decimal> rATE, string dDMUID, string dDCTYP, Nullable<System.DateTime> dATOP6, Nullable<System.DateTime> dLA6, Nullable<decimal> cBAL, Nullable<decimal> aCCRUE, Nullable<decimal> hOLD, string pGDID, string sTATUS, string pVAR1, Nullable<decimal> pVAR, Nullable<decimal> aMTDRC, Nullable<decimal> aMTCR, string cLASS, Nullable<decimal> dMPRDC, string dDCDEC, string aCTYPE, Nullable<System.DateTime> lMDATE, string oDPROT, Nullable<decimal> oDDLIM, Nullable<decimal> oTRATE, Nullable<System.DateTime> oTDTE, Nullable<System.DateTime> oTEXP, Nullable<System.DateTime> oTDTE2, Nullable<System.DateTime> oTEXP2, Nullable<decimal> oDINT, Nullable<decimal> oDEXSS)
+        {
+            var dATADATEParameter = dATADATE.HasValue ?
+                new ObjectParameter("DATADATE", dATADATE) :
+                new ObjectParameter("DATADATE", typeof(System.DateTime));
+    
+            var bRANCHParameter = bRANCH.HasValue ?
+                new ObjectParameter("BRANCH", bRANCH) :
+                new ObjectParameter("BRANCH", typeof(decimal));
+    
+            var aCNAMEParameter = aCNAME != null ?
+                new ObjectParameter("ACNAME", aCNAME) :
+                new ObjectParameter("ACNAME", typeof(string));
+    
+            var cIFNOParameter = cIFNO.HasValue ?
+                new ObjectParameter("CIFNO", cIFNO) :
+                new ObjectParameter("CIFNO", typeof(decimal));
+    
+            var aCCTNOParameter = aCCTNO.HasValue ?
+                new ObjectParameter("ACCTNO", aCCTNO) :
+                new ObjectParameter("ACCTNO", typeof(decimal));
+    
+            var sCCODEParameter = sCCODE != null ?
+                new ObjectParameter("SCCODE", sCCODE) :
+                new ObjectParameter("SCCODE", typeof(string));
+    
+            var dDGRUPParameter = dDGRUP.HasValue ?
+                new ObjectParameter("DDGRUP", dDGRUP) :
+                new ObjectParameter("DDGRUP", typeof(decimal));
+    
+            var rATEParameter = rATE.HasValue ?
+                new ObjectParameter("RATE", rATE) :
+                new ObjectParameter("RATE", typeof(decimal));
+    
+            var dDMUIDParameter = dDMUID != null ?
+                new ObjectParameter("DDMUID", dDMUID) :
+                new ObjectParameter("DDMUID", typeof(string));
+    
+            var dDCTYPParameter = dDCTYP != null ?
+                new ObjectParameter("DDCTYP", dDCTYP) :
+                new ObjectParameter("DDCTYP", typeof(string));
+    
+            var dATOP6Parameter = dATOP6.HasValue ?
+                new ObjectParameter("DATOP6", dATOP6) :
+                new ObjectParameter("DATOP6", typeof(System.DateTime));
+    
+            var dLA6Parameter = dLA6.HasValue ?
+                new ObjectParameter("DLA6", dLA6) :
+                new ObjectParameter("DLA6", typeof(System.DateTime));
+    
+            var cBALParameter = cBAL.HasValue ?
+                new ObjectParameter("CBAL", cBAL) :
+                new ObjectParameter("CBAL", typeof(decimal));
+    
+            var aCCRUEParameter = aCCRUE.HasValue ?
+                new ObjectParameter("ACCRUE", aCCRUE) :
+                new ObjectParameter("ACCRUE", typeof(decimal));
+    
+            var hOLDParameter = hOLD.HasValue ?
+                new ObjectParameter("HOLD", hOLD) :
+                new ObjectParameter("HOLD", typeof(decimal));
+    
+            var pGDIDParameter = pGDID != null ?
+                new ObjectParameter("PGDID", pGDID) :
+                new ObjectParameter("PGDID", typeof(string));
+    
+            var sTATUSParameter = sTATUS != null ?
+                new ObjectParameter("STATUS", sTATUS) :
+                new ObjectParameter("STATUS", typeof(string));
+    
+            var pVAR1Parameter = pVAR1 != null ?
+                new ObjectParameter("PVAR1", pVAR1) :
+                new ObjectParameter("PVAR1", typeof(string));
+    
+            var pVARParameter = pVAR.HasValue ?
+                new ObjectParameter("PVAR", pVAR) :
+                new ObjectParameter("PVAR", typeof(decimal));
+    
+            var aMTDRCParameter = aMTDRC.HasValue ?
+                new ObjectParameter("AMTDRC", aMTDRC) :
+                new ObjectParameter("AMTDRC", typeof(decimal));
+    
+            var aMTCRParameter = aMTCR.HasValue ?
+                new ObjectParameter("AMTCR", aMTCR) :
+                new ObjectParameter("AMTCR", typeof(decimal));
+    
+            var cLASSParameter = cLASS != null ?
+                new ObjectParameter("CLASS", cLASS) :
+                new ObjectParameter("CLASS", typeof(string));
+    
+            var dMPRDCParameter = dMPRDC.HasValue ?
+                new ObjectParameter("DMPRDC", dMPRDC) :
+                new ObjectParameter("DMPRDC", typeof(decimal));
+    
+            var dDCDECParameter = dDCDEC != null ?
+                new ObjectParameter("DDCDEC", dDCDEC) :
+                new ObjectParameter("DDCDEC", typeof(string));
+    
+            var aCTYPEParameter = aCTYPE != null ?
+                new ObjectParameter("ACTYPE", aCTYPE) :
+                new ObjectParameter("ACTYPE", typeof(string));
+    
+            var lMDATEParameter = lMDATE.HasValue ?
+                new ObjectParameter("LMDATE", lMDATE) :
+                new ObjectParameter("LMDATE", typeof(System.DateTime));
+    
+            var oDPROTParameter = oDPROT != null ?
+                new ObjectParameter("ODPROT", oDPROT) :
+                new ObjectParameter("ODPROT", typeof(string));
+    
+            var oDDLIMParameter = oDDLIM.HasValue ?
+                new ObjectParameter("ODDLIM", oDDLIM) :
+                new ObjectParameter("ODDLIM", typeof(decimal));
+    
+            var oTRATEParameter = oTRATE.HasValue ?
+                new ObjectParameter("OTRATE", oTRATE) :
+                new ObjectParameter("OTRATE", typeof(decimal));
+    
+            var oTDTEParameter = oTDTE.HasValue ?
+                new ObjectParameter("OTDTE", oTDTE) :
+                new ObjectParameter("OTDTE", typeof(System.DateTime));
+    
+            var oTEXPParameter = oTEXP.HasValue ?
+                new ObjectParameter("OTEXP", oTEXP) :
+                new ObjectParameter("OTEXP", typeof(System.DateTime));
+    
+            var oTDTE2Parameter = oTDTE2.HasValue ?
+                new ObjectParameter("OTDTE2", oTDTE2) :
+                new ObjectParameter("OTDTE2", typeof(System.DateTime));
+    
+            var oTEXP2Parameter = oTEXP2.HasValue ?
+                new ObjectParameter("OTEXP2", oTEXP2) :
+                new ObjectParameter("OTEXP2", typeof(System.DateTime));
+    
+            var oDINTParameter = oDINT.HasValue ?
+                new ObjectParameter("ODINT", oDINT) :
+                new ObjectParameter("ODINT", typeof(decimal));
+    
+            var oDEXSSParameter = oDEXSS.HasValue ?
+                new ObjectParameter("ODEXSS", oDEXSS) :
+                new ObjectParameter("ODEXSS", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("add_ddmast_date", dATADATEParameter, bRANCHParameter, aCNAMEParameter, cIFNOParameter, aCCTNOParameter, sCCODEParameter, dDGRUPParameter, rATEParameter, dDMUIDParameter, dDCTYPParameter, dATOP6Parameter, dLA6Parameter, cBALParameter, aCCRUEParameter, hOLDParameter, pGDIDParameter, sTATUSParameter, pVAR1Parameter, pVARParameter, aMTDRCParameter, aMTCRParameter, cLASSParameter, dMPRDCParameter, dDCDECParameter, aCTYPEParameter, lMDATEParameter, oDPROTParameter, oDDLIMParameter, oTRATEParameter, oTDTEParameter, oTEXPParameter, oTDTE2Parameter, oTEXP2Parameter, oDINTParameter, oDEXSSParameter);
+        }
+    
+        public virtual int bcTuanTangTruongKHTheoCif(Nullable<System.DateTime> ngaydau, Nullable<System.DateTime> ngaycuoi, string listcif)
+        {
+            var ngaydauParameter = ngaydau.HasValue ?
+                new ObjectParameter("ngaydau", ngaydau) :
+                new ObjectParameter("ngaydau", typeof(System.DateTime));
+    
+            var ngaycuoiParameter = ngaycuoi.HasValue ?
+                new ObjectParameter("ngaycuoi", ngaycuoi) :
+                new ObjectParameter("ngaycuoi", typeof(System.DateTime));
+    
+            var listcifParameter = listcif != null ?
+                new ObjectParameter("listcif", listcif) :
+                new ObjectParameter("listcif", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("bcTuanTangTruongKHTheoCif", ngaydauParameter, ngaycuoiParameter, listcifParameter);
+        }
+    
+        public virtual int capnhatcf()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("capnhatcf");
+        }
+    
+        public virtual ObjectResult<checkCIF_Result> checkCIF()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<checkCIF_Result>("checkCIF");
+        }
+    
+        public virtual ObjectResult<cifmomoitheongay_Result> cifmomoitheongay(Nullable<System.DateTime> ngaydau, Nullable<System.DateTime> ngaycuoi)
+        {
+            var ngaydauParameter = ngaydau.HasValue ?
+                new ObjectParameter("ngaydau", ngaydau) :
+                new ObjectParameter("ngaydau", typeof(System.DateTime));
+    
+            var ngaycuoiParameter = ngaycuoi.HasValue ?
+                new ObjectParameter("ngaycuoi", ngaycuoi) :
+                new ObjectParameter("ngaycuoi", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<cifmomoitheongay_Result>("cifmomoitheongay", ngaydauParameter, ngaycuoiParameter);
+        }
+    
+        [DbFunction("dlgocEntities", "CreateCsv8K")]
+        public virtual IQueryable<CreateCsv8K_Result> CreateCsv8K(Nullable<int> pNumberOfRows, Nullable<int> pNumberOfElementsPerRow, Nullable<int> pMinElementwidth, Nullable<int> pMaxElementWidth)
+        {
+            var pNumberOfRowsParameter = pNumberOfRows.HasValue ?
+                new ObjectParameter("pNumberOfRows", pNumberOfRows) :
+                new ObjectParameter("pNumberOfRows", typeof(int));
+    
+            var pNumberOfElementsPerRowParameter = pNumberOfElementsPerRow.HasValue ?
+                new ObjectParameter("pNumberOfElementsPerRow", pNumberOfElementsPerRow) :
+                new ObjectParameter("pNumberOfElementsPerRow", typeof(int));
+    
+            var pMinElementwidthParameter = pMinElementwidth.HasValue ?
+                new ObjectParameter("pMinElementwidth", pMinElementwidth) :
+                new ObjectParameter("pMinElementwidth", typeof(int));
+    
+            var pMaxElementWidthParameter = pMaxElementWidth.HasValue ?
+                new ObjectParameter("pMaxElementWidth", pMaxElementWidth) :
+                new ObjectParameter("pMaxElementWidth", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<CreateCsv8K_Result>("[dlgocEntities].[CreateCsv8K](@pNumberOfRows, @pNumberOfElementsPerRow, @pMinElementwidth, @pMaxElementWidth)", pNumberOfRowsParameter, pNumberOfElementsPerRowParameter, pMinElementwidthParameter, pMaxElementWidthParameter);
+        }
+    
+        [DbFunction("dlgocEntities", "DelimitedSplit8K")]
+        public virtual IQueryable<DelimitedSplit8K_Result> DelimitedSplit8K(string pString, string pDelimiter)
+        {
+            var pStringParameter = pString != null ?
+                new ObjectParameter("pString", pString) :
+                new ObjectParameter("pString", typeof(string));
+    
+            var pDelimiterParameter = pDelimiter != null ?
+                new ObjectParameter("pDelimiter", pDelimiter) :
+                new ObjectParameter("pDelimiter", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<DelimitedSplit8K_Result>("[dlgocEntities].[DelimitedSplit8K](@pString, @pDelimiter)", pStringParameter, pDelimiterParameter);
+        }
+    
+        public virtual int dondepCheckDulieu()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("dondepCheckDulieu");
+        }
+    
+        [DbFunction("dlgocEntities", "fn_split")]
+        public virtual IQueryable<fn_split_Result> fn_split(string @string, string delimiter)
+        {
+            var stringParameter = @string != null ?
+                new ObjectParameter("string", @string) :
+                new ObjectParameter("string", typeof(string));
+    
+            var delimiterParameter = delimiter != null ?
+                new ObjectParameter("delimiter", delimiter) :
+                new ObjectParameter("delimiter", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<fn_split_Result>("[dlgocEntities].[fn_split](@string, @delimiter)", stringParameter, delimiterParameter);
+        }
+    
+        public virtual ObjectResult<hdv_ngay_den_ngay_Result> hdv_ngay_den_ngay(Nullable<System.DateTime> ngaydau, Nullable<System.DateTime> ngaycuoi)
+        {
+            var ngaydauParameter = ngaydau.HasValue ?
+                new ObjectParameter("ngaydau", ngaydau) :
+                new ObjectParameter("ngaydau", typeof(System.DateTime));
+    
+            var ngaycuoiParameter = ngaycuoi.HasValue ?
+                new ObjectParameter("ngaycuoi", ngaycuoi) :
+                new ObjectParameter("ngaycuoi", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<hdv_ngay_den_ngay_Result>("hdv_ngay_den_ngay", ngaydauParameter, ngaycuoiParameter);
+        }
+    
+        public virtual int HtmlTable(string data_source, ObjectParameter tableHTML)
+        {
+            var data_sourceParameter = data_source != null ?
+                new ObjectParameter("data_source", data_source) :
+                new ObjectParameter("data_source", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("HtmlTable", data_sourceParameter, tableHTML);
+        }
+    
+        public virtual ObjectResult<laytygia_ngay_old_Result> laytygia_ngay_old(Nullable<System.DateTime> ngay)
+        {
+            var ngayParameter = ngay.HasValue ?
+                new ObjectParameter("ngay", ngay) :
+                new ObjectParameter("ngay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<laytygia_ngay_old_Result>("laytygia_ngay_old", ngayParameter);
+        }
+    
+        public virtual ObjectResult<laytygiangay_old_Result> laytygiangay_old(Nullable<System.DateTime> ngay)
+        {
+            var ngayParameter = ngay.HasValue ?
+                new ObjectParameter("ngay", ngay) :
+                new ObjectParameter("ngay", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<laytygiangay_old_Result>("laytygiangay_old", ngayParameter);
+        }
+    
+        public virtual int removeDuplicate_cifallday()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("removeDuplicate_cifallday");
+        }
+    
+        public virtual ObjectResult<SaoKeCif2_Result> SaoKeCif2(Nullable<System.DateTime> ngaybd, Nullable<System.DateTime> ngaykt, Nullable<int> cif)
+        {
+            var ngaybdParameter = ngaybd.HasValue ?
+                new ObjectParameter("ngaybd", ngaybd) :
+                new ObjectParameter("ngaybd", typeof(System.DateTime));
+    
+            var ngayktParameter = ngaykt.HasValue ?
+                new ObjectParameter("ngaykt", ngaykt) :
+                new ObjectParameter("ngaykt", typeof(System.DateTime));
+    
+            var cifParameter = cif.HasValue ?
+                new ObjectParameter("cif", cif) :
+                new ObjectParameter("cif", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SaoKeCif2_Result>("SaoKeCif2", ngaybdParameter, ngayktParameter, cifParameter);
+        }
+    
+        public virtual int SaoKeTKTT(Nullable<System.DateTime> ngaybd, Nullable<System.DateTime> ngaykt, Nullable<decimal> tk)
+        {
+            var ngaybdParameter = ngaybd.HasValue ?
+                new ObjectParameter("ngaybd", ngaybd) :
+                new ObjectParameter("ngaybd", typeof(System.DateTime));
+    
+            var ngayktParameter = ngaykt.HasValue ?
+                new ObjectParameter("ngaykt", ngaykt) :
+                new ObjectParameter("ngaykt", typeof(System.DateTime));
+    
+            var tkParameter = tk.HasValue ?
+                new ObjectParameter("tk", tk) :
+                new ObjectParameter("tk", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SaoKeTKTT", ngaybdParameter, ngayktParameter, tkParameter);
+        }
+    
+        public virtual int SoDuBinhQuanHDVDC(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)
+        {
+            var startDateParameter = startDate.HasValue ?
+                new ObjectParameter("StartDate", startDate) :
+                new ObjectParameter("StartDate", typeof(System.DateTime));
+    
+            var endDateParameter = endDate.HasValue ?
+                new ObjectParameter("EndDate", endDate) :
+                new ObjectParameter("EndDate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SoDuBinhQuanHDVDC", startDateParameter, endDateParameter);
+        }
+    
+        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var versionParameter = version.HasValue ?
+                new ObjectParameter("version", version) :
+                new ObjectParameter("version", typeof(int));
+    
+            var definitionParameter = definition != null ?
+                new ObjectParameter("definition", definition) :
+                new ObjectParameter("definition", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
+        {
+            var diagramnameParameter = diagramname != null ?
+                new ObjectParameter("diagramname", diagramname) :
+                new ObjectParameter("diagramname", typeof(string));
+    
+            var owner_idParameter = owner_id.HasValue ?
+                new ObjectParameter("owner_id", owner_id) :
+                new ObjectParameter("owner_id", typeof(int));
+    
+            var new_diagramnameParameter = new_diagramname != null ?
+                new ObjectParameter("new_diagramname", new_diagramname) :
+                new ObjectParameter("new_diagramname", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        public virtual int sp_upgraddiagrams()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        [DbFunction("dlgocEntities", "SplitVarbinary")]
+        public virtual IQueryable<SplitVarbinary_Result> SplitVarbinary(byte[] bytes, Nullable<byte> delimiter)
+        {
+            var bytesParameter = bytes != null ?
+                new ObjectParameter("bytes", bytes) :
+                new ObjectParameter("bytes", typeof(byte[]));
+    
+            var delimiterParameter = delimiter.HasValue ?
+                new ObjectParameter("delimiter", delimiter) :
+                new ObjectParameter("delimiter", typeof(byte));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<SplitVarbinary_Result>("[dlgocEntities].[SplitVarbinary](@bytes, @delimiter)", bytesParameter, delimiterParameter);
+        }
+    
+        public virtual int spQueryToHtmlTable(string query, string orderBy, ObjectParameter html)
+        {
+            var queryParameter = query != null ?
+                new ObjectParameter("query", query) :
+                new ObjectParameter("query", typeof(string));
+    
+            var orderByParameter = orderBy != null ?
+                new ObjectParameter("orderBy", orderBy) :
+                new ObjectParameter("orderBy", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spQueryToHtmlTable", queryParameter, orderByParameter, html);
+        }
+    
+        [DbFunction("dlgocEntities", "udf_PivotParameters")]
+        public virtual IQueryable<string> udf_PivotParameters(string paramaterList, string delimiter)
+        {
+            var paramaterListParameter = paramaterList != null ?
+                new ObjectParameter("ParamaterList", paramaterList) :
+                new ObjectParameter("ParamaterList", typeof(string));
+    
+            var delimiterParameter = delimiter != null ?
+                new ObjectParameter("Delimiter", delimiter) :
+                new ObjectParameter("Delimiter", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<string>("[dlgocEntities].[udf_PivotParameters](@ParamaterList, @Delimiter)", paramaterListParameter, delimiterParameter);
         }
     }
 }

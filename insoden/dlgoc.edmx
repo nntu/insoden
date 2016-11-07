@@ -356,6 +356,97 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Name="AD3" Type="char" MaxLength="40" />
           <Property Name="AD4" Type="char" MaxLength="40" />
         </EntityType>
+        <Function Name="add_cif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATADATE" Type="datetime" Mode="In" />
+          <Parameter Name="BRANCH" Type="numeric" Mode="In" />
+          <Parameter Name="CFNAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFCIFN" Type="numeric" Mode="In" />
+          <Parameter Name="CFSSNO" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFSSCD" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFINDI" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFCLAS" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFBUST" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFCITZ" Type="nvarchar" Mode="In" />
+          <Parameter Name="TAXCOD" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFORG6" Type="datetime" Mode="In" />
+          <Parameter Name="LMDATE" Type="datetime" Mode="In" />
+          <Parameter Name="CFMUID" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFADDR" Type="nvarchar" Mode="In" />
+          <Parameter Name="DIENTHOAI" Type="nvarchar" Mode="In" />
+          <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+          <Parameter Name="CONAME" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFLGID" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFBIRD" Type="datetime" Mode="In" />
+          <Parameter Name="CFSEX" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFSIC3" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFSIC5" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFIDI6" Type="numeric" Mode="In" />
+          <Parameter Name="MOBIL" Type="nvarchar" Mode="In" />
+          <Parameter Name="CFNA7" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="add_dddhist_date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATADATE" Type="datetime" Mode="In" />
+          <Parameter Name="BATCH" Type="decimal" Mode="In" />
+          <Parameter Name="SEQ" Type="decimal" Mode="In" />
+          <Parameter Name="TRBR" Type="decimal" Mode="In" />
+          <Parameter Name="TRSOBR" Type="decimal" Mode="In" />
+          <Parameter Name="TRACCT" Type="decimal" Mode="In" />
+          <Parameter Name="TRATYP" Type="char" Mode="In" />
+          <Parameter Name="TRANCD" Type="decimal" Mode="In" />
+          <Parameter Name="AMT" Type="decimal" Mode="In" />
+          <Parameter Name="TRCTYP" Type="char" Mode="In" />
+          <Parameter Name="DORC" Type="char" Mode="In" />
+          <Parameter Name="BORI" Type="char" Mode="In" />
+          <Parameter Name="TREFF6" Type="datetime" Mode="In" />
+          <Parameter Name="TRSUPV" Type="char" Mode="In" />
+          <Parameter Name="TRUSER" Type="char" Mode="In" />
+          <Parameter Name="TRDAT6" Type="datetime" Mode="In" />
+          <Parameter Name="TRTIME" Type="decimal" Mode="In" />
+          <Parameter Name="DDGRUP" Type="decimal" Mode="In" />
+          <Parameter Name="TREFTH" Type="varchar" Mode="In" />
+          <Parameter Name="TRTKTN" Type="char" Mode="In" />
+          <Parameter Name="BRANCH" Type="char" Mode="In" />
+          <Parameter Name="LASTMDATE" Type="datetime" Mode="In" />
+          <Parameter Name="LMDATE" Type="char" Mode="In" />
+          <Parameter Name="AUXTRC" Type="char" Mode="In" />
+        </Function>
+        <Function Name="add_ddmast_date" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DATADATE" Type="datetime" Mode="In" />
+          <Parameter Name="BRANCH" Type="decimal" Mode="In" />
+          <Parameter Name="ACNAME" Type="char" Mode="In" />
+          <Parameter Name="CIFNO" Type="decimal" Mode="In" />
+          <Parameter Name="ACCTNO" Type="decimal" Mode="In" />
+          <Parameter Name="SCCODE" Type="char" Mode="In" />
+          <Parameter Name="DDGRUP" Type="decimal" Mode="In" />
+          <Parameter Name="RATE" Type="decimal" Mode="In" />
+          <Parameter Name="DDMUID" Type="char" Mode="In" />
+          <Parameter Name="DDCTYP" Type="char" Mode="In" />
+          <Parameter Name="DATOP6" Type="datetime" Mode="In" />
+          <Parameter Name="DLA6" Type="datetime" Mode="In" />
+          <Parameter Name="CBAL" Type="decimal" Mode="In" />
+          <Parameter Name="ACCRUE" Type="decimal" Mode="In" />
+          <Parameter Name="HOLD" Type="decimal" Mode="In" />
+          <Parameter Name="PGDID" Type="varchar" Mode="In" />
+          <Parameter Name="STATUS" Type="char" Mode="In" />
+          <Parameter Name="PVAR1" Type="char" Mode="In" />
+          <Parameter Name="PVAR" Type="decimal" Mode="In" />
+          <Parameter Name="AMTDRC" Type="decimal" Mode="In" />
+          <Parameter Name="AMTCR" Type="decimal" Mode="In" />
+          <Parameter Name="CLASS" Type="char" Mode="In" />
+          <Parameter Name="DMPRDC" Type="decimal" Mode="In" />
+          <Parameter Name="DDCDEC" Type="char" Mode="In" />
+          <Parameter Name="ACTYPE" Type="char" Mode="In" />
+          <Parameter Name="LMDATE" Type="datetime" Mode="In" />
+          <Parameter Name="ODPROT" Type="char" Mode="In" />
+          <Parameter Name="ODDLIM" Type="decimal" Mode="In" />
+          <Parameter Name="OTRATE" Type="decimal" Mode="In" />
+          <Parameter Name="OTDTE" Type="datetime" Mode="In" />
+          <Parameter Name="OTEXP" Type="datetime" Mode="In" />
+          <Parameter Name="OTDTE2" Type="datetime" Mode="In" />
+          <Parameter Name="OTEXP2" Type="datetime" Mode="In" />
+          <Parameter Name="ODINT" Type="decimal" Mode="In" />
+          <Parameter Name="ODEXSS" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="BcDuno_HuyDong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngay" Type="datetime" Mode="In" />
         </Function>
@@ -371,6 +462,11 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ngaydau" Type="datetime" Mode="In" />
           <Parameter Name="ngaytruoc" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="bcTuanTangTruongKHTheoCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaycuoi" Type="datetime" Mode="In" />
+          <Parameter Name="listcif" Type="nvarchar(max)" Mode="In" />
+        </Function>
         <Function Name="binhquantiengui" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
@@ -381,15 +477,67 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="EndDate" Type="datetime" Mode="In" />
           <Parameter Name="listcif" Type="varchar(max)" Mode="In" />
         </Function>
+        <Function Name="capnhatcf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="check_ngay_dl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tablename" Type="nvarchar" Mode="In" />
           <Parameter Name="ngaydlbd" Type="datetime" Mode="In" />
           <Parameter Name="ngaydlkt" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="checkCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="cifmomoitheongay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaycuoi" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="CreateCsv8K" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pNumberOfRows" Type="int" Mode="In" />
+          <Parameter Name="pNumberOfElementsPerRow" Type="int" Mode="In" />
+          <Parameter Name="pMinElementwidth" Type="int" Mode="In" />
+          <Parameter Name="pMaxElementWidth" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="RowNum" Type="bigint" Nullable="false" />
+                <Property Name="CSV" Type="varchar" MaxLength="8000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="DelimitedSplit8K" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pString" Type="varchar" Mode="In" />
+          <Parameter Name="pDelimiter" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ItemNumber" Type="bigint" />
+                <Property Name="item" Type="varchar" MaxLength="8000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
         <Function Name="DoanhSoTientheoCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
           <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="dondepCheckDulieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fn_CleanAndTrim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+          <Parameter Name="Str" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ReplaceTabWith" Type="nvarchar" Mode="In" />
+          <Parameter Name="ReplaceNewlineWith" Type="nvarchar" Mode="In" />
+          <Parameter Name="PurgeReplaceCharsAtEnds" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="fn_split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="string" Type="varchar" Mode="In" />
+          <Parameter Name="delimiter" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="itemNumber" Type="int" />
+                <Property Name="item" Type="varchar" MaxLength="8000" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
         </Function>
         <Function Name="getCIFInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetFullCIFInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -422,6 +570,14 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="branch" Type="int" Mode="In" />
           <Parameter Name="tien" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="hdv_ngay_den_ngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaycuoi" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="HtmlTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="data_source" Type="varchar" Mode="In" />
+          <Parameter Name="tableHTML" Type="varchar(max)" Mode="InOut" />
+        </Function>
         <Function Name="LayTKThanhToanTheoCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cif" Type="decimal" Mode="In" />
         </Function>
@@ -429,11 +585,17 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
         <Function Name="laytygia_ngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngay" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="laytygia_ngay_old" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="laytygia_tungay_denngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
         </Function>
         <Function Name="laytygiangay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="laytygiangay_old" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngay" Type="datetime" Mode="In" />
         </Function>
         <Function Name="LichSuGiaoDichTheoCIF" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -501,7 +663,26 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ngaybc" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
         </Function>
+        <Function Name="quotestring" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="str" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="RegexMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+          <Parameter Name="Text" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Pattern" Type="nvarchar" Mode="In" />
+          <Parameter Name="Options" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RegexStrMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+          <Parameter Name="Text" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Pattern" Type="nvarchar" Mode="In" />
+          <Parameter Name="Options" Type="int" Mode="In" />
+        </Function>
+        <Function Name="removeDuplicate_cifallday" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SaoKeCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="cif" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SaoKeCif2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
           <Parameter Name="cif" Type="int" Mode="In" />
@@ -515,6 +696,15 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="StartDate" Type="datetime" Mode="In" />
           <Parameter Name="EndDate" Type="datetime" Mode="In" />
           <Parameter Name="tkvay" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SaoKeTKTT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+          <Parameter Name="tk" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SoDuBinhQuanHDVDC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="EndDate" Type="datetime" Mode="In" />
         </Function>
         <Function Name="SoDuKHTienGui" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybc" Type="datetime" Mode="In" />
@@ -533,14 +723,64 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="branch" Type="int" Mode="In" />
           <Parameter Name="tien" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SplitVarbinary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bytes" Type="varbinary" Mode="In" />
+          <Parameter Name="delimiter" Type="tinyint" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="itemNumber" Type="int" />
+                <Property Name="start" Type="int" />
+                <Property Name="num" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="spQueryToHtmlTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="query" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="orderBy" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="html" Type="nvarchar(max)" Mode="InOut" />
+        </Function>
         <Function Name="thauchi_mpa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngay" Type="datetime" Mode="In" />
         </Function>
         <Function Name="ThongBaoDuNo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cif" Type="decimal" Mode="In" />
+          <Parameter Name="ngaydl" Type="datetime" Mode="In" />
         </Function>
         <Function Name="ThongBaoNoDenHan" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="cif" Type="decimal" Mode="In" />
+          <Parameter Name="ngaydl" Type="datetime" Mode="In" />
         </Function>
         <Function Name="ThuNoThuLai" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
@@ -590,6 +830,23 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ngaydl" Type="datetime" Mode="In" />
           <Parameter Name="ngaytragoctungay" Type="datetime" Mode="In" />
           <Parameter Name="ngaytragocdenngay" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="udf_PivotParameters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ParamaterList" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Delimiter" Type="char" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="FieldValue" Type="varchar(max)" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ufn_GetDaysInMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="pDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="UFNG_ONLY_DIGITS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+          <Parameter Name="StrVal" Type="varchar(max)" Mode="In" />
         </Function>
         <EntityContainer Name="dlgocModelStoreContainer">
           <EntitySet Name="tb_checkdulieu" EntityType="Self.tb_checkdulieu" Schema="dbo" store:Type="Tables" />
@@ -1146,9 +1403,11 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           </FunctionImport>
           <FunctionImport Name="ThongBaoDuNo" ReturnType="Collection(dlgocModel.ThongBaoDuNo_Result)">
           <Parameter Name="cif" Mode="In" Type="Decimal" />
+            <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ThongBaoNoDenHan" ReturnType="Collection(dlgocModel.ThongBaoNoDenHan_Result)">
           <Parameter Name="cif" Mode="In" Type="Decimal" />
+            <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="GLMASTs" EntityType="dlgocModel.GLMAST" />
           <FunctionImport Name="TinhThuLaiGocTheoCIF" ReturnType="Collection(dlgocModel.TinhThuLaiGocTheoCIF_Result)">
@@ -1166,6 +1425,195 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
             <Parameter Name="ngaytragoctungay" Mode="In" Type="DateTime" />
             <Parameter Name="ngaytragocdenngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="add_cif">
+            <Parameter Name="DATADATE" Mode="In" Type="DateTime" />
+            <Parameter Name="BRANCH" Mode="In" Type="Decimal" />
+            <Parameter Name="CFNAME" Mode="In" Type="String" />
+            <Parameter Name="CFCIFN" Mode="In" Type="Decimal" />
+            <Parameter Name="CFSSNO" Mode="In" Type="String" />
+            <Parameter Name="CFSSCD" Mode="In" Type="String" />
+            <Parameter Name="CFINDI" Mode="In" Type="String" />
+            <Parameter Name="CFCLAS" Mode="In" Type="String" />
+            <Parameter Name="CFBUST" Mode="In" Type="String" />
+            <Parameter Name="CFCITZ" Mode="In" Type="String" />
+            <Parameter Name="TAXCOD" Mode="In" Type="String" />
+            <Parameter Name="CFORG6" Mode="In" Type="DateTime" />
+            <Parameter Name="LMDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="CFMUID" Mode="In" Type="String" />
+            <Parameter Name="CFADDR" Mode="In" Type="String" />
+            <Parameter Name="DIENTHOAI" Mode="In" Type="String" />
+            <Parameter Name="FAX" Mode="In" Type="String" />
+            <Parameter Name="CONAME" Mode="In" Type="String" />
+            <Parameter Name="CFLGID" Mode="In" Type="String" />
+            <Parameter Name="CFBIRD" Mode="In" Type="DateTime" />
+            <Parameter Name="CFSEX" Mode="In" Type="String" />
+            <Parameter Name="CFSIC3" Mode="In" Type="String" />
+            <Parameter Name="CFSIC5" Mode="In" Type="String" />
+            <Parameter Name="CFIDI6" Mode="In" Type="Decimal" />
+            <Parameter Name="MOBIL" Mode="In" Type="String" />
+            <Parameter Name="CFNA7" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="add_dddhist_date">
+            <Parameter Name="DATADATE" Mode="In" Type="DateTime" />
+            <Parameter Name="BATCH" Mode="In" Type="Decimal" />
+            <Parameter Name="SEQ" Mode="In" Type="Decimal" />
+            <Parameter Name="TRBR" Mode="In" Type="Decimal" />
+            <Parameter Name="TRSOBR" Mode="In" Type="Decimal" />
+            <Parameter Name="TRACCT" Mode="In" Type="Decimal" />
+            <Parameter Name="TRATYP" Mode="In" Type="String" />
+            <Parameter Name="TRANCD" Mode="In" Type="Decimal" />
+            <Parameter Name="AMT" Mode="In" Type="Decimal" />
+            <Parameter Name="TRCTYP" Mode="In" Type="String" />
+            <Parameter Name="DORC" Mode="In" Type="String" />
+            <Parameter Name="BORI" Mode="In" Type="String" />
+            <Parameter Name="TREFF6" Mode="In" Type="DateTime" />
+            <Parameter Name="TRSUPV" Mode="In" Type="String" />
+            <Parameter Name="TRUSER" Mode="In" Type="String" />
+            <Parameter Name="TRDAT6" Mode="In" Type="DateTime" />
+            <Parameter Name="TRTIME" Mode="In" Type="Decimal" />
+            <Parameter Name="DDGRUP" Mode="In" Type="Decimal" />
+            <Parameter Name="TREFTH" Mode="In" Type="String" />
+            <Parameter Name="TRTKTN" Mode="In" Type="String" />
+            <Parameter Name="BRANCH" Mode="In" Type="String" />
+            <Parameter Name="LASTMDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="LMDATE" Mode="In" Type="String" />
+            <Parameter Name="AUXTRC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="add_ddmast_date">
+            <Parameter Name="DATADATE" Mode="In" Type="DateTime" />
+            <Parameter Name="BRANCH" Mode="In" Type="Decimal" />
+            <Parameter Name="ACNAME" Mode="In" Type="String" />
+            <Parameter Name="CIFNO" Mode="In" Type="Decimal" />
+            <Parameter Name="ACCTNO" Mode="In" Type="Decimal" />
+            <Parameter Name="SCCODE" Mode="In" Type="String" />
+            <Parameter Name="DDGRUP" Mode="In" Type="Decimal" />
+            <Parameter Name="RATE" Mode="In" Type="Decimal" />
+            <Parameter Name="DDMUID" Mode="In" Type="String" />
+            <Parameter Name="DDCTYP" Mode="In" Type="String" />
+            <Parameter Name="DATOP6" Mode="In" Type="DateTime" />
+            <Parameter Name="DLA6" Mode="In" Type="DateTime" />
+            <Parameter Name="CBAL" Mode="In" Type="Decimal" />
+            <Parameter Name="ACCRUE" Mode="In" Type="Decimal" />
+            <Parameter Name="HOLD" Mode="In" Type="Decimal" />
+            <Parameter Name="PGDID" Mode="In" Type="String" />
+            <Parameter Name="STATUS" Mode="In" Type="String" />
+            <Parameter Name="PVAR1" Mode="In" Type="String" />
+            <Parameter Name="PVAR" Mode="In" Type="Decimal" />
+            <Parameter Name="AMTDRC" Mode="In" Type="Decimal" />
+            <Parameter Name="AMTCR" Mode="In" Type="Decimal" />
+            <Parameter Name="CLASS" Mode="In" Type="String" />
+            <Parameter Name="DMPRDC" Mode="In" Type="Decimal" />
+            <Parameter Name="DDCDEC" Mode="In" Type="String" />
+            <Parameter Name="ACTYPE" Mode="In" Type="String" />
+            <Parameter Name="LMDATE" Mode="In" Type="DateTime" />
+            <Parameter Name="ODPROT" Mode="In" Type="String" />
+            <Parameter Name="ODDLIM" Mode="In" Type="Decimal" />
+            <Parameter Name="OTRATE" Mode="In" Type="Decimal" />
+            <Parameter Name="OTDTE" Mode="In" Type="DateTime" />
+            <Parameter Name="OTEXP" Mode="In" Type="DateTime" />
+            <Parameter Name="OTDTE2" Mode="In" Type="DateTime" />
+            <Parameter Name="OTEXP2" Mode="In" Type="DateTime" />
+            <Parameter Name="ODINT" Mode="In" Type="Decimal" />
+            <Parameter Name="ODEXSS" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="bcTuanTangTruongKHTheoCif">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaycuoi" Mode="In" Type="DateTime" />
+            <Parameter Name="listcif" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="capnhatcf" />
+          <FunctionImport Name="checkCIF" ReturnType="Collection(dlgocModel.checkCIF_Result)" />
+          <FunctionImport Name="cifmomoitheongay" ReturnType="Collection(dlgocModel.cifmomoitheongay_Result)">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaycuoi" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="CreateCsv8K" IsComposable="true" ReturnType="Collection(dlgocModel.CreateCsv8K_Result)">
+            <Parameter Name="pNumberOfRows" Mode="In" Type="Int32" />
+            <Parameter Name="pNumberOfElementsPerRow" Mode="In" Type="Int32" />
+            <Parameter Name="pMinElementwidth" Mode="In" Type="Int32" />
+            <Parameter Name="pMaxElementWidth" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DelimitedSplit8K" IsComposable="true" ReturnType="Collection(dlgocModel.DelimitedSplit8K_Result)">
+            <Parameter Name="pString" Mode="In" Type="String" />
+            <Parameter Name="pDelimiter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="dondepCheckDulieu" />
+          <FunctionImport Name="fn_split" IsComposable="true" ReturnType="Collection(dlgocModel.fn_split_Result)">
+            <Parameter Name="string" Mode="In" Type="String" />
+            <Parameter Name="delimiter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="hdv_ngay_den_ngay" ReturnType="Collection(dlgocModel.hdv_ngay_den_ngay_Result)">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaycuoi" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="HtmlTable">
+            <Parameter Name="data_source" Mode="In" Type="String" />
+            <Parameter Name="tableHTML" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="laytygia_ngay_old" ReturnType="Collection(dlgocModel.laytygia_ngay_old_Result)">
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="laytygiangay_old" ReturnType="Collection(dlgocModel.laytygiangay_old_Result)">
+            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="removeDuplicate_cifallday" />
+          <FunctionImport Name="SaoKeCif2" ReturnType="Collection(dlgocModel.SaoKeCif2_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SaoKeTKTT">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="tk" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SoDuBinhQuanHDVDC">
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(dlgocModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(dlgocModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="SplitVarbinary" IsComposable="true" ReturnType="Collection(dlgocModel.SplitVarbinary_Result)">
+            <Parameter Name="bytes" Mode="In" Type="Binary" />
+            <Parameter Name="delimiter" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="spQueryToHtmlTable">
+            <Parameter Name="query" Mode="In" Type="String" />
+            <Parameter Name="orderBy" Mode="In" Type="String" />
+            <Parameter Name="html" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="udf_PivotParameters" IsComposable="true" ReturnType="Collection(String)">
+            <Parameter Name="ParamaterList" Mode="In" Type="String" />
+            <Parameter Name="Delimiter" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
@@ -1923,6 +2371,113 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="String" Name="cbtd" Nullable="true" MaxLength="10" />
           <Property Type="Decimal" Name="deptcd" Nullable="true" Precision="3" Scale="0" />
           <Property Type="String" Name="phong" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        <ComplexType Name="checkCIF_Result">
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="BRANCH" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="String" Name="CFNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CFCIFN" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="CFSSNO" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CFSSCD" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="CFINDI" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFCLAS" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFBUST" Nullable="true" MaxLength="4" />
+          <Property Type="String" Name="CFCITZ" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="TAXCOD" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CFORG6" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="LMDATE" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CFMUID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CFADDR" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="DIENTHOAI" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="FAX" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="CONAME" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CFLGID" Nullable="true" MaxLength="3" />
+          <Property Type="DateTime" Name="CFBIRD" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CFSEX" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFSIC3" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFSIC5" Nullable="true" MaxLength="1" />
+          <Property Type="Decimal" Name="CFIDI6" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="String" Name="MOBIL" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="CFNA7" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="CFSIC2" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFSIC7" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFSIC8" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFUIC1" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFUIC2" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="EMAIL" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="cifmomoitheongay_Result">
+          <Property Type="DateTime" Name="cforg6" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CFNAME" Nullable="false" MaxLength="255" />
+          <Property Type="Decimal" Name="CFCIFN" Nullable="false" Precision="19" Scale="0" />
+          <Property Type="String" Name="CFINDI" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="CFMUID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CFADDR" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="phong" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        <ComplexType Name="CreateCsv8K_Result">
+          <Property Type="Int64" Name="RowNum" Nullable="false" />
+          <Property Type="String" Name="CSV" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="DelimitedSplit8K_Result">
+          <Property Type="Int64" Name="ItemNumber" Nullable="true" />
+          <Property Type="String" Name="item" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="fn_split_Result">
+          <Property Type="Int32" Name="itemNumber" Nullable="true" />
+          <Property Type="String" Name="item" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="hdv_ngay_den_ngay_Result">
+          <Property Type="DateTime" Name="datadate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="tonghdv" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="laytygia_ngay_old_Result">
+          <Property Type="String" Name="loai" Nullable="true" MaxLength="4" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="laytygiangay_old_Result">
+          <Property Type="DateTime" Name="ngay" Nullable="true" Precision="23" />
+          <Property Type="String" Name="loai" Nullable="false" MaxLength="4" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="SaoKeCif2_Result">
+          <Property Type="Int32" Name="N" Nullable="false" />
+          <Property Type="DateTime" Name="DATADATE" Nullable="true" Precision="23" />
+          <Property Type="String" Name="BRANCH" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ACNAME" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="CIFNO" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="Decimal" Name="TRBR" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRSOBR" Nullable="true" Precision="5" Scale="0" />
+          <Property Type="Decimal" Name="TRACCT" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="TRCTYP" Nullable="true" MaxLength="3" />
+          <Property Type="Decimal" Name="Co" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="No" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="Decimal" Name="Balance" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="Sodu_ddmast" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="Decimal" Name="tygia" Nullable="true" Precision="15" Scale="2" />
+          <Property Type="String" Name="TRSUPV" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TRUSER" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="TRTIME" Nullable="true" Precision="6" Scale="0" />
+          <Property Type="String" Name="TREFTH" Nullable="true" MaxLength="254" />
+          <Property Type="String" Name="AUXTRC" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="tmck" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="MUABANNT" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SplitVarbinary_Result">
+          <Property Type="Int32" Name="itemNumber" Nullable="true" />
+          <Property Type="Int32" Name="start" Nullable="true" />
+          <Property Type="Int32" Name="num" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2895,6 +3450,178 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="add_cif" FunctionName="dlgocModel.Store.add_cif" />
+          <FunctionImportMapping FunctionImportName="add_dddhist_date" FunctionName="dlgocModel.Store.add_dddhist_date" />
+          <FunctionImportMapping FunctionImportName="add_ddmast_date" FunctionName="dlgocModel.Store.add_ddmast_date" />
+          <FunctionImportMapping FunctionImportName="bcTuanTangTruongKHTheoCif" FunctionName="dlgocModel.Store.bcTuanTangTruongKHTheoCif" />
+          <FunctionImportMapping FunctionImportName="capnhatcf" FunctionName="dlgocModel.Store.capnhatcf" />
+          <FunctionImportMapping FunctionImportName="checkCIF" FunctionName="dlgocModel.Store.checkCIF">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.checkCIF_Result">
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="CFNAME" ColumnName="CFNAME" />
+                <ScalarProperty Name="CFCIFN" ColumnName="CFCIFN" />
+                <ScalarProperty Name="CFSSNO" ColumnName="CFSSNO" />
+                <ScalarProperty Name="CFSSCD" ColumnName="CFSSCD" />
+                <ScalarProperty Name="CFINDI" ColumnName="CFINDI" />
+                <ScalarProperty Name="CFCLAS" ColumnName="CFCLAS" />
+                <ScalarProperty Name="CFBUST" ColumnName="CFBUST" />
+                <ScalarProperty Name="CFCITZ" ColumnName="CFCITZ" />
+                <ScalarProperty Name="TAXCOD" ColumnName="TAXCOD" />
+                <ScalarProperty Name="CFORG6" ColumnName="CFORG6" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="CFMUID" ColumnName="CFMUID" />
+                <ScalarProperty Name="CFADDR" ColumnName="CFADDR" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="CONAME" ColumnName="CONAME" />
+                <ScalarProperty Name="CFLGID" ColumnName="CFLGID" />
+                <ScalarProperty Name="CFBIRD" ColumnName="CFBIRD" />
+                <ScalarProperty Name="CFSEX" ColumnName="CFSEX" />
+                <ScalarProperty Name="CFSIC3" ColumnName="CFSIC3" />
+                <ScalarProperty Name="CFSIC5" ColumnName="CFSIC5" />
+                <ScalarProperty Name="CFIDI6" ColumnName="CFIDI6" />
+                <ScalarProperty Name="MOBIL" ColumnName="MOBIL" />
+                <ScalarProperty Name="CFNA7" ColumnName="CFNA7" />
+                <ScalarProperty Name="CFSIC2" ColumnName="CFSIC2" />
+                <ScalarProperty Name="CFSIC7" ColumnName="CFSIC7" />
+                <ScalarProperty Name="CFSIC8" ColumnName="CFSIC8" />
+                <ScalarProperty Name="CFUIC1" ColumnName="CFUIC1" />
+                <ScalarProperty Name="CFUIC2" ColumnName="CFUIC2" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="cifmomoitheongay" FunctionName="dlgocModel.Store.cifmomoitheongay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.cifmomoitheongay_Result">
+                <ScalarProperty Name="cforg6" ColumnName="cforg6" />
+                <ScalarProperty Name="CFNAME" ColumnName="CFNAME" />
+                <ScalarProperty Name="CFCIFN" ColumnName="CFCIFN" />
+                <ScalarProperty Name="CFINDI" ColumnName="CFINDI" />
+                <ScalarProperty Name="CFMUID" ColumnName="CFMUID" />
+                <ScalarProperty Name="CFADDR" ColumnName="CFADDR" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CreateCsv8K" FunctionName="dlgocModel.Store.CreateCsv8K">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.CreateCsv8K_Result">
+                <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+                <ScalarProperty Name="CSV" ColumnName="CSV" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DelimitedSplit8K" FunctionName="dlgocModel.Store.DelimitedSplit8K">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.DelimitedSplit8K_Result">
+                <ScalarProperty Name="ItemNumber" ColumnName="ItemNumber" />
+                <ScalarProperty Name="item" ColumnName="item" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="dondepCheckDulieu" FunctionName="dlgocModel.Store.dondepCheckDulieu" />
+          <FunctionImportMapping FunctionImportName="fn_split" FunctionName="dlgocModel.Store.fn_split">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.fn_split_Result">
+                <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+                <ScalarProperty Name="item" ColumnName="item" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="hdv_ngay_den_ngay" FunctionName="dlgocModel.Store.hdv_ngay_den_ngay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.hdv_ngay_den_ngay_Result">
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
+                <ScalarProperty Name="tonghdv" ColumnName="tonghdv" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="HtmlTable" FunctionName="dlgocModel.Store.HtmlTable" />
+          <FunctionImportMapping FunctionImportName="laytygia_ngay_old" FunctionName="dlgocModel.Store.laytygia_ngay_old">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.laytygia_ngay_old_Result">
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="laytygiangay_old" FunctionName="dlgocModel.Store.laytygiangay_old">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.laytygiangay_old_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="removeDuplicate_cifallday" FunctionName="dlgocModel.Store.removeDuplicate_cifallday" />
+          <FunctionImportMapping FunctionImportName="SaoKeCif2" FunctionName="dlgocModel.Store.SaoKeCif2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SaoKeCif2_Result">
+                <ScalarProperty Name="N" ColumnName="N" />
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="TRBR" ColumnName="TRBR" />
+                <ScalarProperty Name="TRSOBR" ColumnName="TRSOBR" />
+                <ScalarProperty Name="TRACCT" ColumnName="TRACCT" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="Co" ColumnName="Co" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="Sodu_ddmast" ColumnName="Sodu_ddmast" />
+                <ScalarProperty Name="tygia" ColumnName="tygia" />
+                <ScalarProperty Name="TRSUPV" ColumnName="TRSUPV" />
+                <ScalarProperty Name="TRUSER" ColumnName="TRUSER" />
+                <ScalarProperty Name="TRTIME" ColumnName="TRTIME" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="AUXTRC" ColumnName="AUXTRC" />
+                <ScalarProperty Name="tmck" ColumnName="tmck" />
+                <ScalarProperty Name="MUABANNT" ColumnName="MUABANNT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaoKeTKTT" FunctionName="dlgocModel.Store.SaoKeTKTT" />
+          <FunctionImportMapping FunctionImportName="SoDuBinhQuanHDVDC" FunctionName="dlgocModel.Store.SoDuBinhQuanHDVDC" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="dlgocModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="dlgocModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="dlgocModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="dlgocModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="dlgocModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="dlgocModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="dlgocModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="SplitVarbinary" FunctionName="dlgocModel.Store.SplitVarbinary">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.SplitVarbinary_Result">
+                <ScalarProperty Name="itemNumber" ColumnName="itemNumber" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="num" ColumnName="num" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spQueryToHtmlTable" FunctionName="dlgocModel.Store.spQueryToHtmlTable" />
+          <FunctionImportMapping FunctionImportName="udf_PivotParameters" FunctionName="dlgocModel.Store.udf_PivotParameters" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

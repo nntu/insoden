@@ -30,7 +30,7 @@
     <PublisherName>BIDVCanTho</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>224</ApplicationRevision>
+    <ApplicationRevision>225</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -236,6 +236,21 @@
     <Compile Include="binhquantiengui_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="checkCIF_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cifmomoitheongay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreateCsv8K_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DelimitedSplit8K_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fn_split_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="frmInTBNoDenHan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,7 +258,16 @@
       <DependentUpon>frmInTBNoDenHan.cs</DependentUpon>
     </Compile>
     <Compile Include="glconfig.cs" />
+    <Compile Include="hdv_ngay_den_ngay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="LayTKThanhToanTheoCIF_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="laytygiangay_old_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="laytygia_ngay_old_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CifInfo.cs" />
@@ -391,6 +415,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AssemblyInfo.tt</DependentUpon>
     </Compile>
+    <Compile Include="SaoKeCif2_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SplitVarbinary_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbdunovalaivay.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -526,6 +562,12 @@
     <Compile Include="X1PCMS.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="XRInNCLT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRInNCLT.Designer.cs">
+      <DependentUpon>XRInNCLT.cs</DependentUpon>
+    </Compile>
     <Content Include="Chuky_tranoc.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -588,6 +630,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_ThuLai.resx">
       <DependentUpon>UC_ThuLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRInNCLT.resx">
+      <DependentUpon>XRInNCLT.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="bdsu.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

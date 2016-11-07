@@ -40,6 +40,7 @@
             this.tp_saoke = new System.Windows.Forms.TabPage();
             this.tb_sk_saokeds = new System.Windows.Forms.TabControl();
             this.tab_saoke_nctk = new System.Windows.Forms.TabPage();
+            this.button14 = new System.Windows.Forms.Button();
             this.b_noco_tk_inlientuc = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -633,6 +634,8 @@
             this.tb_DuNo = new System.Windows.Forms.TabPage();
             this.splitContainerControl19 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.dtp_td_tbdn = new System.Windows.Forms.DateTimePicker();
             this.cb_td_tbdn_tk = new System.Windows.Forms.ComboBox();
             this.cb_td_tbdnuno = new System.Windows.Forms.ComboBox();
             this.bt_td_tbdn_in = new System.Windows.Forms.Button();
@@ -786,6 +789,8 @@
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tracuulsglResult2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label63 = new System.Windows.Forms.Label();
+            this.dtp_td_tbdnldh = new System.Windows.Forms.DateTimePicker();
             this.tb_main.SuspendLayout();
             this.tp_saoke.SuspendLayout();
             this.tb_sk_saokeds.SuspendLayout();
@@ -1087,6 +1092,7 @@
             // 
             // tab_saoke_nctk
             // 
+            this.tab_saoke_nctk.Controls.Add(this.button14);
             this.tab_saoke_nctk.Controls.Add(this.b_noco_tk_inlientuc);
             this.tab_saoke_nctk.Controls.Add(this.groupBox5);
             this.tab_saoke_nctk.Controls.Add(this.bt_uncheckclb_locdl);
@@ -1107,6 +1113,16 @@
             this.tab_saoke_nctk.TabIndex = 2;
             this.tab_saoke_nctk.Text = "In NC theo Số TK";
             this.tab_saoke_nctk.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(578, 368);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(75, 23);
+            this.button14.TabIndex = 22;
+            this.button14.Text = "button14";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click_1);
             // 
             // b_noco_tk_inlientuc
             // 
@@ -6942,6 +6958,8 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.label59);
+            this.groupBox12.Controls.Add(this.dtp_td_tbdn);
             this.groupBox12.Controls.Add(this.cb_td_tbdn_tk);
             this.groupBox12.Controls.Add(this.cb_td_tbdnuno);
             this.groupBox12.Controls.Add(this.bt_td_tbdn_in);
@@ -6955,12 +6973,31 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Chọn khách hàng:";
             // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(5, 26);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(47, 13);
+            this.label59.TabIndex = 19;
+            this.label59.Text = "Ngày DL";
+            // 
+            // dtp_td_tbdn
+            // 
+            this.dtp_td_tbdn.CustomFormat = "dd/MM/yyyy";
+            this.dtp_td_tbdn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_td_tbdn.Location = new System.Drawing.Point(58, 20);
+            this.dtp_td_tbdn.Name = "dtp_td_tbdn";
+            this.dtp_td_tbdn.Size = new System.Drawing.Size(98, 21);
+            this.dtp_td_tbdn.TabIndex = 18;
+            this.dtp_td_tbdn.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
             // cb_td_tbdn_tk
             // 
             this.cb_td_tbdn_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cb_td_tbdn_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cb_td_tbdn_tk.FormattingEnabled = true;
-            this.cb_td_tbdn_tk.Location = new System.Drawing.Point(46, 20);
+            this.cb_td_tbdn_tk.Location = new System.Drawing.Point(45, 50);
             this.cb_td_tbdn_tk.Name = "cb_td_tbdn_tk";
             this.cb_td_tbdn_tk.Size = new System.Drawing.Size(214, 21);
             this.cb_td_tbdn_tk.TabIndex = 17;
@@ -6973,7 +7010,7 @@
             "Trà Nóc",
             "Ninh Kiều",
             "Thốt Nốt"});
-            this.cb_td_tbdnuno.Location = new System.Drawing.Point(266, 19);
+            this.cb_td_tbdnuno.Location = new System.Drawing.Point(265, 49);
             this.cb_td_tbdnuno.Name = "cb_td_tbdnuno";
             this.cb_td_tbdnuno.Size = new System.Drawing.Size(121, 21);
             this.cb_td_tbdnuno.TabIndex = 16;
@@ -7010,7 +7047,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(6, 25);
+            this.label55.Location = new System.Drawing.Point(5, 55);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(39, 13);
             this.label55.TabIndex = 12;
@@ -7062,6 +7099,8 @@
             // 
             // groupBox13
             // 
+            this.groupBox13.Controls.Add(this.label63);
+            this.groupBox13.Controls.Add(this.dtp_td_tbdnldh);
             this.groupBox13.Controls.Add(this.cb_td_tbndh_tk);
             this.groupBox13.Controls.Add(this.bt_td_tbndh_in);
             this.groupBox13.Controls.Add(this.cb_td_tbndh_noi);
@@ -7080,7 +7119,7 @@
             this.cb_td_tbndh_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cb_td_tbndh_tk.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cb_td_tbndh_tk.FormattingEnabled = true;
-            this.cb_td_tbndh_tk.Location = new System.Drawing.Point(51, 22);
+            this.cb_td_tbndh_tk.Location = new System.Drawing.Point(55, 52);
             this.cb_td_tbndh_tk.Name = "cb_td_tbndh_tk";
             this.cb_td_tbndh_tk.Size = new System.Drawing.Size(214, 21);
             this.cb_td_tbndh_tk.TabIndex = 19;
@@ -7103,7 +7142,7 @@
             "Trà Nóc",
             "Ninh Kiều",
             "Thốt Nốt"});
-            this.cb_td_tbndh_noi.Location = new System.Drawing.Point(284, 22);
+            this.cb_td_tbndh_noi.Location = new System.Drawing.Point(288, 52);
             this.cb_td_tbndh_noi.Name = "cb_td_tbndh_noi";
             this.cb_td_tbndh_noi.Size = new System.Drawing.Size(121, 21);
             this.cb_td_tbndh_noi.TabIndex = 17;
@@ -7130,7 +7169,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(6, 25);
+            this.label53.Location = new System.Drawing.Point(10, 55);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(39, 13);
             this.label53.TabIndex = 12;
@@ -8347,6 +8386,24 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(10, 25);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(47, 13);
+            this.label63.TabIndex = 21;
+            this.label63.Text = "Ngày DL";
+            // 
+            // dtp_td_tbdnldh
+            // 
+            this.dtp_td_tbdnldh.CustomFormat = "dd/MM/yyyy";
+            this.dtp_td_tbdnldh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_td_tbdnldh.Location = new System.Drawing.Point(63, 19);
+            this.dtp_td_tbdnldh.Name = "dtp_td_tbdnldh";
+            this.dtp_td_tbdnldh.Size = new System.Drawing.Size(98, 21);
+            this.dtp_td_tbdnldh.TabIndex = 20;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9388,6 +9445,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcbtd1;
         private DevExpress.XtraGrid.Columns.GridColumn coldeptcd1;
         private DevExpress.XtraGrid.Columns.GridColumn colphong2;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.DateTimePicker dtp_td_tbdn;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.DateTimePicker dtp_td_tbdnldh;
     }
 }
 

@@ -22,6 +22,8 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Lex.Db;
 using NLog;
+using DevExpress.XtraReports.UI;
+
 namespace insoden
 {
     public partial class MainForm : XtraForm
@@ -1147,8 +1149,8 @@ namespace insoden
             else
             {
                 var cif = Convert.ToDecimal(cifno);
-
-                var tbdn = _db.ThongBaoDuNo(cif).AsEnumerable().Cast<ThongBaoDuNo_Result>().ToList();
+                
+                var tbdn = _db.ThongBaoDuNo(cif, dtp_td_tbdn.Value).AsEnumerable().Cast<ThongBaoDuNo_Result>().ToList();
 
                 _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
 
@@ -1847,7 +1849,7 @@ namespace insoden
             {
                 var cifno = Lib.ExtractNumber(cifstring);
                 var cif = Convert.ToDecimal(cifno);
-                var ds = _db.ThongBaoNoDenHan(cif).AsEnumerable().Cast<ThongBaoNoDenHan_Result>().ToList();
+                var ds = _db.ThongBaoNoDenHan(cif, dtp_td_tbdnldh.Value).AsEnumerable().Cast<ThongBaoNoDenHan_Result>().ToList();
 
                 _InTBNoDenHan = new List<InTBNoDenHan>();
 
@@ -2908,6 +2910,29 @@ namespace insoden
                 GV_td_dhgl.ExportToXlsx(SaveFileExcel.FileName);
             }
             OpenExplorer(SaveFileExcel.FileName);
+        }
+
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+            XRInNCLT rep = new XRInNCLT();
+            rep.DataSource = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
+            using (ReportPrintTool printTool = new ReportPrintTool(rep))
+            {
+                // Invoke the Ribbon Print Preview form modally, 
+                // and load the report document into it.
+                printTool.ShowRibbonPreviewDialog();
+
+                // Invoke the Ribbon Print Preview form
+                // with the specified look and feel setting.
+               
+            }
+
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
         // Function for read data from Excel worksheet into DataTable
         /*
