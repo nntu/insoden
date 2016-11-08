@@ -489,9 +489,23 @@ namespace insoden
             }
             else
             {
-                var finbc = new Inbc((IList<DatainNoCo>)dgv_noco_tk.DataSource);
+                //   var finbc = new Inbc((IList<DatainNoCo>)dgv_noco_tk.DataSource);
 
-                finbc.Show();
+                //   finbc.Show();
+                XRInNCA5 rep = new XRInNCA5();
+                rep.DataSource = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
+                using (ReportPrintTool printTool = new ReportPrintTool(rep))
+                {
+                   
+                    // Invoke the Ribbon Print Preview form modally, 
+                    // and load the report document into it.
+                    printTool.ShowRibbonPreviewDialog();
+
+                    // Invoke the Ribbon Print Preview form
+                    // with the specified look and feel setting.
+
+                }
+
             }
         }
 
@@ -2360,8 +2374,8 @@ namespace insoden
             de_gl_trc_nbd.EditValue = de_gl_trc_nkt.EditValue = now;
             dtp_gl_ngay.DateTime = dtp_tcmpa_tc_ngay.Value = dtp__ngaycuoi_cif.Value =
                     dtp__ngaydau_cif.Value = dtp_atmxoa_ngaydau.Value = dtp_atmxoa_ngaycuoi.Value = now;
-            dtp_td_pyctl_ngaytl.Value = now;
-
+            dtp_td_pyctl_ngaytl.Value = dtp_td_tbdn.Value = dtp_td_tbdnldh.Value = now;
+      
             cb_tratk_tim.SelectedIndex = 0;
             cb_ATM_tracuthe.SelectedIndex = 0;
             cb_lsgl_bds.SelectedIndex = 0;

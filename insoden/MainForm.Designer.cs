@@ -647,6 +647,8 @@
             this.tb_tbdndenhan = new System.Windows.Forms.TabPage();
             this.splitContainerControl20 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.dtp_td_tbdnldh = new System.Windows.Forms.DateTimePicker();
             this.cb_td_tbndh_tk = new System.Windows.Forms.ComboBox();
             this.bt_td_tbndh_in = new System.Windows.Forms.Button();
             this.cb_td_tbndh_noi = new System.Windows.Forms.ComboBox();
@@ -789,8 +791,6 @@
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tracuulsglResult2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label63 = new System.Windows.Forms.Label();
-            this.dtp_td_tbdnldh = new System.Windows.Forms.DateTimePicker();
             this.tb_main.SuspendLayout();
             this.tp_saoke.SuspendLayout();
             this.tb_sk_saokeds.SuspendLayout();
@@ -1235,7 +1235,7 @@
             // 
             // bt_sk_xuatsaoke
             // 
-            this.bt_sk_xuatsaoke.Location = new System.Drawing.Point(488, 409);
+            this.bt_sk_xuatsaoke.Location = new System.Drawing.Point(488, 438);
             this.bt_sk_xuatsaoke.Name = "bt_sk_xuatsaoke";
             this.bt_sk_xuatsaoke.Size = new System.Drawing.Size(98, 23);
             this.bt_sk_xuatsaoke.TabIndex = 15;
@@ -1245,7 +1245,7 @@
             // 
             // bt_export_tk_excel
             // 
-            this.bt_export_tk_excel.Location = new System.Drawing.Point(384, 409);
+            this.bt_export_tk_excel.Location = new System.Drawing.Point(384, 438);
             this.bt_export_tk_excel.Name = "bt_export_tk_excel";
             this.bt_export_tk_excel.Size = new System.Drawing.Size(98, 23);
             this.bt_export_tk_excel.TabIndex = 15;
@@ -7114,6 +7114,24 @@
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Chọn khách hàng:";
             // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(10, 25);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(47, 13);
+            this.label63.TabIndex = 21;
+            this.label63.Text = "Ngày DL";
+            // 
+            // dtp_td_tbdnldh
+            // 
+            this.dtp_td_tbdnldh.CustomFormat = "dd/MM/yyyy";
+            this.dtp_td_tbdnldh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_td_tbdnldh.Location = new System.Drawing.Point(63, 19);
+            this.dtp_td_tbdnldh.Name = "dtp_td_tbdnldh";
+            this.dtp_td_tbdnldh.Size = new System.Drawing.Size(98, 21);
+            this.dtp_td_tbdnldh.TabIndex = 20;
+            // 
             // cb_td_tbndh_tk
             // 
             this.cb_td_tbndh_tk.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -8385,24 +8403,6 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(10, 25);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(47, 13);
-            this.label63.TabIndex = 21;
-            this.label63.Text = "Ngày DL";
-            // 
-            // dtp_td_tbdnldh
-            // 
-            this.dtp_td_tbdnldh.CustomFormat = "dd/MM/yyyy";
-            this.dtp_td_tbdnldh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_td_tbdnldh.Location = new System.Drawing.Point(63, 19);
-            this.dtp_td_tbdnldh.Name = "dtp_td_tbdnldh";
-            this.dtp_td_tbdnldh.Size = new System.Drawing.Size(98, 21);
-            this.dtp_td_tbdnldh.TabIndex = 20;
             // 
             // MainForm
             // 

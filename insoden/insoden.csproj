@@ -562,6 +562,12 @@
     <Compile Include="X1PCMS.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="XRInNCA5.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="XRInNCA5.Designer.cs">
+      <DependentUpon>XRInNCA5.cs</DependentUpon>
+    </Compile>
     <Compile Include="XRInNCLT.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -630,6 +636,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UC_ThuLai.resx">
       <DependentUpon>UC_ThuLai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XRInNCA5.resx">
+      <DependentUpon>XRInNCA5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XRInNCLT.resx">
       <DependentUpon>XRInNCLT.cs</DependentUpon>
