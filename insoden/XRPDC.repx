@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="16.1.4.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="XRPDC" SnapGridSize="25" ReportUnit="TenthsOfAMillimeter" Margins="64, 64, 64, 64" PaperKind="Custom" PageWidth="2098" PageHeight="2969" Version="16.1" Dpi="254" Font="Palatino Linotype, 11.25pt, charSet=0">
+  <Bands>
+    <Item1 Ref="1" ControlType="DetailBand" Name="Detail" HeightF="0" Dpi="254">
+      <SubBands>
+        <Item1 Ref="2" ControlType="SubBand" HeightF="0" KeepTogether="true" Dpi="100" />
+      </SubBands>
+    </Item1>
+    <Item2 Ref="3" ControlType="ReportHeaderBand" Name="ReportHeader" HeightF="0" Dpi="254">
+      <SubBands>
+        <Item1 Ref="4" ControlType="SubBand" HeightF="158" KeepTogether="true" Dpi="100">
+          <Controls>
+            <Item1 Ref="5" ControlType="XRPictureBox" Name="Picture1" SizeF="69,81" LocationFloat="25, 8" Dpi="100" BackColor="White" BorderColor="Black" />
+            <Item2 Ref="6" ControlType="XRLabel" Name="HoTen1" Text="Untranslated" TextAlignment="TopLeft" SizeF="502,25" LocationFloat="250, 133" Dpi="100" Font="Palatino Linotype, 12pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item3 Ref="7" ControlType="XRLabel" Name="Text8" CanGrow="false" Text="Kính gửi: (Ông/Bà/Đơn vị) :  " TextAlignment="TopRight" SizeF="216,25" LocationFloat="25, 133" Dpi="100" Font="Palatino Linotype, 12pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item4 Ref="8" ControlType="XRLabel" Name="Text4" CanGrow="false" Text="PHIẾU ĐỐI CHIẾU TÀI KHOẢN KHÁCH HÀNG" TextAlignment="TopCenter" SizeF="504,25" LocationFloat="166, 100" Dpi="100" Font="Palatino Linotype, 14pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item5 Ref="9" ControlType="XRLabel" Name="NgayDC1" CanGrow="false" Text="Untranslated" TextAlignment="TopRight" SizeF="350,21" LocationFloat="425, 66" Dpi="100" Font="Palatino Linotype, 11pt, style=Italic" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item6 Ref="10" ControlType="XRLine" Name="Line1" SizeF="750,2" LocationFloat="25, 91" Dpi="100" ForeColor="Black" BackColor="White" BorderColor="Black" Borders="Top" />
+            <Item7 Ref="11" ControlType="XRLabel" Name="Text3" CanGrow="false" Text="Địa Chỉ: {?DiaChiNH}" TextAlignment="TopLeft" SizeF="672,25" LocationFloat="100, 48" Dpi="100" Font="Palatino Linotype, 11pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item8 Ref="12" ControlType="XRLabel" Name="Text2" CanGrow="false" Text="BANK FOR INVESTMENT AND DEVELOPMENT OF VIETNAM JSC- {?TenNH_en}" TextAlignment="TopLeft" SizeF="672,25" LocationFloat="100, 25" Dpi="100" Font="Palatino Linotype, 11pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item9 Ref="13" ControlType="XRLabel" Name="Text1" CanGrow="false" Text="NGÂN HÀNG TMCP ĐẦU TƯ VÀ PHÁT TRIỂN VIỆT NAM - {?TenNH_vi}" TextAlignment="TopLeft" SizeF="673,25" LocationFloat="100, 8" Dpi="100" Font="Palatino Linotype, 11pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+          </Controls>
+        </Item1>
+        <Item2 Ref="14" ControlType="SubBand" HeightF="27" KeepTogether="true" Dpi="100">
+          <Controls>
+            <Item1 Ref="15" ControlType="XRLabel" Name="DiaChi1" Text="Untranslated" TextAlignment="TopLeft" SizeF="505,25" LocationFloat="248, 2" Dpi="100" Font="Palatino Linotype, 12pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item2 Ref="16" ControlType="XRLabel" Name="Text9" CanGrow="false" Text="Địa chỉ :" TextAlignment="TopRight" SizeF="150,25" LocationFloat="90, 2" Dpi="100" Font="Palatino Linotype, 12pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+          </Controls>
+        </Item2>
+        <Item3 Ref="17" ControlType="SubBand" HeightF="236" KeepTogether="true" Dpi="100">
+          <Controls>
+            <Item1 Ref="18" ControlType="XRLabel" Name="Text10" Text="&#x9;&#x9;Ngân hàng TMCP Đầu tư và Phát triển Việt Nam - {?TenNH_vi} xin thông báo số dư các tài khoản của Quý khách hàng tại Ngân hàng TMCP Đầu tư và Phát triển Việt Nam  - {?TenNH_vi} đến hết ngày {?NgayDC} theo bảng kê dưới đây : " TextAlignment="TopLeft" SizeF="725,68" LocationFloat="30, 0" Dpi="100" Font="Palatino Linotype, 12pt" ForeColor="Black" BackColor="White" BorderColor="Black" />
+          </Controls>
+        </Item3>
+      </SubBands>
+    </Item2>
+    <Item3 Ref="19" ControlType="PageHeaderBand" Name="PageHeader" HeightF="0" Dpi="254">
+      <SubBands>
+        <Item1 Ref="20" ControlType="SubBand" HeightF="0" KeepTogether="true" Dpi="100" />
+      </SubBands>
+    </Item3>
+    <Item4 Ref="21" ControlType="ReportFooterBand" Name="ReportFooter" HeightF="0" Dpi="254">
+      <SubBands>
+        <Item1 Ref="22" ControlType="SubBand" HeightF="517" KeepTogether="true" Dpi="100">
+          <Controls>
+            <Item1 Ref="23" ControlType="XRLabel" Name="Text5" CanGrow="false" Text="Để đảm bảo tính chính xác, đề nghị quí Ông/Bà ( Đơn vị ) đối chiếu, xác nhận và gửi lại cho Ngân hàng chúng tôi 01 bản trước ngày       /     /       theo địa chỉ:" TextAlignment="TopLeft" SizeF="719,50" LocationFloat="42, 25" Dpi="100" Font="Palatino Linotype, 12pt" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item2 Ref="24" ControlType="XRLabel" Name="Text11" CanGrow="false" Text="Phòng {?PhongLH}&#xA;{?DiaChiNH}&#xA;Điện Thoại: {?DienThoai}" TextAlignment="TopCenter" SizeF="491,66" LocationFloat="116, 83" Dpi="100" Font="Palatino Linotype, 12pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item3 Ref="25" ControlType="XRLabel" Name="Text7" CanGrow="false" Text="NGÂN HÀNG TMCP ĐẦU TƯ VÀ PHÁT TRIỂN VIỆT NAM &#xA;{?TenNH_vi}&#xA;{?chucdanh}" TextAlignment="TopCenter" SizeF="402,91" LocationFloat="343, 173" Dpi="100" Font="Palatino Linotype, 12pt, style=Bold" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item4 Ref="26" ControlType="XRLabel" Name="Text6" CanGrow="false" Text="......................,ngày ...../...../..............&#xA;Xác nhận của Ông/Bà/(Đơn Vị)&#xA;(Ký ghi rõ họ tên và đóng dấu)" TextAlignment="TopCenter" SizeF="283,100" LocationFloat="25, 166" Dpi="100" Font="Palatino Linotype, 12pt" ForeColor="Black" BackColor="White" BorderColor="Black" />
+            <Item5 Ref="27" ControlType="XRPictureBox" Name="Picture" SizeF="267,119" LocationFloat="403, 272" Dpi="100" BackColor="White" BorderColor="Black" />
+            <Item6 Ref="28" ControlType="XRLabel" Name="HoTen" CanGrow="false" Text="Untranslated" TextAlignment="TopCenter" SizeF="280,22" LocationFloat="395, 407" Dpi="100" Font="Times New Roman, 14pt" ForeColor="Black" BackColor="White" BorderColor="Black" />
+          </Controls>
+        </Item1>
+      </SubBands>
+    </Item4>
+    <Item5 Ref="29" ControlType="PageFooterBand" Name="PageFooter" HeightF="0" Dpi="254">
+      <SubBands>
+        <Item1 Ref="30" ControlType="SubBand" HeightF="0" KeepTogether="true" Dpi="100" />
+      </SubBands>
+    </Item5>
+  </Bands>
+</XtraReportsLayoutSerializer>

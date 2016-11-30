@@ -469,8 +469,27 @@ namespace insoden
             {
                 if (cb_ipdc_ck.Checked)
                 {
-                    var finbc = new frmInpdcGD(_lcif, _ttnghang);
-                    finbc.Show();
+                    //  var finbc = new frmInpdcGD(_lcif, _ttnghang);
+                    // finbc.Show();
+                    XRPDC rep = new XRPDC();
+                    rep.DataSource = _lcif;
+                    rep.RequestParameters = false;
+                    rep.ods_incif.DataSource = _lcif;
+                    rep.ods_ttnganhang.DataSource = _ttnghang;
+                    rep.Parameters["NgayDC"].Value = string.Format("Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+
+
+                    using (ReportPrintTool printTool = new ReportPrintTool(rep))
+                    {
+                        // Invoke the Ribbon Print Preview form modally, 
+                        // and load the report document into it.
+                        printTool.ShowRibbonPreviewDialog();
+
+                        // Invoke the Ribbon Print Preview form
+                        // with the specified look and feel setting.
+
+                    }
+
                 }
                 else
                 {
