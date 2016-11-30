@@ -353,7 +353,8 @@ namespace insoden
             else
             {
                 //  IQueryable<GLHIST_ERP> listgl;
-                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
+             
+                var gl = Lib.ExtractNumber(tk.Trim());
                 var glacc = Convert.ToDecimal(gl.Trim());
                 var ngaybd = (DateTime)de_gl_erp_datdau.EditValue;
                 var ngaykt = (DateTime)de_gl_erp_ketthuc.EditValue;
@@ -414,7 +415,7 @@ namespace insoden
             }
             else
             {
-                var gl = tk.Substring(0, tk.IndexOf("-", StringComparison.Ordinal) - 1);
+                var gl = Lib.ExtractNumber(tk.Trim());
                 var tkgl = Convert.ToDecimal(gl);
                 var ngaybd = (DateTime)de_gl_trc_nbd.EditValue;
                 var ngaykt = (DateTime)de_gl_trc_nkt.EditValue;
@@ -508,22 +509,22 @@ namespace insoden
             }
             else
             {
-                //   var finbc = new Inbc((IList<DatainNoCo>)dgv_noco_tk.DataSource);
+                var finbc = new Inbc((IList<DatainNoCo>)dgv_noco_tk.DataSource);
 
-                //   finbc.Show();
-                XRInNCA5 rep = new XRInNCA5();
-                rep.DataSource = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
-                using (ReportPrintTool printTool = new ReportPrintTool(rep))
-                {
-                   
-                    // Invoke the Ribbon Print Preview form modally, 
-                    // and load the report document into it.
-                    printTool.ShowRibbonPreviewDialog();
+                finbc.Show();
+                //XRInNCA5 rep = new XRInNCA5();
+                //rep.DataSource = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
+                //using (ReportPrintTool printTool = new ReportPrintTool(rep))
+                //{
 
-                    // Invoke the Ribbon Print Preview form
-                    // with the specified look and feel setting.
+                //    // Invoke the Ribbon Print Preview form modally, 
+                //    // and load the report document into it.
+                //    printTool.ShowRibbonPreviewDialog();
 
-                }
+                //    // Invoke the Ribbon Print Preview form
+                //    // with the specified look and feel setting.
+
+                //}
 
             }
         }
