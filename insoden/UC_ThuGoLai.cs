@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -48,7 +48,7 @@ namespace insoden
             {
                 repositoryItemComboBox1.Items.Add(string.Format(@"{0:###-##-##-######-#}", i.ACCTNO));
             }
-            repositoryItemComboBox1.Items.Add("Tiền Mặt");
+            repositoryItemComboBox1.Items.Add("Ti?n M?t");
 
             foreach (var i in _tp)
             {
@@ -60,7 +60,7 @@ namespace insoden
                 }
                 else
                 {
-                    ptra = "Tiền Mặt";
+                    ptra = "Ti?n M?t";
                 }
                 _inthulai.Add(new ThuGocLai()
                 {
@@ -71,7 +71,7 @@ namespace insoden
                     SoTienPhaiTra = (i.laicongdon ?? 0) + (i.laitracham ?? 0),
                     PhuongThucTra = ptra,
                     tkvay = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                    GhiChu = @"Ngày tính lãi " + i.denngay.Value.ToShortDateString(),
+                    GhiChu = @"Ng�y t�nh l�i " + i.denngay.Value.ToShortDateString(),
                     LoaiTien = i.tiente,
                     DuNo = i.duno ?? 0
 
@@ -115,7 +115,7 @@ namespace insoden
                         // if (GV_TD_Pyctl_ThuGocLai.GetRowCellValue(i, "LoaiTien").ToString() != loaitien) {
                         ////     wsList.InsertRow(row, 1);
                         //     wsList.Cells[row, 1].Value = a;
-                        //     wsList.Cells[row, 2].Value = "Tổng cộng " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(i, "LoaiTien").ToString();
+                        //     wsList.Cells[row, 2].Value = "T?ng c?ng " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(i, "LoaiTien").ToString();
                         //     wsList.Cells[row, 2].Style.Font.Bold = true;
                         //  //   wsList.Cells["A" + startRow + ":B" + row].Merge = true;
                         //     //wsList.Cells[row, 5].Formula = string.Format("Sum(C{0}:D{0})", row - 1);
@@ -154,7 +154,7 @@ namespace insoden
 
                     wsList.Cells["A10"].Value = wsList.Cells["A10"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "Cif");
                     wsList.Cells["A9"].Value = wsList.Cells["A9"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "TenKh");
-                    wsList.Cells["F3"].Value = string.Format(@"Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    wsList.Cells["F3"].Value = string.Format(@"Ng�y {0} th�ng {1} nam {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                     wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " + _phongthu;
 
                     wsList = pck.Workbook.Worksheets[2];

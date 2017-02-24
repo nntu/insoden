@@ -39,7 +39,7 @@ namespace insoden
         private readonly List<ClBc810> _dsbc810 = new List<ClBc810>();
         Config _cf;
         public static string _clickOnceLocation;
-        private bdsuEntities _dbbdsu;
+        private bdsuEntities _dbbdsu = new bdsuEntities();
         private List<DatainNoCo> _dbin;
         private ObjectResult<DoanhSoTientheoCif_Result> _doanhso;
         private List<ClBc833> _dsbc833 = new List<ClBc833>();
@@ -49,7 +49,7 @@ namespace insoden
         List<InTBNoDenHan> _InTBNoDenHan;
         private List<incif> _lcif;
         private List<GLHIST> _listLsGl = new List<GLHIST>();
-        private List<SoDuTaiTD_Result> _listsodutd;
+       
         DbInstance _localdb;
         private NetworkStream _ls;
         private List<GLHIST> _lsglhist;
@@ -72,8 +72,7 @@ namespace insoden
             _dbbdsu = new bdsuEntities();
             _db.Database.CommandTimeout = 300000;
             InitializeComponent();
-           
-        
+   
         }
 
         private delegate void UpdateLabelTextDelegate(string newText);
@@ -427,39 +426,7 @@ namespace insoden
             }
         }
 
-        private void bt_hdv_xuatexel_Click(object sender, EventArgs e)
-        {
-            if (_listsodutd != null)
-            {
-                if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-                {
-                    using (var pck = new ExcelPackage())
-                    {
-                        var fi = new FileInfo(SaveFileExcel.FileName);
-
-                        if (fi.Exists)
-                        {
-                            fi.Delete();
-                        }
-                        ExcelWorksheet wsList = pck.Workbook.Worksheets.Add("SoDuTaiTD");
-                        wsList.Cells["A1"].LoadFromCollection(_listsodutd, true);
-
-                        for (int i = 1; i <= wsList.Dimension.End.Column; i++)
-                        {
-                            wsList.Column(i).AutoFit();
-                        }
-
-                        pck.SaveAs(fi);
-                    }
-                    OpenExplorer(SaveFileExcel.FileName);
-                }
-            }
-            else
-            {
-                MessageBox.Show(@"Chưa có DL");
-            }
-        }
-
+      
         private void bt_in_Click(object sender, EventArgs e)
         {
             if (_lcif == null)
@@ -470,26 +437,26 @@ namespace insoden
             {
                 if (cb_ipdc_ck.Checked)
                 {
-                    //  var finbc = new frmInpdcGD(_lcif, _ttnghang);
-                    // finbc.Show();
-                    XRPDC rep = new XRPDC();
-                    rep.DataSource = _lcif;
-                    rep.RequestParameters = false;
-                    rep.ods_incif.DataSource = _lcif;
-                    rep.ods_ttnganhang.DataSource = _ttnghang;
-                    rep.Parameters["NgayDC"].Value = string.Format("Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    var finbc = new frmInpdcGD(_lcif, _ttnghang);
+                    finbc.Show();
+                    //XRPDC rep = new XRPDC();
+                    //rep.DataSource = _lcif;
+                    //rep.RequestParameters = false;
+                    //rep.ods_incif.DataSource = _lcif;
+                    //rep.ods_ttnganhang.DataSource = _ttnghang;
+                    //rep.Parameters["NgayDC"].Value = string.Format("Ngày {0} tháng {1} năm {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
 
 
-                    using (ReportPrintTool printTool = new ReportPrintTool(rep))
-                    {
-                        // Invoke the Ribbon Print Preview form modally, 
-                        // and load the report document into it.
-                        printTool.ShowRibbonPreviewDialog();
+                    //using (ReportPrintTool printTool = new ReportPrintTool(rep))
+                    //{
+                    //    // Invoke the Ribbon Print Preview form modally, 
+                    //    // and load the report document into it.
+                    //    printTool.ShowRibbonPreviewDialog();
 
-                        // Invoke the Ribbon Print Preview form
-                        // with the specified look and feel setting.
+                    //    // Invoke the Ribbon Print Preview form
+                    //    // with the specified look and feel setting.
 
-                    }
+                    //}
 
                 }
                 else
@@ -1163,13 +1130,7 @@ namespace insoden
             }
         }
 
-        private void bt_sl_dhv_tdiem_Click(object sender, EventArgs e)
-        {
-            _listsodutd = _db.SoDuTaiTD(dtp_hdv_td.Value).ToList();
-
-            gc_hdv.DataSource = new BindingSource(_listsodutd, "");
-            gv_hdv.BestFitColumns();
-        }
+       
 
         private void bt_tbdn_laysl_Click(object sender, EventArgs e)
         {
@@ -2967,6 +2928,31 @@ namespace insoden
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bt_hdv_laysl_Click(object sender, EventArgs e)
+        {
+            var re = _db.hdv_ngay_den_ngay((DateTime)de_nbd.EditValue, (DateTime)de_nkt.EditValue);
+            gc_hdvdn_hdv.DataSource = new BindingSource(re, "");
+
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            SaveFileExcel.FileName = "hdv_";
+            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
+            {
+                var fi = new FileInfo(SaveFileExcel.FileName);
+
+                if (fi.Exists)
+                {
+                    fi.Delete();
+                }
+                gv_hdvdn_hdv.OptionsPrint.AutoWidth = false;
+                gv_hdvdn_hdv.BestFitColumns();
+                gv_hdvdn_hdv.ExportToXlsx(SaveFileExcel.FileName);
+            }
+            OpenExplorer(SaveFileExcel.FileName);
         }
         // Function for read data from Excel worksheet into DataTable
         /*

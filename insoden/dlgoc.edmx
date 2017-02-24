@@ -570,6 +570,10 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="branch" Type="int" Mode="In" />
           <Parameter Name="tien" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="hdv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="hdv_ngay_den_ngay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaydau" Type="datetime" Mode="In" />
           <Parameter Name="ngaycuoi" Type="datetime" Mode="In" />
@@ -847,6 +851,10 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
         </Function>
         <Function Name="UFNG_ONLY_DIGITS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
           <Parameter Name="StrVal" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="vay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaybd" Type="datetime" Mode="In" />
+          <Parameter Name="ngaykt" Type="datetime" Mode="In" />
         </Function>
         <EntityContainer Name="dlgocModelStoreContainer">
           <EntitySet Name="tb_checkdulieu" EntityType="Self.tb_checkdulieu" Schema="dbo" store:Type="Tables" />
@@ -1402,11 +1410,11 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="tk" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="ThongBaoDuNo" ReturnType="Collection(dlgocModel.ThongBaoDuNo_Result)">
-          <Parameter Name="cif" Mode="In" Type="Decimal" />
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
             <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="ThongBaoNoDenHan" ReturnType="Collection(dlgocModel.ThongBaoNoDenHan_Result)">
-          <Parameter Name="cif" Mode="In" Type="Decimal" />
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
             <Parameter Name="ngaydl" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="GLMASTs" EntityType="dlgocModel.GLMAST" />
@@ -1552,10 +1560,10 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="tableHTML" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="laytygia_ngay_old" ReturnType="Collection(dlgocModel.laytygia_ngay_old_Result)">
-            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          <Parameter Name="ngay" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="laytygiangay_old" ReturnType="Collection(dlgocModel.laytygiangay_old_Result)">
-            <Parameter Name="ngay" Mode="In" Type="DateTime" />
+          <Parameter Name="ngay" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="removeDuplicate_cifallday" />
           <FunctionImport Name="SaoKeCif2" ReturnType="Collection(dlgocModel.SaoKeCif2_Result)">
@@ -1614,6 +1622,14 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <FunctionImport Name="udf_PivotParameters" IsComposable="true" ReturnType="Collection(String)">
             <Parameter Name="ParamaterList" Mode="In" Type="String" />
             <Parameter Name="Delimiter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="hdv" ReturnType="Collection(dlgocModel.hdv_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="vay" ReturnType="Collection(dlgocModel.vay_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
@@ -2478,6 +2494,15 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="Int32" Name="itemNumber" Nullable="true" />
           <Property Type="Int32" Name="start" Nullable="true" />
           <Property Type="Int32" Name="num" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="hdv_Result">
+          <Property Type="DateTime" Name="datadate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="tong" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="vay_Result">
+          <Property Type="DateTime" Name="datadate" Nullable="false" Precision="23" />
+          <Property Type="Decimal" Name="tongduno" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="String" Name="loai" Nullable="false" MaxLength="3" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3622,6 +3647,23 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="spQueryToHtmlTable" FunctionName="dlgocModel.Store.spQueryToHtmlTable" />
           <FunctionImportMapping FunctionImportName="udf_PivotParameters" FunctionName="dlgocModel.Store.udf_PivotParameters" />
+          <FunctionImportMapping FunctionImportName="hdv" FunctionName="dlgocModel.Store.hdv">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.hdv_Result">
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
+                <ScalarProperty Name="tong" ColumnName="tong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="vay" FunctionName="dlgocModel.Store.vay">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.vay_Result">
+                <ScalarProperty Name="datadate" ColumnName="datadate" />
+                <ScalarProperty Name="tongduno" ColumnName="tongduno" />
+                <ScalarProperty Name="loai" ColumnName="loai" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

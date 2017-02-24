@@ -227,16 +227,21 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.mtb_tk = new System.Windows.Forms.MaskedTextBox();
-            this.tb_HDV = new System.Windows.Forms.TabPage();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.bt_hdv_xuatexel = new System.Windows.Forms.Button();
-            this.bt_sl_dhv_tdiem = new System.Windows.Forms.Button();
-            this.dtp_hdv_td = new System.Windows.Forms.DateTimePicker();
-            this.label27 = new System.Windows.Forms.Label();
-            this.gc_hdv = new DevExpress.XtraGrid.GridControl();
-            this.gv_hdv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tb_HDV_DN = new System.Windows.Forms.TabPage();
+            this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtp_HDV = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainerControl24 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
+            this.de_nkt = new DevExpress.XtraEditors.DateEdit();
+            this.de_nbd = new DevExpress.XtraEditors.DateEdit();
+            this.button19 = new System.Windows.Forms.Button();
+            this.bt_hdv_laysl = new System.Windows.Forms.Button();
+            this.gc_hdvdn_hdv = new DevExpress.XtraGrid.GridControl();
+            this.hdv_ngay_den_ngay_ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gv_hdvdn_hdv = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.coldatadate7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltonghdv = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tb_reportviewer = new System.Windows.Forms.TabPage();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtp_bc833 = new DevExpress.XtraTab.XtraTabPage();
@@ -859,13 +864,19 @@
             this.xtraTabPage5.SuspendLayout();
             this.tb_in_sec.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tb_HDV.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
-            this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_hdv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hdv)).BeginInit();
+            this.tb_HDV_DN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
+            this.xtraTabControl4.SuspendLayout();
+            this.xtp_HDV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl24)).BeginInit();
+            this.splitContainerControl24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_hdvdn_hdv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hdv_ngay_den_ngay_ResultBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_hdvdn_hdv)).BeginInit();
             this.tb_reportviewer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -1052,7 +1063,7 @@
             this.tb_main.Controls.Add(this.tb_atm);
             this.tb_main.Controls.Add(this.tb_tracuutk);
             this.tb_main.Controls.Add(this.tb_in_sec);
-            this.tb_main.Controls.Add(this.tb_HDV);
+            this.tb_main.Controls.Add(this.tb_HDV_DN);
             this.tb_main.Controls.Add(this.tb_reportviewer);
             this.tb_main.Controls.Add(this.tb_gl);
             this.tb_main.Controls.Add(this.tb_TinDung);
@@ -3032,114 +3043,166 @@
             this.mtb_tk.Size = new System.Drawing.Size(208, 21);
             this.mtb_tk.TabIndex = 13;
             // 
-            // tb_HDV
+            // tb_HDV_DN
             // 
-            this.tb_HDV.Controls.Add(this.tabControl1);
-            this.tb_HDV.Location = new System.Drawing.Point(4, 22);
-            this.tb_HDV.Name = "tb_HDV";
-            this.tb_HDV.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_HDV.Size = new System.Drawing.Size(695, 519);
-            this.tb_HDV.TabIndex = 9;
-            this.tb_HDV.Text = "HDV";
-            this.tb_HDV.UseVisualStyleBackColor = true;
+            this.tb_HDV_DN.Controls.Add(this.xtraTabControl4);
+            this.tb_HDV_DN.Location = new System.Drawing.Point(4, 22);
+            this.tb_HDV_DN.Name = "tb_HDV_DN";
+            this.tb_HDV_DN.Padding = new System.Windows.Forms.Padding(3);
+            this.tb_HDV_DN.Size = new System.Drawing.Size(695, 519);
+            this.tb_HDV_DN.TabIndex = 9;
+            this.tb_HDV_DN.Text = "HDV-DN";
+            this.tb_HDV_DN.UseVisualStyleBackColor = true;
             // 
-            // tabControl1
+            // xtraTabControl4
             // 
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(689, 513);
-            this.tabControl1.TabIndex = 0;
+            this.xtraTabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl4.Location = new System.Drawing.Point(3, 3);
+            this.xtraTabControl4.Name = "xtraTabControl4";
+            this.xtraTabControl4.SelectedTabPage = this.xtp_HDV;
+            this.xtraTabControl4.Size = new System.Drawing.Size(689, 513);
+            this.xtraTabControl4.TabIndex = 2;
+            this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtp_HDV});
             // 
-            // tabPage4
+            // xtp_HDV
             // 
-            this.tabPage4.Controls.Add(this.splitContainerControl1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(681, 487);
-            this.tabPage4.TabIndex = 0;
-            this.tabPage4.Text = "Số dư thời điểm";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.xtp_HDV.Controls.Add(this.splitContainerControl24);
+            this.xtp_HDV.Name = "xtp_HDV";
+            this.xtp_HDV.Size = new System.Drawing.Size(687, 488);
+            this.xtp_HDV.Text = "HDV";
             // 
-            // splitContainerControl1
+            // splitContainerControl24
             // 
-            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl1.Horizontal = false;
-            this.splitContainerControl1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.bt_hdv_xuatexel);
-            this.splitContainerControl1.Panel1.Controls.Add(this.bt_sl_dhv_tdiem);
-            this.splitContainerControl1.Panel1.Controls.Add(this.dtp_hdv_td);
-            this.splitContainerControl1.Panel1.Controls.Add(this.label27);
-            this.splitContainerControl1.Panel1.Text = "Panel1";
-            this.splitContainerControl1.Panel2.Controls.Add(this.gc_hdv);
-            this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(675, 481);
-            this.splitContainerControl1.SplitterPosition = 76;
-            this.splitContainerControl1.TabIndex = 6;
-            this.splitContainerControl1.Text = "splitContainerControl1";
+            this.splitContainerControl24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl24.Horizontal = false;
+            this.splitContainerControl24.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl24.Name = "splitContainerControl24";
+            this.splitContainerControl24.Panel1.Controls.Add(this.labelControl24);
+            this.splitContainerControl24.Panel1.Controls.Add(this.labelControl25);
+            this.splitContainerControl24.Panel1.Controls.Add(this.de_nkt);
+            this.splitContainerControl24.Panel1.Controls.Add(this.de_nbd);
+            this.splitContainerControl24.Panel1.Controls.Add(this.button19);
+            this.splitContainerControl24.Panel1.Controls.Add(this.bt_hdv_laysl);
+            this.splitContainerControl24.Panel1.Text = "Panel1";
+            this.splitContainerControl24.Panel2.Controls.Add(this.gc_hdvdn_hdv);
+            this.splitContainerControl24.Panel2.Text = "Panel2";
+            this.splitContainerControl24.Size = new System.Drawing.Size(687, 488);
+            this.splitContainerControl24.SplitterPosition = 78;
+            this.splitContainerControl24.TabIndex = 2;
+            this.splitContainerControl24.Text = "splitContainerControl24";
             // 
-            // bt_hdv_xuatexel
+            // labelControl24
             // 
-            this.bt_hdv_xuatexel.Location = new System.Drawing.Point(21, 48);
-            this.bt_hdv_xuatexel.Name = "bt_hdv_xuatexel";
-            this.bt_hdv_xuatexel.Size = new System.Drawing.Size(75, 23);
-            this.bt_hdv_xuatexel.TabIndex = 3;
-            this.bt_hdv_xuatexel.Text = "Xuất File";
-            this.bt_hdv_xuatexel.UseVisualStyleBackColor = true;
-            this.bt_hdv_xuatexel.Click += new System.EventHandler(this.bt_hdv_xuatexel_Click);
+            this.labelControl24.Location = new System.Drawing.Point(144, 22);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(37, 13);
+            this.labelControl24.TabIndex = 4;
+            this.labelControl24.Text = "Ngày kt";
             // 
-            // bt_sl_dhv_tdiem
+            // labelControl25
             // 
-            this.bt_sl_dhv_tdiem.Location = new System.Drawing.Point(232, 21);
-            this.bt_sl_dhv_tdiem.Name = "bt_sl_dhv_tdiem";
-            this.bt_sl_dhv_tdiem.Size = new System.Drawing.Size(75, 23);
-            this.bt_sl_dhv_tdiem.TabIndex = 1;
-            this.bt_sl_dhv_tdiem.Text = "Lấy số liệu";
-            this.bt_sl_dhv_tdiem.UseVisualStyleBackColor = true;
-            this.bt_sl_dhv_tdiem.Click += new System.EventHandler(this.bt_sl_dhv_tdiem_Click);
+            this.labelControl25.Location = new System.Drawing.Point(14, 22);
+            this.labelControl25.Name = "labelControl25";
+            this.labelControl25.Size = new System.Drawing.Size(40, 13);
+            this.labelControl25.TabIndex = 4;
+            this.labelControl25.Text = "Ngày bd";
             // 
-            // dtp_hdv_td
+            // de_nkt
             // 
-            this.dtp_hdv_td.CustomFormat = "dd/MM/yyyy";
-            this.dtp_hdv_td.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_hdv_td.Location = new System.Drawing.Point(85, 21);
-            this.dtp_hdv_td.Name = "dtp_hdv_td";
-            this.dtp_hdv_td.Size = new System.Drawing.Size(130, 21);
-            this.dtp_hdv_td.TabIndex = 0;
+            this.de_nkt.EditValue = new System.DateTime(2017, 2, 24, 10, 6, 44, 0);
+            this.de_nkt.Location = new System.Drawing.Point(187, 18);
+            this.de_nkt.Name = "de_nkt";
+            this.de_nkt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.de_nkt.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.de_nkt.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.de_nkt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_nkt.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.de_nkt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_nkt.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.de_nkt.Size = new System.Drawing.Size(79, 20);
+            this.de_nkt.TabIndex = 2;
             // 
-            // label27
+            // de_nbd
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(18, 23);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(59, 13);
-            this.label27.TabIndex = 5;
-            this.label27.Text = "Chọn ngày";
+            this.de_nbd.Cursor = System.Windows.Forms.Cursors.Default;
+            this.de_nbd.EditValue = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
+            this.de_nbd.Location = new System.Drawing.Point(59, 18);
+            this.de_nbd.Name = "de_nbd";
+            this.de_nbd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.de_nbd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.de_nbd.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.de_nbd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_nbd.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.de_nbd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_nbd.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.de_nbd.Size = new System.Drawing.Size(79, 20);
+            this.de_nbd.TabIndex = 2;
             // 
-            // gc_hdv
+            // button19
             // 
-            this.gc_hdv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_hdv.Location = new System.Drawing.Point(0, 0);
-            this.gc_hdv.MainView = this.gv_hdv;
-            this.gc_hdv.Name = "gc_hdv";
-            this.gc_hdv.Size = new System.Drawing.Size(675, 393);
-            this.gc_hdv.TabIndex = 0;
-            this.gc_hdv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_hdv});
+            this.button19.Location = new System.Drawing.Point(122, 51);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(65, 23);
+            this.button19.TabIndex = 1;
+            this.button19.Text = "Xuat Excel";
+            this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
-            // gv_hdv
+            // bt_hdv_laysl
             // 
-            this.gv_hdv.GridControl = this.gc_hdv;
-            this.gv_hdv.Name = "gv_hdv";
-            this.gv_hdv.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.gv_hdv.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            this.gv_hdv.OptionsBehavior.Editable = false;
-            this.gv_hdv.OptionsView.EnableAppearanceEvenRow = true;
-            this.gv_hdv.OptionsView.ShowFooter = true;
+            this.bt_hdv_laysl.Location = new System.Drawing.Point(36, 51);
+            this.bt_hdv_laysl.Name = "bt_hdv_laysl";
+            this.bt_hdv_laysl.Size = new System.Drawing.Size(80, 23);
+            this.bt_hdv_laysl.TabIndex = 1;
+            this.bt_hdv_laysl.Text = "Lấy thông Tin";
+            this.bt_hdv_laysl.UseVisualStyleBackColor = true;
+            this.bt_hdv_laysl.Click += new System.EventHandler(this.bt_hdv_laysl_Click);
+            // 
+            // gc_hdvdn_hdv
+            // 
+            this.gc_hdvdn_hdv.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gc_hdvdn_hdv.DataSource = this.hdv_ngay_den_ngay_ResultBindingSource;
+            this.gc_hdvdn_hdv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_hdvdn_hdv.Location = new System.Drawing.Point(0, 0);
+            this.gc_hdvdn_hdv.MainView = this.gv_hdvdn_hdv;
+            this.gc_hdvdn_hdv.Name = "gc_hdvdn_hdv";
+            this.gc_hdvdn_hdv.Size = new System.Drawing.Size(687, 398);
+            this.gc_hdvdn_hdv.TabIndex = 0;
+            this.gc_hdvdn_hdv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_hdvdn_hdv});
+            // 
+            // hdv_ngay_den_ngay_ResultBindingSource
+            // 
+            this.hdv_ngay_den_ngay_ResultBindingSource.DataSource = typeof(insoden.hdv_ngay_den_ngay_Result);
+            // 
+            // gv_hdvdn_hdv
+            // 
+            this.gv_hdvdn_hdv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.coldatadate7,
+            this.coltonghdv});
+            this.gv_hdvdn_hdv.GridControl = this.gc_hdvdn_hdv;
+            this.gv_hdvdn_hdv.Name = "gv_hdvdn_hdv";
+            // 
+            // coldatadate7
+            // 
+            this.coldatadate7.FieldName = "datadate";
+            this.coldatadate7.Name = "coldatadate7";
+            this.coldatadate7.Visible = true;
+            this.coldatadate7.VisibleIndex = 0;
+            // 
+            // coltonghdv
+            // 
+            this.coltonghdv.DisplayFormat.FormatString = "N2";
+            this.coltonghdv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.coltonghdv.FieldName = "tonghdv";
+            this.coltonghdv.Name = "coltonghdv";
+            this.coltonghdv.Visible = true;
+            this.coltonghdv.VisibleIndex = 1;
             // 
             // tb_reportviewer
             // 
@@ -8500,13 +8563,19 @@
             this.tb_in_sec.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tb_HDV.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
-            this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gc_hdv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hdv)).EndInit();
+            this.tb_HDV_DN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
+            this.xtraTabControl4.ResumeLayout(false);
+            this.xtp_HDV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl24)).EndInit();
+            this.splitContainerControl24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_hdvdn_hdv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hdv_ngay_den_ngay_ResultBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_hdvdn_hdv)).EndInit();
             this.tb_reportviewer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
@@ -8753,13 +8822,7 @@
         private System.Windows.Forms.DateTimePicker dtp_sk_ngaycuoi;
         private System.Windows.Forms.DateTimePicker dtp_sk_ngaydau;
         private System.Windows.Forms.Button bt_SK_xuatxls;
-        private System.Windows.Forms.TabPage tb_HDV;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button bt_hdv_xuatexel;
-        private System.Windows.Forms.Button bt_sl_dhv_tdiem;
-        private System.Windows.Forms.DateTimePicker dtp_hdv_td;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TabPage tb_HDV_DN;
         private System.Windows.Forms.TabPage tb_atm_pht;
         private System.Windows.Forms.Button bt_atm_pht_laydl;
         private System.Windows.Forms.Label label28;
@@ -8770,9 +8833,6 @@
         private System.Windows.Forms.Button bt_atm_pht_xuatfile;
         private System.Windows.Forms.BindingSource x1PCMSBindingSource;
         private DevExpress.XtraBars.FormAssistant formAssistant1;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraGrid.GridControl gc_hdv;
-        private DevExpress.XtraGrid.Views.Grid.GridView gv_hdv;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
@@ -9450,6 +9510,20 @@
         private System.Windows.Forms.DateTimePicker dtp_td_tbdn;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.DateTimePicker dtp_td_tbdnldh;
+        private DevExpress.XtraTab.XtraTabControl xtraTabControl4;
+        private DevExpress.XtraTab.XtraTabPage xtp_HDV;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl25;
+        private DevExpress.XtraEditors.DateEdit de_nkt;
+        private DevExpress.XtraEditors.DateEdit de_nbd;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button bt_hdv_laysl;
+        private DevExpress.XtraGrid.GridControl gc_hdvdn_hdv;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_hdvdn_hdv;
+        private System.Windows.Forms.BindingSource hdv_ngay_den_ngay_ResultBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn coldatadate7;
+        private DevExpress.XtraGrid.Columns.GridColumn coltonghdv;
     }
 }
 

@@ -1,16 +1,16 @@
-ï»¿
+
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("In BÃ¡o CÃ³ BÃ¡o Ná»£")]
-[assembly: AssemblyDescription("In BÃ¡o CÃ³ BÃ¡o Ná»£")]
+[assembly: AssemblyTitle("In Báo Có Báo N?")]
+[assembly: AssemblyDescription("In Báo Có Báo N?")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BIDVCT")]
 [assembly: AssemblyProduct("insoden")]
-[assembly: AssemblyCopyright("Copyright Â©  2013 by tunn1")]
+[assembly: AssemblyCopyright("Copyright ©  2013 by tunn1")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

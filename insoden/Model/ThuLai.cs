@@ -1,4 +1,4 @@
-﻿namespace insoden
+namespace insoden
 {
     public class ThuLai
     {

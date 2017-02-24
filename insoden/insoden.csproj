@@ -30,7 +30,7 @@
     <PublisherName>BIDVCanTho</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>226</ApplicationRevision>
+    <ApplicationRevision>227</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -71,10 +71,10 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>54DA158D5AC01C813694EDA01DB72E168F8618DF</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4E187628A3DD8F06874CC43356FBE3D127A476A2</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>insoden_2_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>insoden_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -93,7 +93,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>insoden_2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>insoden_1_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>insoden.Program</StartupObject>
@@ -191,8 +191,8 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.4.3.10\lib\net40\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.3\lib\net40\NLog.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="NLog.Extended, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
@@ -259,6 +259,9 @@
     </Compile>
     <Compile Include="glconfig.cs" />
     <Compile Include="hdv_ngay_den_ngay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="hdv_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="LayTKThanhToanTheoCIF_Result.cs">
@@ -559,6 +562,9 @@
     <Compile Include="UC_ThuLai.Designer.cs">
       <DependentUpon>UC_ThuLai.cs</DependentUpon>
     </Compile>
+    <Compile Include="vay_Result.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="X1PCMS.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
@@ -720,7 +726,9 @@
     <Content Include="gl.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="insoden_1_TemporaryKey.pfx" />
     <None Include="insoden_2_TemporaryKey.pfx" />
+    <None Include="insoden_TemporaryKey.pfx" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
