@@ -5,16 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="34a9b35d0bd94341b8c56437b042aa29" Name="Diagram1" ZoomLevel="77">
-        <EntityTypeShape EntityType="dlgocModel.DDDHIS_DATE" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="dlgocModel.DDMAST_DATE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dlgocModel.tb_checkdulieu" Width="1.5" PointX="5.875" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dlgocModel.tb_loaiKH" Width="1.5" PointX="5.375" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dlgocModel.X1PCMS" Width="1.5" PointX="0.75" PointY="2.75" />
-        <EntityTypeShape EntityType="dlgocModel.GLHIST" Width="1.5" PointX="5.375" PointY="6.75" />
         <EntityTypeShape EntityType="dlgocModel.LNDHIS_DATE" Width="1.5" PointX="9.375" PointY="0.75" />
-        <EntityTypeShape EntityType="dlgocModel.GLHIST_ERP" Width="1.5" PointX="9.375" PointY="6.75" />
         <EntityTypeShape EntityType="dlgocModel.GLMAST_ERP" Width="1.5" PointX="11.375" PointY="0.75" />
         <EntityTypeShape EntityType="dlgocModel.GLMAST" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="dlgocModel.DDMAST_DATE" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="dlgocModel.GLHIST" Width="1.5" PointX="7.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

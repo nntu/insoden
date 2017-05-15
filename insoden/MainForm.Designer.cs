@@ -81,16 +81,6 @@
             this.rb_all = new System.Windows.Forms.RadioButton();
             this.rb_baoco = new System.Windows.Forms.RadioButton();
             this.rb_baono = new System.Windows.Forms.RadioButton();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.dtp_saoke_dienluc_nc = new System.Windows.Forms.DateTimePicker();
-            this.dtp_saoke_dienluc_nd = new System.Windows.Forms.DateTimePicker();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -804,13 +794,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_noco_tk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datainNoCoBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
-            this.splitContainer5.Panel1.SuspendLayout();
-            this.splitContainer5.Panel2.SuspendLayout();
-            this.splitContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_noco_cif)).BeginInit();
@@ -1090,7 +1073,6 @@
             // tb_sk_saokeds
             // 
             this.tb_sk_saokeds.Controls.Add(this.tab_saoke_nctk);
-            this.tb_sk_saokeds.Controls.Add(this.tabPage3);
             this.tb_sk_saokeds.Controls.Add(this.tabPage2);
             this.tb_sk_saokeds.Controls.Add(this.tb_inphieudoichieu);
             this.tb_sk_saokeds.Controls.Add(this.tb_sk_phipos);
@@ -1509,117 +1491,6 @@
             this.rb_baono.TabStop = true;
             this.rb_baono.Text = "Báo nợ";
             this.rb_baono.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.label30);
-            this.tabPage3.Controls.Add(this.label31);
-            this.tabPage3.Controls.Add(this.dtp_saoke_dienluc_nc);
-            this.tabPage3.Controls.Add(this.dtp_saoke_dienluc_nd);
-            this.tabPage3.Controls.Add(this.splitContainer5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(681, 487);
-            this.tabPage3.TabIndex = 9;
-            this.tabPage3.Text = "Điện Lực NK";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(33, 30);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(53, 13);
-            this.label30.TabIndex = 14;
-            this.label30.Text = "Ngày đầu";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(222, 30);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(56, 13);
-            this.label31.TabIndex = 15;
-            this.label31.Text = "Ngày Cuối";
-            // 
-            // dtp_saoke_dienluc_nc
-            // 
-            this.dtp_saoke_dienluc_nc.CustomFormat = "dd/MM/yyyy";
-            this.dtp_saoke_dienluc_nc.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_saoke_dienluc_nc.Location = new System.Drawing.Point(284, 26);
-            this.dtp_saoke_dienluc_nc.Name = "dtp_saoke_dienluc_nc";
-            this.dtp_saoke_dienluc_nc.Size = new System.Drawing.Size(98, 21);
-            this.dtp_saoke_dienluc_nc.TabIndex = 13;
-            // 
-            // dtp_saoke_dienluc_nd
-            // 
-            this.dtp_saoke_dienluc_nd.CustomFormat = "dd/MM/yyyy";
-            this.dtp_saoke_dienluc_nd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_saoke_dienluc_nd.Location = new System.Drawing.Point(98, 26);
-            this.dtp_saoke_dienluc_nd.Name = "dtp_saoke_dienluc_nd";
-            this.dtp_saoke_dienluc_nd.Size = new System.Drawing.Size(98, 21);
-            this.dtp_saoke_dienluc_nd.TabIndex = 12;
-            // 
-            // splitContainer5
-            // 
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer5.Name = "splitContainer5";
-            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.button1);
-            this.splitContainer5.Panel1.Controls.Add(this.button2);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.gridControl1);
-            this.splitContainer5.Size = new System.Drawing.Size(675, 481);
-            this.splitContainer5.SplitterDistance = 75;
-            this.splitContainer5.TabIndex = 19;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(394, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(33, 49);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Xuất Excel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(675, 402);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.MultiSelect = true;
-            this.gridView1.OptionsView.ColumnAutoWidth = false;
-            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
-            this.gridView1.OptionsView.RowAutoHeight = true;
             // 
             // tabPage2
             // 
@@ -8488,14 +8359,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.datainNoCoBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.splitContainer5.Panel1.ResumeLayout(false);
-            this.splitContainer5.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
-            this.splitContainer5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -9176,16 +9039,6 @@
         private System.Windows.Forms.RadioButton rb_all;
         private System.Windows.Forms.RadioButton rb_baoco;
         private System.Windows.Forms.RadioButton rb_baono;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.DateTimePicker dtp_saoke_dienluc_nc;
-        private System.Windows.Forms.DateTimePicker dtp_saoke_dienluc_nd;
-        private System.Windows.Forms.SplitContainer splitContainer5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label5;

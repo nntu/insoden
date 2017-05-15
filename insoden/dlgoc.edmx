@@ -6,51 +6,6 @@
     <edmx:StorageModels>
     <Schema Namespace="dlgocModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'dlgoc.dbo.DDDHIS_DATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="DDDHIS_DATE">
-          <Key>
-            <PropertyRef Name="BATCH" />
-            <PropertyRef Name="SEQ" />
-            <PropertyRef Name="TRSOBR" />
-            <PropertyRef Name="TRACCT" />
-            <PropertyRef Name="TRATYP" />
-            <PropertyRef Name="TRANCD" />
-            <PropertyRef Name="AMT" />
-            <PropertyRef Name="TRCTYP" />
-            <PropertyRef Name="DORC" />
-            <PropertyRef Name="BORI" />
-            <PropertyRef Name="TRUSER" />
-            <PropertyRef Name="TRDAT6" />
-            <PropertyRef Name="DDGRUP" />
-            <PropertyRef Name="TREFTH" />
-          </Key>
-          <Property Name="DATADATE" Type="datetime" />
-          <Property Name="BATCH" Type="decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="SEQ" Type="decimal" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="TRBR" Type="decimal" Precision="5" Scale="0" />
-          <Property Name="TRSOBR" Type="decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TRACCT" Type="decimal" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="TRATYP" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="TRANCD" Type="decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="AMT" Type="decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="TRCTYP" Type="char" MaxLength="4" Nullable="false" />
-          <Property Name="DORC" Type="char" MaxLength="1" Nullable="false" />
-          <Property Name="BORI" Type="char" MaxLength="2" Nullable="false" />
-          <Property Name="TREFF6" Type="datetime" />
-          <Property Name="TRSUPV" Type="char" MaxLength="10" />
-          <Property Name="TRUSER" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="TRDAT6" Type="datetime" Nullable="false" />
-          <Property Name="TRTIME" Type="decimal" Precision="6" Scale="0" />
-          <Property Name="DDGRUP" Type="decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="TREFTH" Type="varchar" MaxLength="254" Nullable="false" />
-          <Property Name="TRTKTN" Type="char" MaxLength="20" />
-          <Property Name="BRANCH" Type="char" MaxLength="10" />
-          <Property Name="LASTMDATE" Type="datetime" />
-          <Property Name="LMDATE" Type="char" MaxLength="15" />
-          <Property Name="AUXTRC" Type="char" MaxLength="10" />
-          <Property Name="DEPTCODE" Type="char" MaxLength="3" />
-        </EntityType>
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'dlgoc.dbo.DDMAST_DATE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="DDMAST_DATE">
           <Key>
@@ -517,7 +472,7 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
         <Function Name="DoanhSoTientheoCif" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
-          <Parameter Name="cif" Type="int" Mode="In" />
+          <Parameter Name="cif" Type="decimal" Mode="In" />
         </Function>
         <Function Name="dondepCheckDulieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="fn_CleanAndTrim" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
@@ -526,7 +481,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ReplaceNewlineWith" Type="nvarchar" Mode="In" />
           <Parameter Name="PurgeReplaceCharsAtEnds" Type="bit" Mode="In" />
         </Function>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
         <Function Name="fn_split" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="string" Type="varchar" Mode="In" />
           <Parameter Name="delimiter" Type="char" Mode="In" />
@@ -727,36 +681,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="branch" Type="int" Mode="In" />
           <Parameter Name="tien" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SplitVarbinary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="bytes" Type="varbinary" Mode="In" />
           <Parameter Name="delimiter" Type="tinyint" Mode="In" />
@@ -859,35 +783,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
         <EntityContainer Name="dlgocModelStoreContainer">
           <EntitySet Name="tb_checkdulieu" EntityType="Self.tb_checkdulieu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_loaiKH" EntityType="Self.tb_loaiKH" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="DDDHIS_DATE" EntityType="Self.DDDHIS_DATE" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DDDHIS_DATE].[DATADATE] AS [DATADATE], 
-    [DDDHIS_DATE].[BATCH] AS [BATCH], 
-    [DDDHIS_DATE].[SEQ] AS [SEQ], 
-    [DDDHIS_DATE].[TRBR] AS [TRBR], 
-    [DDDHIS_DATE].[TRSOBR] AS [TRSOBR], 
-    [DDDHIS_DATE].[TRACCT] AS [TRACCT], 
-    [DDDHIS_DATE].[TRATYP] AS [TRATYP], 
-    [DDDHIS_DATE].[TRANCD] AS [TRANCD], 
-    [DDDHIS_DATE].[AMT] AS [AMT], 
-    [DDDHIS_DATE].[TRCTYP] AS [TRCTYP], 
-    [DDDHIS_DATE].[DORC] AS [DORC], 
-    [DDDHIS_DATE].[BORI] AS [BORI], 
-    [DDDHIS_DATE].[TREFF6] AS [TREFF6], 
-    [DDDHIS_DATE].[TRSUPV] AS [TRSUPV], 
-    [DDDHIS_DATE].[TRUSER] AS [TRUSER], 
-    [DDDHIS_DATE].[TRDAT6] AS [TRDAT6], 
-    [DDDHIS_DATE].[TRTIME] AS [TRTIME], 
-    [DDDHIS_DATE].[DDGRUP] AS [DDGRUP], 
-    [DDDHIS_DATE].[TREFTH] AS [TREFTH], 
-    [DDDHIS_DATE].[TRTKTN] AS [TRTKTN], 
-    [DDDHIS_DATE].[BRANCH] AS [BRANCH], 
-    [DDDHIS_DATE].[LASTMDATE] AS [LASTMDATE], 
-    [DDDHIS_DATE].[LMDATE] AS [LMDATE], 
-    [DDDHIS_DATE].[AUXTRC] AS [AUXTRC], 
-    [DDDHIS_DATE].[DEPTCODE] AS [DEPTCODE]
-    FROM [dbo].[DDDHIS_DATE] AS [DDDHIS_DATE]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="DDMAST_DATE" EntityType="Self.DDMAST_DATE" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [DDMAST_DATE].[DATADATE] AS [DATADATE], 
@@ -1104,121 +999,7 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Name="credit" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="gldescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </ComplexType>
-        <EntityType Name="DDDHIS_DATE">
-          <Key>
-            <PropertyRef Name="BATCH" />
-            <PropertyRef Name="SEQ" />
-            <PropertyRef Name="TRSOBR" />
-            <PropertyRef Name="TRACCT" />
-            <PropertyRef Name="TRATYP" />
-            <PropertyRef Name="TRANCD" />
-            <PropertyRef Name="AMT" />
-            <PropertyRef Name="TRCTYP" />
-            <PropertyRef Name="DORC" />
-            <PropertyRef Name="BORI" />
-            <PropertyRef Name="TRUSER" />
-            <PropertyRef Name="TRDAT6" />
-            <PropertyRef Name="DDGRUP" />
-            <PropertyRef Name="TREFTH" />
-          </Key>
-          <Property Name="DATADATE" Type="DateTime" Precision="3" />
-          <Property Name="BATCH" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="SEQ" Type="Decimal" Precision="9" Scale="0" Nullable="false" />
-          <Property Name="TRBR" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="TRSOBR" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="TRACCT" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="TRATYP" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TRANCD" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="AMT" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="TRCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DORC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="BORI" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TREFF6" Type="DateTime" Precision="3" />
-          <Property Name="TRSUPV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="TRUSER" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="TRDAT6" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TRTIME" Type="Decimal" Precision="6" Scale="0" />
-          <Property Name="DDGRUP" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="TREFTH" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TRTKTN" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-          <Property Name="BRANCH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="LASTMDATE" Type="DateTime" Precision="3" />
-          <Property Name="LMDATE" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
-          <Property Name="AUXTRC" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-        </EntityType>
-        <EntityType Name="DDMAST_DATE">
-          <Key>
-            <PropertyRef Name="BRANCH" />
-            <PropertyRef Name="CIFNO" />
-            <PropertyRef Name="ACCTNO" />
-            <PropertyRef Name="SCCODE" />
-            <PropertyRef Name="DDGRUP" />
-            <PropertyRef Name="RATE" />
-            <PropertyRef Name="DDMUID" />
-            <PropertyRef Name="DDCTYP" />
-            <PropertyRef Name="CBAL" />
-            <PropertyRef Name="ACCRUE" />
-            <PropertyRef Name="HOLD" />
-            <PropertyRef Name="PGDID" />
-            <PropertyRef Name="PVAR1" />
-            <PropertyRef Name="PVAR" />
-            <PropertyRef Name="AMTDRC" />
-            <PropertyRef Name="AMTCR" />
-            <PropertyRef Name="CLASS" />
-            <PropertyRef Name="DMPRDC" />
-            <PropertyRef Name="DDCDEC" />
-            <PropertyRef Name="ACTYPE" />
-          </Key>
-          <Property Name="DATADATE" Type="DateTime" Precision="3" />
-          <Property Name="BRANCH" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="ACNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="CIFNO" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="ACCTNO" Type="Decimal" Precision="19" Scale="0" Nullable="false" />
-          <Property Name="SCCODE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DDGRUP" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
-          <Property Name="RATE" Type="Decimal" Precision="11" Scale="9" Nullable="false" />
-          <Property Name="DDMUID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DDCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DATOP6" Type="DateTime" Precision="3" />
-          <Property Name="DLA6" Type="DateTime" Precision="3" />
-          <Property Name="CBAL" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="ACCRUE" Type="Decimal" Precision="15" Scale="5" Nullable="false" />
-          <Property Name="HOLD" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="PGDID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="PVAR1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="PVAR" Type="Decimal" Precision="11" Scale="9" Nullable="false" />
-          <Property Name="AMTDRC" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="AMTCR" Type="Decimal" Precision="15" Scale="2" Nullable="false" />
-          <Property Name="CLASS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="DMPRDC" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
-          <Property Name="DDCDEC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="ACTYPE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="LMDATE" Type="DateTime" Precision="3" />
-          <Property Name="ODPROT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="ODDLIM" Type="Decimal" Precision="15" Scale="0" />
-          <Property Name="OTRATE" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="OTDTE" Type="DateTime" Precision="3" />
-          <Property Name="OTEXP" Type="DateTime" Precision="3" />
-          <Property Name="OTDTE2" Type="DateTime" Precision="3" />
-          <Property Name="OTEXP2" Type="DateTime" Precision="3" />
-          <Property Name="ODINT" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="ODEXSS" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="PFLOOR" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="PCEIL" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="ORATE" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-          <Property Name="OTRTN" Type="Decimal" Precision="5" Scale="0" />
-          <Property Name="OTPVR1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="OTPVAR" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="OTCEIL" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="OTFLOR" Type="Decimal" Precision="11" Scale="9" />
-          <Property Name="ODUNAC" Type="Decimal" Precision="11" Scale="5" />
-        </EntityType>
         <EntityContainer Name="dlgocEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="DDDHIS_DATE" EntityType="Self.DDDHIS_DATE" />
-          <EntitySet Name="DDMAST_DATE" EntityType="Self.DDMAST_DATE" />
           <FunctionImport Name="GetMonthList" ReturnType="Collection(dlgocModel.GetMonthList_Result)" IsComposable="true">
             <Parameter Name="StartDate" Mode="In" Type="DateTime" />
             <Parameter Name="EndDate" Mode="In" Type="DateTime" />
@@ -1248,11 +1029,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="tablename" Mode="In" Type="String" />
             <Parameter Name="ngaydlbd" Mode="In" Type="DateTime" />
             <Parameter Name="ngaydlkt" Mode="In" Type="DateTime" />
-          </FunctionImport>
-          <FunctionImport Name="DoanhSoTientheoCif" ReturnType="Collection(dlgocModel.DoanhSoTientheoCif_Result)">
-            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
-            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
-            <Parameter Name="cif" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="getCIFInfo" ReturnType="Collection(dlgocModel.getCIFInfo_Result)" />
           <FunctionImport Name="laytygia" />
@@ -1328,7 +1104,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="cif" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="X1PCMS" EntityType="dlgocModel.X1PCMS" />
-          <EntitySet Name="GLHISTs" EntityType="dlgocModel.GLHIST" />
           <EntitySet Name="LNDHIS_DATE" EntityType="dlgocModel.LNDHIS_DATE" />
           <FunctionImport Name="TonQuy" ReturnType="Collection(dlgocModel.TonQuy_Result)">
             <Parameter Name="TuNgay" Mode="In" Type="DateTime" />
@@ -1356,7 +1131,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="ngaybc" Mode="In" Type="DateTime" />
             <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <EntitySet Name="GLHIST_ERP" EntityType="dlgocModel.GLHIST_ERP" />
           <EntitySet Name="GLMAST_ERP" EntityType="dlgocModel.GLMAST_ERP" />
           <FunctionImport Name="MuaBanNgoaiTe" ReturnType="Collection(dlgocModel.MuaBanNgoaiTe_Result)">
           <Parameter Name="Ngay" Mode="In" Type="DateTime" />
@@ -1631,6 +1405,13 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
             <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="DoanhSoTientheoCif" ReturnType="Collection(dlgocModel.DoanhSoTientheoCif_Result)">
+            <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
+            <Parameter Name="cif" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <EntitySet Name="DDMAST_DATE" EntityType="dlgocModel.DDMAST_DATE" />
+          <EntitySet Name="GLHISTs" EntityType="dlgocModel.GLHIST" />
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
           <Property Type="Int32" Name="cn" Nullable="true" />
@@ -1852,39 +1633,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Name="AD3" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
           <Property Name="AD4" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
         </EntityType>
-        <EntityType Name="GLHIST">
-          <Key>
-            <PropertyRef Name="BRANCH" />
-            <PropertyRef Name="GTACCT" />
-            <PropertyRef Name="TRDORC" />
-            <PropertyRef Name="TRAMT" />
-            <PropertyRef Name="TRDAT6" />
-            <PropertyRef Name="TREFF" />
-            <PropertyRef Name="TRDESC" />
-            <PropertyRef Name="TRCTYP" />
-            <PropertyRef Name="TRCFYR" />
-            <PropertyRef Name="TREFTH" />
-          </Key>
-          <Property Name="DataDate" Type="DateTime" Precision="3" />
-          <Property Name="LMDATE" Type="DateTime" Precision="3" />
-          <Property Name="BRANCH" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
-          <Property Name="GTACCT" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="TRDORC" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="TRAMT" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="TRDAT6" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
-          <Property Name="TREFF" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
-          <Property Name="TRDESC" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
-          <Property Name="TRCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="TRCFYR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="TREFTH" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
-          <Property Name="TRUSR2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="TRUSRN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TRAUXT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TRSEQ" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TRTKTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TRSTAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
-        </EntityType>
         <EntityType Name="LNDHIS_DATE">
           <Key>
             <PropertyRef Name="LHACCT" />
@@ -2053,34 +1801,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="Decimal" Name="TRSEQ" Nullable="true" Precision="18" Scale="0" />
           <Property Type="String" Name="TRTKTN" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <EntityType Name="GLHIST_ERP">
-          <Key>
-            <PropertyRef Name="DataDate" />
-            <PropertyRef Name="BRANCH" />
-            <PropertyRef Name="GTACCT" />
-            <PropertyRef Name="TRAMT" />
-          </Key>
-          <Property Name="DataDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LMDATE" Type="DateTime" Precision="3" />
-          <Property Name="BRANCH" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
-          <Property Name="GTACCT" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
-          <Property Name="TRDORC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="TRAMT" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
-          <Property Name="TRDAT6" Type="Decimal" Precision="6" Scale="0" />
-          <Property Name="TREFF" Type="Decimal" Precision="6" Scale="0" />
-          <Property Name="TRDESC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TRCTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="TRCFYR" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-          <Property Name="TREFTH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="TRUSR2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-          <Property Name="TRUSRN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="TRAUXT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="TRSEQ" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TRTKTN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="TRSTAT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="trsys" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="DEPTCODE" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityType Name="GLMAST_ERP">
           <Key>
             <PropertyRef Name="DataDate" />
@@ -2504,94 +2224,114 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="Decimal" Name="tongduno" Nullable="true" Precision="38" Scale="2" />
           <Property Type="String" Name="loai" Nullable="false" MaxLength="3" />
         </ComplexType>
+        <EntityType Name="DDMAST_DATE">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="CIFNO" />
+            <PropertyRef Name="ACCTNO" />
+            <PropertyRef Name="SCCODE" />
+            <PropertyRef Name="DDGRUP" />
+            <PropertyRef Name="RATE" />
+            <PropertyRef Name="DDMUID" />
+            <PropertyRef Name="DDCTYP" />
+            <PropertyRef Name="CBAL" />
+            <PropertyRef Name="ACCRUE" />
+            <PropertyRef Name="HOLD" />
+            <PropertyRef Name="PGDID" />
+            <PropertyRef Name="PVAR1" />
+            <PropertyRef Name="PVAR" />
+            <PropertyRef Name="AMTDRC" />
+            <PropertyRef Name="AMTCR" />
+            <PropertyRef Name="CLASS" />
+            <PropertyRef Name="DMPRDC" />
+            <PropertyRef Name="DDCDEC" />
+            <PropertyRef Name="ACTYPE" />
+          </Key>
+          <Property Name="DATADATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="ACNAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CIFNO" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="ACCTNO" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="SCCODE" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DDGRUP" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+          <Property Name="RATE" Type="Decimal" Nullable="false" Precision="11" Scale="9" />
+          <Property Name="DDMUID" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DDCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="DATOP6" Type="DateTime" Precision="3" />
+          <Property Name="DLA6" Type="DateTime" Precision="3" />
+          <Property Name="CBAL" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="ACCRUE" Type="Decimal" Nullable="false" Precision="15" Scale="5" />
+          <Property Name="HOLD" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="PGDID" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PVAR1" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PVAR" Type="Decimal" Nullable="false" Precision="11" Scale="9" />
+          <Property Name="AMTDRC" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="AMTCR" Type="Decimal" Nullable="false" Precision="15" Scale="2" />
+          <Property Name="CLASS" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DMPRDC" Type="Decimal" Nullable="false" Precision="5" Scale="0" />
+          <Property Name="DDCDEC" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ACTYPE" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="ODPROT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ODDLIM" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="OTRATE" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="OTDTE" Type="DateTime" Precision="3" />
+          <Property Name="OTEXP" Type="DateTime" Precision="3" />
+          <Property Name="OTDTE2" Type="DateTime" Precision="3" />
+          <Property Name="OTEXP2" Type="DateTime" Precision="3" />
+          <Property Name="ODINT" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="ODEXSS" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="PFLOOR" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="PCEIL" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="ORATE" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="OTRTN" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="OTPVR1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="OTPVAR" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="OTCEIL" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="OTFLOR" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="ODUNAC" Type="Decimal" Precision="11" Scale="5" />
+        </EntityType>
+        <EntityType Name="GLHIST">
+          <Key>
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="GTACCT" />
+            <PropertyRef Name="TRDORC" />
+            <PropertyRef Name="TRAMT" />
+            <PropertyRef Name="TRDAT6" />
+            <PropertyRef Name="TREFF" />
+            <PropertyRef Name="TRDESC" />
+            <PropertyRef Name="TRCTYP" />
+            <PropertyRef Name="TRCFYR" />
+            <PropertyRef Name="TREFTH" />
+          </Key>
+          <Property Name="DataDate" Type="DateTime" Precision="3" />
+          <Property Name="LMDATE" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="GTACCT" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="TRDORC" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TRAMT" Type="Decimal" Nullable="false" Precision="17" Scale="2" />
+          <Property Name="TRDAT6" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="TREFF" Type="Decimal" Nullable="false" Precision="6" Scale="0" />
+          <Property Name="TRDESC" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="TRCTYP" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TRCFYR" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TREFTH" Type="String" Nullable="false" MaxLength="254" FixedLength="false" Unicode="false" />
+          <Property Name="TRUSR2" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="TRUSRN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TRAUXT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TRSEQ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TRTKTN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TRSTAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="dlgocModelStoreContainer" CdmEntityContainer="dlgocEntities">
-          <EntitySetMapping Name="DDDHIS_DATE">
-            <EntityTypeMapping TypeName="dlgocModel.DDDHIS_DATE">
-              <MappingFragment StoreEntitySet="DDDHIS_DATE">
-                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
-                <ScalarProperty Name="BATCH" ColumnName="BATCH" />
-                <ScalarProperty Name="SEQ" ColumnName="SEQ" />
-                <ScalarProperty Name="TRBR" ColumnName="TRBR" />
-                <ScalarProperty Name="TRSOBR" ColumnName="TRSOBR" />
-                <ScalarProperty Name="TRACCT" ColumnName="TRACCT" />
-                <ScalarProperty Name="TRATYP" ColumnName="TRATYP" />
-                <ScalarProperty Name="TRANCD" ColumnName="TRANCD" />
-                <ScalarProperty Name="AMT" ColumnName="AMT" />
-                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
-                <ScalarProperty Name="DORC" ColumnName="DORC" />
-                <ScalarProperty Name="BORI" ColumnName="BORI" />
-                <ScalarProperty Name="TREFF6" ColumnName="TREFF6" />
-                <ScalarProperty Name="TRSUPV" ColumnName="TRSUPV" />
-                <ScalarProperty Name="TRUSER" ColumnName="TRUSER" />
-                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
-                <ScalarProperty Name="TRTIME" ColumnName="TRTIME" />
-                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
-                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
-                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
-                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
-                <ScalarProperty Name="LASTMDATE" ColumnName="LASTMDATE" />
-                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
-                <ScalarProperty Name="AUXTRC" ColumnName="AUXTRC" />
-                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DDMAST_DATE">
-            <EntityTypeMapping TypeName="dlgocModel.DDMAST_DATE">
-              <MappingFragment StoreEntitySet="DDMAST_DATE">
-                <ScalarProperty Name="ODUNAC" ColumnName="ODUNAC" />
-                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
-                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
-                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
-                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
-                <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
-                <ScalarProperty Name="SCCODE" ColumnName="SCCODE" />
-                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
-                <ScalarProperty Name="RATE" ColumnName="RATE" />
-                <ScalarProperty Name="DDMUID" ColumnName="DDMUID" />
-                <ScalarProperty Name="DDCTYP" ColumnName="DDCTYP" />
-                <ScalarProperty Name="DATOP6" ColumnName="DATOP6" />
-                <ScalarProperty Name="DLA6" ColumnName="DLA6" />
-                <ScalarProperty Name="CBAL" ColumnName="CBAL" />
-                <ScalarProperty Name="ACCRUE" ColumnName="ACCRUE" />
-                <ScalarProperty Name="HOLD" ColumnName="HOLD" />
-                <ScalarProperty Name="PGDID" ColumnName="PGDID" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="PVAR1" ColumnName="PVAR1" />
-                <ScalarProperty Name="PVAR" ColumnName="PVAR" />
-                <ScalarProperty Name="AMTDRC" ColumnName="AMTDRC" />
-                <ScalarProperty Name="AMTCR" ColumnName="AMTCR" />
-                <ScalarProperty Name="CLASS" ColumnName="CLASS" />
-                <ScalarProperty Name="DMPRDC" ColumnName="DMPRDC" />
-                <ScalarProperty Name="DDCDEC" ColumnName="DDCDEC" />
-                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
-                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
-                <ScalarProperty Name="ODPROT" ColumnName="ODPROT" />
-                <ScalarProperty Name="ODDLIM" ColumnName="ODDLIM" />
-                <ScalarProperty Name="OTRATE" ColumnName="OTRATE" />
-                <ScalarProperty Name="OTDTE" ColumnName="OTDTE" />
-                <ScalarProperty Name="OTEXP" ColumnName="OTEXP" />
-                <ScalarProperty Name="OTDTE2" ColumnName="OTDTE2" />
-                <ScalarProperty Name="OTEXP2" ColumnName="OTEXP2" />
-                <ScalarProperty Name="ODINT" ColumnName="ODINT" />
-                <ScalarProperty Name="ODEXSS" ColumnName="ODEXSS" />
-                <ScalarProperty Name="PFLOOR" ColumnName="PFLOOR" />
-                <ScalarProperty Name="PCEIL" ColumnName="PCEIL" />
-                <ScalarProperty Name="ORATE" ColumnName="ORATE" />
-                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
-                <ScalarProperty Name="OTRTN" ColumnName="OTRTN" />
-                <ScalarProperty Name="OTPVR1" ColumnName="OTPVR1" />
-                <ScalarProperty Name="OTPVAR" ColumnName="OTPVAR" />
-                <ScalarProperty Name="OTCEIL" ColumnName="OTCEIL" />
-                <ScalarProperty Name="OTFLOR" ColumnName="OTFLOR" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionName="dlgocModel.Store.GetMonthList" FunctionImportName="GetMonthList">
             <ResultMapping>
               <ComplexTypeMapping TypeName="dlgocModel.GetMonthList_Result">
@@ -2629,20 +2369,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="bqtienguiThang" FunctionName="dlgocModel.Store.bqtienguiThang" />
           <FunctionImportMapping FunctionImportName="check_ngay_dl" FunctionName="dlgocModel.Store.check_ngay_dl" />
-          <FunctionImportMapping FunctionImportName="DoanhSoTientheoCif" FunctionName="dlgocModel.Store.DoanhSoTientheoCif">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="dlgocModel.DoanhSoTientheoCif_Result">
-                <ScalarProperty Name="tracct" ColumnName="tracct" />
-                <ScalarProperty Name="trctyp" ColumnName="trctyp" />
-                <ScalarProperty Name="tongco" ColumnName="tongco" />
-                <ScalarProperty Name="tongcotm" ColumnName="tongcotm" />
-                <ScalarProperty Name="tongcotk" ColumnName="tongcotk" />
-                <ScalarProperty Name="tongno" ColumnName="tongno" />
-                <ScalarProperty Name="tongnotm" ColumnName="tongnotm" />
-                <ScalarProperty Name="tongnotk" ColumnName="tongnotk" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="getCIFInfo" FunctionName="dlgocModel.Store.getCIFInfo">
             <ResultMapping>
               <ComplexTypeMapping TypeName="dlgocModel.getCIFInfo_Result">
@@ -2901,31 +2627,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="GLHISTs">
-            <EntityTypeMapping TypeName="dlgocModel.GLHIST">
-              <MappingFragment StoreEntitySet="GLHIST">
-                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
-                <ScalarProperty Name="TRSTAT" ColumnName="TRSTAT" />
-                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
-                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
-                <ScalarProperty Name="TRAUXT" ColumnName="TRAUXT" />
-                <ScalarProperty Name="TRUSRN" ColumnName="TRUSRN" />
-                <ScalarProperty Name="TRUSR2" ColumnName="TRUSR2" />
-                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
-                <ScalarProperty Name="TRCFYR" ColumnName="TRCFYR" />
-                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
-                <ScalarProperty Name="TRDESC" ColumnName="TRDESC" />
-                <ScalarProperty Name="TREFF" ColumnName="TREFF" />
-                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
-                <ScalarProperty Name="TRAMT" ColumnName="TRAMT" />
-                <ScalarProperty Name="TRDORC" ColumnName="TRDORC" />
-                <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
-                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
-                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
-                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="LNDHIS_DATE">
             <EntityTypeMapping TypeName="dlgocModel.LNDHIS_DATE">
               <MappingFragment StoreEntitySet="LNDHIS_DATE">
@@ -3120,32 +2821,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <EntitySetMapping Name="GLHIST_ERP">
-            <EntityTypeMapping TypeName="dlgocModel.GLHIST_ERP">
-              <MappingFragment StoreEntitySet="GLHIST_ERP">
-                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
-                <ScalarProperty Name="trsys" ColumnName="trsys" />
-                <ScalarProperty Name="TRSTAT" ColumnName="TRSTAT" />
-                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
-                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
-                <ScalarProperty Name="TRAUXT" ColumnName="TRAUXT" />
-                <ScalarProperty Name="TRUSRN" ColumnName="TRUSRN" />
-                <ScalarProperty Name="TRUSR2" ColumnName="TRUSR2" />
-                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
-                <ScalarProperty Name="TRCFYR" ColumnName="TRCFYR" />
-                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
-                <ScalarProperty Name="TRDESC" ColumnName="TRDESC" />
-                <ScalarProperty Name="TREFF" ColumnName="TREFF" />
-                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
-                <ScalarProperty Name="TRAMT" ColumnName="TRAMT" />
-                <ScalarProperty Name="TRDORC" ColumnName="TRDORC" />
-                <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
-                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
-                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
-                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="GLMAST_ERP">
             <EntityTypeMapping TypeName="dlgocModel.GLMAST_ERP">
               <MappingFragment StoreEntitySet="GLMAST_ERP">
@@ -3612,30 +3287,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SaoKeTKTT" FunctionName="dlgocModel.Store.SaoKeTKTT" />
           <FunctionImportMapping FunctionImportName="SoDuBinhQuanHDVDC" FunctionName="dlgocModel.Store.SoDuBinhQuanHDVDC" />
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="dlgocModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="dlgocModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="dlgocModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="dlgocModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="dlgocModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="dlgocModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="dlgocModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="dlgocModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="dlgocModel.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="SplitVarbinary" FunctionName="dlgocModel.Store.SplitVarbinary">
             <ResultMapping>
               <ComplexTypeMapping TypeName="dlgocModel.SplitVarbinary_Result">
@@ -3664,6 +3315,96 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DoanhSoTientheoCif" FunctionName="dlgocModel.Store.DoanhSoTientheoCif" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.DoanhSoTientheoCif_Result">
+                <ScalarProperty Name="tracct" ColumnName="tracct" />
+                <ScalarProperty Name="trctyp" ColumnName="trctyp" />
+                <ScalarProperty Name="tongco" ColumnName="tongco" />
+                <ScalarProperty Name="tongcotm" ColumnName="tongcotm" />
+                <ScalarProperty Name="tongcotk" ColumnName="tongcotk" />
+                <ScalarProperty Name="tongno" ColumnName="tongno" />
+                <ScalarProperty Name="tongnotm" ColumnName="tongnotm" />
+                <ScalarProperty Name="tongnotk" ColumnName="tongnotk" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DDMAST_DATE">
+            <EntityTypeMapping TypeName="dlgocModel.DDMAST_DATE">
+              <MappingFragment StoreEntitySet="DDMAST_DATE">
+                <ScalarProperty Name="ODUNAC" ColumnName="ODUNAC" />
+                <ScalarProperty Name="OTFLOR" ColumnName="OTFLOR" />
+                <ScalarProperty Name="OTCEIL" ColumnName="OTCEIL" />
+                <ScalarProperty Name="OTPVAR" ColumnName="OTPVAR" />
+                <ScalarProperty Name="OTPVR1" ColumnName="OTPVR1" />
+                <ScalarProperty Name="OTRTN" ColumnName="OTRTN" />
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="ORATE" ColumnName="ORATE" />
+                <ScalarProperty Name="PCEIL" ColumnName="PCEIL" />
+                <ScalarProperty Name="PFLOOR" ColumnName="PFLOOR" />
+                <ScalarProperty Name="ODEXSS" ColumnName="ODEXSS" />
+                <ScalarProperty Name="ODINT" ColumnName="ODINT" />
+                <ScalarProperty Name="OTEXP2" ColumnName="OTEXP2" />
+                <ScalarProperty Name="OTDTE2" ColumnName="OTDTE2" />
+                <ScalarProperty Name="OTEXP" ColumnName="OTEXP" />
+                <ScalarProperty Name="OTDTE" ColumnName="OTDTE" />
+                <ScalarProperty Name="OTRATE" ColumnName="OTRATE" />
+                <ScalarProperty Name="ODDLIM" ColumnName="ODDLIM" />
+                <ScalarProperty Name="ODPROT" ColumnName="ODPROT" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="ACTYPE" ColumnName="ACTYPE" />
+                <ScalarProperty Name="DDCDEC" ColumnName="DDCDEC" />
+                <ScalarProperty Name="DMPRDC" ColumnName="DMPRDC" />
+                <ScalarProperty Name="CLASS" ColumnName="CLASS" />
+                <ScalarProperty Name="AMTCR" ColumnName="AMTCR" />
+                <ScalarProperty Name="AMTDRC" ColumnName="AMTDRC" />
+                <ScalarProperty Name="PVAR" ColumnName="PVAR" />
+                <ScalarProperty Name="PVAR1" ColumnName="PVAR1" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PGDID" ColumnName="PGDID" />
+                <ScalarProperty Name="HOLD" ColumnName="HOLD" />
+                <ScalarProperty Name="ACCRUE" ColumnName="ACCRUE" />
+                <ScalarProperty Name="CBAL" ColumnName="CBAL" />
+                <ScalarProperty Name="DLA6" ColumnName="DLA6" />
+                <ScalarProperty Name="DATOP6" ColumnName="DATOP6" />
+                <ScalarProperty Name="DDCTYP" ColumnName="DDCTYP" />
+                <ScalarProperty Name="DDMUID" ColumnName="DDMUID" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="DDGRUP" ColumnName="DDGRUP" />
+                <ScalarProperty Name="SCCODE" ColumnName="SCCODE" />
+                <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="DATADATE" ColumnName="DATADATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GLHISTs">
+            <EntityTypeMapping TypeName="dlgocModel.GLHIST">
+              <MappingFragment StoreEntitySet="GLHIST">
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="TRSTAT" ColumnName="TRSTAT" />
+                <ScalarProperty Name="TRTKTN" ColumnName="TRTKTN" />
+                <ScalarProperty Name="TRSEQ" ColumnName="TRSEQ" />
+                <ScalarProperty Name="TRAUXT" ColumnName="TRAUXT" />
+                <ScalarProperty Name="TRUSRN" ColumnName="TRUSRN" />
+                <ScalarProperty Name="TRUSR2" ColumnName="TRUSR2" />
+                <ScalarProperty Name="TREFTH" ColumnName="TREFTH" />
+                <ScalarProperty Name="TRCFYR" ColumnName="TRCFYR" />
+                <ScalarProperty Name="TRCTYP" ColumnName="TRCTYP" />
+                <ScalarProperty Name="TRDESC" ColumnName="TRDESC" />
+                <ScalarProperty Name="TREFF" ColumnName="TREFF" />
+                <ScalarProperty Name="TRDAT6" ColumnName="TRDAT6" />
+                <ScalarProperty Name="TRAMT" ColumnName="TRAMT" />
+                <ScalarProperty Name="TRDORC" ColumnName="TRDORC" />
+                <ScalarProperty Name="GTACCT" ColumnName="GTACCT" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDATE" ColumnName="LMDATE" />
+                <ScalarProperty Name="DataDate" ColumnName="DataDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
