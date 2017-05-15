@@ -1,16 +1,16 @@
-
+ï»¿
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("In Báo Có Báo N?")]
-[assembly: AssemblyDescription("In Báo Có Báo N?")]
+[assembly: AssemblyTitle("In BÃ¡o CÃ³ BÃ¡o Ná»£")]
+[assembly: AssemblyDescription("In BÃ¡o CÃ³ BÃ¡o Ná»£")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BIDVCT")]
 [assembly: AssemblyProduct("insoden")]
-[assembly: AssemblyCopyright("Copyright ©  2013 by tunn1")]
+[assembly: AssemblyCopyright("Copyright Â©  2013 by tunn1")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,7 +31,5 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
-
-
-[assembly: AssemblyVersion("1.2016.11104.11508")]
-[assembly: AssemblyFileVersion("1.2016.11104.11508")]
+[assembly: AssemblyVersion("1.0.1.2650")]
+[assembly: AssemblyFileVersion("1.0.1.2650")]

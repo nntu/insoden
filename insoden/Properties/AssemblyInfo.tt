@@ -37,14 +37,9 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
-
-<#
-    var date = DateTime.Now;
-    int major = 1;
-    int minor = date.Year;
-    int build = 10000 + int.Parse(date.ToString("MMdd"));
-    int revision = 10000 + int.Parse(date.ToString("HHmm"));
+[assembly: AssemblyVersion("1.0.1.<#= this.RevisionNumber #>")]
+[assembly: AssemblyFileVersion("1.0.1.<#= this.RevisionNumber #>")]
+<#+
+    int RevisionNumber = (int)(DateTime.UtcNow - new DateTime(2010,1,1)).TotalDays;
 #>
 
-[assembly: AssemblyVersion("<#= $"{major}.{minor}.{build}.{revision}" #>")]
-[assembly: AssemblyFileVersion("<#= $"{major}.{minor}.{build}.{revision}" #>")]
