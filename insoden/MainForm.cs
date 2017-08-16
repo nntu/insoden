@@ -869,7 +869,8 @@ namespace insoden
         {
             try
             {
-                dsbc833.Clear();
+                var formats = new[] { @"dd/MM/yy hh:mm:ss", @"dd/MM/yy HH:mm:ss", @"d/MM/yy HH:mm:ss", @"d/MM/yy H:mm:ss", @"d/MM/yy hh:mm:ss", @"d/MM/yy h:mm:ss", @"d/MM/yy hh:mm:ss", @"d/MM/yy mm:ss", @"dd/MM/yy ss", @"dd/MM/yy" };
+                 dsbc833.Clear();
                 var fd = new OpenFileDialog();
                 if (fd.ShowDialog() == DialogResult.OK) // Test result.
                 {
@@ -918,15 +919,17 @@ namespace insoden
                                             string hoten = line.Substring(33, 25).Trim();
                                             string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
 
-                                            string[] hhh = ngaythang.Split(' ');
-                                            string ngay = hhh[0];
+                                            //string[] hhh = ngaythang.Split(' ');
+                                            //string ngay = hhh[0];
 
-                                            string gio = "00:00:00";
-                                            gio = hhh.Length > 2 ? hhh[2] : hhh[1];
-                                            TimeSpan time = TimeSpan.Parse(gio);
-                                            if (ngay.Length == 7) ngay = "0" + ngay;
-                                            DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
-
+                                            //string gio = "00:00:00";
+                                            //gio = hhh.Length > 2 ? hhh[2] : hhh[1];
+                                            //TimeSpan time = TimeSpan.Parse(gio);
+                                            //if (ngay.Length == 7) ngay = "0" + ngay;
+                                            //DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
+                                            DateTime dateValue = DateTime.ParseExact(ngaythang.Trim(), formats,
+                                        CultureInfo.InvariantCulture,
+                                           DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
                                             dsbc833.Add(new ClBc833
                                             {
                                                 Stt = Convert.ToInt32(stt),
@@ -934,7 +937,7 @@ namespace insoden
                                                 HoTen = hoten,
                                                 Ngaystr = ngaythang,
                                                 TrangThai = status,
-                                                NgayMo = r + time
+                                                NgayMo = dateValue
                                             });
                                         }
                                     }
@@ -991,7 +994,8 @@ namespace insoden
                 }
             }
             catch (Exception ex) {
-                logger.Error(ex);
+
+                logger.Error(ex );
 
             }
         }
