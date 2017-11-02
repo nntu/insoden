@@ -875,7 +875,11 @@ namespace insoden
                 if (fd.ShowDialog() == DialogResult.OK) // Test result.
                 {
                     string filereport = Path.GetFileName(fd.FileName);
+                    var ngaybc = filereport.Substring(2, 6);
 
+                    var reportdate = DateTime.ParseExact(ngaybc.Trim(), new string[] { "yyMMdd" },
+                                              CultureInfo.InvariantCulture,
+                                                 DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
                     if (filereport != null)
                     {
                         string bds = filereport.Substring(filereport.IndexOf("_", StringComparison.Ordinal) + 1, 3);
@@ -902,43 +906,86 @@ namespace insoden
                                     string status = "";
                                     while ((line = sr.ReadLine()) != null)
                                     {
-                                        if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
+                                        if (reportdate.CompareTo(new DateTime(2017, 10, 28)) < 0)
                                         {
-                                            if (line.Length < 50)
+                                            if (line.IndexOf("CARD STATUS", StringComparison.Ordinal) != -1)
                                             {
-                                                status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
-                                                    line.Length - line.IndexOf(":", StringComparison.Ordinal));
-                                                status = status.Replace(":", "").Trim();
+                                                if (line.Length < 50)
+                                                {
+                                                    status = line.Substring(line.IndexOf(":", StringComparison.Ordinal),
+                                                        line.Length - line.IndexOf(":", StringComparison.Ordinal));
+                                                    status = status.Replace(":", "").Trim();
+                                                }
+                                            }
+
+                                            if (line.Length == 76)
+                                            {
+                                                string stt = line.Substring(4, 7).Trim();
+                                                string sothe = line.Substring(12, 20).Trim();
+                                                string hoten = line.Substring(33, 25).Trim();
+                                                string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
+
+                                                DateTime dateValue = DateTime.ParseExact(ngaythang.Trim(), formats,
+                                                CultureInfo.InvariantCulture,
+                                                   DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
+                                                double songayqh = 0;
+                                                var ngayhientai = dateTimePicker1.Value;
+                                                if (status.Trim() == "RECV")
+                                                {
+                                                    songayqh = ngayhientai.Subtract(dateValue).TotalDays;
+                                                }
+                                                dsbc833.Add(new ClBc833
+                                                {
+                                                    Stt = Convert.ToInt32(stt),
+                                                    SoThe = sothe,
+                                                    HoTen = hoten,
+                                                    Ngaystr = ngaythang,
+                                                    TrangThai = status,
+                                                    NgayMo = dateValue,
+                                                    SoNgayQuaHan = songayqh,
+                                                    QuaHan90ngay = songayqh >= 90 ? "Y" : ""
+                                                });
                                             }
                                         }
-
-                                        if (line.Length == 76)
+                                        else
                                         {
-                                            string stt = line.Substring(4, 7).Trim();
-                                            string sothe = line.Substring(12, 20).Trim();
-                                            string hoten = line.Substring(33, 25).Trim();
-                                            string ngaythang = line.Substring(57).Trim().Replace("  ", " ").Replace("   ", " ");
-
-                                            //string[] hhh = ngaythang.Split(' ');
-                                            //string ngay = hhh[0];
-
-                                            //string gio = "00:00:00";
-                                            //gio = hhh.Length > 2 ? hhh[2] : hhh[1];
-                                            //TimeSpan time = TimeSpan.Parse(gio);
-                                            //if (ngay.Length == 7) ngay = "0" + ngay;
-                                            //DateTime r = DateTime.ParseExact(ngay, "dd/MM/yy", CultureInfo.InvariantCulture);
-                                            DateTime dateValue = DateTime.ParseExact(ngaythang.Trim(), formats,
-                                        CultureInfo.InvariantCulture,
-                                           DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
-                                            dsbc833.Add(new ClBc833
+                                            if (line.Length == 116)
                                             {
-                                                Stt = Convert.ToInt32(stt),
-                                                SoThe = sothe,
-                                                HoTen = hoten,
-                                                Ngaystr = ngaythang,
-                                                TrangThai = status,
-                                                NgayMo = dateValue
-                                            });
+                                                string stt = line.Substring(4, 7).Trim();
+                                                string sothe = line.Substring(12, 20).Trim();
+                                                string hoten = line.Substring(33, 25).Trim();
+                                                string ngaythang = line.Substring(57, 10).Trim().Replace("  ", " ").Replace("   ", " ");
+                                                status = line.Substring(70, 10).Trim();
+                                                DateTime dateValue = DateTime.ParseExact(ngaythang.Trim(), new string[] { "d/MM/yy", "dd/MM/yy" },
+                                                CultureInfo.InvariantCulture,
+                                                   DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
+
+                                                double songayqh = 0;
+                                                var ngayhientai = dateTimePicker1.Value;
+                                                var am = line.Substring(107).Trim();
+
+                                                string teller = line.Substring(80, 15).Trim();
+                                                string super = line.Substring(95, 11).Trim();
+                                                if (status.Trim() == "RECV")
+                                                {
+                                                    songayqh = ngayhientai.Subtract(dateValue).TotalDays;
+                                                }
+                                                dsbc833.Add(new ClBc833
+                                                {
+                                                    Stt = Convert.ToInt32(stt),
+                                                    SoThe = sothe,
+                                                    HoTen = hoten,
+                                                    Ngaystr = ngaythang,
+                                                    TrangThai = status,
+                                                    NgayMo = dateValue,
+                                                    SoNgayQuaHan = songayqh,
+                                                    QuaHan90ngay = songayqh >= 90 ? "Y" : "",
+                                                    am = am,
+                                                    Teller = teller,
+                                                    Supervisor = super
+
+                                                });
+                                            }
                                         }
                                     }
                                 }
@@ -983,7 +1030,13 @@ namespace insoden
                                                 Ngaystr = p.Ngaystr,
                                                 TrangThai = p.TrangThai,
                                                 NgayMo = p.NgayMo,
-                                                NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER)
+                                                NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER),
+                                                Teller = p.Teller,
+                                                Supervisor = p.Supervisor,
+                                                SoNgayQuaHan =p.SoNgayQuaHan,
+                                                am =p.am,
+                                                QuaHan90ngay = p.QuaHan90ngay
+
                                             }).ToList();
                                 _dsbc833 = temp;
                                 RW_gc_bc833.DataSource = new BindingSource(_dsbc833, "");

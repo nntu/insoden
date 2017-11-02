@@ -768,6 +768,7 @@
             this.formAssistant1 = new DevExpress.XtraBars.FormAssistant();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tracuulsglResult2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tb_main.SuspendLayout();
             this.tp_saoke.SuspendLayout();
             this.tb_sk_saokeds.SuspendLayout();
@@ -2929,6 +2930,7 @@
             this.splitContainerControl3.Horizontal = false;
             this.splitContainerControl3.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl3.Name = "splitContainerControl3";
+            this.splitContainerControl3.Panel1.Controls.Add(this.dateTimePicker1);
             this.splitContainerControl3.Panel1.Controls.Add(this.bt_rw_bx833_xuatexcel);
             this.splitContainerControl3.Panel1.Controls.Add(this.bt_rw_bx833_loadfile);
             this.splitContainerControl3.Panel1.Text = "Panel1";
@@ -2941,7 +2943,7 @@
             // 
             // bt_rw_bx833_xuatexcel
             // 
-            this.bt_rw_bx833_xuatexcel.Location = new System.Drawing.Point(96, 12);
+            this.bt_rw_bx833_xuatexcel.Location = new System.Drawing.Point(540, 12);
             this.bt_rw_bx833_xuatexcel.Name = "bt_rw_bx833_xuatexcel";
             this.bt_rw_bx833_xuatexcel.Size = new System.Drawing.Size(75, 23);
             this.bt_rw_bx833_xuatexcel.TabIndex = 1;
@@ -2951,7 +2953,7 @@
             // 
             // bt_rw_bx833_loadfile
             // 
-            this.bt_rw_bx833_loadfile.Location = new System.Drawing.Point(15, 12);
+            this.bt_rw_bx833_loadfile.Location = new System.Drawing.Point(427, 12);
             this.bt_rw_bx833_loadfile.Name = "bt_rw_bx833_loadfile";
             this.bt_rw_bx833_loadfile.Size = new System.Drawing.Size(75, 23);
             this.bt_rw_bx833_loadfile.TabIndex = 0;
@@ -8084,6 +8086,14 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(24, 14);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(163, 21);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9111,6 +9121,7 @@
         private DevExpress.XtraPivotGrid.PivotGridField fieldphong1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 
