@@ -17,6 +17,11 @@ namespace insoden
         public string Ngaystr { get; set; }
 
         public string NguoiMo { get; set; }
+        public string QuaHan90ngay { get; set; }
+        public double SoNgayQuaHan { get; set; }
+        public string am { get; set; }
+        public string Teller { get; set; }
+        public string Supervisor { get; set; }
     }
 
     public class ClBc810

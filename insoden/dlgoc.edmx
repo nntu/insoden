@@ -422,6 +422,11 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Parameter Name="ngaycuoi" Type="datetime" Mode="In" />
           <Parameter Name="listcif" Type="nvarchar(max)" Mode="In" />
         </Function>
+        <Function Name="BienDongTienVay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ngaydau" Type="datetime" Mode="In" />
+          <Parameter Name="ngaytruoc" Type="datetime" Mode="In" />
+          <Parameter Name="Limit" Type="decimal" Mode="In" />
+        </Function>
         <Function Name="binhquantiengui" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngaybd" Type="datetime" Mode="In" />
           <Parameter Name="ngaykt" Type="datetime" Mode="In" />
@@ -1405,13 +1410,18 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
             <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <EntitySet Name="DDMAST_DATE" EntityType="dlgocModel.DDMAST_DATE" />
+          <EntitySet Name="GLHISTs" EntityType="dlgocModel.GLHIST" />
+          <FunctionImport Name="BienDongTienVay" ReturnType="Collection(dlgocModel.BienDongTienVay_Result)">
+            <Parameter Name="ngaydau" Mode="In" Type="DateTime" />
+            <Parameter Name="ngaytruoc" Mode="In" Type="DateTime" />
+            <Parameter Name="Limit" Mode="In" Type="Decimal" />
+          </FunctionImport>
           <FunctionImport Name="DoanhSoTientheoCif" ReturnType="Collection(dlgocModel.DoanhSoTientheoCif_Result)">
             <Parameter Name="ngaybd" Mode="In" Type="DateTime" />
             <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
             <Parameter Name="cif" Mode="In" Type="Decimal" />
           </FunctionImport>
-          <EntitySet Name="DDMAST_DATE" EntityType="dlgocModel.DDMAST_DATE" />
-          <EntitySet Name="GLHISTs" EntityType="dlgocModel.GLHIST" />
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
           <Property Type="Int32" Name="cn" Nullable="true" />
@@ -2326,6 +2336,23 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Name="TRSTAT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
         </EntityType>
+        <ComplexType Name="BienDongTienVay_Result">
+          <Property Type="String" Name="ngay" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="cif" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="acname" Nullable="true" MaxLength="255" />
+          <Property Type="Decimal" Name="sodu" Nullable="true" Precision="19" Scale="2" />
+          <Property Type="String" Name="phong" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="DoanhSoTientheoCif_Result1">
+          <Property Type="Decimal" Name="tracct" Nullable="true" Precision="19" Scale="0" />
+          <Property Type="String" Name="trctyp" Nullable="true" MaxLength="3" />
+          <Property Type="Decimal" Name="tongco" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongcotm" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongcotk" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongno" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongnotm" Nullable="true" Precision="19" Scale="3" />
+          <Property Type="Decimal" Name="tongnotk" Nullable="true" Precision="19" Scale="3" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3315,20 +3342,6 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="DoanhSoTientheoCif" FunctionName="dlgocModel.Store.DoanhSoTientheoCif" >
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="dlgocModel.DoanhSoTientheoCif_Result">
-                <ScalarProperty Name="tracct" ColumnName="tracct" />
-                <ScalarProperty Name="trctyp" ColumnName="trctyp" />
-                <ScalarProperty Name="tongco" ColumnName="tongco" />
-                <ScalarProperty Name="tongcotm" ColumnName="tongcotm" />
-                <ScalarProperty Name="tongcotk" ColumnName="tongcotk" />
-                <ScalarProperty Name="tongno" ColumnName="tongno" />
-                <ScalarProperty Name="tongnotm" ColumnName="tongnotm" />
-                <ScalarProperty Name="tongnotk" ColumnName="tongnotk" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="DDMAST_DATE">
             <EntityTypeMapping TypeName="dlgocModel.DDMAST_DATE">
               <MappingFragment StoreEntitySet="DDMAST_DATE">
@@ -3405,6 +3418,31 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="BienDongTienVay" FunctionName="dlgocModel.Store.BienDongTienVay" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.BienDongTienVay_Result">
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
+                <ScalarProperty Name="cif" ColumnName="cif" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="sodu" ColumnName="sodu" />
+                <ScalarProperty Name="phong" ColumnName="phong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DoanhSoTientheoCif" FunctionName="dlgocModel.Store.DoanhSoTientheoCif" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dlgocModel.DoanhSoTientheoCif_Result">
+                <ScalarProperty Name="tracct" ColumnName="tracct" />
+                <ScalarProperty Name="trctyp" ColumnName="trctyp" />
+                <ScalarProperty Name="tongco" ColumnName="tongco" />
+                <ScalarProperty Name="tongcotm" ColumnName="tongcotm" />
+                <ScalarProperty Name="tongcotk" ColumnName="tongcotk" />
+                <ScalarProperty Name="tongno" ColumnName="tongno" />
+                <ScalarProperty Name="tongnotm" ColumnName="tongnotm" />
+                <ScalarProperty Name="tongnotk" ColumnName="tongnotk" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

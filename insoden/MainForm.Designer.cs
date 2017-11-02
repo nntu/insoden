@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
@@ -57,23 +54,6 @@
             this.bt_in_tk = new System.Windows.Forms.Button();
             this.tb_somon = new System.Windows.Forms.Label();
             this.dgv_noco_tk = new System.Windows.Forms.DataGridView();
-            this.cnmotkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cngiaodichDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cifnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tentkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loaitienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.loaiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sotienDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soduDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ghichuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cngdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.truserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.auxtrcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chuthichauxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngaygiaodichDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seqDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ngayinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datainNoCoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.bt_laythontin = new System.Windows.Forms.Button();
@@ -104,11 +84,6 @@
             this.bt_pdc_laysl = new System.Windows.Forms.Button();
             this.bt_pdc_xoa = new System.Windows.Forms.Button();
             this.dgv_ipdc = new System.Windows.Forms.DataGridView();
-            this.acctnoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.currtypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acctypDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cfindiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.incifBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bt_in = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -217,21 +192,27 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.mtb_tk = new System.Windows.Forms.MaskedTextBox();
-            this.tb_HDV_DN = new System.Windows.Forms.TabPage();
-            this.xtraTabControl4 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtp_HDV = new DevExpress.XtraTab.XtraTabPage();
-            this.splitContainerControl24 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.de_nkt = new DevExpress.XtraEditors.DateEdit();
-            this.de_nbd = new DevExpress.XtraEditors.DateEdit();
-            this.button19 = new System.Windows.Forms.Button();
-            this.bt_hdv_laysl = new System.Windows.Forms.Button();
-            this.gc_hdvdn_hdv = new DevExpress.XtraGrid.GridControl();
-            this.hdv_ngay_den_ngay_ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gv_hdvdn_hdv = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.coldatadate7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coltonghdv = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tb_BaoCao = new System.Windows.Forms.TabPage();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.BC_TangGiam = new DevExpress.XtraTab.XtraTabControl();
+            this.xtp_tg_tienvay = new DevExpress.XtraTab.XtraTabPage();
+            this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+            this.tb_bc_tg_vay_limit = new System.Windows.Forms.TextBox();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+            this.de_bc_tv_ngaycuoi = new DevExpress.XtraEditors.DateEdit();
+            this.de_bc_tv_ngaydau = new DevExpress.XtraEditors.DateEdit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bt_bc_tg_tv = new System.Windows.Forms.Button();
+            this.pivotGridControl1 = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.bienDongTienVayResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fieldngay1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldcif1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldacname1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldsodu1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldphong1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.tb_reportviewer = new System.Windows.Forms.TabPage();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtp_bc833 = new DevExpress.XtraTab.XtraTabPage();
@@ -779,6 +760,7 @@
             this.colOTCEIL1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOTFLOR1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colODUNAC1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.hdv_ngay_den_ngay_ResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.thuLaiBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.thongBaoDuNoResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tracuulsglResult2BindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -847,19 +829,20 @@
             this.xtraTabPage5.SuspendLayout();
             this.tb_in_sec.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tb_HDV_DN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).BeginInit();
-            this.xtraTabControl4.SuspendLayout();
-            this.xtp_HDV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl24)).BeginInit();
-            this.splitContainerControl24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_hdvdn_hdv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hdv_ngay_den_ngay_ResultBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hdvdn_hdv)).BeginInit();
+            this.tb_BaoCao.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BC_TangGiam)).BeginInit();
+            this.BC_TangGiam.SuspendLayout();
+            this.xtp_tg_tienvay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+            this.splitContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaycuoi.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaycuoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaydau.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaydau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bienDongTienVayResultBindingSource)).BeginInit();
             this.tb_reportviewer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
@@ -1027,6 +1010,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GC_ThauChi_SaoKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saokethauchiResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_ThauChi_SaoKe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hdv_ngay_den_ngay_ResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongBaoDuNoResultBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracuulsglResult2BindingSource1)).BeginInit();
@@ -1046,7 +1030,7 @@
             this.tb_main.Controls.Add(this.tb_atm);
             this.tb_main.Controls.Add(this.tb_tracuutk);
             this.tb_main.Controls.Add(this.tb_in_sec);
-            this.tb_main.Controls.Add(this.tb_HDV_DN);
+            this.tb_main.Controls.Add(this.tb_BaoCao);
             this.tb_main.Controls.Add(this.tb_reportviewer);
             this.tb_main.Controls.Add(this.tb_gl);
             this.tb_main.Controls.Add(this.tb_TinDung);
@@ -1274,158 +1258,11 @@
             this.dgv_noco_tk.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_noco_tk.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_noco_tk.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_noco_tk.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cnmotkDataGridViewTextBoxColumn,
-            this.cngiaodichDataGridViewTextBoxColumn,
-            this.cifnoDataGridViewTextBoxColumn,
-            this.tentkDataGridViewTextBoxColumn,
-            this.tkDataGridViewTextBoxColumn,
-            this.loaitienDataGridViewTextBoxColumn,
-            this.loaiDataGridViewTextBoxColumn,
-            this.sotienDataGridViewTextBoxColumn,
-            this.soduDataGridViewTextBoxColumn,
-            this.ghichuDataGridViewTextBoxColumn,
-            this.cngdDataGridViewTextBoxColumn,
-            this.truserDataGridViewTextBoxColumn,
-            this.auxtrcDataGridViewTextBoxColumn,
-            this.chuthichauxDataGridViewTextBoxColumn,
-            this.ngaygiaodichDataGridViewTextBoxColumn,
-            this.seqDataGridViewTextBoxColumn,
-            this.ngayinDataGridViewTextBoxColumn});
             this.dgv_noco_tk.DataSource = this.datainNoCoBindingSource;
             this.dgv_noco_tk.Location = new System.Drawing.Point(24, 180);
             this.dgv_noco_tk.Name = "dgv_noco_tk";
             this.dgv_noco_tk.Size = new System.Drawing.Size(648, 170);
             this.dgv_noco_tk.TabIndex = 5;
-            // 
-            // cnmotkDataGridViewTextBoxColumn
-            // 
-            this.cnmotkDataGridViewTextBoxColumn.DataPropertyName = "cn_motk";
-            this.cnmotkDataGridViewTextBoxColumn.HeaderText = "cn_motk";
-            this.cnmotkDataGridViewTextBoxColumn.Name = "cnmotkDataGridViewTextBoxColumn";
-            this.cnmotkDataGridViewTextBoxColumn.Width = 72;
-            // 
-            // cngiaodichDataGridViewTextBoxColumn
-            // 
-            this.cngiaodichDataGridViewTextBoxColumn.DataPropertyName = "cn_giaodich";
-            this.cngiaodichDataGridViewTextBoxColumn.HeaderText = "cn_giaodich";
-            this.cngiaodichDataGridViewTextBoxColumn.Name = "cngiaodichDataGridViewTextBoxColumn";
-            this.cngiaodichDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // cifnoDataGridViewTextBoxColumn
-            // 
-            this.cifnoDataGridViewTextBoxColumn.DataPropertyName = "cifno";
-            this.cifnoDataGridViewTextBoxColumn.HeaderText = "cifno";
-            this.cifnoDataGridViewTextBoxColumn.Name = "cifnoDataGridViewTextBoxColumn";
-            this.cifnoDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // tentkDataGridViewTextBoxColumn
-            // 
-            this.tentkDataGridViewTextBoxColumn.DataPropertyName = "tentk";
-            this.tentkDataGridViewTextBoxColumn.HeaderText = "tentk";
-            this.tentkDataGridViewTextBoxColumn.Name = "tentkDataGridViewTextBoxColumn";
-            this.tentkDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // tkDataGridViewTextBoxColumn
-            // 
-            this.tkDataGridViewTextBoxColumn.DataPropertyName = "tk";
-            this.tkDataGridViewTextBoxColumn.HeaderText = "tk";
-            this.tkDataGridViewTextBoxColumn.Name = "tkDataGridViewTextBoxColumn";
-            this.tkDataGridViewTextBoxColumn.Width = 41;
-            // 
-            // loaitienDataGridViewTextBoxColumn
-            // 
-            this.loaitienDataGridViewTextBoxColumn.DataPropertyName = "loaitien";
-            this.loaitienDataGridViewTextBoxColumn.HeaderText = "loaitien";
-            this.loaitienDataGridViewTextBoxColumn.Name = "loaitienDataGridViewTextBoxColumn";
-            this.loaitienDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // loaiDataGridViewTextBoxColumn
-            // 
-            this.loaiDataGridViewTextBoxColumn.DataPropertyName = "loai";
-            this.loaiDataGridViewTextBoxColumn.HeaderText = "loai";
-            this.loaiDataGridViewTextBoxColumn.Name = "loaiDataGridViewTextBoxColumn";
-            this.loaiDataGridViewTextBoxColumn.Width = 48;
-            // 
-            // sotienDataGridViewTextBoxColumn
-            // 
-            this.sotienDataGridViewTextBoxColumn.DataPropertyName = "sotien";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.sotienDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.sotienDataGridViewTextBoxColumn.HeaderText = "sotien";
-            this.sotienDataGridViewTextBoxColumn.Name = "sotienDataGridViewTextBoxColumn";
-            this.sotienDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // soduDataGridViewTextBoxColumn
-            // 
-            this.soduDataGridViewTextBoxColumn.DataPropertyName = "sodu";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.soduDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.soduDataGridViewTextBoxColumn.HeaderText = "sodu";
-            this.soduDataGridViewTextBoxColumn.Name = "soduDataGridViewTextBoxColumn";
-            this.soduDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // ghichuDataGridViewTextBoxColumn
-            // 
-            this.ghichuDataGridViewTextBoxColumn.DataPropertyName = "ghichu";
-            this.ghichuDataGridViewTextBoxColumn.HeaderText = "ghichu";
-            this.ghichuDataGridViewTextBoxColumn.Name = "ghichuDataGridViewTextBoxColumn";
-            this.ghichuDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // cngdDataGridViewTextBoxColumn
-            // 
-            this.cngdDataGridViewTextBoxColumn.DataPropertyName = "cngd";
-            this.cngdDataGridViewTextBoxColumn.HeaderText = "cngd";
-            this.cngdDataGridViewTextBoxColumn.Name = "cngdDataGridViewTextBoxColumn";
-            this.cngdDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // truserDataGridViewTextBoxColumn
-            // 
-            this.truserDataGridViewTextBoxColumn.DataPropertyName = "truser";
-            this.truserDataGridViewTextBoxColumn.HeaderText = "truser";
-            this.truserDataGridViewTextBoxColumn.Name = "truserDataGridViewTextBoxColumn";
-            this.truserDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // auxtrcDataGridViewTextBoxColumn
-            // 
-            this.auxtrcDataGridViewTextBoxColumn.DataPropertyName = "auxtrc";
-            this.auxtrcDataGridViewTextBoxColumn.HeaderText = "auxtrc";
-            this.auxtrcDataGridViewTextBoxColumn.Name = "auxtrcDataGridViewTextBoxColumn";
-            this.auxtrcDataGridViewTextBoxColumn.Width = 63;
-            // 
-            // chuthichauxDataGridViewTextBoxColumn
-            // 
-            this.chuthichauxDataGridViewTextBoxColumn.DataPropertyName = "chuthich_aux";
-            this.chuthichauxDataGridViewTextBoxColumn.HeaderText = "chuthich_aux";
-            this.chuthichauxDataGridViewTextBoxColumn.Name = "chuthichauxDataGridViewTextBoxColumn";
-            this.chuthichauxDataGridViewTextBoxColumn.Width = 96;
-            // 
-            // ngaygiaodichDataGridViewTextBoxColumn
-            // 
-            this.ngaygiaodichDataGridViewTextBoxColumn.DataPropertyName = "ngaygiaodich";
-            this.ngaygiaodichDataGridViewTextBoxColumn.HeaderText = "ngaygiaodich";
-            this.ngaygiaodichDataGridViewTextBoxColumn.Name = "ngaygiaodichDataGridViewTextBoxColumn";
-            this.ngaygiaodichDataGridViewTextBoxColumn.Width = 95;
-            // 
-            // seqDataGridViewTextBoxColumn
-            // 
-            this.seqDataGridViewTextBoxColumn.DataPropertyName = "seq";
-            this.seqDataGridViewTextBoxColumn.HeaderText = "seq";
-            this.seqDataGridViewTextBoxColumn.Name = "seqDataGridViewTextBoxColumn";
-            this.seqDataGridViewTextBoxColumn.Width = 49;
-            // 
-            // ngayinDataGridViewTextBoxColumn
-            // 
-            this.ngayinDataGridViewTextBoxColumn.DataPropertyName = "ngayin";
-            this.ngayinDataGridViewTextBoxColumn.HeaderText = "ngayin";
-            this.ngayinDataGridViewTextBoxColumn.Name = "ngayinDataGridViewTextBoxColumn";
-            this.ngayinDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // datainNoCoBindingSource
-            // 
-            this.datainNoCoBindingSource.DataSource = typeof(insoden.DatainNoCo);
             // 
             // label4
             // 
@@ -1743,12 +1580,6 @@
             this.dgv_ipdc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_ipdc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_ipdc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_ipdc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.acctnoDataGridViewTextBoxColumn,
-            this.cbalDataGridViewTextBoxColumn,
-            this.currtypDataGridViewTextBoxColumn,
-            this.acctypDataGridViewTextBoxColumn,
-            this.cfindiDataGridViewTextBoxColumn});
             this.dgv_ipdc.DataSource = this.incifBindingSource;
             this.dgv_ipdc.Location = new System.Drawing.Point(52, 283);
             this.dgv_ipdc.Name = "dgv_ipdc";
@@ -1756,55 +1587,6 @@
             this.dgv_ipdc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ipdc.Size = new System.Drawing.Size(619, 166);
             this.dgv_ipdc.TabIndex = 14;
-            // 
-            // acctnoDataGridViewTextBoxColumn
-            // 
-            this.acctnoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.acctnoDataGridViewTextBoxColumn.DataPropertyName = "acctno";
-            this.acctnoDataGridViewTextBoxColumn.HeaderText = "Số Tài Khoản";
-            this.acctnoDataGridViewTextBoxColumn.Name = "acctnoDataGridViewTextBoxColumn";
-            this.acctnoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.acctnoDataGridViewTextBoxColumn.Width = 94;
-            // 
-            // cbalDataGridViewTextBoxColumn
-            // 
-            this.cbalDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cbalDataGridViewTextBoxColumn.DataPropertyName = "cbal";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.cbalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cbalDataGridViewTextBoxColumn.HeaderText = "Số Dư";
-            this.cbalDataGridViewTextBoxColumn.Name = "cbalDataGridViewTextBoxColumn";
-            this.cbalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cbalDataGridViewTextBoxColumn.Width = 61;
-            // 
-            // currtypDataGridViewTextBoxColumn
-            // 
-            this.currtypDataGridViewTextBoxColumn.DataPropertyName = "currtyp";
-            this.currtypDataGridViewTextBoxColumn.HeaderText = "currtyp";
-            this.currtypDataGridViewTextBoxColumn.Name = "currtypDataGridViewTextBoxColumn";
-            this.currtypDataGridViewTextBoxColumn.ReadOnly = true;
-            this.currtypDataGridViewTextBoxColumn.Width = 67;
-            // 
-            // acctypDataGridViewTextBoxColumn
-            // 
-            this.acctypDataGridViewTextBoxColumn.DataPropertyName = "acctyp";
-            this.acctypDataGridViewTextBoxColumn.HeaderText = "acctyp";
-            this.acctypDataGridViewTextBoxColumn.Name = "acctypDataGridViewTextBoxColumn";
-            this.acctypDataGridViewTextBoxColumn.ReadOnly = true;
-            this.acctypDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // cfindiDataGridViewTextBoxColumn
-            // 
-            this.cfindiDataGridViewTextBoxColumn.DataPropertyName = "cfindi";
-            this.cfindiDataGridViewTextBoxColumn.HeaderText = "cfindi";
-            this.cfindiDataGridViewTextBoxColumn.Name = "cfindiDataGridViewTextBoxColumn";
-            this.cfindiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cfindiDataGridViewTextBoxColumn.Width = 57;
-            // 
-            // incifBindingSource
-            // 
-            this.incifBindingSource.DataSource = typeof(insoden.incif);
             // 
             // bt_in
             // 
@@ -2056,10 +1838,6 @@
             this.gc_sk_phipos.TabIndex = 0;
             this.gc_sk_phipos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_sk_phipos});
-            // 
-            // phiPosResultBindingSource
-            // 
-            this.phiPosResultBindingSource.DataSource = typeof(insoden.phiPos_Result);
             // 
             // gv_sk_phipos
             // 
@@ -2914,166 +2692,206 @@
             this.mtb_tk.Size = new System.Drawing.Size(208, 21);
             this.mtb_tk.TabIndex = 13;
             // 
-            // tb_HDV_DN
+            // tb_BaoCao
             // 
-            this.tb_HDV_DN.Controls.Add(this.xtraTabControl4);
-            this.tb_HDV_DN.Location = new System.Drawing.Point(4, 22);
-            this.tb_HDV_DN.Name = "tb_HDV_DN";
-            this.tb_HDV_DN.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_HDV_DN.Size = new System.Drawing.Size(695, 519);
-            this.tb_HDV_DN.TabIndex = 9;
-            this.tb_HDV_DN.Text = "HDV-DN";
-            this.tb_HDV_DN.UseVisualStyleBackColor = true;
+            this.tb_BaoCao.Controls.Add(this.gridControl1);
+            this.tb_BaoCao.Controls.Add(this.BC_TangGiam);
+            this.tb_BaoCao.Location = new System.Drawing.Point(4, 22);
+            this.tb_BaoCao.Name = "tb_BaoCao";
+            this.tb_BaoCao.Padding = new System.Windows.Forms.Padding(3);
+            this.tb_BaoCao.Size = new System.Drawing.Size(695, 519);
+            this.tb_BaoCao.TabIndex = 9;
+            this.tb_BaoCao.Text = "HDV-DN";
+            this.tb_BaoCao.UseVisualStyleBackColor = true;
             // 
-            // xtraTabControl4
+            // gridControl1
             // 
-            this.xtraTabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl4.Location = new System.Drawing.Point(3, 3);
-            this.xtraTabControl4.Name = "xtraTabControl4";
-            this.xtraTabControl4.SelectedTabPage = this.xtp_HDV;
-            this.xtraTabControl4.Size = new System.Drawing.Size(689, 513);
-            this.xtraTabControl4.TabIndex = 2;
-            this.xtraTabControl4.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtp_HDV});
+            this.gridControl1.Location = new System.Drawing.Point(8, 8);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(400, 200);
+            this.gridControl1.TabIndex = 3;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // xtp_HDV
+            // gridView1
             // 
-            this.xtp_HDV.Controls.Add(this.splitContainerControl24);
-            this.xtp_HDV.Name = "xtp_HDV";
-            this.xtp_HDV.Size = new System.Drawing.Size(687, 488);
-            this.xtp_HDV.Text = "HDV";
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
             // 
-            // splitContainerControl24
+            // BC_TangGiam
             // 
-            this.splitContainerControl24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl24.Horizontal = false;
-            this.splitContainerControl24.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl24.Name = "splitContainerControl24";
-            this.splitContainerControl24.Panel1.Controls.Add(this.labelControl24);
-            this.splitContainerControl24.Panel1.Controls.Add(this.labelControl25);
-            this.splitContainerControl24.Panel1.Controls.Add(this.de_nkt);
-            this.splitContainerControl24.Panel1.Controls.Add(this.de_nbd);
-            this.splitContainerControl24.Panel1.Controls.Add(this.button19);
-            this.splitContainerControl24.Panel1.Controls.Add(this.bt_hdv_laysl);
-            this.splitContainerControl24.Panel1.Text = "Panel1";
-            this.splitContainerControl24.Panel2.Controls.Add(this.gc_hdvdn_hdv);
-            this.splitContainerControl24.Panel2.Text = "Panel2";
-            this.splitContainerControl24.Size = new System.Drawing.Size(687, 488);
-            this.splitContainerControl24.SplitterPosition = 78;
-            this.splitContainerControl24.TabIndex = 2;
-            this.splitContainerControl24.Text = "splitContainerControl24";
+            this.BC_TangGiam.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BC_TangGiam.Location = new System.Drawing.Point(3, 3);
+            this.BC_TangGiam.Name = "BC_TangGiam";
+            this.BC_TangGiam.SelectedTabPage = this.xtp_tg_tienvay;
+            this.BC_TangGiam.Size = new System.Drawing.Size(689, 513);
+            this.BC_TangGiam.TabIndex = 2;
+            this.BC_TangGiam.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtp_tg_tienvay});
             // 
-            // labelControl24
+            // xtp_tg_tienvay
             // 
-            this.labelControl24.Location = new System.Drawing.Point(144, 22);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(37, 13);
-            this.labelControl24.TabIndex = 4;
-            this.labelControl24.Text = "Ngày kt";
+            this.xtp_tg_tienvay.Controls.Add(this.splitContainerControl1);
+            this.xtp_tg_tienvay.Name = "xtp_tg_tienvay";
+            this.xtp_tg_tienvay.Size = new System.Drawing.Size(687, 488);
+            this.xtp_tg_tienvay.Text = "Tăng giảm Tiền vay";
             // 
-            // labelControl25
+            // splitContainerControl1
             // 
-            this.labelControl25.Location = new System.Drawing.Point(14, 22);
-            this.labelControl25.Name = "labelControl25";
-            this.labelControl25.Size = new System.Drawing.Size(40, 13);
-            this.labelControl25.TabIndex = 4;
-            this.labelControl25.Text = "Ngày bd";
+            this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerControl1.Name = "splitContainerControl1";
+            this.splitContainerControl1.Panel1.Controls.Add(this.tb_bc_tg_vay_limit);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl20);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl18);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl19);
+            this.splitContainerControl1.Panel1.Controls.Add(this.de_bc_tv_ngaycuoi);
+            this.splitContainerControl1.Panel1.Controls.Add(this.de_bc_tv_ngaydau);
+            this.splitContainerControl1.Panel1.Controls.Add(this.button1);
+            this.splitContainerControl1.Panel1.Controls.Add(this.bt_bc_tg_tv);
+            this.splitContainerControl1.Panel1.Text = "Panel1";
+            this.splitContainerControl1.Panel2.Controls.Add(this.pivotGridControl1);
+            this.splitContainerControl1.Panel2.Text = "Panel2";
+            this.splitContainerControl1.Size = new System.Drawing.Size(687, 488);
+            this.splitContainerControl1.TabIndex = 2;
+            this.splitContainerControl1.Text = "splitContainerControl1";
             // 
-            // de_nkt
+            // tb_bc_tg_vay_limit
             // 
-            this.de_nkt.EditValue = new System.DateTime(2017, 2, 24, 10, 6, 44, 0);
-            this.de_nkt.Location = new System.Drawing.Point(187, 18);
-            this.de_nkt.Name = "de_nkt";
-            this.de_nkt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tb_bc_tg_vay_limit.Location = new System.Drawing.Point(339, 18);
+            this.tb_bc_tg_vay_limit.Name = "tb_bc_tg_vay_limit";
+            this.tb_bc_tg_vay_limit.Size = new System.Drawing.Size(100, 21);
+            this.tb_bc_tg_vay_limit.TabIndex = 5;
+            this.tb_bc_tg_vay_limit.Text = "1000000000";
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Location = new System.Drawing.Point(284, 21);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(38, 13);
+            this.labelControl20.TabIndex = 4;
+            this.labelControl20.Text = "Giới hạn";
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(144, 22);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(37, 13);
+            this.labelControl18.TabIndex = 4;
+            this.labelControl18.Text = "Ngày kt";
+            // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(14, 22);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(40, 13);
+            this.labelControl19.TabIndex = 4;
+            this.labelControl19.Text = "Ngày bd";
+            // 
+            // de_bc_tv_ngaycuoi
+            // 
+            this.de_bc_tv_ngaycuoi.EditValue = new System.DateTime(2017, 2, 24, 10, 6, 44, 0);
+            this.de_bc_tv_ngaycuoi.Location = new System.Drawing.Point(187, 18);
+            this.de_bc_tv_ngaycuoi.Name = "de_bc_tv_ngaycuoi";
+            this.de_bc_tv_ngaycuoi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_nkt.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_bc_tv_ngaycuoi.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_nkt.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.de_nkt.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.de_nkt.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.de_nkt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.de_nkt.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.de_nkt.Size = new System.Drawing.Size(79, 20);
-            this.de_nkt.TabIndex = 2;
+            this.de_bc_tv_ngaycuoi.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.de_bc_tv_ngaycuoi.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_bc_tv_ngaycuoi.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.de_bc_tv_ngaycuoi.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_bc_tv_ngaycuoi.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.de_bc_tv_ngaycuoi.Size = new System.Drawing.Size(79, 20);
+            this.de_bc_tv_ngaycuoi.TabIndex = 2;
             // 
-            // de_nbd
+            // de_bc_tv_ngaydau
             // 
-            this.de_nbd.Cursor = System.Windows.Forms.Cursors.Default;
-            this.de_nbd.EditValue = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
-            this.de_nbd.Location = new System.Drawing.Point(59, 18);
-            this.de_nbd.Name = "de_nbd";
-            this.de_nbd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_bc_tv_ngaydau.Cursor = System.Windows.Forms.Cursors.Default;
+            this.de_bc_tv_ngaydau.EditValue = new System.DateTime(2017, 2, 24, 0, 0, 0, 0);
+            this.de_bc_tv_ngaydau.Location = new System.Drawing.Point(59, 18);
+            this.de_bc_tv_ngaydau.Name = "de_bc_tv_ngaydau";
+            this.de_bc_tv_ngaydau.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_nbd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_bc_tv_ngaydau.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_nbd.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.de_nbd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.de_nbd.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.de_nbd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.de_nbd.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.de_nbd.Size = new System.Drawing.Size(79, 20);
-            this.de_nbd.TabIndex = 2;
+            this.de_bc_tv_ngaydau.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.de_bc_tv_ngaydau.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_bc_tv_ngaydau.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.de_bc_tv_ngaydau.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_bc_tv_ngaydau.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.de_bc_tv_ngaydau.Size = new System.Drawing.Size(79, 20);
+            this.de_bc_tv_ngaydau.TabIndex = 2;
             // 
-            // button19
+            // button1
             // 
-            this.button19.Location = new System.Drawing.Point(122, 51);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(65, 23);
-            this.button19.TabIndex = 1;
-            this.button19.Text = "Xuat Excel";
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.button1.Location = new System.Drawing.Point(122, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(65, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Xuat Excel";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // bt_hdv_laysl
+            // bt_bc_tg_tv
             // 
-            this.bt_hdv_laysl.Location = new System.Drawing.Point(36, 51);
-            this.bt_hdv_laysl.Name = "bt_hdv_laysl";
-            this.bt_hdv_laysl.Size = new System.Drawing.Size(80, 23);
-            this.bt_hdv_laysl.TabIndex = 1;
-            this.bt_hdv_laysl.Text = "Lấy thông Tin";
-            this.bt_hdv_laysl.UseVisualStyleBackColor = true;
-            this.bt_hdv_laysl.Click += new System.EventHandler(this.bt_hdv_laysl_Click);
+            this.bt_bc_tg_tv.Location = new System.Drawing.Point(36, 51);
+            this.bt_bc_tg_tv.Name = "bt_bc_tg_tv";
+            this.bt_bc_tg_tv.Size = new System.Drawing.Size(80, 23);
+            this.bt_bc_tg_tv.TabIndex = 1;
+            this.bt_bc_tg_tv.Text = "Lấy thông Tin";
+            this.bt_bc_tg_tv.UseVisualStyleBackColor = true;
+            this.bt_bc_tg_tv.Click += new System.EventHandler(this.Bt_bc_tg_tv_Click);
             // 
-            // gc_hdvdn_hdv
+            // pivotGridControl1
             // 
-            this.gc_hdvdn_hdv.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gc_hdvdn_hdv.DataSource = this.hdv_ngay_den_ngay_ResultBindingSource;
-            this.gc_hdvdn_hdv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_hdvdn_hdv.Location = new System.Drawing.Point(0, 0);
-            this.gc_hdvdn_hdv.MainView = this.gv_hdvdn_hdv;
-            this.gc_hdvdn_hdv.Name = "gc_hdvdn_hdv";
-            this.gc_hdvdn_hdv.Size = new System.Drawing.Size(687, 398);
-            this.gc_hdvdn_hdv.TabIndex = 0;
-            this.gc_hdvdn_hdv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_hdvdn_hdv});
+            this.pivotGridControl1.DataSource = this.bienDongTienVayResultBindingSource;
+            this.pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pivotGridControl1.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.fieldngay1,
+            this.fieldcif1,
+            this.fieldacname1,
+            this.fieldsodu1,
+            this.fieldphong1});
+            this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
+            this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.Size = new System.Drawing.Size(687, 376);
+            this.pivotGridControl1.TabIndex = 1;
             // 
-            // hdv_ngay_den_ngay_ResultBindingSource
+            // fieldngay1
             // 
-            this.hdv_ngay_den_ngay_ResultBindingSource.DataSource = typeof(insoden.hdv_ngay_den_ngay_Result);
+            this.fieldngay1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldngay1.AreaIndex = 0;
+            this.fieldngay1.FieldName = "ngay";
+            this.fieldngay1.Name = "fieldngay1";
             // 
-            // gv_hdvdn_hdv
+            // fieldcif1
             // 
-            this.gv_hdvdn_hdv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.coldatadate7,
-            this.coltonghdv});
-            this.gv_hdvdn_hdv.GridControl = this.gc_hdvdn_hdv;
-            this.gv_hdvdn_hdv.Name = "gv_hdvdn_hdv";
+            this.fieldcif1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldcif1.AreaIndex = 0;
+            this.fieldcif1.FieldName = "cif";
+            this.fieldcif1.Name = "fieldcif1";
             // 
-            // coldatadate7
+            // fieldacname1
             // 
-            this.coldatadate7.FieldName = "datadate";
-            this.coldatadate7.Name = "coldatadate7";
-            this.coldatadate7.Visible = true;
-            this.coldatadate7.VisibleIndex = 0;
+            this.fieldacname1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldacname1.AreaIndex = 1;
+            this.fieldacname1.FieldName = "acname";
+            this.fieldacname1.Name = "fieldacname1";
             // 
-            // coltonghdv
+            // fieldsodu1
             // 
-            this.coltonghdv.DisplayFormat.FormatString = "N2";
-            this.coltonghdv.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.coltonghdv.FieldName = "tonghdv";
-            this.coltonghdv.Name = "coltonghdv";
-            this.coltonghdv.Visible = true;
-            this.coltonghdv.VisibleIndex = 1;
+            this.fieldsodu1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldsodu1.AreaIndex = 0;
+            this.fieldsodu1.FieldName = "sodu";
+            this.fieldsodu1.Name = "fieldsodu1";
+            // 
+            // fieldphong1
+            // 
+            this.fieldphong1.AreaIndex = 0;
+            this.fieldphong1.FieldName = "phong";
+            this.fieldphong1.Name = "fieldphong1";
             // 
             // tb_reportviewer
             // 
@@ -3530,10 +3348,6 @@
             this.GL_gc_lsgl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GL_gv_lsgl});
             // 
-            // gLHISTBindingSource
-            // 
-            this.gLHISTBindingSource.DataSource = typeof(insoden.GLHIST);
-            // 
             // GL_gv_lsgl
             // 
             this.GL_gv_lsgl.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -3809,10 +3623,6 @@
             this.RW_gc_gl_tonquy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gW_gl_tonquy});
             // 
-            // tonQuyResultBindingSource
-            // 
-            this.tonQuyResultBindingSource.DataSource = typeof(insoden.TonQuy_Result);
-            // 
             // gW_gl_tonquy
             // 
             this.gW_gl_tonquy.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -4050,10 +3860,6 @@
             this.gc_gl_lsglerp.TabIndex = 0;
             this.gc_gl_lsglerp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_gl_lsglerp});
-            // 
-            // tracuulsglResultBindingSource
-            // 
-            this.tracuulsglResultBindingSource.DataSource = typeof(insoden.tracuulsgl_Result);
             // 
             // gv_gl_lsglerp
             // 
@@ -4347,10 +4153,6 @@
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
-            // 
-            // traCuuGLERPResultBindingSource
-            // 
-            this.traCuuGLERPResultBindingSource.DataSource = typeof(insoden.TraCuuGLERP_Result);
             // 
             // gridView2
             // 
@@ -4652,10 +4454,6 @@
             this.gc_skds_doanhso.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_skds_doanhso});
             // 
-            // doanhSoTientheoCifResultBindingSource
-            // 
-            this.doanhSoTientheoCifResultBindingSource.DataSource = typeof(insoden.DoanhSoTientheoCif_Result);
-            // 
             // gv_skds_doanhso
             // 
             this.gv_skds_doanhso.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -4764,10 +4562,6 @@
             this.gc_skds_thunothulai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_skds_thunothulai});
             // 
-            // thuNoThuLaiResultBindingSource
-            // 
-            this.thuNoThuLaiResultBindingSource.DataSource = typeof(insoden.ThuNoThuLai_Result);
-            // 
             // gv_skds_thunothulai
             // 
             this.gv_skds_thunothulai.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -4829,10 +4623,6 @@
             this.gc_skds_thuphi.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_skds_thuphi});
             // 
-            // tinhPhiTheoCifResultBindingSource
-            // 
-            this.tinhPhiTheoCifResultBindingSource.DataSource = typeof(insoden.TinhPhiTheoCif_Result);
-            // 
             // gv_skds_thuphi
             // 
             this.gv_skds_thuphi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -4889,10 +4679,6 @@
             this.gc_skds_saoke.TabIndex = 6;
             this.gc_skds_saoke.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_skds_saoke});
-            // 
-            // saoKeCifResultBindingSource
-            // 
-            this.saoKeCifResultBindingSource.DataSource = typeof(insoden.SaoKeCif_Result);
             // 
             // gv_skds_saoke
             // 
@@ -5322,10 +5108,6 @@
             this.GC_TD_saoketv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_TD_saoketv});
             // 
-            // saoKeTienVayResultBindingSource
-            // 
-            this.saoKeTienVayResultBindingSource.DataSource = typeof(insoden.SaoKeTienVay_Result);
-            // 
             // GV_TD_saoketv
             // 
             this.GV_TD_saoketv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -5545,10 +5327,6 @@
             this.gc_td_tragoc.TabIndex = 0;
             this.gc_td_tragoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_td_tragoc});
-            // 
-            // traGocResultBindingSource
-            // 
-            this.traGocResultBindingSource.DataSource = typeof(insoden.TraGoc_Result);
             // 
             // gv_td_tragoc
             // 
@@ -6735,10 +6513,6 @@
             this.GC_td_dhgl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_td_dhgl});
             // 
-            // traGocLaiResultBindingSource
-            // 
-            this.traGocLaiResultBindingSource.DataSource = typeof(insoden.TraGocLai_Result);
-            // 
             // GV_td_dhgl
             // 
             this.GV_td_dhgl.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -7432,10 +7206,6 @@
             this.gc_nguon_ttnt.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_nguon_ttnt});
             // 
-            // muaBanNgoaiTeResultBindingSource
-            // 
-            this.muaBanNgoaiTeResultBindingSource.DataSource = typeof(insoden.MuaBanNgoaiTe_Result);
-            // 
             // gv_nguon_ttnt
             // 
             this.gv_nguon_ttnt.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -7519,10 +7289,6 @@
             this.gc_nguon_ttnt_tygia.TabIndex = 0;
             this.gc_nguon_ttnt_tygia.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_nguon_ttnt_tygia});
-            // 
-            // laytygiangayResultBindingSource
-            // 
-            this.laytygiangayResultBindingSource.DataSource = typeof(insoden.laytygiangay_Result);
             // 
             // gv_nguon_ttnt_tygia
             // 
@@ -7654,10 +7420,6 @@
             this.gc_tcmpa.TabIndex = 0;
             this.gc_tcmpa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_tcmpa});
-            // 
-            // thauchimpaResultBindingSource
-            // 
-            this.thauchimpaResultBindingSource.DataSource = typeof(insoden.thauchi_mpa_Result);
             // 
             // gv_tcmpa
             // 
@@ -8088,10 +7850,6 @@
             this.GC_ThauChi_SaoKe.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_ThauChi_SaoKe});
             // 
-            // saokethauchiResultBindingSource
-            // 
-            this.saokethauchiResultBindingSource.DataSource = typeof(insoden.saokethauchi_Result);
-            // 
             // GV_ThauChi_SaoKe
             // 
             this.GV_ThauChi_SaoKe.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -8322,18 +8080,6 @@
             this.colODUNAC1.Visible = true;
             this.colODUNAC1.VisibleIndex = 27;
             // 
-            // thuLaiBindingSource1
-            // 
-            this.thuLaiBindingSource1.DataSource = typeof(insoden.ThuLai);
-            // 
-            // thongBaoDuNoResultBindingSource
-            // 
-            this.thongBaoDuNoResultBindingSource.DataSource = typeof(insoden.ThongBaoDuNo_Result);
-            // 
-            // x1PCMSBindingSource
-            // 
-            this.x1PCMSBindingSource.DataSource = typeof(insoden.X1PCMS);
-            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2013";
@@ -8426,19 +8172,20 @@
             this.tb_in_sec.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tb_HDV_DN.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl4)).EndInit();
-            this.xtraTabControl4.ResumeLayout(false);
-            this.xtp_HDV.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl24)).EndInit();
-            this.splitContainerControl24.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nkt.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_nbd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_hdvdn_hdv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hdv_ngay_den_ngay_ResultBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_hdvdn_hdv)).EndInit();
+            this.tb_BaoCao.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BC_TangGiam)).EndInit();
+            this.BC_TangGiam.ResumeLayout(false);
+            this.xtp_tg_tienvay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+            this.splitContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaycuoi.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaycuoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaydau.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_bc_tv_ngaydau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bienDongTienVayResultBindingSource)).EndInit();
             this.tb_reportviewer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
@@ -8615,6 +8362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GC_ThauChi_SaoKe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.saokethauchiResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_ThauChi_SaoKe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hdv_ngay_den_ngay_ResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thongBaoDuNoResultBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracuulsglResult2BindingSource1)).EndInit();
@@ -8685,7 +8433,7 @@
         private System.Windows.Forms.DateTimePicker dtp_sk_ngaycuoi;
         private System.Windows.Forms.DateTimePicker dtp_sk_ngaydau;
         private System.Windows.Forms.Button bt_SK_xuatxls;
-        private System.Windows.Forms.TabPage tb_HDV_DN;
+        private System.Windows.Forms.TabPage tb_BaoCao;
         private System.Windows.Forms.TabPage tb_atm_pht;
         private System.Windows.Forms.Button bt_atm_pht_laydl;
         private System.Windows.Forms.Label label28;
@@ -9016,23 +8764,7 @@
         private System.Windows.Forms.Button bt_in_tk;
         private System.Windows.Forms.Label tb_somon;
         private System.Windows.Forms.DataGridView dgv_noco_tk;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cnmotkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cngiaodichDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cifnoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tentkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loaitienDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn loaiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sotienDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn soduDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ghichuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cngdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn truserDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn auxtrcDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chuthichauxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngaygiaodichDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seqDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ngayinDataGridViewTextBoxColumn;
+      
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bt_laythontin;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -9061,11 +8793,6 @@
         private System.Windows.Forms.Button bt_pdc_laysl;
         private System.Windows.Forms.Button bt_pdc_xoa;
         private System.Windows.Forms.DataGridView dgv_ipdc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acctnoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cbalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn currtypDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acctypDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cfindiDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button bt_in;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cb_bds_pdc;
@@ -9363,20 +9090,27 @@
         private System.Windows.Forms.DateTimePicker dtp_td_tbdn;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.DateTimePicker dtp_td_tbdnldh;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl4;
-        private DevExpress.XtraTab.XtraTabPage xtp_HDV;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl24;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
-        private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraEditors.DateEdit de_nkt;
-        private DevExpress.XtraEditors.DateEdit de_nbd;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button bt_hdv_laysl;
-        private DevExpress.XtraGrid.GridControl gc_hdvdn_hdv;
-        private DevExpress.XtraGrid.Views.Grid.GridView gv_hdvdn_hdv;
+        private DevExpress.XtraTab.XtraTabControl BC_TangGiam;
         private System.Windows.Forms.BindingSource hdv_ngay_den_ngay_ResultBindingSource;
-        private DevExpress.XtraGrid.Columns.GridColumn coldatadate7;
-        private DevExpress.XtraGrid.Columns.GridColumn coltonghdv;
+        private DevExpress.XtraTab.XtraTabPage xtp_tg_tienvay;
+        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+        private System.Windows.Forms.TextBox tb_bc_tg_vay_limit;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.DateEdit de_bc_tv_ngaycuoi;
+        private DevExpress.XtraEditors.DateEdit de_bc_tv_ngaydau;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt_bc_tg_tv;
+        private DevExpress.XtraPivotGrid.PivotGridControl pivotGridControl1;
+        private System.Windows.Forms.BindingSource bienDongTienVayResultBindingSource;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldngay1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldcif1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldacname1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldsodu1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldphong1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }
 

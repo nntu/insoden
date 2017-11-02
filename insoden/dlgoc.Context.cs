@@ -1425,6 +1425,23 @@ namespace insoden
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<vay_Result>("vay", ngaybdParameter, ngayktParameter);
         }
     
+        public virtual ObjectResult<BienDongTienVay_Result> BienDongTienVay(Nullable<System.DateTime> ngaydau, Nullable<System.DateTime> ngaytruoc, Nullable<decimal> limit)
+        {
+            var ngaydauParameter = ngaydau.HasValue ?
+                new ObjectParameter("ngaydau", ngaydau) :
+                new ObjectParameter("ngaydau", typeof(System.DateTime));
+    
+            var ngaytruocParameter = ngaytruoc.HasValue ?
+                new ObjectParameter("ngaytruoc", ngaytruoc) :
+                new ObjectParameter("ngaytruoc", typeof(System.DateTime));
+    
+            var limitParameter = limit.HasValue ?
+                new ObjectParameter("Limit", limit) :
+                new ObjectParameter("Limit", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<BienDongTienVay_Result>("BienDongTienVay", ngaydauParameter, ngaytruocParameter, limitParameter);
+        }
+    
         public virtual ObjectResult<DoanhSoTientheoCif_Result> DoanhSoTientheoCif(Nullable<System.DateTime> ngaybd, Nullable<System.DateTime> ngaykt, Nullable<decimal> cif)
         {
             var ngaybdParameter = ngaybd.HasValue ?

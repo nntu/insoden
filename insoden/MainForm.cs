@@ -72,7 +72,7 @@ namespace insoden
             _dbbdsu = new bdsuEntities();
             _db.Database.CommandTimeout = 300000;
             InitializeComponent();
-   
+
         }
 
         private delegate void UpdateLabelTextDelegate(string newText);
@@ -2775,30 +2775,18 @@ namespace insoden
 
         }
 
-        private void bt_hdv_laysl_Click(object sender, EventArgs e)
+        private void Bt_bc_tg_tv_Click(object sender, EventArgs e)
         {
-            var re = _db.hdv_ngay_den_ngay((DateTime)de_nbd.EditValue, (DateTime)de_nkt.EditValue);
-            gc_hdvdn_hdv.DataSource = new BindingSource(re, "");
+            var ngaydau = (DateTime)de_bc_tv_ngaydau.EditValue;
+            var ngaytruoc = (DateTime)de_bc_tv_ngaycuoi.EditValue;
+            var limit = Convert.ToDecimal(tb_bc_tg_vay_limit.Text);
+            var bdtienvay = _db.BienDongTienVay(ngaydau, ngaytruoc, limit);
+            pivotGridControl1.DataSource = new BindingSource(bdtienvay, "");
+
 
         }
 
-        private void button19_Click(object sender, EventArgs e)
-        {
-            SaveFileExcel.FileName = "hdv_";
-            if (SaveFileExcel.ShowDialog() == DialogResult.OK)
-            {
-                var fi = new FileInfo(SaveFileExcel.FileName);
 
-                if (fi.Exists)
-                {
-                    fi.Delete();
-                }
-                gv_hdvdn_hdv.OptionsPrint.AutoWidth = false;
-                gv_hdvdn_hdv.BestFitColumns();
-                gv_hdvdn_hdv.ExportToXlsx(SaveFileExcel.FileName);
-            }
-            OpenExplorer(SaveFileExcel.FileName);
-        }
         // Function for read data from Excel worksheet into DataTable
         /*
                 private DataTable WorksheetToDataTable(ExcelWorksheet ws, bool hasHeader = true)
