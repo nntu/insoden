@@ -35,6 +35,7 @@ namespace insoden
         public virtual DbSet<GLMAST> GLMASTs { get; set; }
         public virtual DbSet<DDMAST_DATE> DDMAST_DATE { get; set; }
         public virtual DbSet<GLHIST> GLHISTs { get; set; }
+        public virtual DbSet<LOANMONTH> LOANMONTHs { get; set; }
     
         [DbFunction("dlgocEntities", "GetMonthList")]
         public virtual IQueryable<GetMonthList_Result> GetMonthList(Nullable<System.DateTime> startDate, Nullable<System.DateTime> endDate)

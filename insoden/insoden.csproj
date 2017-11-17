@@ -30,12 +30,12 @@
     <PublisherName>BIDVCanTho</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>230</ApplicationRevision>
+    <ApplicationRevision>236</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
-    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>Absolute</BootstrapperComponentsLocation>
     <BootstrapperComponentsUrl>\\10.141.2.5\bidvct\hotro</BootstrapperComponentsUrl>
   </PropertyGroup>
@@ -106,7 +106,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Optimize>true</Optimize>
     <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
@@ -281,6 +281,9 @@
     <Compile Include="laytygia_ngay_old_Result.cs">
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
+    <Compile Include="LOANMONTH.cs">
+      <DependentUpon>dlgoc.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\CifInfo.cs" />
     <Compile Include="Model\clbc833.cs" />
     <Compile Include="Config.cs" />
@@ -340,6 +343,7 @@
       <DependentUpon>dlgoc.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\InTBNoDenHan.cs" />
+    <Compile Include="Model\skdn.cs" />
     <Compile Include="Model\ThuGocLai.cs" />
     <Compile Include="Model\ThuLai.cs" />
     <Compile Include="Model\tkgl.cs" />
@@ -783,11 +787,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>

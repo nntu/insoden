@@ -1,9 +1,16 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
+using insoden.Model;
+using Ionic.Zip;
+using Lex.Db;
+using NLog;
+using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Configuration;
-
 using System.Data.Entity.Core.Objects;
 using System.Deployment.Application;
 using System.Diagnostics;
@@ -16,13 +23,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using Ionic.Zip;
-using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using Lex.Db;
-using NLog;
-using DevExpress.XtraReports.UI;
 
 namespace insoden
 {
@@ -49,7 +49,7 @@ namespace insoden
         List<InTBNoDenHan> _InTBNoDenHan;
         private List<incif> _lcif;
         private List<GLHIST> _listLsGl = new List<GLHIST>();
-       
+
         DbInstance _localdb;
         private NetworkStream _ls;
         private List<GLHIST> _lsglhist;
@@ -166,7 +166,7 @@ namespace insoden
             }
         }
 
-        private void bt_atmXoa_Click(object sender, EventArgs e)
+        private void Bt_atmXoa_Click(object sender, EventArgs e)
         {
 
             IQueryable<tbXoaATM> ds = from p in _dbbdsu.tbXoaATMs
@@ -352,14 +352,17 @@ namespace insoden
             else
             {
                 //  IQueryable<GLHIST_ERP> listgl;
-             
+
                 var gl = Lib.ExtractNumber(tk.Trim());
                 var glacc = Convert.ToDecimal(gl.Trim());
                 var ngaybd = (DateTime)de_gl_erp_datdau.EditValue;
                 var ngaykt = (DateTime)de_gl_erp_ketthuc.EditValue;
                 var tiente = (string)cb_gl_erp_loaitien.SelectedItem;
                 var bds = Convert.ToInt32(cb_gl_erp_bds.SelectedItem);
-
+                if (tiente == null)
+                {
+                    tiente = "VND";
+                }
                 var lsgl = _db.tracuulsgl(glacc, ngaybd, ngaykt, bds, tiente.Trim());
 
                 //       _listLsGl = listgl.ToList();
@@ -426,7 +429,7 @@ namespace insoden
             }
         }
 
-      
+
         private void bt_in_Click(object sender, EventArgs e)
         {
             if (_lcif == null)
@@ -759,7 +762,7 @@ namespace insoden
 
                 //ngaycuoiky = ConfigurationManager.AppSettings["ngaycuoiky"]
             };
-            string check = check_checkbox();
+            string check = Check_checkbox();
             int bds = Convert.ToInt32(cb_bds_pdc.SelectedItem);
             if (tb_cif_pdc.Text == "")
             {
@@ -870,7 +873,7 @@ namespace insoden
             try
             {
                 var formats = new[] { @"dd/MM/yy hh:mm:ss", @"dd/MM/yy HH:mm:ss", @"d/MM/yy HH:mm:ss", @"d/MM/yy H:mm:ss", @"d/MM/yy hh:mm:ss", @"d/MM/yy h:mm:ss", @"d/MM/yy hh:mm:ss", @"d/MM/yy mm:ss", @"dd/MM/yy ss", @"dd/MM/yy" };
-                 dsbc833.Clear();
+                dsbc833.Clear();
                 var fd = new OpenFileDialog();
                 if (fd.ShowDialog() == DialogResult.OK) // Test result.
                 {
@@ -1033,8 +1036,8 @@ namespace insoden
                                                 NguoiMo = (su == null ? subpet == null ? string.Empty : subpet.usertacdong : su.OPER),
                                                 Teller = p.Teller,
                                                 Supervisor = p.Supervisor,
-                                                SoNgayQuaHan =p.SoNgayQuaHan,
-                                                am =p.am,
+                                                SoNgayQuaHan = p.SoNgayQuaHan,
+                                                am = p.am,
                                                 QuaHan90ngay = p.QuaHan90ngay
 
                                             }).ToList();
@@ -1046,9 +1049,10 @@ namespace insoden
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
 
-                logger.Error(ex );
+                logger.Error(ex);
 
             }
         }
@@ -1096,7 +1100,7 @@ namespace insoden
             }
             else
             {
-                _doanhso = _db.DoanhSoTientheoCif(dtp_sk_ngaydau.Value, dtp_sk_ngaycuoi.Value,Convert.ToDecimal(cif));
+                _doanhso = _db.DoanhSoTientheoCif(dtp_sk_ngaydau.Value, dtp_sk_ngaycuoi.Value, Convert.ToDecimal(cif));
 
                 gc_skds_doanhso.DataSource = new BindingSource(_doanhso, "");
 
@@ -1188,7 +1192,7 @@ namespace insoden
             }
         }
 
-       
+
 
         private void bt_tbdn_laysl_Click(object sender, EventArgs e)
         {
@@ -1202,7 +1206,7 @@ namespace insoden
             else
             {
                 var cif = Convert.ToDecimal(cifno);
-                
+
                 var tbdn = _db.ThongBaoDuNo(cif, dtp_td_tbdn.Value).AsEnumerable().Cast<ThongBaoDuNo_Result>().ToList();
 
                 _InTBDuNovaLaiVay = new List<InTBDuNovaLaiVay>();
@@ -1316,9 +1320,9 @@ namespace insoden
                     var tktt = _db.LayTKThanhToanTheoCIF(cif).AsEnumerable().Cast<LayTKThanhToanTheoCIF_Result>().ToList();
 
                     panelControl1.Controls.Clear();
-                    UC_ThuLai tl = new UC_ThuLai(tinhthulai, tktt,cb_td_pyctl_noigui.Text);
+                    UC_ThuLai tl = new UC_ThuLai(tinhthulai, tktt, cb_td_pyctl_noigui.Text);
                     tl.Dock = DockStyle.Fill;
-                    tl.SetLocaltion( _clickOnceLocation);
+                    tl.SetLocaltion(_clickOnceLocation);
                     panelControl1.Controls.Add(tl);
                 }
 
@@ -1704,7 +1708,7 @@ namespace insoden
             }
         }
 
-       
+
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -2077,49 +2081,8 @@ namespace insoden
             OpenExplorer(SaveFileExcel.FileName);
         }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            decimal sochay = 2255;
-            string loaitk = "00";
-            if (cb_tk_sodep_loaitk.SelectedIndex == 0)
-            {
-                loaitk = "00";
-                sochay = 44780;
-            }
-            else if (cb_tk_sodep_loaitk.SelectedIndex == 1)
-            {
-                loaitk = "37";
-                sochay = 2255;
-            }
-
-            string tk;
-            tk = mtb_tk_sodep_dautk.Text + loaitk;
-            string tkkyvong = tb_tk_sodep_mongmuon.Text;
-            string checktk;
-            for (decimal i = sochay; i <= 999999; i++)
-            {
-                checktk = $"{i:000000}";
-                string a = Lib.chkDigitAccountNo(tk + checktk);
-
-                //  lb_tk_sodep_ketqua.Items.Add(a);
-                if (a.IndexOf(tkkyvong, StringComparison.Ordinal) != -1)
-                {
-                    var check = _dbbdsu.tb_ql_CIF.FirstOrDefault(c => c.accno == a);
-                    if (check != null)
-                    {
-                        richTextBox1.AppendText(a + " - Đã dùng \n");
-                    }
-                    else
-                    {
-                        richTextBox1.AppendText(a + "\n");
-                    }
-                }
-            }
-        }
-
-        private void cb_gl_tiente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
+       
+        
 
         private void cb_td_pyctl_tk_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2135,7 +2098,7 @@ namespace insoden
 
         }
 
-        private string check_checkbox()
+        private string Check_checkbox()
         {
             var loaitk = cb_ca.Checked ? "D,S" : "";
             if (cb_fd.Checked)
@@ -2173,7 +2136,7 @@ namespace insoden
             return loaitk;
         }
 
-        private string check_dl(string tablename, DateTime ngaydau, DateTime ngaycuoi)
+        private string Check_dl(string tablename, DateTime ngaydau, DateTime ngaycuoi)
         {
             IQueryable<tb_checkdulieu> t =
                          _db.tb_checkdulieu.Where(
@@ -2197,7 +2160,7 @@ namespace insoden
             }
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             switch (cb_tratk_tim.SelectedIndex)
             {
@@ -2224,19 +2187,19 @@ namespace insoden
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             _cf = Config.Load();
-          
+
             if (ApplicationDeployment.IsNetworkDeployed)
             {
                 Version myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion;
                 Text = Text +
                        $" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}";
-              //  logger.Info($" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}");
+                //  logger.Info($" - Version: v{myVersion.Major}.{myVersion.Minor}.{myVersion.Build}.{myVersion.Revision}");
             }
             Assembly assemblyInfo = Assembly.GetExecutingAssembly();
             //Location is where the assembly is run from
-           
+
             //CodeBase is the location of the ClickOnce deployment files
             var uriCodeBase = new Uri(assemblyInfo.CodeBase);
 
@@ -2254,7 +2217,7 @@ namespace insoden
             dtp_gl_ngay.DateTime = dtp_tcmpa_tc_ngay.Value = dtp__ngaycuoi_cif.Value =
                     dtp__ngaydau_cif.Value = dtp_atmxoa_ngaydau.Value = dtp_atmxoa_ngaycuoi.Value = now;
             dtp_td_pyctl_ngaytl.Value = dtp_td_tbdn.Value = dtp_td_tbdnldh.Value = now;
-      
+
             cb_tratk_tim.SelectedIndex = 0;
             cb_ATM_tracuthe.SelectedIndex = 0;
             cb_lsgl_bds.SelectedIndex = 0;
@@ -2279,13 +2242,14 @@ namespace insoden
                 atcgl.Add(item);
                 cb_gl_lsgl_tk.Items.Add(item);
                 cb_gl_tracuugl_tk.Items.Add(item);
-             
+
+
             }
-         
+
             cb_gl_lsgl_tk.AutoCompleteCustomSource = atcgl;
-       
+
             cb_gl_tracuugl_tk.AutoCompleteCustomSource = atcgl;
-           
+
 
 
             if (!Directory.Exists(_tempdir))
@@ -2330,7 +2294,7 @@ namespace insoden
             }
             else
             {
-                string res = check_dl("ddmast_date", dtp__ngaydau_cif.Value, dtp__ngaycuoi_cif.Value);
+                string res = Check_dl("ddmast_date", dtp__ngaydau_cif.Value, dtp__ngaycuoi_cif.Value);
                 if (!string.IsNullOrEmpty(res))
                 {
                     MessageBox.Show(res);
@@ -2445,7 +2409,7 @@ namespace insoden
             }
             else
             {
-                string res = check_dl("dddhis_date", dtp_tungay.Value, dtp_denngay.Value);
+                string res = Check_dl("dddhis_date", dtp_tungay.Value, dtp_denngay.Value);
                 if (!string.IsNullOrEmpty(res))
                 {
                     MessageBox.Show(res);
@@ -2640,10 +2604,7 @@ namespace insoden
             }
         }
 
-        private void tb_in_sec_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void tb_in_sec_Enter(object sender, EventArgs e)
         {
@@ -2676,11 +2637,7 @@ namespace insoden
             }
         }
 
-        private void tb_main_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void tb_TinDung_Enter(object sender, EventArgs e)
         {
             var cif = _localdb.Table<CifInfo>();
@@ -2692,22 +2649,26 @@ namespace insoden
                 cb_td_tbndh_tk.Items.Add(item);
                 cifatc.Add(item);
                 cb_td_pyctl_tk.Items.Add(item);
+                cb_td_skdn_cif.Items.Add(item);
+
             }
             cb_td_tbdn_tk.AutoCompleteCustomSource = cifatc;
             cb_td_tbndh_tk.AutoCompleteCustomSource = cifatc;
             cb_td_pyctl_tk.AutoCompleteCustomSource = cifatc;
+            cb_td_skdn_cif.AutoCompleteCustomSource = cifatc;
         }
 
         private void tb_tralai_Enter(object sender, EventArgs e)
         {
-          
-             
+
+
         }
 
         private void tc_td_tragoc_Enter(object sender, EventArgs e)
         {
 
-            if (_ngaydl_loanmonth != null) {
+            if (_ngaydl_loanmonth != null)
+            {
                 lb_td_tl_ngaydl.Text = _ngaydl_loanmonth.Value.ToShortDateString();
                 lb_ngaydl.Text = _ngaydl_loanmonth.Value.ToShortDateString();
                 lb_dhgl_ngaydl.Text = _ngaydl_loanmonth.Value.ToShortDateString();
@@ -2817,7 +2778,7 @@ namespace insoden
 
                 // Invoke the Ribbon Print Preview form
                 // with the specified look and feel setting.
-               
+
             }
 
 
@@ -2836,6 +2797,62 @@ namespace insoden
             var bdtienvay = _db.BienDongTienVay(ngaydau, ngaytruoc, limit);
             pivotGridControl1.DataSource = new BindingSource(bdtienvay, "");
 
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bt_skdn_laytt_Enter(object sender, EventArgs e)
+        {
+            dtp_skdn_ngaydl.Value = _ngaydl_loanmonth.Value;
+        }
+
+        private void bt_skdn_laytt_Click(object sender, EventArgs e)
+        {
+            var cifstring = cb_td_skdn_cif.Text.ToString();
+            var cifno = Lib.ExtractNumber(cifstring);
+
+            if (cifno.Trim() == "")
+            {
+                MessageBox.Show("Chưa nhập cif");
+            }
+            else
+            {
+                var cif = Convert.ToDecimal(cifno);
+
+                var _loan = from s in _db.LOANMONTHs
+                            where s.CIFNO == cif
+                            select s;
+                List<skdn> listloan = new List<skdn>();
+
+                foreach (var s in _loan)
+                {
+                    listloan.Add(new skdn
+                    {
+                        Socif = s.CIFNO,
+                        DuNo = s.CBAL.Value,
+                        LaiSuat = s.RATE.Value,
+                        LoaiTien = s.CURTYP,
+                        NgayVay = s.ORGDT6.Value,
+                        TaiKhoan = string.Format(@"{0:###-##-##-######-#}", s.ACCTNO),
+                        TenKhachHang = s.ACNAME,
+                        NgayDenHan = s.MATDT6.Value
+
+                    });
+                }
+
+
+
+                GC_TD_SKDN.DataSource = new BindingSource(listloan, "");
+                GV_TD_SKDN.BestFitColumns();
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
 
         }
 

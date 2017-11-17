@@ -251,6 +251,101 @@ warning 6002: The table/view 'dlgoc.dbo.LNDHIS_DATE' does not have a primary key
           <Property Name="LHEFTH" Type="varchar" MaxLength="254" />
           <Property Name="DEPTCODE" Type="char" MaxLength="3" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'dlgoc.dbo.LOANMONTH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LOANMONTH">
+          <Key>
+            <PropertyRef Name="CIFNO" />
+            <PropertyRef Name="ACCTNO" />
+            <PropertyRef Name="YTDLC" />
+            <PropertyRef Name="MTDLC" />
+          </Key>
+          <Property Name="ACNAME" Type="char" MaxLength="40" />
+          <Property Name="CIFNO" Type="numeric" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="ACCTNO" Type="numeric" Precision="19" Scale="0" Nullable="false" />
+          <Property Name="TYPE" Type="char" MaxLength="10" />
+          <Property Name="GROUP" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="BRN" Type="nvarchar" MaxLength="10" />
+          <Property Name="ODIND" Type="char" MaxLength="1" />
+          <Property Name="TERM" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="TMCODE" Type="char" MaxLength="1" />
+          <Property Name="RATE" Type="numeric" Precision="11" Scale="9" />
+          <Property Name="ORGDT6" Type="datetime" />
+          <Property Name="MATDT6" Type="datetime" />
+          <Property Name="ORGMD6" Type="datetime" />
+          <Property Name="NSPDT6" Type="datetime" />
+          <Property Name="NSIPD6" Type="datetime" />
+          <Property Name="EXTLTD" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="STATUS" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="CURTYP" Type="char" MaxLength="4" />
+          <Property Name="MTDREL" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="MTDPRN" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="YTDREL" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="YTDPRN" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="AMTREL" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="LTDPRN" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="NIPDT6" Type="datetime" />
+          <Property Name="ODIND6" Type="datetime" />
+          <Property Name="CBAL" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="ACCINT" Type="numeric" Precision="17" Scale="5" />
+          <Property Name="PENINT" Type="numeric" Precision="17" Scale="5" />
+          <Property Name="PURCOD" Type="char" MaxLength="2" />
+          <Property Name="CLASS" Type="char" MaxLength="1" />
+          <Property Name="DEPTCD" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="INTLTD" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="YTDINT" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="MTDINT" Type="numeric" Precision="13" Scale="2" />
+          <Property Name="YTDLC" Type="decimal" Precision="13" Scale="2" Nullable="false" />
+          <Property Name="MTDLC" Type="decimal" Precision="13" Scale="2" Nullable="false" />
+          <Property Name="EXTYTD" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="FRELD6" Type="numeric" Precision="6" Scale="0" />
+          <Property Name="NPDT6" Type="datetime" />
+          <Property Name="AFAPLY" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="POFFD6" Type="datetime" />
+          <Property Name="LMDate" Type="datetime" />
+          <Property Name="BRANCH" Type="nvarchar" MaxLength="3" />
+          <Property Name="Datadate" Type="datetime" />
+          <Property Name="BILINT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PMTAMT" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="BILPRN" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="LNMUID" Type="char" MaxLength="10" />
+          <Property Name="ACCIN2" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PARTID" Type="char" MaxLength="1" />
+          <Property Name="PDIEM" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="AACARC" Type="char" MaxLength="2" />
+          <Property Name="MCLNID" Type="char" MaxLength="1" />
+          <Property Name="PREVDT" Type="numeric" Precision="7" Scale="0" />
+          <Property Name="PREVD6" Type="datetime" />
+          <Property Name="PRTERM" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="PRCODE" Type="char" MaxLength="1" />
+          <Property Name="FCODE" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="COMACC" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="RREVD6" Type="datetime" />
+          <Property Name="RRTERM" Type="decimal" Precision="5" Scale="0" />
+          <Property Name="RRCODE" Type="char" MaxLength="1" />
+          <Property Name="BILLC" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="BILLCO" Type="decimal" Precision="13" Scale="2" />
+          <Property Name="IPFREQ" Type="numeric" Precision="15" Scale="2" />
+          <Property Name="LCTYPE" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="OPFREQ" Type="decimal" Precision="3" Scale="0" />
+          <Property Name="LRSTOD" Type="char" MaxLength="1" />
+          <Property Name="AACLMT" Type="numeric" Precision="19" Scale="0" />
+          <Property Name="AAAPNO" Type="numeric" Precision="19" Scale="0" />
+          <Property Name="AFSEQ" Type="decimal" Precision="19" Scale="0" />
+          <Property Name="AFFCDE" Type="char" MaxLength="3" />
+          <Property Name="AFCPNO" Type="char" MaxLength="20" />
+          <Property Name="AFCUR" Type="char" MaxLength="4" />
+          <Property Name="AFFAMT" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="AFLIMT" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="AACURR" Type="char" MaxLength="4" />
+          <Property Name="AAM1H" Type="decimal" Precision="5" Scale="0" />
+          <Property Name="DEPTCODE" Type="char" MaxLength="3" />
+          <Property Name="AFSECR" Type="char" MaxLength="1" />
+          <Property Name="LPDT6" Type="numeric" Precision="6" Scale="0" />
+          <Property Name="BILPNO" Type="numeric" Precision="17" Scale="5" />
+          <Property Name="ybase" Type="decimal" Precision="1" Scale="0" />
+          <Property Name="ybsel" Type="decimal" Precision="1" Scale="0" />
+        </EntityType>
         <EntityType Name="tb_checkdulieu">
           <Key>
             <PropertyRef Name="id" />
@@ -961,6 +1056,95 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
     [LNDHIS_DATE].[DEPTCODE] AS [DEPTCODE]
     FROM [dbo].[LNDHIS_DATE] AS [LNDHIS_DATE]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="LOANMONTH" EntityType="Self.LOANMONTH" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LOANMONTH].[ACNAME] AS [ACNAME], 
+    [LOANMONTH].[CIFNO] AS [CIFNO], 
+    [LOANMONTH].[ACCTNO] AS [ACCTNO], 
+    [LOANMONTH].[TYPE] AS [TYPE], 
+    [LOANMONTH].[GROUP] AS [GROUP], 
+    [LOANMONTH].[BRN] AS [BRN], 
+    [LOANMONTH].[ODIND] AS [ODIND], 
+    [LOANMONTH].[TERM] AS [TERM], 
+    [LOANMONTH].[TMCODE] AS [TMCODE], 
+    [LOANMONTH].[RATE] AS [RATE], 
+    [LOANMONTH].[ORGDT6] AS [ORGDT6], 
+    [LOANMONTH].[MATDT6] AS [MATDT6], 
+    [LOANMONTH].[ORGMD6] AS [ORGMD6], 
+    [LOANMONTH].[NSPDT6] AS [NSPDT6], 
+    [LOANMONTH].[NSIPD6] AS [NSIPD6], 
+    [LOANMONTH].[EXTLTD] AS [EXTLTD], 
+    [LOANMONTH].[STATUS] AS [STATUS], 
+    [LOANMONTH].[CURTYP] AS [CURTYP], 
+    [LOANMONTH].[MTDREL] AS [MTDREL], 
+    [LOANMONTH].[MTDPRN] AS [MTDPRN], 
+    [LOANMONTH].[YTDREL] AS [YTDREL], 
+    [LOANMONTH].[YTDPRN] AS [YTDPRN], 
+    [LOANMONTH].[AMTREL] AS [AMTREL], 
+    [LOANMONTH].[LTDPRN] AS [LTDPRN], 
+    [LOANMONTH].[NIPDT6] AS [NIPDT6], 
+    [LOANMONTH].[ODIND6] AS [ODIND6], 
+    [LOANMONTH].[CBAL] AS [CBAL], 
+    [LOANMONTH].[ACCINT] AS [ACCINT], 
+    [LOANMONTH].[PENINT] AS [PENINT], 
+    [LOANMONTH].[PURCOD] AS [PURCOD], 
+    [LOANMONTH].[CLASS] AS [CLASS], 
+    [LOANMONTH].[DEPTCD] AS [DEPTCD], 
+    [LOANMONTH].[INTLTD] AS [INTLTD], 
+    [LOANMONTH].[YTDINT] AS [YTDINT], 
+    [LOANMONTH].[MTDINT] AS [MTDINT], 
+    [LOANMONTH].[YTDLC] AS [YTDLC], 
+    [LOANMONTH].[MTDLC] AS [MTDLC], 
+    [LOANMONTH].[EXTYTD] AS [EXTYTD], 
+    [LOANMONTH].[FRELD6] AS [FRELD6], 
+    [LOANMONTH].[NPDT6] AS [NPDT6], 
+    [LOANMONTH].[AFAPLY] AS [AFAPLY], 
+    [LOANMONTH].[POFFD6] AS [POFFD6], 
+    [LOANMONTH].[LMDate] AS [LMDate], 
+    [LOANMONTH].[BRANCH] AS [BRANCH], 
+    [LOANMONTH].[Datadate] AS [Datadate], 
+    [LOANMONTH].[BILINT] AS [BILINT], 
+    [LOANMONTH].[PMTAMT] AS [PMTAMT], 
+    [LOANMONTH].[BILPRN] AS [BILPRN], 
+    [LOANMONTH].[LNMUID] AS [LNMUID], 
+    [LOANMONTH].[ACCIN2] AS [ACCIN2], 
+    [LOANMONTH].[PARTID] AS [PARTID], 
+    [LOANMONTH].[PDIEM] AS [PDIEM], 
+    [LOANMONTH].[AACARC] AS [AACARC], 
+    [LOANMONTH].[MCLNID] AS [MCLNID], 
+    [LOANMONTH].[PREVDT] AS [PREVDT], 
+    [LOANMONTH].[PREVD6] AS [PREVD6], 
+    [LOANMONTH].[PRTERM] AS [PRTERM], 
+    [LOANMONTH].[PRCODE] AS [PRCODE], 
+    [LOANMONTH].[FCODE] AS [FCODE], 
+    [LOANMONTH].[COMACC] AS [COMACC], 
+    [LOANMONTH].[RREVD6] AS [RREVD6], 
+    [LOANMONTH].[RRTERM] AS [RRTERM], 
+    [LOANMONTH].[RRCODE] AS [RRCODE], 
+    [LOANMONTH].[BILLC] AS [BILLC], 
+    [LOANMONTH].[BILLCO] AS [BILLCO], 
+    [LOANMONTH].[IPFREQ] AS [IPFREQ], 
+    [LOANMONTH].[LCTYPE] AS [LCTYPE], 
+    [LOANMONTH].[OPFREQ] AS [OPFREQ], 
+    [LOANMONTH].[LRSTOD] AS [LRSTOD], 
+    [LOANMONTH].[AACLMT] AS [AACLMT], 
+    [LOANMONTH].[AAAPNO] AS [AAAPNO], 
+    [LOANMONTH].[AFSEQ] AS [AFSEQ], 
+    [LOANMONTH].[AFFCDE] AS [AFFCDE], 
+    [LOANMONTH].[AFCPNO] AS [AFCPNO], 
+    [LOANMONTH].[AFCUR] AS [AFCUR], 
+    [LOANMONTH].[AFFAMT] AS [AFFAMT], 
+    [LOANMONTH].[AFLIMT] AS [AFLIMT], 
+    [LOANMONTH].[AACURR] AS [AACURR], 
+    [LOANMONTH].[AAM1H] AS [AAM1H], 
+    [LOANMONTH].[DEPTCODE] AS [DEPTCODE], 
+    [LOANMONTH].[AFSECR] AS [AFSECR], 
+    [LOANMONTH].[LPDT6] AS [LPDT6], 
+    [LOANMONTH].[BILPNO] AS [BILPNO], 
+    [LOANMONTH].[ybase] AS [ybase], 
+    [LOANMONTH].[ybsel] AS [ybsel]
+    FROM [dbo].[LOANMONTH] AS [LOANMONTH]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="X1PCMS" EntityType="Self.X1PCMS" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [X1PCMS].[DATADATE] AS [DATADATE], 
@@ -1422,6 +1606,7 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
             <Parameter Name="ngaykt" Mode="In" Type="DateTime" />
             <Parameter Name="cif" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <EntitySet Name="LOANMONTHs" EntityType="dlgocModel.LOANMONTH" />
         </EntityContainer>
         <ComplexType Name="binhquantiengui_Result">
           <Property Type="Int32" Name="cn" Nullable="true" />
@@ -2353,6 +2538,99 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
           <Property Type="Decimal" Name="tongnotm" Nullable="true" Precision="19" Scale="3" />
           <Property Type="Decimal" Name="tongnotk" Nullable="true" Precision="19" Scale="3" />
         </ComplexType>
+        <EntityType Name="LOANMONTH">
+          <Key>
+            <PropertyRef Name="CIFNO" />
+            <PropertyRef Name="ACCTNO" />
+            <PropertyRef Name="YTDLC" />
+            <PropertyRef Name="MTDLC" />
+          </Key>
+          <Property Name="ACNAME" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="CIFNO" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="ACCTNO" Type="Decimal" Nullable="false" Precision="19" Scale="0" />
+          <Property Name="TYPE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="GROUP" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="BRN" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ODIND" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TERM" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="TMCODE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="RATE" Type="Decimal" Precision="11" Scale="9" />
+          <Property Name="ORGDT6" Type="DateTime" Precision="3" />
+          <Property Name="MATDT6" Type="DateTime" Precision="3" />
+          <Property Name="ORGMD6" Type="DateTime" Precision="3" />
+          <Property Name="NSPDT6" Type="DateTime" Precision="3" />
+          <Property Name="NSIPD6" Type="DateTime" Precision="3" />
+          <Property Name="EXTLTD" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="STATUS" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="CURTYP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="MTDREL" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="MTDPRN" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="YTDREL" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="YTDPRN" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="AMTREL" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="LTDPRN" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="NIPDT6" Type="DateTime" Precision="3" />
+          <Property Name="ODIND6" Type="DateTime" Precision="3" />
+          <Property Name="CBAL" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="ACCINT" Type="Decimal" Precision="17" Scale="5" />
+          <Property Name="PENINT" Type="Decimal" Precision="17" Scale="5" />
+          <Property Name="PURCOD" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CLASS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DEPTCD" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="INTLTD" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="YTDINT" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="MTDINT" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="YTDLC" Type="Decimal" Nullable="false" Precision="13" Scale="2" />
+          <Property Name="MTDLC" Type="Decimal" Nullable="false" Precision="13" Scale="2" />
+          <Property Name="EXTYTD" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="FRELD6" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="NPDT6" Type="DateTime" Precision="3" />
+          <Property Name="AFAPLY" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="POFFD6" Type="DateTime" Precision="3" />
+          <Property Name="LMDate" Type="DateTime" Precision="3" />
+          <Property Name="BRANCH" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Datadate" Type="DateTime" Precision="3" />
+          <Property Name="BILINT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PMTAMT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="BILPRN" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LNMUID" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="ACCIN2" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PARTID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PDIEM" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="AACARC" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="MCLNID" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PREVDT" Type="Decimal" Precision="7" Scale="0" />
+          <Property Name="PREVD6" Type="DateTime" Precision="3" />
+          <Property Name="PRTERM" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="PRCODE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FCODE" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="COMACC" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="RREVD6" Type="DateTime" Precision="3" />
+          <Property Name="RRTERM" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="RRCODE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="BILLC" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="BILLCO" Type="Decimal" Precision="13" Scale="2" />
+          <Property Name="IPFREQ" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="LCTYPE" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="OPFREQ" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="LRSTOD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AACLMT" Type="Decimal" Precision="19" Scale="0" />
+          <Property Name="AAAPNO" Type="Decimal" Precision="19" Scale="0" />
+          <Property Name="AFSEQ" Type="Decimal" Precision="19" Scale="0" />
+          <Property Name="AFFCDE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="AFCPNO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="AFCUR" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="AFFAMT" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="AFLIMT" Type="Decimal" Precision="15" Scale="2" />
+          <Property Name="AACURR" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="AAM1H" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="DEPTCODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="AFSECR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LPDT6" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="BILPNO" Type="Decimal" Precision="17" Scale="5" />
+          <Property Name="ybase" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="ybsel" Type="Decimal" Precision="1" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3443,6 +3721,97 @@ warning 6002: The table/view 'dlgoc.dbo.X1PCMS' does not have a primary key defi
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="LOANMONTHs">
+            <EntityTypeMapping TypeName="dlgocModel.LOANMONTH">
+              <MappingFragment StoreEntitySet="LOANMONTH">
+                <ScalarProperty Name="ybsel" ColumnName="ybsel" />
+                <ScalarProperty Name="ybase" ColumnName="ybase" />
+                <ScalarProperty Name="BILPNO" ColumnName="BILPNO" />
+                <ScalarProperty Name="LPDT6" ColumnName="LPDT6" />
+                <ScalarProperty Name="AFSECR" ColumnName="AFSECR" />
+                <ScalarProperty Name="DEPTCODE" ColumnName="DEPTCODE" />
+                <ScalarProperty Name="AAM1H" ColumnName="AAM1H" />
+                <ScalarProperty Name="AACURR" ColumnName="AACURR" />
+                <ScalarProperty Name="AFLIMT" ColumnName="AFLIMT" />
+                <ScalarProperty Name="AFFAMT" ColumnName="AFFAMT" />
+                <ScalarProperty Name="AFCUR" ColumnName="AFCUR" />
+                <ScalarProperty Name="AFCPNO" ColumnName="AFCPNO" />
+                <ScalarProperty Name="AFFCDE" ColumnName="AFFCDE" />
+                <ScalarProperty Name="AFSEQ" ColumnName="AFSEQ" />
+                <ScalarProperty Name="AAAPNO" ColumnName="AAAPNO" />
+                <ScalarProperty Name="AACLMT" ColumnName="AACLMT" />
+                <ScalarProperty Name="LRSTOD" ColumnName="LRSTOD" />
+                <ScalarProperty Name="OPFREQ" ColumnName="OPFREQ" />
+                <ScalarProperty Name="LCTYPE" ColumnName="LCTYPE" />
+                <ScalarProperty Name="IPFREQ" ColumnName="IPFREQ" />
+                <ScalarProperty Name="BILLCO" ColumnName="BILLCO" />
+                <ScalarProperty Name="BILLC" ColumnName="BILLC" />
+                <ScalarProperty Name="RRCODE" ColumnName="RRCODE" />
+                <ScalarProperty Name="RRTERM" ColumnName="RRTERM" />
+                <ScalarProperty Name="RREVD6" ColumnName="RREVD6" />
+                <ScalarProperty Name="COMACC" ColumnName="COMACC" />
+                <ScalarProperty Name="FCODE" ColumnName="FCODE" />
+                <ScalarProperty Name="PRCODE" ColumnName="PRCODE" />
+                <ScalarProperty Name="PRTERM" ColumnName="PRTERM" />
+                <ScalarProperty Name="PREVD6" ColumnName="PREVD6" />
+                <ScalarProperty Name="PREVDT" ColumnName="PREVDT" />
+                <ScalarProperty Name="MCLNID" ColumnName="MCLNID" />
+                <ScalarProperty Name="AACARC" ColumnName="AACARC" />
+                <ScalarProperty Name="PDIEM" ColumnName="PDIEM" />
+                <ScalarProperty Name="PARTID" ColumnName="PARTID" />
+                <ScalarProperty Name="ACCIN2" ColumnName="ACCIN2" />
+                <ScalarProperty Name="LNMUID" ColumnName="LNMUID" />
+                <ScalarProperty Name="BILPRN" ColumnName="BILPRN" />
+                <ScalarProperty Name="PMTAMT" ColumnName="PMTAMT" />
+                <ScalarProperty Name="BILINT" ColumnName="BILINT" />
+                <ScalarProperty Name="Datadate" ColumnName="Datadate" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="LMDate" ColumnName="LMDate" />
+                <ScalarProperty Name="POFFD6" ColumnName="POFFD6" />
+                <ScalarProperty Name="AFAPLY" ColumnName="AFAPLY" />
+                <ScalarProperty Name="NPDT6" ColumnName="NPDT6" />
+                <ScalarProperty Name="FRELD6" ColumnName="FRELD6" />
+                <ScalarProperty Name="EXTYTD" ColumnName="EXTYTD" />
+                <ScalarProperty Name="MTDLC" ColumnName="MTDLC" />
+                <ScalarProperty Name="YTDLC" ColumnName="YTDLC" />
+                <ScalarProperty Name="MTDINT" ColumnName="MTDINT" />
+                <ScalarProperty Name="YTDINT" ColumnName="YTDINT" />
+                <ScalarProperty Name="INTLTD" ColumnName="INTLTD" />
+                <ScalarProperty Name="DEPTCD" ColumnName="DEPTCD" />
+                <ScalarProperty Name="CLASS" ColumnName="CLASS" />
+                <ScalarProperty Name="PURCOD" ColumnName="PURCOD" />
+                <ScalarProperty Name="PENINT" ColumnName="PENINT" />
+                <ScalarProperty Name="ACCINT" ColumnName="ACCINT" />
+                <ScalarProperty Name="CBAL" ColumnName="CBAL" />
+                <ScalarProperty Name="ODIND6" ColumnName="ODIND6" />
+                <ScalarProperty Name="NIPDT6" ColumnName="NIPDT6" />
+                <ScalarProperty Name="LTDPRN" ColumnName="LTDPRN" />
+                <ScalarProperty Name="AMTREL" ColumnName="AMTREL" />
+                <ScalarProperty Name="YTDPRN" ColumnName="YTDPRN" />
+                <ScalarProperty Name="YTDREL" ColumnName="YTDREL" />
+                <ScalarProperty Name="MTDPRN" ColumnName="MTDPRN" />
+                <ScalarProperty Name="MTDREL" ColumnName="MTDREL" />
+                <ScalarProperty Name="CURTYP" ColumnName="CURTYP" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="EXTLTD" ColumnName="EXTLTD" />
+                <ScalarProperty Name="NSIPD6" ColumnName="NSIPD6" />
+                <ScalarProperty Name="NSPDT6" ColumnName="NSPDT6" />
+                <ScalarProperty Name="ORGMD6" ColumnName="ORGMD6" />
+                <ScalarProperty Name="MATDT6" ColumnName="MATDT6" />
+                <ScalarProperty Name="ORGDT6" ColumnName="ORGDT6" />
+                <ScalarProperty Name="RATE" ColumnName="RATE" />
+                <ScalarProperty Name="TMCODE" ColumnName="TMCODE" />
+                <ScalarProperty Name="TERM" ColumnName="TERM" />
+                <ScalarProperty Name="ODIND" ColumnName="ODIND" />
+                <ScalarProperty Name="BRN" ColumnName="BRN" />
+                <ScalarProperty Name="GROUP" ColumnName="GROUP" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="ACCTNO" ColumnName="ACCTNO" />
+                <ScalarProperty Name="CIFNO" ColumnName="CIFNO" />
+                <ScalarProperty Name="ACNAME" ColumnName="ACNAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
