@@ -343,8 +343,15 @@ namespace insoden
 
         private void bt_gl_erp_laytt_Click(object sender, EventArgs e)
         {
-            var tk = cb_gl_lsgl_tk.SelectedItem.ToString();
-
+            string tk = "";
+            if (cb_gl_lsgl_tk.SelectedItem != null)
+            {
+                tk = cb_gl_lsgl_tk.SelectedItem.ToString();
+            }
+            else
+            {
+                tk = cb_gl_lsgl_tk.Text;
+            }
             if (tk.Trim() == "")
             {
                 MessageBox.Show(@"Chưa chọn TK GL");
@@ -952,42 +959,62 @@ namespace insoden
                                         }
                                         else
                                         {
-                                            if (line.Length == 116)
+                                            if (line.Length >= 77 && line.Length <= 119)
                                             {
-                                                string stt = line.Substring(4, 7).Trim();
-                                                string sothe = line.Substring(12, 20).Trim();
-                                                string hoten = line.Substring(33, 25).Trim();
-                                                string ngaythang = line.Substring(57, 10).Trim().Replace("  ", " ").Replace("   ", " ");
-                                                status = line.Substring(70, 10).Trim();
-                                                DateTime dateValue = DateTime.ParseExact(ngaythang.Trim(), new string[] { "d/MM/yy", "dd/MM/yy" },
-                                                CultureInfo.InvariantCulture,
-                                                   DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
-
-                                                double songayqh = 0;
-                                                var ngayhientai = dateTimePicker1.Value;
-                                                var am = line.Substring(107).Trim();
-
-                                                string teller = line.Substring(80, 15).Trim();
-                                                string super = line.Substring(95, 11).Trim();
-                                                if (status.Trim() == "RECV")
+                                                if (line.IndexOf("BIDV BANK", StringComparison.Ordinal) == -1 && line.IndexOf("NO  CARD", StringComparison.Ordinal) == -1 && line.IndexOf("CHECKED BY", StringComparison.Ordinal) == -1)
                                                 {
-                                                    songayqh = ngayhientai.Subtract(dateValue).TotalDays;
+                                                    string stt = line.Substring(4, 7).Trim();
+                                                    string sothe = line.Substring(12, 20).Trim();
+                                                    string hoten = line.Substring(33, 25).Trim();
+                                                    string ngaythang = line.Substring(57, 10).Trim().Replace("  ", " ").Replace("   ", " ");
+                                                    status = line.Substring(70, 10).Trim();
+                                                    DateTime dateValue = DateTime.ParseExact(ngaythang.Trim(), new string[] { "d/MM/yy", "dd/MM/yy" },
+                                                    CultureInfo.InvariantCulture,
+                                                       DateTimeStyles.AllowWhiteSpaces | DateTimeStyles.AssumeUniversal);
+                                                    string am = "";
+                                                    string teller = "";
+                                                    string super = "";
+                                                    double songayqh = 0;
+                                                    var ngayhientai = dateTimePicker1.Value;
+                                                    if (line.Length > 107)
+                                                    {
+
+                                                        am = line.Substring(107).Trim();
+                                                    }
+                                                    if (line.Length >= 80)
+                                                        teller = line.Substring(80, 15).Trim();
+
+                                                    if (line.Length >= 95)
+                                                    {
+                                                        if (line.Length - 95 >= 10)
+                                                        {
+                                                            super = line.Substring(95, 10).Trim();
+                                                        }
+                                                        else
+                                                        {
+                                                            super = line.Substring(95, line.Length - 95).Trim();
+                                                        }
+                                                    }
+                                                    if (status.Trim() == "RECV")
+                                                    {
+                                                        songayqh = ngayhientai.Subtract(dateValue).TotalDays;
+                                                    }
+                                                    dsbc833.Add(new ClBc833
+                                                    {
+                                                        Stt = Convert.ToInt32(stt),
+                                                        SoThe = sothe,
+                                                        HoTen = hoten,
+                                                        Ngaystr = ngaythang,
+                                                        TrangThai = status,
+                                                        NgayMo = dateValue,
+                                                        SoNgayQuaHan = songayqh,
+                                                        QuaHan90ngay = songayqh >= 90 ? "Y" : "",
+                                                        am = am,
+                                                        Teller = teller,
+                                                        Supervisor = super
+
+                                                    });
                                                 }
-                                                dsbc833.Add(new ClBc833
-                                                {
-                                                    Stt = Convert.ToInt32(stt),
-                                                    SoThe = sothe,
-                                                    HoTen = hoten,
-                                                    Ngaystr = ngaythang,
-                                                    TrangThai = status,
-                                                    NgayMo = dateValue,
-                                                    SoNgayQuaHan = songayqh,
-                                                    QuaHan90ngay = songayqh >= 90 ? "Y" : "",
-                                                    am = am,
-                                                    Teller = teller,
-                                                    Supervisor = super
-
-                                                });
                                             }
                                         }
                                     }
@@ -2081,8 +2108,8 @@ namespace insoden
             OpenExplorer(SaveFileExcel.FileName);
         }
 
-       
-        
+
+
 
         private void cb_td_pyctl_tk_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -2604,7 +2631,7 @@ namespace insoden
             }
         }
 
-      
+
 
         private void tb_in_sec_Enter(object sender, EventArgs e)
         {
@@ -2637,7 +2664,7 @@ namespace insoden
             }
         }
 
-       
+
         private void tb_TinDung_Enter(object sender, EventArgs e)
         {
             var cif = _localdb.Table<CifInfo>();
@@ -2769,9 +2796,11 @@ namespace insoden
         private void button14_Click_1(object sender, EventArgs e)
         {
             XRInNCLT rep = new XRInNCLT();
+
             rep.DataSource = (IList<DatainNoCo>)dgv_noco_tk.DataSource;
             using (ReportPrintTool printTool = new ReportPrintTool(rep))
             {
+
                 // Invoke the Ribbon Print Preview form modally, 
                 // and load the report document into it.
                 printTool.ShowRibbonPreviewDialog();

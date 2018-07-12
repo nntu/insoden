@@ -1,1536 +1,1692 @@
 {
   "dstkgl": [
     {
-      "tk": 110101001.0,
+      "tk": 101011010,
+      "tentk": "TK tien mat"
+    },
+    {
+      "tk": 101021010,
+      "tentk": "TK tien mat1"
+    },
+    {
+      "tk": 110101001,
       "tentk": "Tiền mặt tại quỹ"
     },
     {
-      "tk": 110101002.0,
+      "tk": 110101002,
       "tentk": "Tiền mặt tại máy ATM"
     },
     {
-      "tk": 110101004.0,
+      "tk": 110101004,
       "tentk": "Tiền mặt VND không đủ tiểu chuẩn lưu thông chờ xử lý"
     },
     {
-      "tk": 110101005.0,
+      "tk": 110101005,
       "tentk": "Tiền mặt đang vận chuyển"
     },
     {
-      "tk": 110101007.0,
+      "tk": 110101007,
       "tentk": "Tiền mặt tại phòng giao dịch"
     },
     {
-      "tk": 150201001.0,
+      "tk": 110101009,
+      "tentk": "Tiền mặt đang vận chuyển trong giao dịch với NHNN"
+    },
+    {
+      "tk": 140201001,
+      "tentk": "Cho vay các TCTD nước ngoài bằng ngoại tệ đủ tiêu chuẩn"
+    },
+    {
+      "tk": 150201001,
       "tentk": "Cho vay ngắn hạn - Cá nhân và TCKT trong nước đủ tiêu chuẩn"
     },
     {
-      "tk": 150201002.0,
+      "tk": 150201002,
       "tentk": "Cho vay ngắn hạn - Cá nhân và TCKT trong nước cần chú ý"
     },
     {
-      "tk": 150201003.0,
+      "tk": 150201003,
       "tentk": "Cho vay ngắn hạn - Cá nhân và TCKT trong nước dưới tiêu chuẩn"
     },
     {
-      "tk": 150201004.0,
+      "tk": 150201004,
       "tentk": "Cho vay ngắn hạn - Cá nhân và TCKT trong nước nghi ngờ"
     },
     {
-      "tk": 150201005.0,
+      "tk": 150201005,
       "tentk": "Cho vay ngắn hạn - Cá nhân và TCKT trong nước có khả năng mất vốn"
     },
     {
-      "tk": 150202001.0,
+      "tk": 150202001,
       "tentk": "Cho vay trung hạn - Cá nhân và TCKT trong nước đủ tiêu chuẩn"
     },
     {
-      "tk": 150202002.0,
+      "tk": 150202002,
       "tentk": "Cho vay trung hạn - Cá nhân và TCKT trong nước cần chú ý"
     },
     {
-      "tk": 150202003.0,
+      "tk": 150202003,
       "tentk": "Cho vay trung hạn - Cá nhân và TCKT trong nước dưới tiêu chuẩn"
     },
     {
-      "tk": 150202004.0,
+      "tk": 150202004,
       "tentk": "Cho vay trung hạn - Cá nhân và TCKT trong nước nghi ngờ"
     },
     {
-      "tk": 150202005.0,
+      "tk": 150202005,
       "tentk": "Cho vay trung hạn - Cá nhân và TCKT trong nước có khả năng mất vốn"
     },
     {
-      "tk": 150203001.0,
+      "tk": 150203001,
       "tentk": "Cho vay dài hạn - Cá nhân và TCKT trong nước đủ tiêu chuẩn"
     },
     {
-      "tk": 150203002.0,
+      "tk": 150203002,
       "tentk": "Cho vay dài hạn - Cá nhân và TCKT trong nước cần chú ý"
     },
     {
-      "tk": 150203004.0,
+      "tk": 150203003,
+      "tentk": "Cho vay dài hạn - Cá nhân và TCKT trong nước dưới tiêu chuẩn"
+    },
+    {
+      "tk": 150203004,
       "tentk": "Cho vay dài hạn - Cá nhân và TCKT trong nước nghi ngờ"
     },
     {
-      "tk": 150203005.0,
+      "tk": 150203005,
       "tentk": "Cho vay dài hạn - Cá nhân và TCKT trong nước có khả năng mất vốn"
     },
     {
-      "tk": 150209002.0,
+      "tk": 150209002,
       "tentk": "Cho vay hợp vốn dài hạn - Cá nhân và TCKT trong nước đủ tiêu chuẩn (BIDV thành viên)"
     },
     {
-      "tk": 150903001.0,
+      "tk": 150903001,
       "tentk": "Cho vay nghiệp vụ phát hành thẻ tín dụng Visa"
     },
     {
-      "tk": 150903002.0,
+      "tk": 150903002,
       "tentk": "Cho vay nghiệp vụ phát hành thẻ tín dụng Master"
     },
     {
-      "tk": 150904001.0,
+      "tk": 150904001,
       "tentk": "Cho vay thấu chi TCKT cá nhân trong nước đủ tiêu chuẩn"
     },
     {
-      "tk": 159004002.0,
+      "tk": 159004002,
       "tentk": "DPRR cụ thể cho vay thương mại"
     },
     {
-      "tk": 159006002.0,
+      "tk": 159006002,
       "tentk": "DPRR cụ thể cho vay thương mại"
     },
     {
-      "tk": 159104002.0,
+      "tk": 159104002,
       "tentk": "DPRR chung cho vay thương mại"
     },
     {
-      "tk": 159106002.0,
+      "tk": 159106002,
       "tentk": "DPRR chung cho vay thương mại"
     },
     {
-      "tk": 160101001.0,
+      "tk": 160101001,
       "tentk": "Nhà cửa vật kiến trúc"
     },
     {
-      "tk": 160101002.0,
+      "tk": 160101002,
       "tentk": "Phương tiện vận tải, truyền dẫn"
     },
     {
-      "tk": 160101003.0,
+      "tk": 160101003,
       "tentk": "Máy móc, thiết bị tin học"
     },
     {
-      "tk": 160101004.0,
+      "tk": 160101004,
       "tentk": "Máy móc, thiết bị khác"
     },
     {
-      "tk": 160101005.0,
+      "tk": 160101005,
       "tentk": "Máy móc, thiết bị khác"
     },
     {
-      "tk": 160101998.0,
+      "tk": 160101005,
+      "tentk": "Thiết bị dụng cụ quản lý"
+    },
+    {
+      "tk": 160101998,
       "tentk": "TSCĐ hữu hình khác"
     },
     {
-      "tk": 160102004.0,
+      "tk": 160102004,
       "tentk": "Phần mềm máy vi tính"
     },
     {
-      "tk": 160103001.0,
+      "tk": 160103001,
       "tentk": "HM Nhà cửa vật kiến trúc"
     },
     {
-      "tk": 160103002.0,
+      "tk": 160103002,
       "tentk": "HM Phương tiện vận tải, truyền dẫn"
     },
     {
-      "tk": 160103003.0,
+      "tk": 160103003,
       "tentk": "HM Máy móc, thiết bị tin học"
     },
     {
-      "tk": 160103004.0,
+      "tk": 160103004,
       "tentk": "HM Máy móc, thiết bị khác"
     },
     {
-      "tk": 160103005.0,
+      "tk": 160103005,
       "tentk": "HM Thiết bị, dụng cụ quản lý"
     },
     {
-      "tk": 160103998.0,
+      "tk": 160103998,
       "tentk": "HM TSCĐ hữu hình khác"
     },
     {
-      "tk": 160104004.0,
+      "tk": 160104004,
       "tentk": "HM Phần mềm vi tính"
     },
     {
-      "tk": 160201002.0,
+      "tk": 160201002,
       "tentk": "Phương tiện vận tải thuê tài chính"
     },
     {
-      "tk": 160201004.0,
+      "tk": 160201004,
       "tentk": "Máy móc, thiết bị khác thuê tài chính"
     },
     {
-      "tk": 160203002.0,
+      "tk": 160203002,
       "tentk": "HM Phương tiện vận tải, truyền dẫn thuê tài chính"
     },
     {
-      "tk": 160203004.0,
+      "tk": 160203004,
       "tentk": "HM Máy móc, thiết bị khác thuê tài chính"
     },
     {
-      "tk": 180105003.0,
+      "tk": 180105003,
       "tentk": "Lãi phải thu từ cho vay thương mại ngắn hạn"
     },
     {
-      "tk": 180105004.0,
+      "tk": 180105004,
       "tentk": "Lãi phải thu từ cho vay thương mại trung hạn"
     },
     {
-      "tk": 180105005.0,
+      "tk": 180105005,
       "tentk": "Lãi phải thu từ cho vay thương mại dài hạn"
     },
     {
-      "tk": 180105006.0,
+      "tk": 180105006,
       "tentk": "Lãi phải thu từ cho vay hợp vốn"
     },
     {
-      "tk": 180105009.0,
+      "tk": 180105009,
       "tentk": "Lãi phải thu từ cho vay thấu chi cá nhân và các TCKT"
     },
     {
-      "tk": 180106002.0,
+      "tk": 180105013,
+      "tentk": "Lãi phải thu từ cho vay nghiệp vụ phát hành thẻ Tín dụng"
+    },
+    {
+      "tk": 180106002,
       "tentk": "Lãi phải thu từ giao dịch kỳ hạn"
     },
     {
-      "tk": 180201003.0,
+      "tk": 180107005,
+      "tentk": "Phí phải thu từ nghiệp vụ PHT tín dụng"
+    },
+    {
+      "tk": 180201001,
+      "tentk": "Chi phí lãi tiền gửi chờ phân bổ"
+    },
+    {
+      "tk": 180201003,
       "tentk": "Chi phí thuê tài sản hoạt động chờ phân bổ"
     },
     {
-      "tk": 180201008.0,
+      "tk": 180201008,
       "tentk": "Chi phí CPB CCLĐ dưới 10 triệu đồng"
     },
     {
-      "tk": 180201009.0,
+      "tk": 180201009,
       "tentk": "Chi phí CPB CCLĐ từ 10 triệu đồng đến dưới 30 triệu đồng"
     },
     {
-      "tk": 180302003.0,
+      "tk": 180301001,
+      "tentk": "Tập hợp chi phí XDCB chờ quyết toán"
+    },
+    {
+      "tk": 180302003,
       "tentk": "Tập hợp chi phí mua sắm CCLĐ"
     },
     {
-      "tk": 180502001.0,
+      "tk": 180502001,
       "tentk": "Ấn chỉ quan trọng và ấn chỉ thường quản lý như ấn chỉ quan trọng"
     },
     {
-      "tk": 180502002.0,
+      "tk": 180502002,
       "tentk": "Ấn chỉ thường khác"
     },
     {
-      "tk": 180502004.0,
+      "tk": 180502004,
       "tentk": "Ấn chỉ thường huy động vốn"
     },
     {
-      "tk": 180502005.0,
+      "tk": 180502005,
       "tentk": "Mẫu hoá đơn GTGT"
     },
     {
-      "tk": 180502006.0,
+      "tk": 180502006,
       "tentk": "Giấy in thư bảo lãnh"
     },
     {
-      "tk": 180502010.0,
+      "tk": 180502010,
       "tentk": "Vật liệu quan trọng"
     },
     {
-      "tk": 180502998.0,
+      "tk": 180502998,
       "tentk": "Vật liệu khác"
     },
     {
-      "tk": 180601006.0,
+      "tk": 180601006,
       "tentk": "Phải thu trong thanh toán với NHNN"
     },
     {
-      "tk": 180601008.0,
+      "tk": 180601008,
       "tentk": "Phải thu về thanh toán thẻ ghi nợ nội địa chờ xử lý"
     },
     {
-      "tk": 180602004.0,
+      "tk": 180602004,
       "tentk": "Phải thu trong thanh toán thẻ Visa chờ xử lý"
     },
     {
-      "tk": 180602006.0,
+      "tk": 180602006,
       "tentk": "Phải thu trong thanh toán thẻ Master chờ xử lý"
     },
     {
-      "tk": 180603001.0,
+      "tk": 180603001,
       "tentk": "Thuế giá trị gia tăng đầu vào được khấu trừ toàn bộ"
     },
     {
-      "tk": 180603002.0,
+      "tk": 180603002,
       "tentk": "Thuế giá trị gia tăng đầu vào được khấu trừ theo tỷ lệ"
     },
     {
-      "tk": 180620002.0,
+      "tk": 180620002,
       "tentk": "Phải thu trong Thanh toán đối với giao dịch kỳ hạn - FORDWARD"
     },
     {
-      "tk": 180698003.0,
+      "tk": 180698003,
       "tentk": "Các khoản phải thu trong nghiệp vụ tài trợ thương mại"
     },
     {
-      "tk": 180698004.0,
+      "tk": 180698004,
       "tentk": "Các khoản phải thu trong nghiệp vụ chuyển tiền"
     },
     {
-      "tk": 180698008.0,
+      "tk": 180698008,
       "tentk": "Các khoản phải thu khác bên ngoài có đối tượng công nợ ERP"
     },
     {
-      "tk": 180698011.0,
+      "tk": 180698011,
       "tentk": "Các khoản phải thu trong nghiệp vụ chuyển tiền kiều hối"
     },
     {
-      "tk": 180698017.0,
+      "tk": 180698017,
       "tentk": "Phải thu về hỗ trợ lãi suất đã thực hiện của khoản vay ngắn hạn"
     },
     {
-      "tk": 180698018.0,
+      "tk": 180698018,
       "tentk": "Phải thu về hỗ trợ lãi suất đã thực hiện của khoản vay trung, dài hạn mức 4%"
     },
     {
-      "tk": 180698021.0,
+      "tk": 180698021,
       "tentk": "Phải thu về hỗ trợ lãi suất đã thực hiện của khoản vay trung, dài hạn mức 2%"
     },
     {
-      "tk": 180698038.0,
+      "tk": 180698038,
       "tentk": "Phải thu trong công tác thu hồi nợ"
     },
     {
-      "tk": 180698039.0,
+      "tk": 180698039,
       "tentk": "Các khoản ký quỹ, thế chấp, đặt cọc cho tổ chức kinh tế và cá nhân"
     },
     {
-      "tk": 180698998.0,
+      "tk": 180698998,
       "tentk": "Các khoản phải thu khác bên ngoài"
     },
     {
-      "tk": 180701021.0,
+      "tk": 180701021,
       "tentk": "Trung gian phải thu nghiệp vụ phát hành thẻ tín dụng Visa"
     },
     {
-      "tk": 180701022.0,
+      "tk": 180701022,
       "tentk": "Trung gian phải thu nghiệp vụ phát hành thẻ tín dụng Master"
     },
     {
-      "tk": 180802001.0,
+      "tk": 180701022,
+      "tentk": "rung gian giao dịch thẻ thủ công tại quầy BIDV"
+    },
+    {
+      "tk": 180802001,
       "tentk": "Tạm ứng về ấn chỉ quan trọng và ấn chỉ thường quản lý như ấn chỉ quan trọng"
     },
     {
-      "tk": 180802002.0,
+      "tk": 180802002,
       "tentk": "Tạm ứng về vật liệu quan trọng"
     },
     {
-      "tk": 180802006.0,
+      "tk": 180802006,
       "tentk": "Tạm ứng chi bảo hiểm theo lương cho CBCNV"
     },
     {
-      "tk": 180802007.0,
+      "tk": 180802007,
       "tentk": "Tạm ứng chi tiêu hành chính quản trị"
     },
     {
-      "tk": 180802998.0,
+      "tk": 180802998,
       "tentk": "Tạm ứng khác để hoạt động nghiệp vụ"
     },
     {
-      "tk": 180898004.0,
+      "tk": 180898004,
       "tentk": "Phải thu TSC các quỹ"
     },
     {
-      "tk": 180898009.0,
+      "tk": 180898009,
       "tentk": "Tạm ứng chi công tác xã hội"
     },
     {
-      "tk": 180898997.0,
+      "tk": 180898997,
       "tentk": "Xử lý tiền lẻ trong thu chi tiền mặt"
     },
     {
-      "tk": 210201001.0,
+      "tk": 189898001,
+      "tentk": "Xử lý lỗi do không cân số (Force Balance)"
+    },
+    {
+      "tk": 210101001,
+      "tentk": "Tiền gửi của Kho bạc Nhà nước"
+    },
+    {
+      "tk": 210201001,
       "tentk": "Tiền gửi thanh toán của TCTD trong nước"
     },
     {
-      "tk": 210401001.0,
+      "tk": 210401001,
       "tentk": "Tiền gửi thanh toán của Cá nhân và TCKT trong nước"
     },
     {
-      "tk": 210401002.0,
+      "tk": 210401002,
       "tentk": "Tiền gửi thanh toán của Cá nhân và TCKT nước ngoài"
     },
     {
-      "tk": 210402001.0,
+      "tk": 210402001,
       "tentk": "Tiền gửi tiết kiệm không kỳ hạn của Cá nhân và TCKT"
     },
     {
-      "tk": 210403001.0,
+      "tk": 210403001,
       "tentk": "Tiền gửi có kỳ hạn của Cá nhân và TCKT trong nước dưới 12 T"
     },
     {
-      "tk": 210403002.0,
+      "tk": 210403002,
       "tentk": "Tiền gửi có kỳ hạn của Cá nhân và TCKT trong nước từ 12 T trở lên"
     },
     {
-      "tk": 210403006.0,
+      "tk": 210403006,
       "tentk": "Tiền gửi tiết kiệm dưới 12 tháng"
     },
     {
-      "tk": 210403007.0,
+      "tk": 210403007,
       "tentk": "Tiền gửi tiết kiệm từ 12 tháng trở lên"
     },
     {
-      "tk": 210404001.0,
+      "tk": 210404001,
       "tentk": "Tiền gửi chuyên dùng của Cá nhân và TCKT trong nước"
     },
     {
-      "tk": 210404002.0,
+      "tk": 210404002,
       "tentk": "Tiền gửi chuyên dùng của Cá nhân và TCKT nước ngoài"
     },
     {
-      "tk": 210501001.0,
+      "tk": 210501001,
       "tentk": "Tiền gửi thanh toán của các TCTC"
     },
     {
-      "tk": 210502002.0,
+      "tk": 210502002,
       "tentk": "Tiền gửi có kỳ hạn của TCTC từ 12 tháng trở lên"
     },
     {
-      "tk": 220207001.0,
+      "tk": 220207001,
       "tentk": "Vay thuê tài chính nội bộ NHĐT"
     },
     {
-      "tk": 230101001.0,
+      "tk": 230101001,
       "tentk": "Chứng chỉ tiền gửi ngắn hạn"
     },
     {
-      "tk": 230201001.0,
+      "tk": 230201001,
       "tentk": "Chứng chỉ tiền gửi dài hạn"
     },
     {
-      "tk": 230201002.0,
+      "tk": 230201002,
       "tentk": "Kỳ phiếu dài hạn"
     },
     {
-      "tk": 250101001.0,
+      "tk": 250101001,
       "tentk": "Mua bán ngoại tệ, vàng kinh doanh (nguyên tệ)"
     },
     {
-      "tk": 250102014.0,
+      "tk": 250102014,
       "tentk": "Vốn thanh toán mua bán ngoại tệ EUR"
     },
     {
-      "tk": 250102035.0,
+      "tk": 250102035,
       "tentk": "Vốn thanh toán mua bán ngoại tệ GBP"
     },
     {
-      "tk": 250102036.0,
+      "tk": 250102036,
       "tentk": "Vốn thanh toán mua bán ngoại tệ HKD"
     },
     {
-      "tk": 250102037.0,
+      "tk": 250102037,
       "tentk": "Vốn thanh toán mua bán ngoại tệ USD"
     },
     {
-      "tk": 250102039.0,
+      "tk": 250102039,
       "tentk": "Vốn thanh toán mua bán ngoại tệ CHF"
     },
     {
-      "tk": 250102041.0,
+      "tk": 250102041,
       "tentk": "Vốn thanh toán mua bán ngoại tệ JPY"
     },
     {
-      "tk": 250102052.0,
+      "tk": 250102052,
       "tentk": "Vốn thanh toán mua bán ngoại tệ AUD"
     },
     {
-      "tk": 250102053.0,
+      "tk": 250102053,
       "tentk": "Vốn thanh toán mua bán ngoại tệ CAD"
     },
     {
-      "tk": 250102054.0,
+      "tk": 250102054,
       "tentk": "Vốn thanh toán mua bán ngoại tệ SGD"
     },
     {
-      "tk": 250301001.0,
+      "tk": 250102088,
+      "tentk": "Vốn thanh toán mua bán ngoại tệ NZD"
+    },
+    {
+      "tk": 250301001,
       "tentk": "Cam kết giao dịch kỳ hạn tiền tệ"
     },
     {
-      "tk": 250302037.0,
+      "tk": 250302037,
       "tentk": "Giá trị giao dịch kỳ hạn tiền tệ USD"
     },
     {
-      "tk": 250302041.0,
+      "tk": 250302041,
       "tentk": "Giá trị giao dịch kỳ hạn tiền tệ JPY"
     },
     {
-      "tk": 270102001.0,
+      "tk": 270102001,
       "tentk": "Điều chuyển vốn nội bộ với Hội sở chính (mở tại chi nhánh)"
     },
     {
-      "tk": 280101002.0,
+      "tk": 280101001,
+      "tentk": "Lãi phải trả cho tiền gửi KBNN"
+    },
+    {
+      "tk": 280101002,
       "tentk": "Lãi phải trả cho tiền gửi của TCTD khác trong nước"
     },
     {
-      "tk": 280101004.0,
+      "tk": 280101004,
       "tentk": "Lãi phải trả cho tiền gửi của khách hàng"
     },
     {
-      "tk": 280101007.0,
+      "tk": 280101007,
       "tentk": "Lãi phải trả cho tiền gửi tiết kiệm thông thường"
     },
     {
-      "tk": 280103005.0,
+      "tk": 280103005,
       "tentk": "Lãi phải trả cho tài sản thuê tài chính"
     },
     {
-      "tk": 280105001.0,
+      "tk": 280105001,
       "tentk": "Lãi phải trả cho chứng chỉ tiền gửi"
     },
     {
-      "tk": 280106002.0,
+      "tk": 280106002,
       "tentk": "Lãi phải trả cho giao dịch kỳ hạn"
     },
     {
-      "tk": 280201002.0,
+      "tk": 280201002,
       "tentk": "Doanh thu nghiệp vụ bảo lãnh chờ phân bổ"
     },
     {
-      "tk": 280601002.0,
+      "tk": 280201998,
+      "tentk": "Doanh thu khác chờ phân bổ"
+    },
+    {
+      "tk": 280601002,
       "tentk": "Chuyển tiền phải trả bằng điện"
     },
     {
-      "tk": 280601006.0,
+      "tk": 280601006,
       "tentk": "Các khoản phải trả trong thanh toán với NHNN"
     },
     {
-      "tk": 280603002.0,
+      "tk": 280603002,
       "tentk": "Thuế GTGT theo phương pháp khấu trừ phải nộp"
     },
     {
-      "tk": 280603006.0,
+      "tk": 280603006,
       "tentk": "Thuế thu nhập cá nhân phải nộp"
     },
     {
-      "tk": 280603008.0,
+      "tk": 280603008,
       "tentk": "Thuế VAT thu hộ WU"
     },
     {
-      "tk": 280603017.0,
+      "tk": 280603017,
       "tentk": "Số tiền thu hồi hỗ trợ lãi suất không đúng quy định của khoản vay ngắn hạn"
     },
     {
-      "tk": 280603018.0,
+      "tk": 280603018,
       "tentk": "Số tiền thu hồi hỗ trợ lãi suất không đúng quy định của khoản vay trung, dài hạn mức 4%"
     },
     {
-      "tk": 280603021.0,
+      "tk": 280603021,
       "tentk": "Số tiền thu hồi hỗ trợ lãi suất không đúng quy định của khoản vay trung, dài hạn mức 2%"
     },
     {
-      "tk": 280603998.0,
+      "tk": 280603998,
       "tentk": "Các khoản khác phải nộp NSNN"
     },
     {
-      "tk": 280609998.0,
+      "tk": 280609998,
       "tentk": "Dự phòng rủi ro khác"
     },
     {
-      "tk": 280620002.0,
+      "tk": 280620002,
       "tentk": "Phải trả trong Thanh toán đối với giao dịch kỳ hạn - FORDWARD"
     },
     {
-      "tk": 280698003.0,
+      "tk": 280698001,
+      "tentk": "Các khoản phải trả trong nghiệp vụ tài trợ thương mại"
+    },
+    {
+      "tk": 280698003,
       "tentk": "Các khoản phải trả trong nghiệp vụ tín dụng"
     },
     {
-      "tk": 280698005.0,
+      "tk": 280698005,
       "tentk": "Các khoản phải trả trong nghiệp vụ tiền gửi"
     },
     {
-      "tk": 280698007.0,
+      "tk": 280698007,
       "tentk": "Các khoản phải trả trong nghiệp vụ Gửi tiền vào tài khoản TK có kỳ hạn qua máy ATM"
     },
     {
-      "tk": 280698008.0,
+      "tk": 280698008,
       "tentk": "Các khoản phải trả khác bên ngoài có đối tượng công nợ ERP"
     },
     {
-      "tk": 280698011.0,
+      "tk": 280698010,
+      "tentk": "Phải trả trong nghiệp vụ XDCB, sửa chữa, mua sắm tài sản"
+    },
+    {
+      "tk": 280698011,
       "tentk": "Các khoản phải trả trong nghiệp vụ chuyển tiền kiều hối"
     },
     {
-      "tk": 280698022.0,
+      "tk": 280698022,
       "tentk": "Nhận tiền để hỗ trợ lãi suất khoản vay ngắn hạn"
     },
     {
-      "tk": 280698023.0,
+      "tk": 280698023,
       "tentk": "Nhận tiền để hỗ trợ lãi suất khoản vay trung, dài hạn mức 4%"
     },
     {
-      "tk": 280698025.0,
+      "tk": 280698025,
       "tentk": "Nhận tiền để hỗ trợ lãi suất khoản vay trung, dài hạn mức 2%"
     },
     {
-      "tk": 280698027.0,
+      "tk": 280698027,
       "tentk": "Phải trả ĐVCNT trong giao dịch qua POS bằng thẻ Master"
     },
     {
-      "tk": 280698035.0,
+      "tk": 280698035,
       "tentk": "Phải trả trong nghiệp vụ bán nợ cho VAMC"
     },
     {
-      "tk": 280698050.0,
+      "tk": 280698050,
       "tentk": "Phải trả chi phí thuê tài sản hoạt động (trả sau)"
     },
     {
-      "tk": 280698998.0,
+      "tk": 280698998,
       "tentk": "Các khoản phải trả khác bên ngoài"
     },
     {
-      "tk": 280701001.0,
+      "tk": 280701001,
       "tentk": "Trung gian phải trả Phân hệ Tài trợ thương mại"
     },
     {
-      "tk": 280701002.0,
+      "tk": 280701002,
       "tentk": "Trung gian phải trả Phân hệ Chuyển tiền"
     },
     {
-      "tk": 280701003.0,
+      "tk": 280701003,
       "tentk": "Trung gian phải trả Phân hệ Tín dụng"
     },
     {
-      "tk": 280701005.0,
+      "tk": 280701005,
       "tentk": "Trung gian ERP và corebanking"
     },
     {
-      "tk": 280701006.0,
+      "tk": 280701006,
       "tentk": "Trung gian phải trả Phân hệ Tiền gửi"
     },
     {
-      "tk": 280701009.0,
+      "tk": 280701009,
       "tentk": "Trung gian phải trả trong nghiệp vụ trả lương"
     },
     {
-      "tk": 280701014.0,
+      "tk": 280701014,
       "tentk": "Trung gian phải trả phân hệ AP -ERP"
     },
     {
-      "tk": 280701015.0,
+      "tk": 280701015,
       "tentk": "Trung gian của ERP"
     },
     {
-      "tk": 280701021.0,
+      "tk": 280701021,
       "tentk": "Trung gian phải trả NVụ PH thẻ TD Visa"
     },
     {
-      "tk": 280701022.0,
+      "tk": 280701022,
       "tentk": "Trung gian phải trả NVụ PH thẻ TD Master"
     },
     {
-      "tk": 280701023.0,
+      "tk": 280701023,
       "tentk": "Trung gian phải trả NV Thanh toán hóa đơn"
     },
     {
-      "tk": 280701998.0,
+      "tk": 280701025,
+      "tentk": "Trung gian phải trả trong nghiệp vụ thu chi với KBNN và cơ quan quản lý thu về NSNN"
+    },
+    {
+      "tk": 280701028,
+      "tentk": "Trung gian giao dịch thu nợ/thu phí thẻ tín dụng BIDV"
+    },
+    {
+      "tk": 280701998,
       "tentk": "Trung gian phải trả Phân hệ khác"
     },
     {
-      "tk": 280802001.0,
+      "tk": 280802001,
       "tentk": "Quỹ lương chưa thanh toán cho CBCNVC"
     },
     {
-      "tk": 280803002.0,
+      "tk": 280803002,
       "tentk": "Thừa quĩ (ATM) chờ xử lý"
     },
     {
-      "tk": 280805001.0,
+      "tk": 280805001,
       "tentk": "Quỹ khen thưởng"
     },
     {
-      "tk": 280806001.0,
+      "tk": 280806001,
       "tentk": "Quỹ phúc lợi"
     },
     {
-      "tk": 280898997.0,
+      "tk": 280898997,
       "tentk": "Xử lý tiền lẻ trong thu chi tiền mặt"
     },
     {
-      "tk": 280901001.0,
+      "tk": 280901001,
       "tentk": "Chênh lệch đánh giá lại ngoại tệ kinh doanh vào thời điểm lập báo cáo"
     },
     {
-      "tk": 280901002.0,
+      "tk": 280901002,
       "tentk": "Chênh lệch do qui đổi ngoại tệ"
     },
     {
-      "tk": 280903002.0,
+      "tk": 280903002,
       "tentk": "Chênh lệch đánh giá lại tiền tệ giao dịch kỳ hạn - FORWARD"
     },
     {
-      "tk": 330201001.0,
+      "tk": 289898003,
+      "tentk": "Xử lý lỗi do treo các giao dịch không hạch toán (Unposted)"
+    },
+    {
+      "tk": 330201001,
       "tentk": "Lợi nhuận năm nay"
     },
     {
-      "tk": 400103001.0,
+      "tk": 400102001,
+      "tentk": "Thu lãi chiết khấu, tái chiết khấu công cụ chuyển nhượng và Giấy tờ có giá (nhóm I) - Các ĐCTC là TCTD"
+    },
+    {
+      "tk": 400103001,
       "tentk": "Thu lãi chiết khấu công cụ chuyển nhượng và Giấy tờ có giá (nhóm 1)-Các KH DN&TC"
     },
     {
-      "tk": 400103003.0,
+      "tk": 400103003,
       "tentk": "Thu lãi cho vay ngắn hạn (nhóm 1)-Các KH DN&TC"
     },
     {
-      "tk": 400103004.0,
+      "tk": 400103004,
       "tentk": "Thu lãi cho vay trung hạn (nhóm 1)-Các KH DN&TC"
     },
     {
-      "tk": 400103005.0,
+      "tk": 400103005,
       "tentk": "Thu lãi cho vay dài hạn (nhóm 1)-Các KH DN&TC"
     },
     {
-      "tk": 400103009.0,
+      "tk": 400103009,
       "tentk": "Thu lãi cho vay thấu chi (nhóm 1) - Các KH DN&TC"
     },
     {
-      "tk": 400104002.0,
+      "tk": 400104002,
       "tentk": "Thu lãi cho vay cầm cố Giấy tờ có giá (nhóm 1)-Các KH cá nhân và hộ gia đình"
     },
     {
-      "tk": 400104003.0,
+      "tk": 400104003,
       "tentk": "Thu lãi cho vay ngắn hạn (nhóm 1)-Các KH cá nhân và hộ gia đình"
     },
     {
-      "tk": 400104004.0,
+      "tk": 400104004,
       "tentk": "Thu lãi cho vay trung hạn (nhóm 1)-Các KH cá nhân và hộ gia đình"
     },
     {
-      "tk": 400104005.0,
+      "tk": 400104005,
       "tentk": "Thu lãi cho vay dài hạn (nhóm 1)-Các KH cá nhân và hộ gia đình"
     },
     {
-      "tk": 400104009.0,
+      "tk": 400104009,
       "tentk": "Thu lãi cho vay thấu chi (nhóm 1)-Các KH cá nhân và hộ gia đình"
     },
     {
-      "tk": 400104012.0,
+      "tk": 400104012,
       "tentk": "Thu lãi cho vay qua thẻ tín dụng quốc tế (nhóm 1)-Các KH cá nhân và hộ gia đình"
     },
     {
-      "tk": 400107003.0,
+      "tk": 400107003,
       "tentk": "Thu lãi cho vay ngắn hạn (nhóm II-V)-Các KH DN&TC"
     },
     {
-      "tk": 400107004.0,
+      "tk": 400107004,
       "tentk": "Thu lãi cho vay trung hạn (nhóm II-V)-Các KH DN&TC"
     },
     {
-      "tk": 400108003.0,
+      "tk": 400108003,
       "tentk": "Thu lãi cho vay ngắn hạn (nhóm II-V)-Các KH Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 400108004.0,
+      "tk": 400108004,
       "tentk": "Thu lãi cho vay trung hạn (nhóm II-V)-Các KH Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 400108005.0,
+      "tk": 400108005,
       "tentk": "Thu lãi cho vay dài hạn (nhóm II-V)-Các KH Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 400198002.0,
+      "tk": 400108012,
+      "tentk": "Thu lãi cho vay qua thẻ tín dụng quốc tế (nhóm II-V)-Các KH Cá nhân và Hộ gia đình"
+    },
+    {
+      "tk": 400198002,
       "tentk": "Thu khác từ hoạt động tín dụng đối với Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 400198003.0,
+      "tk": 400198003,
       "tentk": "Thu khác từ hoạt động tín dụng đối với Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 420101001.0,
+      "tk": 420101001,
       "tentk": "Thu nhập hoạt động kinh doanh ngoại tệ"
     },
     {
-      "tk": 420101002.0,
+      "tk": 420101002,
       "tentk": "Chênh lệch (lãi) do đánh giá lại ngoại tệ kinh doanh"
     },
     {
-      "tk": 420501001.0,
+      "tk": 420501001,
       "tentk": "Thu nhập giao dịch hoán đổi - SWAP"
     },
     {
-      "tk": 420501002.0,
+      "tk": 420501002,
       "tentk": "Thu nhập giao dịch kỳ hạn - FORWARD"
     },
     {
-      "tk": 420503002.0,
+      "tk": 420503002,
       "tentk": "Thu nhập do đánh giá lại tiền tệ giao dịch kỳ hạn - FORWARD"
     },
     {
-      "tk": 429898998.0,
+      "tk": 429898998,
       "tentk": "Thu khác từ nghiệp vụ kinh doanh ngoại tệ"
     },
     {
-      "tk": 430101001.0,
+      "tk": 430101001,
       "tentk": "Thu phí dịch vụ thanh toán"
     },
     {
-      "tk": 430101003.0,
+      "tk": 430101003,
       "tentk": "Thu phí dịch vụ chuyển tiền kiều hối"
     },
     {
-      "tk": 430101006.0,
+      "tk": 430101006,
       "tentk": "Thu phí dịch vụ chuyển tiền nhanh LNH qua Smarlink/Banknetvn"
     },
     {
-      "tk": 430102001.0,
+      "tk": 430102001,
       "tentk": "Thu phí dịch vụ quản lý dòng tiền"
     },
     {
-      "tk": 430198002.0,
+      "tk": 430104002,
+      "tentk": "Thu từ dịch vụ thanh toán hóa đơn đối với KH là cá nhân"
+    },
+    {
+      "tk": 430198002,
       "tentk": "Thu phí dịch vụ Thanh toán khác đối với Doanh nghiệp và Tổ chức"
     },
     {
-      "tk": 430201001.0,
+      "tk": 430201001,
       "tentk": "Thu từ dịch vụ ngân quỹ đối với ĐCTC"
     },
     {
-      "tk": 430201002.0,
+      "tk": 430201002,
       "tentk": "Thu từ dịch vụ ngân quỹ đối với Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 430201003.0,
+      "tk": 430201003,
       "tentk": "Thu từ dịch vụ ngân quỹ đối với , Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 430202003.0,
+      "tk": 430202003,
       "tentk": "Thu phí dịch vụ bảo quản tài sản với Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 430301001.0,
+      "tk": 430301001,
       "tentk": "Thu phí nghiệp vụ phát hành thẻ ghi nợ nội địa"
     },
     {
-      "tk": 430301002.0,
+      "tk": 430301002,
       "tentk": "Thu phí nghiệp vụ phát hành thẻ ghi nợ quốc tế"
     },
     {
-      "tk": 430301004.0,
+      "tk": 430301004,
       "tentk": "Thu phí nghiệp vụ phát hành thẻ tín dụng quốc tế"
     },
     {
-      "tk": 430302001.0,
+      "tk": 430302001,
       "tentk": "Thu phí nghiệp vụ chấp nhận thanh toán thẻ trên ATM"
     },
     {
-      "tk": 430302002.0,
+      "tk": 430302002,
       "tentk": "Thu phí nghiệp vụ chấp nhận thanh toán thẻ trên POS"
     },
     {
-      "tk": 430502003.0,
+      "tk": 430502003,
       "tentk": "Thu từ bảo lãnh thanh toán với DN và TC"
     },
     {
-      "tk": 430502004.0,
+      "tk": 430502004,
       "tentk": "Thu từ bảo lãnh thực hiện hợp đồng với DN và TC"
     },
     {
-      "tk": 430502005.0,
+      "tk": 430502005,
       "tentk": "Thu từ bảo lãnh đảm bảo chất lượng hợp đồng với DN và TC"
     },
     {
-      "tk": 430502006.0,
+      "tk": 430502006,
       "tentk": "Thu từ bảo lãnh dự thầu với DN và TC"
     },
     {
-      "tk": 430502007.0,
+      "tk": 430502007,
       "tentk": "Thu từ bảo lãnh tiền ứng trước với DN và TC"
     },
     {
-      "tk": 430503003.0,
+      "tk": 430503003,
       "tentk": "Thu từ bảo lãnh thanh toán với Cá nhân và Hộ Gia đình"
     },
     {
-      "tk": 430503004.0,
+      "tk": 430503004,
       "tentk": "Thu từ bảo lãnh thực hiện hợp đồng với Cá nhân và Hộ Gia đình"
     },
     {
-      "tk": 430503005.0,
+      "tk": 430503005,
       "tentk": "Thu từ bảo lãnh đảm bảo chất lượng hợp đồng với Cá nhân và Hộ Gia đình"
     },
     {
-      "tk": 430503006.0,
+      "tk": 430503006,
       "tentk": "Thu từ bảo lãnh dự thầu với Cá nhân và Hộ Gia đình"
     },
     {
-      "tk": 430503007.0,
+      "tk": 430503007,
       "tentk": "Thu từ bảo lãnh tiền ứng trước với Cá nhân và Hộ Gia đình"
     },
     {
-      "tk": 430801001.0,
+      "tk": 430801001,
       "tentk": "Thu phí dịch vụ Tài trợ Thương mại cho Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 430801002.0,
+      "tk": 430801002,
       "tentk": "Thu phí dịch vụ Tài trợ Thương mại cho ĐCTC"
     },
     {
-      "tk": 430901001.0,
+      "tk": 430901001,
       "tentk": "Thu phí dịch vụ trong hoạt động tín dụng với ĐCTC là TCTD"
     },
     {
-      "tk": 430901002.0,
+      "tk": 430901002,
       "tentk": "Thu phí dịch vụ trong hoạt động tín dụng với Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 430901003.0,
+      "tk": 430901003,
       "tentk": "Thu phí dịch vụ trong hoạt động tín dụng với Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 431001001.0,
+      "tk": 431001001,
       "tentk": "Thu phí dịch vụ IBMB đối với KH cá nhân"
     },
     {
-      "tk": 431001002.0,
+      "tk": 431001002,
       "tentk": "Thu phí dịch vụ IBMB đối với KH doanh nghiệp"
     },
     {
-      "tk": 431002001.0,
+      "tk": 431002001,
       "tentk": "Thu phí dịch vụ BSMS"
     },
     {
-      "tk": 439806001.0,
+      "tk": 439806001,
       "tentk": "Thu phí quản lý tài khoản khách hàng ĐCTC"
     },
     {
-      "tk": 439806002.0,
+      "tk": 439806002,
       "tentk": "Thu phí quản lý tài khoản khách hàng Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 439806003.0,
+      "tk": 439806003,
       "tentk": "Thu phí quản lý tài khoản khách hàng là Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 439807001.0,
+      "tk": 439807001,
       "tentk": "Thu phí dịch vụ bán chéo sản phẩm, dịch vụ chứng khoán"
     },
     {
-      "tk": 439898002.0,
+      "tk": 439898002,
       "tentk": "Thu dịch vụ khác đối với Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 439898003.0,
+      "tk": 439898003,
       "tentk": "Thu dịch vụ khác đối với Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 470211001.0,
+      "tk": 470211001,
       "tentk": "Thu nhập lãi FTP - Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 470211002.0,
+      "tk": 470211002,
       "tentk": "Thu nhập lãi FTP - Định chế tài chính"
     },
     {
-      "tk": 470211003.0,
+      "tk": 470211003,
       "tentk": "Thu nhập lãi FTP - Cá nhân và hộ gia đình"
     },
     {
-      "tk": 470211004.0,
+      "tk": 470211004,
       "tentk": "Thu nhập lãi FTP - Kinh doanh vốn và tiền tệ"
     },
     {
-      "tk": 470211005.0,
+      "tk": 470211005,
       "tentk": "Thu nhập lãi FTP - Thẻ"
     },
     {
-      "tk": 470211009.0,
+      "tk": 470211009,
       "tentk": "Thu nhập lãi FTP - Bộ phận chung"
     },
     {
-      "tk": 470301001.0,
+      "tk": 470301001,
       "tentk": "Thu nhập nội bộ về phí thanh toán"
     },
     {
-      "tk": 470301002.0,
+      "tk": 470301002,
       "tentk": "Thu nhập nội bộ trong nghiệp vụ phát hành thẻ"
     },
     {
-      "tk": 470301003.0,
+      "tk": 470301003,
       "tentk": "Thu nhập nội bộ trong nghiệp vụ chấp nhận thanh toán thẻ"
     },
     {
-      "tk": 470301005.0,
+      "tk": 470301005,
       "tentk": "Thu nhập nội bộ dịch vụ thanh toán hóa đơn đối với KH cá nhân"
     },
     {
-      "tk": 470301006.0,
+      "tk": 470301006,
       "tentk": "Thu nhập nội bộ dịch vụ thanh toán hóa đơn đối với KH doanh nghiệp"
     },
     {
-      "tk": 470301007.0,
+      "tk": 470301007,
       "tentk": "Thu nhập nội bộ dịch vụ quản lý dòng tiền"
     },
     {
-      "tk": 470301010.0,
+      "tk": 470301010,
       "tentk": "Thu nhập nội bộ về phí thanh toán KH cá nhân"
     },
     {
-      "tk": 470301011.0,
+      "tk": 470301011,
       "tentk": "Thu nhập nội bộ về phí thanh toán KH DN và TCKT"
     },
     {
-      "tk": 470301012.0,
+      "tk": 470301012,
       "tentk": "Thu nhập nội bộ về phí thanh toán KH ĐCTC"
     },
     {
-      "tk": 470308002.0,
+      "tk": 470301013,
+      "tentk": "Thu nhập nội bộ dịch vụ chuyển tiền nhanh LNH qua Smartlink/Banknetvn"
+    },
+    {
+      "tk": 470308001,
+      "tentk": "Thu nhập nội bộ trong nghiệp vụ phát hành thẻ"
+    },
+    {
+      "tk": 470308002,
       "tentk": "Thu nhập nội bộ trong nghiệp vụ chấp nhận thanh toán thẻ"
     },
     {
-      "tk": 470398001.0,
+      "tk": 470398001,
       "tentk": "Thu nhập nội bộ trong dịch vụ khác đối với KH cá nhân"
     },
     {
-      "tk": 470401002.0,
+      "tk": 470398002,
+      "tentk": "Thu nhập nội bộ trong dịch vụ khác đối với KH DN và TCKT"
+    },
+    {
+      "tk": 470401002,
       "tentk": "Thu nhập nội bộ từ các giao dịch kỳ hạn - FORWARD"
     },
     {
-      "tk": 470601001.0,
+      "tk": 470498004,
+      "tentk": "Thu nội bộ từ lãi bổ sung của hợp đồng tín dụng phái sinh chi phí cố định"
+    },
+    {
+      "tk": 470601001,
       "tentk": "Thu nhập nội bộ trong hoạt động tuyên truyền quảng cáo"
     },
     {
-      "tk": 470602001.0,
+      "tk": 470602001,
       "tentk": "Thu nhập nội bộ trong hoạt động tiếp thị, khuyến mại"
     },
     {
-      "tk": 470603001.0,
+      "tk": 470603001,
       "tentk": "Thu nhập nội bộ trong tổ chức hội nghị, hội thảo"
     },
     {
-      "tk": 470605001.0,
+      "tk": 470605001,
       "tentk": "Thu nhập nội bộ trong hoạt động an sinh xã hội"
     },
     {
-      "tk": 479801004.0,
+      "tk": 479801004,
       "tentk": "Thu nhập nội bộ về bảo hiểm tiền gửi"
     },
     {
-      "tk": 479801998.0,
+      "tk": 479801998,
       "tentk": "Thu nhập nội bộ khác"
     },
     {
-      "tk": 480101002.0,
+      "tk": 480101002,
       "tentk": "Thu từ thanh lý CCLĐ, vật liệu"
     },
     {
-      "tk": 480102001.0,
+      "tk": 480102001,
       "tentk": "Thu các khoản nợ gốc nợ TM đã xử lý theo dõi ngoại bảng"
     },
     {
-      "tk": 480102002.0,
+      "tk": 480102002,
       "tentk": "Thu các khoản nợ lãi  nợ TM đã xử lý theo dõi ngoại bảng"
     },
     {
-      "tk": 480198001.0,
+      "tk": 480102002,
+      "tentk": "Thu các khoản nợ lãi  nợ TM đã xử lý theo dõi ngoại bảng"
+    },
+    {
+      "tk": 480198001,
       "tentk": "Thu nhập từ bán ấn chỉ cho khách hàng"
     },
     {
-      "tk": 480198998.0,
+      "tk": 480198998,
       "tentk": "Thu nhập khác"
     },
     {
-      "tk": 500102006.0,
+      "tk": 500102006,
       "tentk": "Trả lãi tiền vay thuê tài chính"
     },
     {
-      "tk": 500109002.0,
+      "tk": 500109002,
       "tentk": "Lãi cho vay Doanh nghiệp và tổ chức đã hạch toán thu nhập nhưng không thu được"
     },
     {
-      "tk": 500109003.0,
+      "tk": 500109003,
       "tentk": "Lãi cho vay cá nhân và Hộ gia đình đã hạch toán thu nhập nhưng không thu được"
     },
     {
-      "tk": 500198002.0,
+      "tk": 500109006,
+      "tentk": "Lãi cho vay thẻ tín dụng đã hạch toán thu nhập nhưng không thu được"
+    },
+    {
+      "tk": 500198002,
       "tentk": "Chi phí khác trong nghiệp vụ tiền vay Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 500202001.0,
+      "tk": 500198003,
+      "tentk": "Chi phí khác trong nghiệp vụ tiền vay với Cá nhân và Hộ gia đình"
+    },
+    {
+      "tk": 500202001,
       "tentk": "Trả lãi tiền gửi thanh toán"
     },
     {
-      "tk": 500202002.0,
+      "tk": 500202002,
       "tentk": "Trả lãi tiền gửi có kỳ hạn"
     },
     {
-      "tk": 500203001.0,
+      "tk": 500202004,
+      "tentk": "Trả lãi tiền gửi của KBNN"
+    },
+    {
+      "tk": 500203001,
       "tentk": "Trả lãi tiền gửi thanh toán"
     },
     {
-      "tk": 500203002.0,
+      "tk": 500203002,
       "tentk": "Trả lãi tiền gửi có kỳ hạn"
     },
     {
-      "tk": 500203003.0,
+      "tk": 500203003,
       "tentk": "Trả lãi tiền gửi chuyên dùng"
     },
     {
-      "tk": 500204001.0,
+      "tk": 500204001,
       "tentk": "Trả lãi tiền gửi thanh toán"
     },
     {
-      "tk": 500204002.0,
+      "tk": 500204002,
       "tentk": "Trả lãi tiền gửi có kỳ hạn"
     },
     {
-      "tk": 500204003.0,
+      "tk": 500204003,
       "tentk": "Trả lãi tiền gửi không kỳ hạn"
     },
     {
-      "tk": 500205001.0,
+      "tk": 500205001,
       "tentk": "Trả lãi tiền gửi thanh toán"
     },
     {
-      "tk": 500303001.0,
+      "tk": 500303001,
       "tentk": "Trả lãi phát hành chứng chỉ tiền gửi"
     },
     {
-      "tk": 500303998.0,
+      "tk": 500303998,
       "tentk": "Trả lãi phát hành giấy tờ có giá khác"
     },
     {
-      "tk": 520101001.0,
+      "tk": 520101001,
       "tentk": "Chi phí hoạt động kinh doanh ngoại tệ"
     },
     {
-      "tk": 520101002.0,
+      "tk": 520101002,
       "tentk": "Chênh lệch lỗ do đánh giá lại ngoại tệ kinh doanh"
     },
     {
-      "tk": 520501002.0,
+      "tk": 520501002,
       "tentk": "Chi phí giao dịch kỳ hạn - FORWARD"
     },
     {
-      "tk": 530101001.0,
+      "tk": 530101001,
       "tentk": "Chi dịch vụ thanh toán trong nước"
     },
     {
-      "tk": 530101004.0,
+      "tk": 530101004,
       "tentk": "Chi phí marketing dịch vụ WU"
     },
     {
-      "tk": 530201001.0,
+      "tk": 530201001,
       "tentk": "Chi vận chuyển, bốc xếp tiền"
     },
     {
-      "tk": 530201002.0,
+      "tk": 530201002,
       "tentk": "Chi kiểm đếm phân loại đóng gói tiền"
     },
     {
-      "tk": 530201003.0,
+      "tk": 530201003,
       "tentk": "Chi bảo vệ tiền"
     },
     {
-      "tk": 530201998.0,
+      "tk": 530201998,
       "tentk": "Chi ngân quỹ khác"
     },
     {
-      "tk": 530202002.0,
+      "tk": 530202002,
       "tentk": "Chi dịch vụ ngân quỹ đối với khách hàng là Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 530202003.0,
+      "tk": 530202003,
       "tentk": "Chi dịch vụ ngân quỹ đối với khách hàng là cá nhân, hộ gia đình"
     },
     {
-      "tk": 530801001.0,
+      "tk": 530301007,
+      "tentk": "Phí phải thu từ nghiệp vụ PHT tín dụng đã hạch toán thu nhập nhưng không thu được"
+    },
+    {
+      "tk": 530302001,
+      "tentk": "Chi phí nghiệp vụ chấp nhận thanh toán thẻ trên ATM"
+    },
+    {
+      "tk": 530302002,
+      "tentk": "Chi phí nghiệp vụ chấp nhận thanh toán thẻ trên POS"
+    },
+    {
+      "tk": 530801001,
       "tentk": "Chi phí dịch vụ Tài trợ Thương mại"
     },
     {
-      "tk": 530901001.0,
+      "tk": 530901001,
       "tentk": "Chi phí dịch vụ trong hoạt động tín dụng ĐCTC"
     },
     {
-      "tk": 530901002.0,
+      "tk": 530901002,
       "tentk": "Chi phí dịch vụ trong hoạt động tín dụng với Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 530901003.0,
+      "tk": 530901003,
       "tentk": "Chi phí dịch vụ trong hoạt động tín dụng với Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 531001001.0,
+      "tk": 531001001,
       "tentk": "Chi phí dịch vụ IBMB"
     },
     {
-      "tk": 531001002.0,
+      "tk": 531001002,
       "tentk": "Chi phí dịch vụ IBMB khách hàng tổ chức"
     },
     {
-      "tk": 531002002.0,
+      "tk": 531002001,
+      "tentk": "Chi phí dịch vụ BSMS"
+    },
+    {
+      "tk": 531002002,
       "tentk": "Chi phí dịch vụ BSMS đối với Cá nhân"
     },
     {
-      "tk": 550101001.0,
+      "tk": 550101001,
       "tentk": "Chi lương và phụ cấp lương"
     },
     {
-      "tk": 550101004.0,
+      "tk": 550101004,
       "tentk": "Chi lương làm việc vào ban đêm, lương thêm giờ"
     },
     {
-      "tk": 550102001.0,
+      "tk": 550102001,
       "tentk": "Nộp Bảo hiểm xã hội"
     },
     {
-      "tk": 550102002.0,
+      "tk": 550102002,
       "tentk": "Nộp Bảo hiểm y tế"
     },
     {
-      "tk": 550102003.0,
+      "tk": 550102003,
       "tentk": "Nộp Kinh phí công đoàn"
     },
     {
-      "tk": 550102004.0,
+      "tk": 550102004,
       "tentk": "Nộp bảo hiểm thất nghiệp"
     },
     {
-      "tk": 550103001.0,
+      "tk": 550103001,
       "tentk": "Chi phí cho lao động nữ"
     },
     {
-      "tk": 550104001.0,
+      "tk": 550104001,
       "tentk": "Chi trang phục nghề nghiệp"
     },
     {
-      "tk": 550105001.0,
+      "tk": 550105001,
       "tentk": "Chi phương tiện bảo hộ lao động"
     },
     {
-      "tk": 550106001.0,
+      "tk": 550106001,
       "tentk": "Chi ăn ca"
     },
     {
-      "tk": 550108001.0,
+      "tk": 550108001,
       "tentk": "Chi trợ cấp thôi việc và mất việc làm"
     },
     {
-      "tk": 550110001.0,
+      "tk": 550110001,
       "tentk": "Chi bồi dưỡng độc hại bằng hiện vật"
     },
     {
-      "tk": 550111001.0,
+      "tk": 550111001,
       "tentk": "Chi có tính chất phúc lợi chi trực tiếp cho người lao động"
     },
     {
-      "tk": 550198001.0,
+      "tk": 550112001,
+      "tentk": "Chi mua bảo hiểm hưu trí tự nguyện"
+    },
+    {
+      "tk": 550198001,
       "tentk": "Chi y tế cho cán bộ, nhân viên tổ chức tín dụng"
     },
     {
-      "tk": 550201001.0,
+      "tk": 550201001,
       "tentk": "Chi khấu hao TSCĐ vốn ngân hàng"
     },
     {
-      "tk": 550201002.0,
+      "tk": 550201002,
       "tentk": "Chi khấu hao TSCĐ thuê tài chính"
     },
     {
-      "tk": 550202001.0,
+      "tk": 550202001,
       "tentk": "Chi sửa chữa, bảo dưỡng tài sản trụ sở"
     },
     {
-      "tk": 550202002.0,
+      "tk": 550202002,
       "tentk": "Chi sửa chữa, bảo dưỡng tài sản công nghệ thông tin"
     },
     {
-      "tk": 550202003.0,
+      "tk": 550202003,
       "tentk": "Chi sửa chữa, bảo dưỡng tài sản hành chính văn phòng"
     },
     {
-      "tk": 550202004.0,
+      "tk": 550202004,
       "tentk": "Chi sửa chữa, bảo dưỡng tài sản phương tiện đi lại"
     },
     {
-      "tk": 550203001.0,
+      "tk": 550203001,
       "tentk": "Chi phí CCLĐ từ 10 triệu đồng đến dưới 30 triệu đồng"
     },
     {
-      "tk": 550203002.0,
+      "tk": 550203002,
       "tentk": "Chi phí công cụ lao động dưới 10 triệu đồng"
     },
     {
-      "tk": 550204001.0,
+      "tk": 550204001,
       "tentk": "Chi thuê tài sản trụ sở"
     },
     {
-      "tk": 550204004.0,
+      "tk": 550204003,
+      "tentk": "Chi thuê tài sản hành chính văn phòng"
+    },
+    {
+      "tk": 550204004,
       "tentk": "Chi thuê tài sản phương tiện đi lại"
     },
     {
-      "tk": 550205001.0,
+      "tk": 550205001,
       "tentk": "Chi mua bảo hiểm tài sản trụ sở"
     },
     {
-      "tk": 550205002.0,
+      "tk": 550205002,
       "tentk": "Chi mua bảo hiểm tài sản công nghệ thông tin"
     },
     {
-      "tk": 550205003.0,
+      "tk": 550205003,
       "tentk": "Chi mua bảo hiểm tài sản hành chính văn phòng"
     },
     {
-      "tk": 550205004.0,
+      "tk": 550205004,
       "tentk": "Chi mua bảo hiểm tài sản phương tiện đi lại"
     },
     {
-      "tk": 550298004.0,
+      "tk": 550206001,
+      "tentk": "Chi sửa chữa tài sản thuê hoạt động trụ sở"
+    },
+    {
+      "tk": 550298004,
       "tentk": "Chi khác về tài sản phương tiện đi lại"
     },
     {
-      "tk": 550301001.0,
+      "tk": 550301001,
       "tentk": "Chi văn phòng phẩm"
     },
     {
-      "tk": 550301002.0,
+      "tk": 550301002,
       "tentk": "Chi ấn chỉ, giấy tờ in"
     },
     {
-      "tk": 550301004.0,
+      "tk": 550301004,
       "tentk": "Chi xăng dầu"
     },
     {
-      "tk": 550301998.0,
+      "tk": 550301998,
       "tentk": "Chi vật liệu khác"
     },
     {
-      "tk": 550302001.0,
+      "tk": 550302001,
       "tentk": "Chi công tác phí trong nước"
     },
     {
-      "tk": 550302002.0,
+      "tk": 550302002,
       "tentk": "Chi công tác phí nước ngoài"
     },
     {
-      "tk": 550303001.0,
+      "tk": 550303001,
       "tentk": "Chi đào tạo, huấn luyện nghiệp vụ trong nước"
     },
     {
-      "tk": 550305001.0,
+      "tk": 550305001,
       "tentk": "Chi cước phí bưu điện"
     },
     {
-      "tk": 550305002.0,
+      "tk": 550305002,
       "tentk": "Chi cước phí điện thoại"
     },
     {
-      "tk": 550305003.0,
+      "tk": 550305003,
       "tentk": "Chi cước phí mạng viễn thông"
     },
     {
-      "tk": 550306001.0,
+      "tk": 550306001,
       "tentk": "Chi mua tài liệu, sách báo"
     },
     {
-      "tk": 550307001.0,
+      "tk": 550307001,
       "tentk": "Chi hoạt động đoàn thể"
     },
     {
-      "tk": 550308002.0,
+      "tk": 550308002,
       "tentk": "Chi tuyên truyền, quảng cáo"
     },
     {
-      "tk": 550308003.0,
+      "tk": 550308003,
       "tentk": "Chi tiếp thị, khuyến mại"
     },
     {
-      "tk": 550309001.0,
+      "tk": 550309001,
       "tentk": "Chi hội nghị, hội thảo"
     },
     {
-      "tk": 550310001.0,
+      "tk": 550310001,
       "tentk": "Chi lễ tân khánh tiết"
     },
     {
-      "tk": 550398001.0,
+      "tk": 550398001,
       "tentk": "Chi điện nước, vệ sinh cơ quan"
     },
     {
-      "tk": 550398004.0,
+      "tk": 550398004,
       "tentk": "Chi phòng chống lụt bão"
     },
     {
-      "tk": 550398998.0,
+      "tk": 550398998,
       "tentk": "Chi quản lý công vụ khác"
     },
     {
-      "tk": 550401004.0,
+      "tk": 550401004,
       "tentk": "Chi nộp thuế GTGT đầu vào không được khấu trừ"
     },
     {
-      "tk": 550403001.0,
+      "tk": 550403001,
       "tentk": "Chi nộp thuế môn bài"
     },
     {
-      "tk": 550405001.0,
+      "tk": 550403001,
+      "tentk": "Chi nộp lệ phí môn bài"
+    },
+    {
+      "tk": 550405001,
       "tentk": "Chi nộp thuế sử dụng đất phi nông nghiệp"
     },
     {
-      "tk": 550501001.0,
+      "tk": 550501001,
       "tentk": "Chi nộp kinh phí Hiệp hội"
     },
     {
-      "tk": 550502002.0,
+      "tk": 550502002,
       "tentk": "Chi nộp lệ phí thi hành án"
     },
     {
-      "tk": 550598998.0,
+      "tk": 550598998,
       "tentk": "Chi nộp lệ phí khác"
     },
     {
-      "tk": 559801998.0,
+      "tk": 559801998,
       "tentk": "Chi quản lý khác"
     },
     {
-      "tk": 560101002.0,
+      "tk": 560101002,
       "tentk": "Chi dự phòng rủi ro tín dụng đối với Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 560101003.0,
+      "tk": 560101003,
       "tentk": "Chi dự phòng rủi ro tín dụng đối với Cá nhân và Hộ gia đình"
     },
     {
-      "tk": 570201998.0,
+      "tk": 570201998,
       "tentk": "Chi phí lãi nội bộ khác"
     },
     {
-      "tk": 570211001.0,
+      "tk": 570211001,
       "tentk": "Chi phí lãi FTP - Doanh nghiệp và tổ chức"
     },
     {
-      "tk": 570211002.0,
+      "tk": 570211002,
       "tentk": "Chi phí lãi FTP - Định chế tài chính"
     },
     {
-      "tk": 570211003.0,
+      "tk": 570211003,
       "tentk": "Chi phí lãi FTP - Cá nhân và hộ gia đình"
     },
     {
-      "tk": 570211004.0,
+      "tk": 570211004,
       "tentk": "Chi phí lãi FTP - Kinh doanh vốn và tiền tệ"
     },
     {
-      "tk": 570211005.0,
+      "tk": 570211005,
       "tentk": "Chi phí lãi FTP - Thẻ"
     },
     {
-      "tk": 570211009.0,
+      "tk": 570211009,
       "tentk": "Chi phí lãi FTP - Bộ phận chung"
     },
     {
-      "tk": 570301003.0,
+      "tk": 570301003,
       "tentk": "Chi phí nội bộ trong nghiệp vụ chấp nhận thanh toán thẻ"
     },
     {
-      "tk": 570301005.0,
+      "tk": 570301005,
       "tentk": "Chi phí nội bộ dịch vụ thanh toán hóa đơn đối với khách hàng cá nhân"
     },
     {
-      "tk": 570301007.0,
+      "tk": 570301007,
       "tentk": "Chi phí nội bộ dịch vụ quản lý dòng tiền"
     },
     {
-      "tk": 570301010.0,
+      "tk": 570301010,
       "tentk": "Chi phí nội bộ về phí thanh toán KH cá nhân"
     },
     {
-      "tk": 570301011.0,
+      "tk": 570301011,
       "tentk": "Chi phí nội bộ về phí thanh toán KH DN và TCKT"
     },
     {
-      "tk": 570301013.0,
+      "tk": 570301013,
       "tentk": "Chi phí nội bộ dịch vụ chuyển tiền nhanh LNH qua Smartlink/Banknetvn"
     },
     {
-      "tk": 570303001.0,
+      "tk": 570303001,
       "tentk": "Chi phí nội bộ dịch vụ tài trợ thương mại"
     },
     {
-      "tk": 570306001.0,
+      "tk": 570306001,
       "tentk": "Chi phí nội bộ trong dịch vụ Ngân hàng điện tử"
     },
     {
-      "tk": 570401002.0,
+      "tk": 570308002,
+      "tentk": "Chi phí nội bộ trong nghiệp vụ chấp nhận thanh toán thẻ"
+    },
+    {
+      "tk": 570401002,
       "tentk": "Chi nội bộ giao dịch kỳ hạn - FORWARD"
     },
     {
-      "tk": 570501001.0,
+      "tk": 570498004,
+      "tentk": "Chi nội bộ từ lãi bổ sung của hợp đồng tín dụng phái sinh chi phí cố định"
+    },
+    {
+      "tk": 570501001,
       "tentk": "Chi phí phân bổ khấu hao nội bộ"
     },
     {
-      "tk": 570501002.0,
+      "tk": 570501002,
       "tentk": "Chi phí phân bổ CCLĐ nội bộ"
     },
     {
-      "tk": 570502002.0,
+      "tk": 570502002,
       "tentk": "Chi phí nội bộ tài sản CNTT"
     },
     {
-      "tk": 570601001.0,
+      "tk": 570601001,
       "tentk": "Chi phí nội bộ trong hoạt động tuyên truyền quảng cáo"
     },
     {
-      "tk": 570602001.0,
+      "tk": 570602001,
       "tentk": "Chi phí nội bộ trong hoạt động tiếp thị, khuyến mại"
     },
     {
-      "tk": 570606001.0,
+      "tk": 570606001,
       "tentk": "Chi phí nội bộ về ấn chỉ, giấy tờ in"
     },
     {
-      "tk": 579801001.0,
+      "tk": 579801001,
       "tentk": "Chi phí nội bộ trong đào tạo"
     },
     {
-      "tk": 579801004.0,
+      "tk": 579801004,
       "tentk": "Chí phí nội bộ về bảo hiểm tiền gửi"
     },
     {
-      "tk": 579801998.0,
+      "tk": 579801998,
       "tentk": "Chi phí nội bộ khác"
     },
     {
-      "tk": 580198001.0,
+      "tk": 580198001,
       "tentk": "Chi phí in ấn chỉ bán cho khách hàng"
     },
     {
-      "tk": 580198002.0,
+      "tk": 580198002,
       "tentk": "Chi hỗ trợ công tác xã hội"
     },
     {
-      "tk": 580198998.0,
+      "tk": 580198004,
+      "tentk": "Chi hoạt động đoàn thể"
+    },
+    {
+      "tk": 580198998,
       "tentk": "Chi phí khác"
-    },
-    {
-      "tk": 101011010.0,
-      "tentk": "TK tien mat"
-    },
-    {
-      "tk": 101021010.0,
-      "tentk": "TK tien mat1"
-    },
-    {
-      "tk": 101011010.0,
-      "tentk": "TK tien mat"
-    },
-    {
-      "tk": 101021010.0,
-      "tentk": "TK tien mat1"
     }
   ]
 }

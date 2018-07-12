@@ -41,15 +41,15 @@
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ReportSource = this.noco1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(783, 444);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(783, 487);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // inbclt
+            // Inbclt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 444);
+            this.ClientSize = new System.Drawing.Size(783, 487);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "Inbclt";
             this.Text = "inbclt";

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -75,7 +75,7 @@ namespace insoden
 
                     wsList.Cells["A10"].Value = wsList.Cells["A10"].Value + " " +  GV_TD_Pyctl_ThuLai.GetRowCellValue(1, "Cif");
                     wsList.Cells["A9"].Value = wsList.Cells["A9"].Value + " " +  GV_TD_Pyctl_ThuLai.GetRowCellValue(1, "TenKh");
-                    wsList.Cells["E3"].Value = string.Format(@"Ng�y {0} th�ng {1} nam {2}",DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    wsList.Cells["E3"].Value = string.Format(@"Ngày {0} tháng {1} nam {2}",DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                     wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " +_phongthu;
 
                     wsList = pck.Workbook.Worksheets[2];
@@ -118,7 +118,7 @@ namespace insoden
             foreach(var i in _ciftk) {
                 repositoryItemComboBox1.Items.Add(string.Format(@"{0:###-##-##-######-#}", i.ACCTNO));
             }
-            repositoryItemComboBox1.Items.Add("Ti?n M?t");
+            repositoryItemComboBox1.Items.Add(@"Tiền Mặt");
 
             foreach (var i in _tp)
             {   var tk = _ciftk.FirstOrDefault(c => c.DDCTYP == i.tiente && c.BRANCH == 740);
@@ -128,7 +128,7 @@ namespace insoden
                     ptra = string.Format(@"{0:###-##-##-######-#}", tk.ACCTNO);
                 }
                 else {
-                    ptra = "Ti?n M?t";
+                    ptra = @"Tiền Mặt";
                 }
                 _inthulai.Add(new ThuLai()
                 {
@@ -139,7 +139,7 @@ namespace insoden
                     SoTienPhaiTra = (i.laicongdon ?? 0) + (i.laitracham ?? 0),
                     PhuongThucTra =ptra,
                     tkvay = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                    GhiChu = @"Ng�y t�nh l�i " + i.denngay.Value.ToShortDateString(),
+                    GhiChu = @"Ngày tính lãi " + i.denngay.Value.ToShortDateString(),
                     LoaiTien = i.tiente
 
                 });
