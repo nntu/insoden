@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.bt_td_pyctl_thulai_xuatexcel = new System.Windows.Forms.Button();
             this.GC_TD_Pyctl_ThuLai = new DevExpress.XtraGrid.GridControl();
             this.thuLaiBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -49,6 +51,7 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GC_TD_Pyctl_ThuLai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_TD_Pyctl_ThuLai)).BeginInit();
@@ -72,6 +75,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.button1);
+            this.panelControl1.Controls.Add(this.comboBoxEdit1);
             this.panelControl1.Controls.Add(this.bt_td_pyctl_thulai_xuatexcel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
@@ -79,6 +84,24 @@
             this.panelControl1.Size = new System.Drawing.Size(667, 39);
             this.panelControl1.TabIndex = 0;
             this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(473, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(302, 9);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(150, 20);
+            this.comboBoxEdit1.TabIndex = 2;
             // 
             // bt_td_pyctl_thulai_xuatexcel
             // 
@@ -209,6 +232,7 @@
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GC_TD_Pyctl_ThuLai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thuLaiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_TD_Pyctl_ThuLai)).EndInit();
@@ -235,5 +259,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colPhuongThucTra;
         private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private DevExpress.XtraGrid.Columns.GridColumn colLoaiTien;
+        private System.Windows.Forms.Button button1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
     }
 }

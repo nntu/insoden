@@ -33,7 +33,7 @@ namespace databasedb
             var ds = dl.getCIFInfo();
 
             var lm = (from p in dl.LOANMONTHs
-                      where p.Datadate == new DateTime(2018,5, 30)
+                      where p.Datadate == new DateTime(2018,12, 31)
                       select new
                       {
                           p.CIFNO,

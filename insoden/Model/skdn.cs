@@ -17,5 +17,7 @@ namespace insoden.Model
         public string LoaiTien { get; set; }
         public DateTime NgayVay { get; set; }
         public DateTime NgayDenHan { get; set; }
+
+        public string TrangThai { get; set; }
     }
 }

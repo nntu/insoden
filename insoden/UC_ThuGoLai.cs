@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -48,11 +48,11 @@ namespace insoden
             {
                 repositoryItemComboBox1.Items.Add(string.Format(@"{0:###-##-##-######-#}", i.ACCTNO));
             }
-            repositoryItemComboBox1.Items.Add("Ti?n M?t");
+            repositoryItemComboBox1.Items.Add(@"Tiền Mặt");
 
             foreach (var i in _tp)
             {
-                var tk = _ciftk.FirstOrDefault(c => c.DDCTYP == i.tiente && c.BRANCH == 740);
+                var tk = _ciftk.FirstOrDefault(c => c.DDCTYP == i.tiente );
                 string ptra = "";
                 if (tk != null)
                 {
@@ -60,7 +60,7 @@ namespace insoden
                 }
                 else
                 {
-                    ptra = "Ti?n M?t";
+                    ptra = @"Tiền Mặt";
                 }
                 _inthulai.Add(new ThuGocLai()
                 {
@@ -71,7 +71,7 @@ namespace insoden
                     SoTienPhaiTra = (i.laicongdon ?? 0) + (i.laitracham ?? 0),
                     PhuongThucTra = ptra,
                     tkvay = string.Format(@"{0:###-##-##-######-#}", i.taikhoan),
-                    GhiChu = @"Ng�y t�nh l�i " + i.denngay.Value.ToShortDateString(),
+                    GhiChu = @"Ngày tính lãi " + i.denngay.Value.ToShortDateString(),
                     LoaiTien = i.tiente,
                     DuNo = i.duno ?? 0
 
@@ -154,7 +154,7 @@ namespace insoden
 
                     wsList.Cells["A10"].Value = wsList.Cells["A10"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "Cif");
                     wsList.Cells["A9"].Value = wsList.Cells["A9"].Value + " " + GV_TD_Pyctl_ThuGocLai.GetRowCellValue(1, "TenKh");
-                    wsList.Cells["F3"].Value = string.Format(@"Ng�y {0} th�ng {1} nam {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                    wsList.Cells["F3"].Value = string.Format(@"Ngày {0} tháng {1} nam {2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                     wsList.Cells["A7"].Value = wsList.Cells["A7"].Value + " " + _phongthu;
 
                     wsList = pck.Workbook.Worksheets[2];

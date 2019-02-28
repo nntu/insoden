@@ -2595,7 +2595,7 @@
             this.tb_in_sec.Size = new System.Drawing.Size(695, 519);
             this.tb_in_sec.TabIndex = 5;
             this.tb_in_sec.Text = "In So SEC";
-            this.tb_in_sec.UseVisualStyleBackColor = true;         
+            this.tb_in_sec.UseVisualStyleBackColor = true;
             this.tb_in_sec.Enter += new System.EventHandler(this.tb_in_sec_Enter);
             // 
             // panel1
@@ -3272,7 +3272,7 @@
             // 
             this.xtraTabPage_lsgl.Controls.Add(this.splitContainerControl5);
             this.xtraTabPage_lsgl.Name = "xtraTabPage_lsgl";
-            this.xtraTabPage_lsgl.Size = new System.Drawing.Size(184, 43);
+            this.xtraTabPage_lsgl.Size = new System.Drawing.Size(687, 488);
             this.xtraTabPage_lsgl.Text = "Lịch sử GL";
             // 
             // splitContainerControl5
@@ -3296,7 +3296,7 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.GL_gc_lsgl);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(184, 43);
+            this.splitContainerControl5.Size = new System.Drawing.Size(687, 488);
             this.splitContainerControl5.SplitterPosition = 78;
             this.splitContainerControl5.TabIndex = 1;
             this.splitContainerControl5.Text = "splitContainerControl5";
@@ -3444,7 +3444,7 @@
             this.GL_gc_lsgl.Location = new System.Drawing.Point(0, 0);
             this.GL_gc_lsgl.MainView = this.GL_gv_lsgl;
             this.GL_gc_lsgl.Name = "GL_gc_lsgl";
-            this.GL_gc_lsgl.Size = new System.Drawing.Size(0, 0);
+            this.GL_gc_lsgl.Size = new System.Drawing.Size(687, 398);
             this.GL_gc_lsgl.TabIndex = 0;
             this.GL_gc_lsgl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GL_gv_lsgl});
@@ -3618,7 +3618,7 @@
             // 
             this.xtraTabPage_tonquy.Controls.Add(this.splitContainerControl8);
             this.xtraTabPage_tonquy.Name = "xtraTabPage_tonquy";
-            this.xtraTabPage_tonquy.Size = new System.Drawing.Size(184, 43);
+            this.xtraTabPage_tonquy.Size = new System.Drawing.Size(687, 488);
             this.xtraTabPage_tonquy.Text = "Tồn Quỹ";
             // 
             // splitContainerControl8
@@ -3636,7 +3636,7 @@
             this.splitContainerControl8.Panel1.Text = "Panel1";
             this.splitContainerControl8.Panel2.Controls.Add(this.RW_gc_gl_tonquy);
             this.splitContainerControl8.Panel2.Text = "Panel2";
-            this.splitContainerControl8.Size = new System.Drawing.Size(184, 43);
+            this.splitContainerControl8.Size = new System.Drawing.Size(687, 488);
             this.splitContainerControl8.SplitterPosition = 78;
             this.splitContainerControl8.TabIndex = 2;
             this.splitContainerControl8.Text = "splitContainerControl8";
@@ -3719,7 +3719,7 @@
             this.RW_gc_gl_tonquy.Location = new System.Drawing.Point(0, 0);
             this.RW_gc_gl_tonquy.MainView = this.gW_gl_tonquy;
             this.RW_gc_gl_tonquy.Name = "RW_gc_gl_tonquy";
-            this.RW_gc_gl_tonquy.Size = new System.Drawing.Size(0, 0);
+            this.RW_gc_gl_tonquy.Size = new System.Drawing.Size(687, 398);
             this.RW_gc_gl_tonquy.TabIndex = 0;
             this.RW_gc_gl_tonquy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gW_gl_tonquy});
@@ -3782,7 +3782,7 @@
             // 
             this.xtp_gl_lsglerp.Controls.Add(this.splitContainerControl15);
             this.xtp_gl_lsglerp.Name = "xtp_gl_lsglerp";
-            this.xtp_gl_lsglerp.Size = new System.Drawing.Size(184, 43);
+            this.xtp_gl_lsglerp.Size = new System.Drawing.Size(687, 488);
             this.xtp_gl_lsglerp.Text = "Lịch sử GL(ERP)";
             // 
             // splitContainerControl15
@@ -3806,7 +3806,7 @@
             this.splitContainerControl15.Panel1.Text = "Panel1";
             this.splitContainerControl15.Panel2.Controls.Add(this.gc_gl_lsglerp);
             this.splitContainerControl15.Panel2.Text = "Panel2";
-            this.splitContainerControl15.Size = new System.Drawing.Size(184, 43);
+            this.splitContainerControl15.Size = new System.Drawing.Size(687, 488);
             this.splitContainerControl15.SplitterPosition = 101;
             this.splitContainerControl15.TabIndex = 1;
             this.splitContainerControl15.Text = "splitContainerControl15";
@@ -3959,7 +3959,7 @@
             this.gc_gl_lsglerp.Location = new System.Drawing.Point(0, 0);
             this.gc_gl_lsglerp.MainView = this.gv_gl_lsglerp;
             this.gc_gl_lsglerp.Name = "gc_gl_lsglerp";
-            this.gc_gl_lsglerp.Size = new System.Drawing.Size(0, 0);
+            this.gc_gl_lsglerp.Size = new System.Drawing.Size(687, 375);
             this.gc_gl_lsglerp.TabIndex = 0;
             this.gc_gl_lsglerp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_gl_lsglerp});
@@ -4128,7 +4128,7 @@
             // 
             this.xtraTabPage6.Controls.Add(this.splitContainerControl16);
             this.xtraTabPage6.Name = "xtraTabPage6";
-            this.xtraTabPage6.Size = new System.Drawing.Size(184, 43);
+            this.xtraTabPage6.Size = new System.Drawing.Size(687, 488);
             this.xtraTabPage6.Text = "Tra Cứu GL (ERP)";
             // 
             // splitContainerControl16
@@ -4148,7 +4148,7 @@
             this.splitContainerControl16.Panel1.Text = "Panel1";
             this.splitContainerControl16.Panel2.Controls.Add(this.gridControl2);
             this.splitContainerControl16.Panel2.Text = "Panel2";
-            this.splitContainerControl16.Size = new System.Drawing.Size(184, 43);
+            this.splitContainerControl16.Size = new System.Drawing.Size(687, 488);
             this.splitContainerControl16.SplitterPosition = 82;
             this.splitContainerControl16.TabIndex = 1;
             this.splitContainerControl16.Text = "splitContainerControl16";
@@ -4252,7 +4252,7 @@
             this.gridControl2.Location = new System.Drawing.Point(0, 0);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(0, 0);
+            this.gridControl2.Size = new System.Drawing.Size(687, 394);
             this.gridControl2.TabIndex = 0;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -5088,7 +5088,7 @@
             this.tb_td_saoketv.Location = new System.Drawing.Point(4, 22);
             this.tb_td_saoketv.Name = "tb_td_saoketv";
             this.tb_td_saoketv.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_td_saoketv.Size = new System.Drawing.Size(178, 42);
+            this.tb_td_saoketv.Size = new System.Drawing.Size(681, 487);
             this.tb_td_saoketv.TabIndex = 1;
             this.tb_td_saoketv.Text = "Sao kê tiền vay";
             this.tb_td_saoketv.UseVisualStyleBackColor = true;
@@ -5104,7 +5104,7 @@
             this.splitContainerControl7.Panel1.Text = "Panel1";
             this.splitContainerControl7.Panel2.Controls.Add(this.GC_TD_saoketv);
             this.splitContainerControl7.Panel2.Text = "Panel2";
-            this.splitContainerControl7.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl7.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl7.SplitterPosition = 102;
             this.splitContainerControl7.TabIndex = 0;
             this.splitContainerControl7.Text = "splitContainerControl7";
@@ -5207,7 +5207,7 @@
             this.GC_TD_saoketv.Location = new System.Drawing.Point(0, 0);
             this.GC_TD_saoketv.MainView = this.GV_TD_saoketv;
             this.GC_TD_saoketv.Name = "GC_TD_saoketv";
-            this.GC_TD_saoketv.Size = new System.Drawing.Size(0, 0);
+            this.GC_TD_saoketv.Size = new System.Drawing.Size(675, 367);
             this.GC_TD_saoketv.TabIndex = 0;
             this.GC_TD_saoketv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_TD_saoketv});
@@ -5308,7 +5308,7 @@
             this.tb_tragoc.Location = new System.Drawing.Point(4, 22);
             this.tb_tragoc.Name = "tb_tragoc";
             this.tb_tragoc.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_tragoc.Size = new System.Drawing.Size(178, 42);
+            this.tb_tragoc.Size = new System.Drawing.Size(681, 487);
             this.tb_tragoc.TabIndex = 9;
             this.tb_tragoc.Text = "Trả gốc";
             this.tb_tragoc.UseVisualStyleBackColor = true;
@@ -5324,7 +5324,7 @@
             this.splitContainerControl9.Panel1.Text = "Panel1";
             this.splitContainerControl9.Panel2.Controls.Add(this.gc_td_tragoc);
             this.splitContainerControl9.Panel2.Text = "Panel2";
-            this.splitContainerControl9.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl9.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl9.SplitterPosition = 102;
             this.splitContainerControl9.TabIndex = 1;
             this.splitContainerControl9.Text = "splitContainerControl9";
@@ -5427,7 +5427,7 @@
             this.gc_td_tragoc.Location = new System.Drawing.Point(0, 0);
             this.gc_td_tragoc.MainView = this.gv_td_tragoc;
             this.gc_td_tragoc.Name = "gc_td_tragoc";
-            this.gc_td_tragoc.Size = new System.Drawing.Size(0, 0);
+            this.gc_td_tragoc.Size = new System.Drawing.Size(675, 367);
             this.gc_td_tragoc.TabIndex = 0;
             this.gc_td_tragoc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_td_tragoc});
@@ -5900,7 +5900,7 @@
             this.tb_tralai.Location = new System.Drawing.Point(4, 22);
             this.tb_tralai.Name = "tb_tralai";
             this.tb_tralai.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_tralai.Size = new System.Drawing.Size(178, 42);
+            this.tb_tralai.Size = new System.Drawing.Size(681, 487);
             this.tb_tralai.TabIndex = 10;
             this.tb_tralai.Text = "Trả Lãi";
             this.tb_tralai.UseVisualStyleBackColor = true;
@@ -5917,7 +5917,7 @@
             this.splitContainerControl10.Panel1.Text = "Panel1";
             this.splitContainerControl10.Panel2.Controls.Add(this.gc_td_tralai);
             this.splitContainerControl10.Panel2.Text = "Panel2";
-            this.splitContainerControl10.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl10.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl10.SplitterPosition = 102;
             this.splitContainerControl10.TabIndex = 1;
             this.splitContainerControl10.Text = "splitContainerControl10";
@@ -6020,7 +6020,7 @@
             this.gc_td_tralai.Location = new System.Drawing.Point(0, 0);
             this.gc_td_tralai.MainView = this.gv_td_tralai;
             this.gc_td_tralai.Name = "gc_td_tralai";
-            this.gc_td_tralai.Size = new System.Drawing.Size(0, 0);
+            this.gc_td_tralai.Size = new System.Drawing.Size(675, 367);
             this.gc_td_tralai.TabIndex = 0;
             this.gc_td_tralai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_td_tralai});
@@ -6493,7 +6493,7 @@
             this.tb_goclai.Location = new System.Drawing.Point(4, 22);
             this.tb_goclai.Name = "tb_goclai";
             this.tb_goclai.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_goclai.Size = new System.Drawing.Size(178, 42);
+            this.tb_goclai.Size = new System.Drawing.Size(681, 487);
             this.tb_goclai.TabIndex = 14;
             this.tb_goclai.Text = "Đến hạn Gốc + Lãi";
             this.tb_goclai.UseVisualStyleBackColor = true;
@@ -6509,7 +6509,7 @@
             this.splitContainerControl22.Panel1.Text = "Panel1";
             this.splitContainerControl22.Panel2.Controls.Add(this.GC_td_dhgl);
             this.splitContainerControl22.Panel2.Text = "Panel2";
-            this.splitContainerControl22.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl22.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl22.SplitterPosition = 102;
             this.splitContainerControl22.TabIndex = 2;
             this.splitContainerControl22.Text = "splitContainerControl22";
@@ -6612,7 +6612,7 @@
             this.GC_td_dhgl.Location = new System.Drawing.Point(0, 0);
             this.GC_td_dhgl.MainView = this.GV_td_dhgl;
             this.GC_td_dhgl.Name = "GC_td_dhgl";
-            this.GC_td_dhgl.Size = new System.Drawing.Size(0, 0);
+            this.GC_td_dhgl.Size = new System.Drawing.Size(675, 367);
             this.GC_td_dhgl.TabIndex = 0;
             this.GC_td_dhgl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_td_dhgl});
@@ -6747,7 +6747,7 @@
             this.tb_DuNo.Location = new System.Drawing.Point(4, 22);
             this.tb_DuNo.Name = "tb_DuNo";
             this.tb_DuNo.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_DuNo.Size = new System.Drawing.Size(178, 42);
+            this.tb_DuNo.Size = new System.Drawing.Size(681, 487);
             this.tb_DuNo.TabIndex = 11;
             this.tb_DuNo.Text = "Thông báo dư nợ";
             this.tb_DuNo.UseVisualStyleBackColor = true;
@@ -6763,7 +6763,7 @@
             this.splitContainerControl19.Panel1.Text = "Panel1";
             this.splitContainerControl19.Panel2.Controls.Add(this.GC_TD_TBDN);
             this.splitContainerControl19.Panel2.Text = "Panel2";
-            this.splitContainerControl19.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl19.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl19.SplitterPosition = 102;
             this.splitContainerControl19.TabIndex = 1;
             this.splitContainerControl19.Text = "splitContainerControl19";
@@ -6821,7 +6821,8 @@
             "Hội Sở",
             "Trà Nóc",
             "Ninh Kiều",
-            "Thốt Nốt"});
+            "Thốt Nốt",
+            "Hưng Lợi"});
             this.cb_td_tbdnuno.Location = new System.Drawing.Point(265, 49);
             this.cb_td_tbdnuno.Name = "cb_td_tbdnuno";
             this.cb_td_tbdnuno.Size = new System.Drawing.Size(121, 21);
@@ -6873,7 +6874,7 @@
             this.GC_TD_TBDN.Location = new System.Drawing.Point(0, 0);
             this.GC_TD_TBDN.MainView = this.GV_TD_TBDN;
             this.GC_TD_TBDN.Name = "GC_TD_TBDN";
-            this.GC_TD_TBDN.Size = new System.Drawing.Size(0, 0);
+            this.GC_TD_TBDN.Size = new System.Drawing.Size(675, 367);
             this.GC_TD_TBDN.TabIndex = 0;
             this.GC_TD_TBDN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_TD_TBDN});
@@ -6889,7 +6890,7 @@
             this.tb_tbdndenhan.Location = new System.Drawing.Point(4, 22);
             this.tb_tbdndenhan.Name = "tb_tbdndenhan";
             this.tb_tbdndenhan.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_tbdndenhan.Size = new System.Drawing.Size(178, 42);
+            this.tb_tbdndenhan.Size = new System.Drawing.Size(681, 487);
             this.tb_tbdndenhan.TabIndex = 12;
             this.tb_tbdndenhan.Text = " Thông báo nợ đến hạn";
             this.tb_tbdndenhan.UseVisualStyleBackColor = true;
@@ -6905,7 +6906,7 @@
             this.splitContainerControl20.Panel1.Text = "Panel1";
             this.splitContainerControl20.Panel2.Controls.Add(this.GC_TD_TBNDH);
             this.splitContainerControl20.Panel2.Text = "Panel2";
-            this.splitContainerControl20.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl20.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl20.SplitterPosition = 102;
             this.splitContainerControl20.TabIndex = 2;
             this.splitContainerControl20.Text = "splitContainerControl20";
@@ -6972,7 +6973,8 @@
             "Hội Sở",
             "Trà Nóc",
             "Ninh Kiều",
-            "Thốt Nốt"});
+            "Thốt Nốt",
+            "Hưng Lợi"});
             this.cb_td_tbndh_noi.Location = new System.Drawing.Point(288, 52);
             this.cb_td_tbndh_noi.Name = "cb_td_tbndh_noi";
             this.cb_td_tbndh_noi.Size = new System.Drawing.Size(121, 21);
@@ -7013,7 +7015,7 @@
             this.GC_TD_TBNDH.Location = new System.Drawing.Point(0, 0);
             this.GC_TD_TBNDH.MainView = this.GV_TD_TBNDH;
             this.GC_TD_TBNDH.Name = "GC_TD_TBNDH";
-            this.GC_TD_TBNDH.Size = new System.Drawing.Size(0, 0);
+            this.GC_TD_TBNDH.Size = new System.Drawing.Size(675, 367);
             this.GC_TD_TBNDH.TabIndex = 0;
             this.GC_TD_TBNDH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_TD_TBNDH});
@@ -7029,7 +7031,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(178, 42);
+            this.tabPage8.Size = new System.Drawing.Size(681, 487);
             this.tabPage8.TabIndex = 13;
             this.tabPage8.Text = "Phiếu yêu cầu thu lai";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -7045,7 +7047,7 @@
             this.splitContainerControl21.Panel1.Text = "Panel1";
             this.splitContainerControl21.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl21.Panel2.Text = "Panel2";
-            this.splitContainerControl21.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl21.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl21.SplitterPosition = 219;
             this.splitContainerControl21.TabIndex = 3;
             this.splitContainerControl21.Text = "splitContainerControl21";
@@ -7139,7 +7141,8 @@
             "PHÒNG DỊCH VỤ KHÁCH HÀNG DOANH NGHIỆP",
             "PHÒNG GIAO DỊCH TRÀ NÓC",
             "PHÒNG GIAO DỊCH THỐT NỐT",
-            "PHÒNG GIAO DỊCH NINH KIỀU"});
+            "PHÒNG GIAO DỊCH NINH KIỀU",
+            "PHÒNG GIAO DỊCH HƯNG LỢI"});
             this.cb_td_pyctl_noigui.Location = new System.Drawing.Point(307, 22);
             this.cb_td_pyctl_noigui.Name = "cb_td_pyctl_noigui";
             this.cb_td_pyctl_noigui.Size = new System.Drawing.Size(297, 21);
@@ -7179,7 +7182,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(0, 0);
+            this.panelControl1.Size = new System.Drawing.Size(675, 250);
             this.panelControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -7188,7 +7191,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(178, 42);
+            this.tabPage1.Size = new System.Drawing.Size(681, 487);
             this.tabPage1.TabIndex = 15;
             this.tabPage1.Text = "Sao Kê Dư nợ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -7204,7 +7207,7 @@
             this.splitContainerControl23.Panel1.Text = "Panel1";
             this.splitContainerControl23.Panel2.Controls.Add(this.GC_TD_SKDN);
             this.splitContainerControl23.Panel2.Text = "Panel2";
-            this.splitContainerControl23.Size = new System.Drawing.Size(172, 36);
+            this.splitContainerControl23.Size = new System.Drawing.Size(675, 481);
             this.splitContainerControl23.SplitterPosition = 102;
             this.splitContainerControl23.TabIndex = 2;
             this.splitContainerControl23.Text = "splitContainerControl23";
@@ -7261,7 +7264,8 @@
             "Hội Sở",
             "Trà Nóc",
             "Ninh Kiều",
-            "Thốt Nốt"});
+            "Thốt Nốt",
+            "Hưng Lợi"});
             this.comboBox2.Location = new System.Drawing.Point(268, 17);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
@@ -7312,7 +7316,7 @@
             this.GC_TD_SKDN.Location = new System.Drawing.Point(0, 0);
             this.GC_TD_SKDN.MainView = this.GV_TD_SKDN;
             this.GC_TD_SKDN.Name = "GC_TD_SKDN";
-            this.GC_TD_SKDN.Size = new System.Drawing.Size(0, 0);
+            this.GC_TD_SKDN.Size = new System.Drawing.Size(675, 367);
             this.GC_TD_SKDN.TabIndex = 0;
             this.GC_TD_SKDN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.GV_TD_SKDN});

@@ -117,11 +117,15 @@ namespace insoden
           
             foreach(var i in _ciftk) {
                 repositoryItemComboBox1.Items.Add(string.Format(@"{0:###-##-##-######-#}", i.ACCTNO));
+                comboBoxEdit1.Properties.Items.Add(string.Format(@"{0:###-##-##-######-#}", i.ACCTNO));
             }
             repositoryItemComboBox1.Items.Add(@"Tiền Mặt");
+            comboBoxEdit1.Properties.Items.Add(@"Tiền Mặt");
+
 
             foreach (var i in _tp)
-            {   var tk = _ciftk.FirstOrDefault(c => c.DDCTYP == i.tiente && c.BRANCH == 740);
+            {
+                var tk = _ciftk.FirstOrDefault(c => c.DDCTYP == i.tiente );
                 string ptra = "";
                 if (tk != null)
                 {
