@@ -15,9 +15,20 @@ namespace insoden.Model
         public decimal LaiSuat { get; set; }   
     
         public string LoaiTien { get; set; }
-        public DateTime NgayVay { get; set; }
-        public DateTime NgayDenHan { get; set; }
+        public DateTime NgayDuyet { get; set; }       
 
         public string TrangThai { get; set; }
+
+        public decimal chovay { get; set; }
+        public decimal thuno { get; set; }
+
+        public decimal thoigian { get; set; }
+        public DateTime KyHanGoc { get; set; }
+        public decimal phaitra { get; set; }
+        public string quanhe { get; set; }
+
+        public DateTime? denngay { get; set; }
+
+        public string LoaiSaoKe { get; set; }
     }
 }

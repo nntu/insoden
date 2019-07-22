@@ -12,19 +12,30 @@ using Newtonsoft.Json.Converters;
 
 using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Serialization;
 
 namespace insoden
 {
     public class AppSettings<T> where T : new()
     {
-        
+       static DefaultContractResolver contractResolver = new DefaultContractResolver
+        {
+            NamingStrategy = new CamelCaseNamingStrategy()
+        };
+
         private const string DEFAULT_FILENAME = "settings.json";
 
         public void Save(string fileName = DEFAULT_FILENAME)
         {
             //  File.WriteAllText(fileName, (new JavaScriptSerializer()).Serialize(this));
 
-            var output = JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter { CamelCaseText = true });
+#pragma warning disable CS0618 // 'StringEnumConverter.CamelCaseText' is obsolete: 'StringEnumConverter.CamelCaseText is obsolete. Set StringEnumConverter.NamingStrategy with CamelCaseNamingStrategy instead.'
+            var output = JsonConvert.SerializeObject(this, new JsonSerializerSettings
+            {
+                ContractResolver = contractResolver,
+                Formatting = Formatting.Indented
+            });
+#pragma warning restore CS0618 // 'StringEnumConverter.CamelCaseText' is obsolete: 'StringEnumConverter.CamelCaseText is obsolete. Set StringEnumConverter.NamingStrategy with CamelCaseNamingStrategy instead.'
 
 
             File.WriteAllText(fileName, output);
@@ -34,7 +45,13 @@ namespace insoden
         {
             // File.WriteAllText(fileName, (new JavaScriptSerializer()).Serialize(pSettings));
 
-            var output = JsonConvert.SerializeObject(pSettings, Formatting.Indented, new StringEnumConverter { CamelCaseText = true });
+#pragma warning disable CS0618 // 'StringEnumConverter.CamelCaseText' is obsolete: 'StringEnumConverter.CamelCaseText is obsolete. Set StringEnumConverter.NamingStrategy with CamelCaseNamingStrategy instead.'
+            var output = JsonConvert.SerializeObject(pSettings, new JsonSerializerSettings
+            {
+                ContractResolver = contractResolver,
+                Formatting = Formatting.Indented
+            });
+#pragma warning restore CS0618 // 'StringEnumConverter.CamelCaseText' is obsolete: 'StringEnumConverter.CamelCaseText is obsolete. Set StringEnumConverter.NamingStrategy with CamelCaseNamingStrategy instead.'
 
 
             File.WriteAllText(fileName, output);
@@ -43,7 +60,9 @@ namespace insoden
         public static T Load(string fileName = DEFAULT_FILENAME)
         {
             var settings = new JsonSerializerSettings();
-            settings.Converters.Add(new StringEnumConverter { CamelCaseText = true });
+#pragma warning disable CS0618 // 'StringEnumConverter.CamelCaseText' is obsolete: 'StringEnumConverter.CamelCaseText is obsolete. Set StringEnumConverter.NamingStrategy with CamelCaseNamingStrategy instead.'
+            settings.Converters.Add(new StringEnumConverter { NamingStrategy = new CamelCaseNamingStrategy() });
+#pragma warning restore CS0618 // 'StringEnumConverter.CamelCaseText' is obsolete: 'StringEnumConverter.CamelCaseText is obsolete. Set StringEnumConverter.NamingStrategy with CamelCaseNamingStrategy instead.'
             var t = new T();
             if (File.Exists(fileName))
             {

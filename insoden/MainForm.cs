@@ -2818,27 +2818,7 @@ namespace insoden
 
 
         }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Bt_bc_tg_tv_Click(object sender, EventArgs e)
-        {
-            var ngaydau = (DateTime)de_bc_tv_ngaydau.EditValue;
-            var ngaytruoc = (DateTime)de_bc_tv_ngaycuoi.EditValue;
-            var limit = Convert.ToDecimal(tb_bc_tg_vay_limit.Text);
-            var bdtienvay = _db.BienDongTienVay(ngaydau, ngaytruoc, limit);
-            pivotGridControl1.DataSource = new BindingSource(bdtienvay, "");
-
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void bt_skdn_laytt_Enter(object sender, EventArgs e)
         {
@@ -2859,12 +2839,14 @@ namespace insoden
                 var cif = Convert.ToDecimal(cifno);
 
                 var _loan = from s in _db.LOANMONTHs
-                            where s.Datadate == dtp_skdn_ngaydl.Value &&  s.CIFNO == cif
+                            where s.Datadate == dtp_skdn_ngaydl.Value &&  s.CIFNO == cif && s.CBAL >0
+                            orderby s.CURTYP, s.GROUP, s.ACCTNO
                             select s;
                 List<skdn> listloan = new List<skdn>();
 
                 foreach (var s in _loan)
                 {
+                    
                     listloan.Add(new skdn
                     {
                         NgayDL = s.Datadate.Value,
@@ -2872,12 +2854,20 @@ namespace insoden
                         DuNo = s.CBAL.Value,
                         LaiSuat = s.RATE.Value,
                         LoaiTien = s.CURTYP,
-                        NgayVay = s.ORGDT6.Value,
+                        NgayDuyet = s.ORGDT6.Value,
                         TaiKhoan = string.Format(@"{0:###-##-##-######-#}", s.ACCTNO),
                         TenKhachHang = s.ACNAME,
-                        NgayDenHan = s.MATDT6.Value,
-                        TrangThai = s.STATUS.ToString()
-
+                        KyHanGoc = s.MATDT6.Value,
+                        TrangThai = s.STATUS.ToString(),
+                        phaitra = s.CBAL < s.PMTAMT ? s.CBAL.Value : s.PMTAMT.Value,
+                        quanhe = s.ODIND,
+                        denngay = s.ODIND6  ,
+                        LoaiSaoKe = ((s.GROUP == 13 )|| (s.GROUP == 13)) ? "NH": "TDH",
+                        chovay = s.AMTREL.Value,
+                        thuno = s.LTDPRN.Value,
+                        thoigian = s.TERM.Value
+                        
+                        
                     });
                 }
 
@@ -2888,10 +2878,6 @@ namespace insoden
             }
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         // Function for read data from Excel worksheet into DataTable
